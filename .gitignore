@@ -1,0 +1,15 @@
+.env
+.env.local
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+.cursor/
+*.log
+Backend/
+Backend/
+/api/openrouter-token.txt
+/api/openrouter-token.local.php
+/api/hf-token.txt
+/api/hf-token.local.php

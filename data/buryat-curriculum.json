@@ -1,0 +1,1052 @@
+{
+  "schemaVersion": "1.1",
+  "meta": {
+    "app": "Saran",
+    "language": "buryat",
+    "uiLanguage": "ru",
+    "audienceRu": "Пользователи не знают бурятский язык: обучение с нуля.",
+    "audio": {
+      "enabled": false,
+      "noteRu": "Аудио пока нет — задания только визуальные и текстовые."
+    },
+    "pedagogyRu": "Короткие шаги, много подсказок по-русски, бурятский — маленькими порциями. Ошибки не наказываем: сразу объясняем.",
+    "paths": {
+      "curriculumFile": "data/buryat-curriculum.json",
+      "courseCoversDir": "photos/",
+      "generatedAssetsDir": "photos/generated/",
+      "telegramEmojiDir": "en/"
+    },
+    "openRouter": {
+      "envKeyNames": [
+        "Token",
+        "OPENROUTER_API_KEY"
+      ],
+      "chatModelSuggestion": "gryphe/mythomax-l2-13b",
+      "imageModelDefault": "google/gemini-2.5-flash-image",
+      "maxUsdBudgetPerRun": 2.0,
+      "scriptRu": "Запуск: python3 scripts/generate_lesson_assets_openrouter.py --max 4",
+      "lastRunRu": "Скриптом сгенерированы 4 PNG в photos/generated/ (~0,15 USD по данным usage OpenRouter). Повторный запуск перезапишет те же файлы.",
+      "lastGeneratedRelativePaths": [
+        "photos/generated/c1_l1_nerpa_reward.png",
+        "photos/generated/c1_l2_speech_bubble_blank.png",
+        "photos/generated/c1_vocab_letters_friendly.png",
+        "photos/generated/c2_yurt_icon.png"
+      ]
+    },
+    "imageGenerationQueue": [
+      {
+        "id": "gen_c1l1_reward",
+        "outputRelativePath": "photos/generated/c1_l1_nerpa_reward.png",
+        "promptEn": "Flat vector sticker, white Baikal nerpa mascot with blue outline, friendly smile, small blue and yellow bow, jumping over teal waves, three small yellow hearts, white background, bold outlines, educational app style like Duolingo, no text in image"
+      },
+      {
+        "id": "gen_c1l2_bubble",
+        "outputRelativePath": "photos/generated/c1_l2_speech_bubble_blank.png",
+        "promptEn": "Same nerpa character style, holding empty round speech bubble (no letters inside), soft pastel background, cute educational sticker, white background margin"
+      },
+      {
+        "id": "gen_vocab_card_letters",
+        "outputRelativePath": "photos/generated/c1_vocab_letters_friendly.png",
+        "promptEn": "Large friendly Cyrillic letters A and U floating with soft shadows, tiny nerpa pointing at them, pastel background, children's educational poster flat style"
+      },
+      {
+        "id": "gen_yurt_mini",
+        "outputRelativePath": "photos/generated/c2_yurt_icon.png",
+        "promptEn": "Minimal flat vector Buryat yurt ger, red decorative patterns, cute small nerpa in window, beige background, sticker style"
+      }
+    ]
+  },
+  "taskTypesDoc": {
+    "intro": {
+      "ru": "Карточка с текстом и кнопкой «дальше»."
+    },
+    "choice": {
+      "ru": "Один верный вариант из нескольких (текстовые кнопки); shuffleOptions перемешивает ответы в клиенте. У option: icon — ключ иллюстрации (легаси в данных). Без icon — подбор по тексту варианта."
+    },
+    "emoji_choice": {
+      "ru": "Выбор по эмодзи: 3 в ряд, крупные карточки. У option: emoji (запасной текст), buryatRu, correct, tgRel — путь к анимированному WebP Telegram в каталоге en/ (например People/Waving Hand.webp). shuffleOptions — перемешать в клиенте."
+    },
+    "boolean": {
+      "ru": "Верно / неверно про простое утверждение."
+    },
+    "translate_tiles": {
+      "ru": "Сборка перевода из слов: instructionRu — текст вопроса (как у других заданий), персонаж characterRelativePath (картинка или MOV/MP4/WebM), sourceSegments (style: accent|normal — лёгкое выделение первого фрагмента), correctTokens по порядку, wordBank, shuffleWordBank. bubbleShowAudio / bubbleAudioUrl — опционально прослушивание."
+    }
+  },
+  "courses": [
+    {
+      "id": "course_01",
+      "order": 1,
+      "titleRu": "Старт: ни одной буквы не страшно",
+      "subtitleRu": "Приветствие, «Мэнд», буквы А и У, три коротких слова и микро-диалог.",
+      "cover": {
+        "relativePath": "photos/l1_3_img_group_win.jpg",
+        "altRu": "Друзья Saran: девушка в дээл, нерпа с книжкой, парень в тёплой одежде"
+      },
+      "lessons": [
+        {
+          "id": "c1_l1",
+          "order": 1,
+          "titleRu": "Мэнд! Первый шаг",
+          "summaryRu": "Один привет и две буквы — без зубрёжки.",
+          "estimatedMinutes": 6,
+          "hasAudio": false,
+          "completionHeadlineRu": "Маленькая победа",
+          "completionBodyRu": "Вы поздоровались словом «Мэнд» и узнали две буквы. Этого достаточно на сегодня.",
+          "steps": [
+            {
+              "id": "c1l1s1",
+              "type": "intro",
+              "headlineRu": "Вы здесь впервые — и это нормально",
+              "bodyRu": "Мы не будем бросать в вас грамматикой. Сначала — один привет и пара букв, как в спокойной игре.",
+              "visual": {
+                "mode": "file",
+                "relativePath": "photos/l1_3_img_group_win.jpg",
+                "altRu": "Иллюстрация урока"
+              },
+              "ctaRu": "Понятно, дальше"
+            },
+            {
+              "id": "c1l1s2",
+              "type": "emoji_choice",
+              "tagRu": "НОВОЕ СЛОВО",
+              "questionRu": "Выбери эмодзи для смысла «привет».",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "👋",
+                  "buryatRu": "Мэнд",
+                  "correct": true,
+                  "tgRel": "People/Waving Hand.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "🙏",
+                  "buryatRu": "Баярлалаа",
+                  "correct": false,
+                  "tgRel": "People/Folded Hands.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": false,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l1s3",
+              "type": "intro",
+              "headlineRu": "Две буквы, которые уже «ваши»",
+              "bodyRu": "Буквы **А** и **У** в бурятском читаются почти как в русском: коротко «а» и «у». Ничего запоминать наизусть не нужно — просто смотрите.",
+              "buryatHint": "Мэнд — дружеское «здравствуй».",
+              "ctaRu": "Понятно, дальше"
+            },
+            {
+              "id": "c1l1s4",
+              "type": "choice",
+              "tagRu": "К БУКВАМ",
+              "questionRu": "Где звук «а»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Буква **А**",
+                  "correct": true,
+                  "icon": "tri"
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Буква **У**",
+                  "correct": false,
+                  "icon": "cupU"
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Буква **Ы**",
+                  "correct": false,
+                  "icon": "forkY"
+                }
+              ]
+            },
+            {
+              "id": "c1l1s5",
+              "type": "boolean",
+              "questionRu": "Правда ли?",
+              "statementRu": "Сейчас важнее не бояться букв, чем знать их все.",
+              "correctIsTrue": true
+            }
+          ]
+        },
+        {
+          "id": "c1_l2",
+          "order": 2,
+          "titleRu": "Три слова на каждый день",
+          "summaryRu": "Би, сайн, юу байна?",
+          "estimatedMinutes": 6,
+          "hasAudio": false,
+          "completionHeadlineRu": "Пауза — это тоже язык",
+          "completionBodyRu": "В живой речи можно ответить коротко «сайн» и улыбнуться. Не нужно длинных фраз.",
+          "steps": [
+            {
+              "id": "c1l2s1",
+              "type": "intro",
+              "headlineRu": "Три «якоря» на каждый день",
+              "bodyRu": "Слова **би**, **сайн**, **юу байна?** — как три кнопки в кармане: «я», «хорошо», «как дела?»",
+              "buryatHint": "би — я; сайн — хорошо; юу байна? — как дела?",
+              "ctaRu": "Понятно, дальше"
+            },
+            {
+              "id": "c1l2s2",
+              "type": "emoji_choice",
+              "tagRu": "ВЫБЕРИТЕ",
+              "questionRu": "Выбери эмодзи для смысла «хорошо».",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "👍",
+                  "buryatRu": "Сайн",
+                  "correct": true,
+                  "tgRel": "People/Thumbs Up.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "❓",
+                  "buryatRu": "Юу",
+                  "correct": false,
+                  "tgRel": "Smileys/Question Mark.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "👤",
+                  "buryatRu": "Би",
+                  "correct": false,
+                  "tgRel": "People/Bust In Silhouette.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l2s3",
+              "type": "emoji_choice",
+              "tagRu": "ФРАЗА",
+              "questionRu": "Выбери эмодзи для вопроса «как дела?».",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "💬",
+                  "buryatRu": "Юу байна?",
+                  "correct": true,
+                  "tgRel": "Smileys/Speech Balloon.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "😊",
+                  "buryatRu": "Сайн байна уу?",
+                  "correct": false,
+                  "tgRel": "Smileys/Slightly Smiling Face.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": false,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l2s4",
+              "type": "boolean",
+              "questionRu": "Правда ли?",
+              "statementRu": "Слово «би» значит «я».",
+              "correctIsTrue": true
+            },
+            {
+              "id": "c1l2s5",
+              "type": "emoji_choice",
+              "tagRu": "ОТВЕТ",
+              "questionRu": "Выбери эмодзи для короткого ответа «всё хорошо» на «Юу байна?».",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "👍",
+                  "buryatRu": "Сайн",
+                  "correct": true,
+                  "tgRel": "People/Thumbs Up.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": false,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "❌",
+                  "buryatRu": "Үгүй",
+                  "correct": false,
+                  "tgRel": "Smileys/Cross Mark.webp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c1_l3",
+          "order": 3,
+          "titleRu": "Две реплики — уже диалог",
+          "summaryRu": "Вопрос и ответ, как в жизни.",
+          "estimatedMinutes": 6,
+          "hasAudio": false,
+          "completionHeadlineRu": "Вы справились",
+          "completionBodyRu": "Три урока — маленький ритуал: привет, три слова, короткий диалог. Заходите завтра — так язык не пугает.",
+          "steps": [
+            {
+              "id": "c1l3s1",
+              "type": "intro",
+              "headlineRu": "Микро-диалог из двух реплик",
+              "bodyRu": "Кто-то спрашивает «Юу байна?» — вы отвечаете «Сайн». Всё.",
+              "buryatHint": "Юу байна? — Сайн.",
+              "ctaRu": "Понятно, дальше"
+            },
+            {
+              "id": "c1l3s2",
+              "type": "emoji_choice",
+              "tagRu": "ДИАЛОГ",
+              "questionRu": "Первая реплика — вопрос «как дела?». Выбери эмодзи.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "💬",
+                  "buryatRu": "Юу байна?",
+                  "correct": true,
+                  "tgRel": "Smileys/Speech Balloon.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "👍",
+                  "buryatRu": "Сайн",
+                  "correct": false,
+                  "tgRel": "People/Thumbs Up.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "👤",
+                  "buryatRu": "Би",
+                  "correct": false,
+                  "tgRel": "People/Bust In Silhouette.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l3s3",
+              "type": "emoji_choice",
+              "tagRu": "ДИАЛОГ",
+              "questionRu": "Вторая реплика — короткий ответ «хорошо». Выбери эмодзи.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "👍",
+                  "buryatRu": "Сайн",
+                  "correct": true,
+                  "tgRel": "People/Thumbs Up.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "💬",
+                  "buryatRu": "Юу байна?",
+                  "correct": false,
+                  "tgRel": "Smileys/Speech Balloon.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "👋",
+                  "buryatRu": "Мэнд",
+                  "correct": false,
+                  "tgRel": "People/Waving Hand.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l3s4",
+              "type": "boolean",
+              "questionRu": "Правда ли?",
+              "statementRu": "После «Сайн» можно добавить «баяртай» (до свидания), но это следующий урок.",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l3s5",
+              "type": "emoji_choice",
+              "tagRu": "ПРОЩАНИЕ",
+              "questionRu": "Выбери эмодзи для нейтрального «до свидания».",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": true,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "👋",
+                  "buryatRu": "Мэнд",
+                  "correct": false,
+                  "tgRel": "People/Waving Hand.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "👍",
+                  "buryatRu": "Сайн",
+                  "correct": false,
+                  "tgRel": "People/Thumbs Up.webp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "course_02",
+      "order": 2,
+      "titleRu": "Наш дом и вокруг него",
+      "subtitleRu": "Базовые слова про дом, «где» и «здесь».",
+      "cover": {
+        "relativePath": "photos/l6_1_img_our_house.jpg",
+        "altRu": "Наш дом и вокруг него"
+      },
+      "lessons": [
+        {
+          "id": "course_02_l1",
+          "order": 1,
+          "titleRu": "Манаай — «наш дом»",
+          "summaryRu": "Эксперимент: соберите перевод по словам — как в коротком уроке-пазле.",
+          "estimatedMinutes": 4,
+          "hasAudio": false,
+          "completionHeadlineRu": "Первый кирпичик «дома»",
+          "completionBodyRu": "Вы попробовали новый тип задания: собрать перевод из слов. Это ещё один формат шага в уроке — с ним можно знакомиться постепенно.",
+          "steps": [
+            {
+              "id": "course_02_l1_exp_tiles",
+              "type": "translate_tiles",
+              "instructionRu": "Соберите перевод на русский",
+              "characterRelativePath": "Saran video/divan-Picsart-BackgroundRemover.mov",
+              "bubbleShowAudio": true,
+              "sourceSegments": [
+                { "text": "Манаай ", "style": "accent" },
+                { "text": "гэр ", "style": "normal" },
+                { "text": "вэ?", "style": "normal" }
+              ],
+              "correctTokens": ["Наш", "дом"],
+              "wordBank": ["Наш", "дом", "Юрта", "Хаалга", "Окно", "Там"],
+              "shuffleWordBank": true
+            }
+          ]
+        },
+        {
+          "id": "course_02_l2",
+          "order": 2,
+          "titleRu": "Юртэ гэр",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_02_l3",
+          "order": 3,
+          "titleRu": "Хаана? — где",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_02_l4",
+          "order": 4,
+          "titleRu": "Энд — здесь",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_02_l5",
+          "order": 5,
+          "titleRu": "Тэр — тот",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_02_l6",
+          "order": 6,
+          "titleRu": "Энэ — этот",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_02_l7",
+          "order": 7,
+          "titleRu": "Хаалга",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_02_l8",
+          "order": 8,
+          "titleRu": "Цонх",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_03",
+      "order": 3,
+      "titleRu": "Семья в одном дыхании",
+      "subtitleRu": "Слова про близких без сложных окончаний.",
+      "cover": {
+        "relativePath": "photos/l6_2_img_win_family.jpg",
+        "altRu": "Семья в одном дыхании"
+      },
+      "lessons": [
+        {
+          "id": "course_03_l1",
+          "order": 1,
+          "titleRu": "Аав ээж — родители",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l2",
+          "order": 2,
+          "titleRu": "Ах дүү — брат и сестра",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l3",
+          "order": 3,
+          "titleRu": "Хүүхэд",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l4",
+          "order": 4,
+          "titleRu": "Өвөө эмээ",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l5",
+          "order": 5,
+          "titleRu": "Айлын хүн",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l6",
+          "order": 6,
+          "titleRu": "Найз",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l7",
+          "order": 7,
+          "titleRu": "Гэр бүл",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_03_l8",
+          "order": 8,
+          "titleRu": "Өргөө",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_04",
+      "order": 4,
+      "titleRu": "Ласковые имена",
+      "subtitleRu": "Как мягко обратиться к дочери и близким.",
+      "cover": {
+        "relativePath": "photos/l6_2_img_daughter.jpg",
+        "altRu": "Ласковые имена"
+      },
+      "lessons": [
+        {
+          "id": "course_04_l1",
+          "order": 1,
+          "titleRu": "Басагамни — моя дочь",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l2",
+          "order": 2,
+          "titleRu": "Хүүгээнмни",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l3",
+          "order": 3,
+          "titleRu": "Хайртай",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l4",
+          "order": 4,
+          "titleRu": "Жижигхэн бэлэг",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l5",
+          "order": 5,
+          "titleRu": "Өглөөний мэнд",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l6",
+          "order": 6,
+          "titleRu": "Оройн мэнд",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l7",
+          "order": 7,
+          "titleRu": "Амраарай",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_04_l8",
+          "order": 8,
+          "titleRu": "Үргэлж",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_05",
+      "order": 5,
+      "titleRu": "В магазине без паники",
+      "subtitleRu": "Это / не это, цена, «возьму».",
+      "cover": {
+        "relativePath": "photos/l5_2_img_table_shop.jpg",
+        "altRu": "В магазине без паники"
+      },
+      "lessons": [
+        {
+          "id": "course_05_l1",
+          "order": 1,
+          "titleRu": "Энэ юу вэ? — что это?",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l2",
+          "order": 2,
+          "titleRu": "Үнэ — цена",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l3",
+          "order": 3,
+          "titleRu": "Авах",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l4",
+          "order": 4,
+          "titleRu": "Зарах",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l5",
+          "order": 5,
+          "titleRu": "Төлбөр",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l6",
+          "order": 6,
+          "titleRu": "Халбага",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l7",
+          "order": 7,
+          "titleRu": "Сав",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_05_l8",
+          "order": 8,
+          "titleRu": "Баяртай дахиад",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_06",
+      "order": 6,
+      "titleRu": "Цифры и «сколько стоит»",
+      "subtitleRu": "От одного до десяти и простые вопросы.",
+      "cover": {
+        "relativePath": "photos/l4_2_img_win_economy.jpg",
+        "altRu": "Цифры и «сколько стоит»"
+      },
+      "lessons": [
+        {
+          "id": "course_06_l1",
+          "order": 1,
+          "titleRu": "Нэг, хоёр, гурван",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l2",
+          "order": 2,
+          "titleRu": "Дөрөв, тав",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l3",
+          "order": 3,
+          "titleRu": "Зургаа, долоо",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l4",
+          "order": 4,
+          "titleRu": "Найм, ес",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l5",
+          "order": 5,
+          "titleRu": "Арав",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l6",
+          "order": 6,
+          "titleRu": "Хэд вэ? — сколько?",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l7",
+          "order": 7,
+          "titleRu": "Хямд",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_06_l8",
+          "order": 8,
+          "titleRu": "Үнэтэй",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_07",
+      "order": 7,
+      "titleRu": "«Нет» и отрицание",
+      "subtitleRu": "Вежливо сказать «не я», «не так».",
+      "cover": {
+        "relativePath": "photos/l3_2_img_win_policeman.jpg",
+        "altRu": "«Нет» и отрицание"
+      },
+      "lessons": [
+        {
+          "id": "course_07_l1",
+          "order": 1,
+          "titleRu": "Би биш — не я",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l2",
+          "order": 2,
+          "titleRu": "Үгүй",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l3",
+          "order": 3,
+          "titleRu": "Биш — не / нет",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l4",
+          "order": 4,
+          "titleRu": "Хулгайшан бишэб — шутка из урока",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l5",
+          "order": 5,
+          "titleRu": "Ойлгосон",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l6",
+          "order": 6,
+          "titleRu": "Үгүй ойлгоогүй",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l7",
+          "order": 7,
+          "titleRu": "Дахиад",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_07_l8",
+          "order": 8,
+          "titleRu": "Зүгээр",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_08",
+      "order": 8,
+      "titleRu": "Друзья и вечеринка",
+      "subtitleRu": "Встреча, музыка, короткие радости.",
+      "cover": {
+        "relativePath": "photos/l5_3_img_win_party.jpg",
+        "altRu": "Друзья и вечеринка"
+      },
+      "lessons": [
+        {
+          "id": "course_08_l1",
+          "order": 1,
+          "titleRu": "Найзаа уулзах",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l2",
+          "order": 2,
+          "titleRu": "Хөгжим",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l3",
+          "order": 3,
+          "titleRu": "Баяр хүргэе",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l4",
+          "order": 4,
+          "titleRu": "Тоглоом",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l5",
+          "order": 5,
+          "titleRu": "Бүжиглэх",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l6",
+          "order": 6,
+          "titleRu": "За",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l7",
+          "order": 7,
+          "titleRu": "Сайхан байна",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_08_l8",
+          "order": 8,
+          "titleRu": "Маргааш",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_09",
+      "order": 9,
+      "titleRu": "Буквы как игра",
+      "subtitleRu": "Находим буквы и не боимся ошибиться.",
+      "cover": {
+        "relativePath": "photos/l6_1_img_win_gold.jpg",
+        "altRu": "Буквы как игра"
+      },
+      "lessons": [
+        {
+          "id": "course_09_l1",
+          "order": 1,
+          "titleRu": "Эхний үсэг",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l2",
+          "order": 2,
+          "titleRu": "Дагуулах",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l3",
+          "order": 3,
+          "titleRu": "Өнгөтэй картууд",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l4",
+          "order": 4,
+          "titleRu": "Олз олсон шиг",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l5",
+          "order": 5,
+          "titleRu": "Дахин оролдох",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l6",
+          "order": 6,
+          "titleRu": "Бага алдаа — зүгээр",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l7",
+          "order": 7,
+          "titleRu": "Шагнал",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_09_l8",
+          "order": 8,
+          "titleRu": "Дараагийн түвшин",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": "course_10",
+      "order": 10,
+      "titleRu": "Дома, спокойно",
+      "subtitleRu": "Лень — тоже тема: отдых, чай, сериал.",
+      "cover": {
+        "relativePath": "photos/l6_2_img_lazy_tail.jpg",
+        "altRu": "Дома, спокойно"
+      },
+      "lessons": [
+        {
+          "id": "course_10_l1",
+          "order": 1,
+          "titleRu": "Эжымни… — про маму",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l2",
+          "order": 2,
+          "titleRu": "Залхуу өдөр",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l3",
+          "order": 3,
+          "titleRu": "Сайхан амарсан уу?",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l4",
+          "order": 4,
+          "titleRu": "Цай",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l5",
+          "order": 5,
+          "titleRu": "Кино үзэх",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l6",
+          "order": 6,
+          "titleRu": "Өглөө болсон уу?",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l7",
+          "order": 7,
+          "titleRu": "Орой боллоо",
+          "hasAudio": false,
+          "steps": []
+        },
+        {
+          "id": "course_10_l8",
+          "order": 8,
+          "titleRu": "Үдэшлэг",
+          "hasAudio": false,
+          "steps": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Саран — современное образовательное приложение для сохранения исчезающих языков коренных народов России: интерактивные уроки, прогресс и поддержка лингвистов.">
+  <title>Саран — языки России</title>
+  <link rel="icon" type="image/jpeg" href="assets/botpfp.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f2f2f7;
+      --muted: rgba(255, 255, 255, 0.52);
+      --accent: #5b8cff;
+      --accent-soft: rgba(91, 140, 255, 0.22);
+      --glow: rgba(120, 160, 255, 0.35);
+      --radius: 22px;
+      --radius-map: 12px;
+      /* iPhone 15 Pro: логический экран 393×852 pt, скрины 1179×2556 px; радиус «стекла» в макетах Apple ~55–56 pt → доля ≈ 56/393 */
+      --iphone-screen-radius-fr: 0.1425;
+      --shot-w: min(268px, 86vw);
+      --iphone-ar: 1179 / 2556;
+      --max: 800px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Golos Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .noise {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      z-index: 0;
+      animation: orb-drift 18s ease-in-out infinite alternate;
+    }
+    .orb--1 {
+      width: min(55vw, 420px);
+      height: min(55vw, 420px);
+      top: -12%;
+      right: -8%;
+      background: radial-gradient(circle at 30% 30%, #3d5a99, transparent 70%);
+    }
+    .orb--2 {
+      width: min(50vw, 380px);
+      height: min(50vw, 380px);
+      bottom: 5%;
+      left: -15%;
+      background: radial-gradient(circle at 50% 50%, #2a4a7a, transparent 65%);
+      animation-delay: -6s;
+    }
+    @keyframes orb-drift {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(-24px, 18px) scale(1.06); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 48px) clamp(20px, 4vw, 32px) 64px;
+    }
+
+    header.hero {
+      text-align: center;
+      padding: clamp(28px, 7vw, 56px) 0 32px;
+    }
+    .hero-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .hero-logo {
+      width: clamp(80px, 20vw, 112px);
+      height: clamp(80px, 20vw, 112px);
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.1rem, 6vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .hero-lead {
+      margin: 0 auto;
+      max-width: 40em;
+      font-size: clamp(1rem, 2.4vw, 1.12rem);
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .hero-lead strong {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 600;
+    }
+
+    .shots {
+      margin-top: 40px;
+      display: grid;
+      gap: 24px 18px;
+      grid-template-columns: 1fr;
+      align-items: start;
+      justify-items: center;
+    }
+    @media (min-width: 720px) {
+      .shots:not(.shots--lessons) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        justify-items: center;
+        width: 100%;
+      }
+    }
+    .shot {
+      container-type: inline-size;
+      text-align: center;
+      width: 100%;
+      max-width: var(--shot-w);
+      justify-self: center;
+    }
+    @media (min-width: 720px) {
+      .shots:not(.shots--lessons) .shot {
+        max-width: min(248px, 100%);
+      }
+    }
+    /* iPhone 15 Pro: тонкий ободок (Natural Titanium), скругление экрана как у оригинала */
+    .shot__frame {
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      padding: 3px;
+      border-radius: calc(3px + min(calc(100cqw * var(--iphone-screen-radius-fr)), 40px));
+      background: linear-gradient(
+        145deg,
+        #ece8e3 0%,
+        #d8d3cd 22%,
+        #c9c4be 50%,
+        #bfb9b3 78%,
+        #d5cfc9 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+    }
+    .shot__media {
+      border-radius: min(calc(100cqw * var(--iphone-screen-radius-fr)), 40px);
+      overflow: hidden;
+      aspect-ratio: var(--iphone-ar);
+      background: #000;
+    }
+    .shot__media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .shot__cap {
+      margin: 14px 4px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .lesson-shots-sub {
+      margin: 26px 0 8px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .lessons-shot-hint {
+      margin: 0 0 16px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .lessons-card .shots--lessons {
+      margin-top: 0;
+      margin-bottom: 4px;
+      gap: 18px 12px;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      width: 100%;
+    }
+    .lessons-card .shots--lessons .shot {
+      max-width: min(420px, 94vw);
+      width: 100%;
+    }
+    .lessons-card .shots--lessons .shot__cap {
+      font-size: 0.82rem;
+    }
+    @media (min-width: 600px) {
+      .lessons-card .shots--lessons {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        justify-items: stretch;
+        gap: 16px 10px;
+      }
+      .lessons-card .shots--lessons .shot {
+        max-width: 100%;
+      }
+    }
+    .shot__enlarge {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: inherit;
+      cursor: zoom-in;
+    }
+    .shot__enlarge:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+    .lessons-card .shot__enlarge .shot__frame {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .lessons-card .shot__enlarge:hover .shot__frame {
+      transform: translateY(-3px);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    .lesson-legend {
+      list-style: none;
+      margin: 22px 0 0;
+      padding: 18px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .lesson-legend {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 20px 18px;
+      }
+    }
+    .lesson-legend__item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      text-align: left;
+      margin: 0;
+    }
+    .lesson-legend__icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .lesson-legend__icon img {
+      width: 28px;
+      height: auto;
+      display: block;
+    }
+    .lesson-legend__text {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .lesson-legend__text strong {
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 600;
+    }
+    .start-cta {
+      margin-top: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .btn--site {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .btn--site:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
+    .lessons-cta-hint {
+      margin: 18px 0 0;
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    .map-wrap {
+      margin-top: 36px;
+    }
+    .map-wrap h2 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+    .map__frame {
+      border-radius: var(--radius-map);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+    .map__frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .map__cap {
+      margin: 12px 0 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      text-align: center;
+      max-width: 38em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 28px);
+      margin-bottom: 16px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .card p, .card li {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .card ul {
+      padding-left: 1.2em;
+      margin: 0 0 12px;
+    }
+    .card li { margin-bottom: 8px; }
+    .card li:last-child { margin-bottom: 0; }
+
+    .features {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 8px;
+    }
+    @media (min-width: 560px) {
+      .features { grid-template-columns: 1fr 1fr; }
+    }
+    .feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    .feature:hover {
+      border-color: rgba(91, 140, 255, 0.35);
+      background: rgba(91, 140, 255, 0.06);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      background: rgba(91, 140, 255, 0.12);
+      border: 1px solid rgba(91, 140, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+    .feature h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .feature p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    a.btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    a.btn--primary {
+      background: linear-gradient(180deg, #6b9aff, #4a78e8);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(70, 120, 230, 0.4);
+    }
+    a.btn--primary:hover { transform: translateY(-2px); }
+    a.btn--ghost {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    a.btn--ghost:hover { background: rgba(255, 255, 255, 0.12); }
+
+    .btn--telegram {
+      background: linear-gradient(180deg, #3eadf0, #229ed9);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 22px rgba(34, 158, 217, 0.35);
+    }
+    .btn--telegram:hover { transform: translateY(-2px); }
+    .btn--max {
+      background: linear-gradient(135deg, #5c4fd4, #3d2fa8);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 22px rgba(60, 47, 168, 0.38);
+    }
+    .btn--max:hover { transform: translateY(-2px); }
+    .btn svg {
+      flex-shrink: 0;
+      opacity: 0.95;
+    }
+
+    .contact-grid {
+      margin-top: 32px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+      }
+    }
+    .contact-panel {
+      padding: 24px 22px;
+      border-radius: var(--radius);
+      text-align: center;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .contact-panel--social {
+      background: linear-gradient(145deg, rgba(91, 140, 255, 0.1), rgba(255, 255, 255, 0.03));
+      border-color: rgba(91, 140, 255, 0.22);
+      box-shadow: 0 0 48px rgba(91, 140, 255, 0.08);
+    }
+    .contact-panel--direct {
+      background: rgba(255, 255, 255, 0.035);
+    }
+    .contact-panel__title {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .contact-panel__text {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+    .contact-panel__mail {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .contact-panel__mail a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .contact-panel__mail a:hover {
+      text-decoration: underline;
+    }
+    .contact-panel .btn-row {
+      margin-top: 4px;
+      justify-content: center;
+    }
+    .contact-panel--direct .btn-row {
+      margin-top: 18px;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 12px;
+      margin: 0 0 8px;
+      line-height: 1.5;
+    }
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      font-size: 0.86rem;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .footer-links a:hover {
+      text-decoration: none;
+      background: rgba(91, 140, 255, 0.12);
+      border-color: rgba(91, 140, 255, 0.35);
+    }
+    .footer-links--social {
+      margin-bottom: 14px;
+    }
+    .footer-kicker {
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .footer-mail {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .footer-mail a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer-mail a:hover {
+      text-decoration: underline;
+    }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .footer-brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb--1" aria-hidden="true"></div>
+  <div class="orb orb--2" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-brand">
+        <img class="hero-logo" src="assets/botpfp.jpg" width="112" height="112" alt="Логотип Саран">
+        <div>
+          <p class="kicker">Языковой след</p>
+          <h1>Саран</h1>
+        </div>
+      </div>
+      <p class="hero-lead">
+        <strong>Саран</strong> — современное образовательное приложение, направленное на сохранение исчезающих языков коренных народов России через цифровые технологии.
+        Мы переносим культурное наследие в удобную среду смартфона, используя интерактивные уроки и игровые механики, чтобы сделать обучение актуальным для молодёжи.
+        Проект объединяет технический стек с экспертизой лингвистов, создавая инструмент для возрождения живого общения — в спокойном темпе, с понятной структурой модулей и наглядным прогрессом.
+      </p>
+
+      <div class="shots" aria-label="Скриншоты приложения">
+        <figure class="shot">
+          <div class="shot__frame">
+            <div class="shot__media">
+              <img src="assets/IMG_1954.PNG" width="1179" height="2556" alt="Обучение: модули и карточки курсов." decoding="async" fetchpriority="high">
+            </div>
+          </div>
+          <figcaption class="shot__cap">
+            Раздел «Обучение»: модули «Модули» и «Слушать», карточки курсов — от первых букв до тем про дом и окружение.
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot__frame">
+            <div class="shot__media">
+              <img src="assets/IMG_1956.PNG" width="1179" height="2556" alt="Практика с ИИ: чат с ассистентом по языку." decoding="async" loading="lazy">
+            </div>
+          </div>
+          <figcaption class="shot__cap">
+            Раздел «ИИ»: практика в чате — например, ответы ассистента по языку в режиме диалога.
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot__frame">
+            <div class="shot__media">
+              <img src="assets/IMG_1955.PNG" width="1179" height="2556" alt="Прогресс: статистика, очки, график за 14 дней." decoding="async" loading="lazy">
+            </div>
+          </div>
+          <figcaption class="shot__cap">
+            Раздел «Прогресс»: трасса, серия дней, очки, уроки и задания, график активности.
+          </figcaption>
+        </figure>
+      </div>
+
+      <section class="map-wrap" aria-labelledby="map-heading">
+        <h2 id="map-heading">Масштаб задачи</h2>
+        <div class="map__frame">
+          <img
+            src="assets/map-disappearing-langs-ru.png"
+            width="1812"
+            height="1182"
+            alt="Карта исчезающих языков России: подсвечены регионы, где языки получили статусы засыпающие, прерванные и прерывающие по классификации ИЯз РАН."
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <p class="map__cap">
+          На интерактивной карте отмечены языки России, которым Институт языкознания РАН присвоил статусы <strong>засыпающие</strong> (1В), <strong>прерванные</strong> (2А) и <strong>прерывающие</strong> (2Б). По данным классификации это <strong>68 из 155</strong> — наглядное подтверждение масштаба вызова, на который отвечает Саран.
+        </p>
+      </section>
+    </header>
+
+    <section class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading">О проекте</h2>
+      <p>
+        Мы создаём среду, где можно не «отметить курс пройденным», а реально слышать язык, понимать короткие фразы и постепенно наращивать уверенность.
+        Подача бережная: и для носителей, которые хотят систематизировать знания, и для изучающих с нуля.
+      </p>
+      <p>
+        В приложении уроки выстроены в логичную цепочку: знакомство с алфавитом и произношением, опорные слова, микродиалоги и практика.
+        Рядом с обучением — наглядная статистика, напоминание о серии занятий и спокойный тон интерфейса: поддержка мотивации без навязчивой геймификации.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="how-heading">
+      <h2 id="how-heading">Как устроено приложение</h2>
+      <p>В интерфейсе три опорных раздела (нижняя навигация):</p>
+      <ul>
+        <li><strong>Обучение</strong> — модули и, при необходимости, режим прослушивания; каждый модуль содержит уроки с пометкой времени и кратким анонсом темы.</li>
+        <li><strong>ИИ</strong> — помощник по языку: вопрос по формулировке, повторное объяснение или разбор фразы из практики.</li>
+        <li><strong>Прогресс</strong> — обобщённая картина активности: доля «трассы», серия дней, очки, закрытые уроки, верные задания и динамика по дням.</li>
+      </ul>
+      <p>
+        Такой набор разделов держит баланс между учёбой, поддержкой в моменте сомнения и чувством устойчивого ритма — без спешки и перегруза.
+      </p>
+    </section>
+
+    <section class="card lessons-card" aria-labelledby="lessons-heading">
+      <h2 id="lessons-heading">Как проходят уроки</h2>
+      <p>
+        Каждый урок — это несколько коротких заданий подряд: сначала пояснение и примеры, затем интерактив — выбор варианта, работа с карточками или сборка фразы из слов, как в задании «Соберите перевод».
+        Вверху всегда видно, где вы в модуле: номер задания, прогресс полосой и короткий контекст («Модуль · тема · задание N из M»).
+      </p>
+      <p>
+        Есть подсказки и озвучка там, где важно услышать произношение; кнопка «Проверить» подводит итог шага. Такой ритм держит внимание без длинных лекций — можно заниматься маленькими сессиями и возвращаться к списку уроков, когда удобно.
+      </p>
+
+      <h3 class="lesson-shots-sub" id="lesson-screens">Примеры экранов</h3>
+      <p class="lessons-shot-hint">Нажмите на макет телефона — откроется полноразмерный скрин в новой вкладке.</p>
+      <div class="shots shots--lessons" aria-label="Скриншоты экранов уроков">
+        <figure class="shot">
+          <a class="shot__enlarge" href="assets/IMG_1960.PNG" target="_blank" rel="noopener noreferrer" title="Открыть скрин в полном размере">
+            <div class="shot__frame">
+              <div class="shot__media">
+                <img src="assets/IMG_1960.PNG" width="1179" height="2556" alt="Список уроков модуля: карточки уроков, время и число заданий." decoding="async" loading="lazy">
+              </div>
+            </div>
+          </a>
+          <figcaption class="shot__cap">
+            Список уроков в модуле: длительность, число заданий и короткий анонс; по иконкам видно пройденный, текущий и ещё не открытый урок.
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <a class="shot__enlarge" href="assets/IMG_1957.PNG" target="_blank" rel="noopener noreferrer" title="Открыть скрин в полном размере">
+            <div class="shot__frame">
+              <div class="shot__media">
+                <img src="assets/IMG_1957.PNG" width="1179" height="2556" alt="Задание: выбрать эмодзи или вариант по смыслу слова." decoding="async" loading="lazy">
+              </div>
+            </div>
+          </a>
+          <figcaption class="shot__cap">
+            Задание в уроке: выбрать вариант по смыслу (например, эмодзи к слову «привет») и подтвердить кнопкой «Проверить».
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <a class="shot__enlarge" href="assets/IMG_1959.PNG" target="_blank" rel="noopener noreferrer" title="Открыть скрин в полном размере">
+            <div class="shot__frame">
+              <div class="shot__media">
+                <img src="assets/IMG_1959.PNG" width="1179" height="2556" alt="Задание: собрать перевод на русский из слов-фишек." decoding="async" loading="lazy">
+              </div>
+            </div>
+          </a>
+          <figcaption class="shot__cap">
+            Сборка перевода: фраза на языке урока, слоты и «фишки» со словами; можно слушать озвучку и проверить ответ.
+          </figcaption>
+        </figure>
+      </div>
+
+      <ul class="lesson-legend" aria-label="Статусы уроков в списке">
+        <li class="lesson-legend__item">
+          <div class="lesson-legend__icon" aria-hidden="true">
+            <img src="assets/imgi_14_2b5a211d830a24fab92e291d50f65d1d.svg" width="28" height="34" alt="" decoding="async">
+          </div>
+          <p class="lesson-legend__text"><strong>Пройденный урок</strong> — задания выполнены, урок отмечен как завершённый.</p>
+        </li>
+        <li class="lesson-legend__item">
+          <div class="lesson-legend__icon" aria-hidden="true">
+            <img src="assets/imgi_10_398e4298a3b39ce566050e5c041949ef.svg" width="28" height="34" alt="" decoding="async">
+          </div>
+          <p class="lesson-legend__text"><strong>Текущий урок</strong> — сейчас проходите именно его; дальше по списку откроется следующий.</p>
+        </li>
+        <li class="lesson-legend__item">
+          <div class="lesson-legend__icon" aria-hidden="true">
+            <img src="assets/imgi_19_cbb0e971ac10030a120848c71c419892.svg" width="28" height="34" alt="" decoding="async">
+          </div>
+          <p class="lesson-legend__text"><strong>Не пройденный урок</strong> — ещё не начат или ждёт очереди после текущего.</p>
+        </li>
+      </ul>
+      <p class="lessons-cta-hint">Попробуйте Саран: в <strong>Telegram-боте</strong> — полноценная версия, на <strong>сайте</strong> — MVP для знакомства с продуктом.</p>
+      <div class="btn-row start-cta">
+        <a class="btn btn--telegram" href="https://t.me/SaranEduBot" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 1.667-.688 2.009-.811 2.235-.815z"/></svg>
+          Telegram-бот — полная версия
+        </a>
+        <a class="btn btn--site" href="https://saran-edu.online" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Сайт — попробовать MVP
+        </a>
+      </div>
+    </section>
+
+    <section class="features" aria-label="Возможности">
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+        </div>
+        <div>
+          <h3>Уроки и модули</h3>
+          <p>Темы разбиты на короткие шаги: от первых букв и приветствий к бытовым ситуациям. Видно, сколько по времени займёт блок и что внутри.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        </div>
+        <div>
+          <h3>Прогресс и ритм</h3>
+          <p>Статистика по дням, очкам и урокам помогает не бросать занятия на полпути и замечать реальный рост, а не только отметки о прохождении.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h3>ИИ рядом с уроком</h3>
+          <p>Вопросы по языку можно закрыть в том же приложении: без долгого переключения контекста и потери нити урока.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg>
+        </div>
+        <div>
+          <h3>Смартфон как среда</h3>
+          <p>Наследие и практика — в устройстве, которое уже в кармане: учиться можно короткими сессиями там, где вам удобно.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="card" aria-labelledby="audience-heading">
+      <h2 id="audience-heading">Для кого это</h2>
+      <p>
+        Для начинающих, кто хочет аккуратно войти в язык без давления «выучить всё за неделю».
+        Для тех, кто уже знаком с культурой региона и хочет привести грамматику и лексику в порядок.
+        Для преподавателей и энтузиастов, которым важен уважительный тон подачи и опора на структурированные материалы, а не случайные наборы фраз.
+      </p>
+    </section>
+
+    <div class="contact-grid">
+      <section class="contact-panel contact-panel--social" aria-labelledby="social-heading">
+        <h2 id="social-heading" class="contact-panel__title">Саран в соцсетях</h2>
+        <p class="contact-panel__text">Новости проекта, выпуски и сообщество — подключайтесь там, где вам удобнее.</p>
+        <div class="btn-row">
+          <a class="btn btn--telegram" href="https://t.me/SaranEdu" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 1.667-.688 2.009-.811 2.235-.815z"/></svg>
+            Telegram — @SaranEdu
+          </a>
+          <a class="btn btn--max" href="https://max.ru/join/LfuLqBNT9BpcuAhmSVtRmrg1k2394JRl8xR6VBILBI4" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 9h8M8 12h5M8 15h3"/></svg>
+            Сообщество в MAX
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-panel contact-panel--direct" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="contact-panel__title">Контакты для связи</h2>
+        <p class="contact-panel__text">По вопросам сотрудничества, партнёрства и идей — напишите создателю на почту.</p>
+        <p class="contact-panel__mail"><a href="mailto:hello@alexanik.ru">hello@alexanik.ru</a></p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="mailto:hello@alexanik.ru">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+            Написать на почту
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer-brand">
+        <img src="assets/botpfp.jpg" width="40" height="40" alt="Логотип Саран">
+        <span>Саран — языки России</span>
+      </div>
+      <p class="footer-kicker">Соцсети</p>
+      <div class="footer-links footer-links--social">
+        <a href="https://t.me/SaranEdu" target="_blank" rel="noopener noreferrer">Telegram @SaranEdu</a>
+        <a href="https://max.ru/join/LfuLqBNT9BpcuAhmSVtRmrg1k2394JRl8xR6VBILBI4" target="_blank" rel="noopener noreferrer">MAX</a>
+      </div>
+      <p class="footer-kicker">Связь с создателем</p>
+      <p class="footer-mail"><a href="mailto:hello@alexanik.ru">hello@alexanik.ru</a></p>
+    </footer>
+  </div>
+</body>
+</html>
