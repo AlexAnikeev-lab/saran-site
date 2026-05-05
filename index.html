@@ -5648,6 +5648,28 @@
             return -1;
         }
 
+        /** Глобальный текущий урок: первый непройденный по всем модулям (в порядке order). */
+        function saranGlobalFirstIncompleteLessonRef() {
+            const data = window.saranCurriculum;
+            const sorted = saranSortedCoursesWithOrigIndex(data);
+            for (let c = 0; c < sorted.length; c++) {
+                const origCourseIndex = sorted[c].origIdx;
+                const localFirst = saranRichrepFirstIncompleteLessonIndex(origCourseIndex);
+                if (localFirst >= 0) {
+                    return { courseIndex: origCourseIndex, lessonIndex: localFirst };
+                }
+            }
+            return null;
+        }
+
+        /** Доступ к уроку: пройденные всегда доступны; непройденный — только если он глобально текущий. */
+        function saranIsLessonUnlockedGlobal(courseIndex, lessonIndex) {
+            if (saranIsLessonDone(courseIndex, lessonIndex)) return true;
+            const current = saranGlobalFirstIncompleteLessonRef();
+            if (!current) return true;
+            return current.courseIndex === courseIndex && current.lessonIndex === lessonIndex;
+        }
+
         function saranIsConsolidationLesson(lessonItem) {
             if (!lessonItem || typeof lessonItem !== 'object') return false;
             const kind = String(lessonItem.kind || '').toLowerCase();
@@ -5844,6 +5866,10 @@
                 saranBumpLsInt(SARAN_LS_STREAK, 1);
                 saranBumpDailyActivity('lesson');
             }
+            try {
+                const host = document.getElementById('saranCourseCardsHost');
+                if (host && data && data.courses) renderSaranCourseCards(host, data);
+            } catch (eRepaint) { /* ignore */ }
             refreshSaranProgressUI();
         }
 
@@ -6876,6 +6902,11 @@
         }
 
         function openSaranCourseFromIndex(courseIndex) {
+            const current = saranGlobalFirstIncompleteLessonRef();
+            if (current && courseIndex !== current.courseIndex) {
+                alert('Сначала пройдите текущий урок в активном модуле.');
+                return;
+            }
             window.saranCourseIndex = courseIndex;
             saranWarmupLessonAudio(courseIndex, 0);
             saranWarmupLessonAudio(courseIndex, 1);
@@ -7610,6 +7641,7 @@
                 return;
             }
             const lessons = data.courses[idx].lessons || [];
+            const currentGlobal = saranGlobalFirstIncompleteLessonRef();
             let html = '';
             if (!lessons.length) {
                 list.innerHTML = '<p class="richrep-lesson-desc">Уроки для этого модуля скоро появятся.</p>';
@@ -7634,7 +7666,7 @@
                 } else if (currentIdx === i) {
                     statusKey = 'current';
                 }
-                const isLocked = currentIdx >= 0 && i > currentIdx;
+                const isLocked = !saranIsLessonUnlockedGlobal(idx, i);
                 let iconHref = escapeHtml(saranRichrepLessonListAssetHref(SARAN_RICHREP_LESSON_STATUS_SVG[statusKey]));
                 let iconClass = 'richrep-lesson-status-img';
                 if (isConsolidation) {
@@ -7646,6 +7678,7 @@
                 let statusRu = 'Не пройден. ';
                 if (done) statusRu = 'Пройден. ';
                 else if (currentIdx === i) statusRu = 'Текущий шаг. ';
+                if (isLocked && currentGlobal) statusRu = 'Недоступен до прохождения текущего шага. ';
                 const ariaOpen = escapeHtml(statusRu + 'Открыть: ' + heading);
                 const desc = lessonItem.summaryRu || '';
                 html +=
@@ -7669,6 +7702,7 @@
         function renderSaranCourseCards(host, data) {
             if (!host || !data || !data.courses) return;
             host.innerHTML = '';
+            const current = saranGlobalFirstIncompleteLessonRef();
             saranSortedCoursesWithOrigIndex(data).forEach(function(w) {
                 const course = w.c;
                 const origIdx = w.origIdx;
@@ -7678,6 +7712,12 @@
                 btn.setAttribute('data-course-index', String(origIdx));
                 const label = (course.titleRu || 'Модуль').trim();
                 btn.setAttribute('aria-label', 'Открыть: ' + label);
+                const isCourseLocked = !!(current && current.courseIndex !== origIdx);
+                btn.setAttribute('data-course-locked', isCourseLocked ? '1' : '0');
+                if (isCourseLocked) {
+                    btn.setAttribute('aria-disabled', 'true');
+                    btn.style.opacity = '0.55';
+                }
 
                 const cover = document.createElement('div');
                 cover.className = 'richrep-start-cover richrep-start-cover--image';
@@ -8351,6 +8391,10 @@
                 const courseCard = e.target && e.target.closest && e.target.closest('#saranCourseCardsHost .richrep-start-card[data-course-index]');
                 if (courseCard) {
                     e.preventDefault();
+                    if (courseCard.getAttribute('data-course-locked') === '1') {
+                        alert('Сначала пройдите текущий урок в активном модуле.');
+                        return;
+                    }
                     let ci = parseInt(courseCard.getAttribute('data-course-index') || '0', 10);
                     if (!Number.isFinite(ci) || ci < 0) ci = 0;
                     openSaranCourseFromIndex(ci);
