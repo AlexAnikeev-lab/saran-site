@@ -3628,6 +3628,30 @@
             padding: 8px;
             cursor: pointer;
         }
+        .saran-ex-sound-toggle {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.78);
+            padding: 8px;
+            cursor: pointer;
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .saran-ex-sound-toggle[aria-pressed="true"] {
+            color: rgba(255, 255, 255, 0.65);
+        }
+        .saran-ex-sound-toggle img {
+            width: 20px;
+            height: 20px;
+            display: block;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.65;
+            filter: brightness(0) saturate(100%) invert(98%) sepia(2%) saturate(396%) hue-rotate(201deg) brightness(89%) contrast(89%);
+        }
         .saran-ex-progress {
             flex: 1;
             height: 6px;
@@ -3682,21 +3706,28 @@
             text-align: center;
             padding: 14px 6px 12px;
             gap: 8px;
+            --saran-emoji-size: 60px;
         }
         .saran-ex-emoji-char {
-            font-size: clamp(32px, 10vw, 50px);
-            line-height: 1.05;
+            width: var(--saran-emoji-size);
+            height: var(--saran-emoji-size);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            line-height: 1;
         }
         .saran-ex-emoji-anim-wrap {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            min-height: clamp(52px, 14vw, 72px);
+            width: var(--saran-emoji-size);
+            height: var(--saran-emoji-size);
+            min-height: var(--saran-emoji-size);
         }
         .saran-ex-emoji-anim {
-            width: clamp(52px, 14vw, 72px);
-            height: clamp(52px, 14vw, 72px);
+            width: 100%;
+            height: 100%;
             object-fit: contain;
             display: block;
             pointer-events: none;
@@ -4317,6 +4348,9 @@
                         <div class="saran-ex-top">
                             <button type="button" class="saran-ex-close" id="saranExCloseBtn" onclick="closeSaranExercisePage()" aria-label="Выйти из урока">×</button>
                             <div class="saran-ex-progress" aria-hidden="true"><div class="saran-ex-progress-fill" id="saranExProgressFill"></div></div>
+                            <button type="button" class="saran-ex-sound-toggle" id="saranExSoundToggle" aria-label="Выключить звук" aria-pressed="true" title="Звук включен">
+                                <img id="saranExSoundToggleIcon" src="Duolingo/volume-max.svg" alt="" width="20" height="20" decoding="async">
+                            </button>
                         </div>
                         <div class="saran-ex-meta" id="saranExMeta"></div>
                         <div class="saran-ex-illu-wrap" id="saranExIlluWrap" hidden>
@@ -4581,24 +4615,303 @@
         const SARAN_LS_STREAK = 'saran_streak_days_v1';
         const SARAN_LS_XP = 'saran_xp_total_v1';
         const SARAN_LS_DAILY = 'saran_daily_activity_v1';
-        const SARAN_OPENROUTER_MODEL = 'gryphe/mythomax-l2-13b';
+        const SARAN_LS_SOUND_ENABLED = 'saran_sound_enabled_v1';
+        const SARAN_SOUND_ICON_ON = 'Duolingo/volume-max.svg';
+        const SARAN_SOUND_ICON_OFF = 'Duolingo/volume-off.svg';
         /** Имя ассистента в интерфейсе и в промптах (бурят. кириллица). */
         const SARAN_AI_ASSISTANT_NAME = 'Сарангэрэл';
         /**
-         * Черновик ответа на английском, затем перевод на бурятский: NLLB (HF Inference API, bury_Cyrl) через api/nllb-translate.php.
-         * Если HF-токена нет или NLLB недоступен — запасной перевод второй ролью на OpenRouter (та же MythoMax).
+         * Конвейер:
+         * 1) текст пользователя (бурят.) -> русский (NLLB),
+         * 2) ответ ИИ на максимально простом русском,
+         * 3) русский ответ -> бурятский (NLLB).
          */
-        const SARAN_AI_SYSTEM_EN =
-            'You are ' +
+        const SARAN_AI_SYSTEM_RU =
+            'Ты ' +
             SARAN_AI_ASSISTANT_NAME +
-            ", Saran's warm language-tutor assistant. In the product story you are built on a Gemini-3-class foundation and further adapted by Saran for Buryat-language learning — stay in that persona briefly and kindly.\n" +
-            'The learner only sees answers after automatic translation into Buryat. User messages may be Russian, English, or Buryat.\n' +
-            'Draft your reply in clear English only (simple wording, at most 8 short sentences). A separate step translates your text to Buryat. Teach, encourage, give short examples; do not write Buryat in this draft.';
-        const SARAN_AI_SYSTEM_TRANSLATE =
-            'You are a professional translator for Saran. Translate the USER message from English into literary Buryat using Cyrillic. Preserve teaching tone and brevity. Output only Buryat text: no English, no Russian explanations, no preamble or quotes.';
+            '. Ты добрый помощник по бурятскому языку. Всегда отвечай ТОЛЬКО на простом русском языке: короткие фразы, простые слова, без сложных терминов. ' +
+            'Отвечай по делу, спокойно и понятно. Если уместно, дай 1 короткий пример.';
 
         let saranExerciseState = { courseIndex: 0, lesson: 0, task: 0, tasks: [], answered: false, pickedWrong: false, selectedIndex: null };
+        let saranVoiseLoadPromise = null;
+        let saranVoiseLexicon = Object.create(null);
+        let saranOptionPreviewAudio = null;
+        let saranAudioPreloadLinks = Object.create(null);
+        let saranAudioWarmCache = Object.create(null);
+        let saranSoundEnabled = true;
         let saranChatHistory = [];
+
+        function saranReadSoundEnabled() {
+            try {
+                const raw = localStorage.getItem(SARAN_LS_SOUND_ENABLED);
+                if (raw === '0' || raw === 'false') return false;
+            } catch (e) { /* ignore */ }
+            return true;
+        }
+
+        function saranRefreshSoundToggleUi() {
+            const btn = document.getElementById('saranExSoundToggle');
+            const icon = document.getElementById('saranExSoundToggleIcon');
+            if (!btn) return;
+            btn.setAttribute('aria-pressed', saranSoundEnabled ? 'true' : 'false');
+            btn.setAttribute('aria-label', saranSoundEnabled ? 'Выключить звук' : 'Включить звук');
+            btn.title = saranSoundEnabled ? 'Звук включен' : 'Звук выключен';
+            if (icon) {
+                icon.src = saranSoundEnabled ? SARAN_SOUND_ICON_ON : SARAN_SOUND_ICON_OFF;
+            }
+        }
+
+        function saranSetSoundEnabled(enabled) {
+            saranSoundEnabled = !!enabled;
+            try {
+                localStorage.setItem(SARAN_LS_SOUND_ENABLED, saranSoundEnabled ? '1' : '0');
+            } catch (eStore) { /* ignore */ }
+            if (!saranSoundEnabled) {
+                try {
+                    if (saranOptionPreviewAudio) saranOptionPreviewAudio.pause();
+                    if (window.speechSynthesis) window.speechSynthesis.cancel();
+                } catch (eStop) { /* ignore */ }
+            }
+            saranRefreshSoundToggleUi();
+        }
+
+        function saranNormalizeBuryatKey(raw) {
+            return String(raw || '')
+                .toLowerCase()
+                .replace(/[*_`~]/g, '')
+                .replace(/[!?.,;:()"'«»]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function saranVoiseIndexHref() {
+            try {
+                var p = '';
+                try {
+                    p = String(window.location.pathname || '');
+                } catch (ePath) { /* ignore */ }
+                if (p === '/app' || p.indexOf('/app/') === 0) {
+                    return new URL('/app/voise/index.json', window.location.origin).href;
+                }
+                return new URL('voise/index.json', document.baseURI || window.location.href).href;
+            } catch (e) {
+                return '/app/voise/index.json';
+            }
+        }
+
+        function saranResolveAudioUrl(raw) {
+            const rel = String(raw || '').trim();
+            if (!rel) return '';
+            if (/^https?:\/\//i.test(rel)) return rel;
+            try {
+                return new URL(rel, window.location.href).href;
+            } catch (e) {
+                return rel;
+            }
+        }
+
+        function saranLookupVoiseUrlByText(text) {
+            const key = saranNormalizeBuryatKey(text);
+            return key ? (saranVoiseLexicon[key] || '') : '';
+        }
+
+        function saranEnsureVoiseLexiconLoaded() {
+            if (saranVoiseLoadPromise) return saranVoiseLoadPromise;
+            saranVoiseLoadPromise = fetch(saranVoiseIndexHref(), { credentials: 'same-origin', cache: 'force-cache' })
+                .then(function(r) {
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    return r.json();
+                })
+                .then(function(data) {
+                    const map = Object.create(null);
+                    const sections = Array.isArray(data && data.sections) ? data.sections : [];
+                    sections.forEach(function(sec) {
+                        const items = Array.isArray(sec && sec.items) ? sec.items : [];
+                        items.forEach(function(item) {
+                            const buryat = String(item && item.buryat || '').trim();
+                            const rel = item && item.source ? item.source.audioRelativePath : '';
+                            const url = saranResolveAudioUrl(rel);
+                            const key = saranNormalizeBuryatKey(buryat);
+                            if (key && url && !map[key]) map[key] = url;
+                        });
+                    });
+                    saranVoiseLexicon = map;
+                    return map;
+                })
+                .catch(function(err) {
+                    console.warn('[Saran] voise index load failed', err);
+                    saranVoiseLexicon = Object.create(null);
+                    return saranVoiseLexicon;
+                });
+            return saranVoiseLoadPromise;
+        }
+
+        function saranExtractAudioTextCandidate(optionLike) {
+            if (!optionLike) return '';
+            const raw = String(
+                optionLike.buryat ||
+                optionLike.buryatRu ||
+                optionLike.labelBuryat ||
+                optionLike.label ||
+                optionLike.labelRu ||
+                ''
+            ).trim();
+            if (!raw) return '';
+            return raw.split(/[,(/]/)[0].trim();
+        }
+
+        function saranResolveOptionAudioUrl(optionLike) {
+            if (!optionLike) return '';
+            const direct =
+                saranResolveAudioUrl(optionLike.audioUrl || optionLike.audioRelativePath || optionLike.audio || '');
+            if (direct) return direct;
+            const text = saranExtractAudioTextCandidate(optionLike);
+            return saranLookupVoiseUrlByText(text);
+        }
+
+        function saranPlayOptionPreview(optionLike) {
+            if (!saranSoundEnabled) return;
+            const tryPlay = function(url) {
+                const safeUrl = saranResolveAudioUrl(url);
+                if (!safeUrl) return;
+                try {
+                    if (!saranOptionPreviewAudio) {
+                        saranOptionPreviewAudio = new Audio();
+                        saranOptionPreviewAudio.preload = 'auto';
+                    }
+                    saranOptionPreviewAudio.pause();
+                    saranOptionPreviewAudio.src = safeUrl;
+                    saranOptionPreviewAudio.currentTime = 0;
+                    saranOptionPreviewAudio.play().catch(function() { /* ignore autoplay/user-gesture errors */ });
+                } catch (ePlay) { /* ignore */ }
+            };
+            const speakBuryatText = function(text) {
+                const t = String(text || '').trim();
+                if (!t) return;
+                try {
+                    if (window.speechSynthesis && typeof window.SpeechSynthesisUtterance === 'function') {
+                        window.speechSynthesis.cancel();
+                        const u = new SpeechSynthesisUtterance(t);
+                        // Явно указываем не-русскую локаль, чтобы не подставлялся русский TTS-текст.
+                        u.lang = 'mn-MN';
+                        u.rate = 0.95;
+                        u.pitch = 1.0;
+                        window.speechSynthesis.speak(u);
+                    }
+                } catch (eTts) { /* ignore */ }
+            };
+            const immediateUrl = saranResolveOptionAudioUrl(optionLike);
+            if (immediateUrl) {
+                tryPlay(immediateUrl);
+                return;
+            }
+            const buryatCandidate = String(
+                optionLike && (optionLike.buryat || optionLike.buryatRu || optionLike.labelBuryat) || ''
+            ).trim();
+            if (buryatCandidate) {
+                speakBuryatText(buryatCandidate);
+                return;
+            }
+            const textCandidate = saranExtractAudioTextCandidate(optionLike);
+            if (!textCandidate) return;
+            saranEnsureVoiseLexiconLoaded().then(function() {
+                const mapped = saranLookupVoiseUrlByText(textCandidate);
+                if (mapped) {
+                    tryPlay(mapped);
+                    return;
+                }
+                // Для не-бурятских лейблов автопроговаривание не запускаем.
+            });
+        }
+
+        function saranPreloadAudioUrl(url) {
+            const safeUrl = saranResolveAudioUrl(url);
+            if (!safeUrl) return;
+            if (!saranAudioPreloadLinks[safeUrl]) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'audio';
+                link.href = safeUrl;
+                document.head.appendChild(link);
+                saranAudioPreloadLinks[safeUrl] = true;
+            }
+            if (!saranAudioWarmCache[safeUrl]) {
+                try {
+                    const au = new Audio();
+                    au.preload = 'auto';
+                    au.src = safeUrl;
+                    au.load();
+                    saranAudioWarmCache[safeUrl] = au;
+                } catch (eAudio) { /* ignore */ }
+            }
+        }
+
+        function saranCollectLessonAudioCandidates(courseIndex, lessonIdx) {
+            const out = [];
+            const data = window.saranCurriculum;
+            const course = data && data.courses && data.courses[courseIndex];
+            const lesson = course && Array.isArray(course.lessons) ? course.lessons[lessonIdx] : null;
+            const steps = lesson && Array.isArray(lesson.steps) ? lesson.steps : [];
+            steps.forEach(function(step) {
+                const opts = Array.isArray(step && step.options) ? step.options : [];
+                opts.forEach(function(opt) {
+                    const direct = saranResolveAudioUrl(opt.audioUrl || opt.audioRelativePath || opt.audio || '');
+                    if (direct) out.push(direct);
+                    const txt = saranExtractAudioTextCandidate(opt);
+                    if (txt) out.push(txt);
+                });
+                if (step && step.bubbleAudioUrl) out.push(String(step.bubbleAudioUrl));
+                if (step && step.type === 'translate_tiles') {
+                    const segs = Array.isArray(step.sourceSegments) ? step.sourceSegments : [];
+                    segs.forEach(function(seg) {
+                        const txt = String(seg && seg.text || '').trim();
+                        if (txt) out.push(txt);
+                    });
+                    const correct = Array.isArray(step.correctTokens) ? step.correctTokens : [];
+                    correct.forEach(function(tok) {
+                        const txt = String(tok || '').trim();
+                        if (txt) out.push(txt);
+                    });
+                }
+            });
+            return out;
+        }
+
+        function saranWarmupLessonAudio(courseIndex, lessonIdx) {
+            const candidates = saranCollectLessonAudioCandidates(courseIndex, lessonIdx);
+            if (!candidates.length) return;
+            saranEnsureVoiseLexiconLoaded().then(function() {
+                const seen = Object.create(null);
+                candidates.forEach(function(v) {
+                    const direct = saranResolveAudioUrl(v);
+                    const resolved = direct || saranLookupVoiseUrlByText(v);
+                    if (!resolved || seen[resolved]) return;
+                    seen[resolved] = true;
+                    saranPreloadAudioUrl(resolved);
+                });
+            });
+        }
+
+        function saranResolveTranslateBubbleAudioUrl(tt) {
+            if (!tt || !tt.bubbleShowAudio) return '';
+            const direct = saranResolveAudioUrl(tt.bubbleAudioUrl || '');
+            if (direct) return direct;
+            const segs = Array.isArray(tt.sourceSegments) ? tt.sourceSegments : [];
+            const accent = segs
+                .filter(function(seg) { return seg && seg.style === 'accent'; })
+                .map(function(seg) { return String(seg && seg.text || '').trim(); })
+                .find(function(txt) { return !!txt; }) || '';
+            if (accent) {
+                const fromAccent = saranLookupVoiseUrlByText(accent);
+                if (fromAccent) return fromAccent;
+            }
+            const joined = segs.map(function(seg) { return String(seg && seg.text || '').trim(); }).join(' ').trim();
+            if (joined) {
+                const fromJoined = saranLookupVoiseUrlByText(joined);
+                if (fromJoined) return fromJoined;
+            }
+            return '';
+        }
 
         function saranReadLsInt(key, def) {
             try {
@@ -4997,15 +5310,17 @@
                 const em = String(o.emoji || '').trim();
                 const buryat = saranStripBold(o.buryatRu || o.labelBuryat || '');
                 const tgRel = String(o.tgRel || o.telegramWebp || '').trim();
+                const audioUrl = saranResolveAudioUrl(o.audioUrl || o.audioRelativePath || o.audio || '');
                 return {
                     emoji: em || '❔',
                     buryat: buryat,
                     correct: !!o.correct,
-                    tgRel: tgRel
+                    tgRel: tgRel,
+                    audioUrl: audioUrl
                 };
             }).filter(function(x) { return x.buryat.length; });
             if (!arr.length) {
-                arr.push({ emoji: '❔', buryat: '…', correct: true, tgRel: '' });
+                arr.push({ emoji: '❔', buryat: '…', correct: true, tgRel: '', audioUrl: '' });
             }
             if (shuffle && arr.length > 1) {
                 for (let i = arr.length - 1; i > 0; i--) {
@@ -5024,17 +5339,24 @@
             }
             if (correctIndex < 0) correctIndex = 0;
             return {
-                cells: arr.map(function(a) { return { emoji: a.emoji, buryat: a.buryat, tgRel: a.tgRel }; }),
+                cells: arr.map(function(a) {
+                    return { emoji: a.emoji, buryat: a.buryat, tgRel: a.tgRel, audioUrl: a.audioUrl };
+                }),
                 correctIndex: correctIndex
             };
         }
 
         function saranShuffleChoicesForMc(options, shuffle) {
             const arr = (options || []).map(function(o) {
-                return { label: saranStripBold(o.labelRu || o.label || ''), correct: !!o.correct };
+                return {
+                    label: saranStripBold(o.labelRu || o.label || ''),
+                    correct: !!o.correct,
+                    audioUrl: saranResolveAudioUrl(o.audioUrl || o.audioRelativePath || o.audio || ''),
+                    buryat: saranStripBold(o.buryatRu || o.labelBuryat || '')
+                };
             }).filter(function(x) { return x.label.length; });
             if (!arr.length) {
-                arr.push({ label: '…', correct: true });
+                arr.push({ label: '…', correct: true, audioUrl: '', buryat: '' });
             }
             if (shuffle && arr.length > 1) {
                 for (let i = arr.length - 1; i > 0; i--) {
@@ -5052,7 +5374,12 @@
                 }
             }
             if (correctIndex < 0) correctIndex = 0;
-            return { labels: arr.map(function(a) { return a.label; }), correctIndex: correctIndex };
+            return {
+                items: arr.map(function(a) {
+                    return { label: a.label, audioUrl: a.audioUrl, buryat: a.buryat };
+                }),
+                correctIndex: correctIndex
+            };
         }
 
         function saranShuffleStringArray(items, shuffle) {
@@ -5175,7 +5502,7 @@
                     out.push({
                         kind: 'mc',
                         q: saranStripBold(step.questionRu || 'Выберите'),
-                        choices: mc.labels,
+                        choices: mc.items,
                         correctIndex: mc.correctIndex,
                         visual: vis
                     });
@@ -5814,7 +6141,7 @@
             var proxyRel =
                 typeof window !== 'undefined' && window.SARAN_OPENROUTER_PROXY
                     ? window.SARAN_OPENROUTER_PROXY
-                    : 'api/openrouter-chat.php';
+                    : '/api/openrouter-chat.php';
             try {
                 return new URL(proxyRel, typeof location !== 'undefined' ? location.href : undefined).href;
             } catch (eUrl) {
@@ -5830,7 +6157,7 @@
             var rel =
                 typeof window !== 'undefined' && window.SARAN_NLLB_PROXY
                     ? window.SARAN_NLLB_PROXY
-                    : 'api/nllb-translate.php';
+                    : '/api/nllb-translate.php';
             try {
                 return new URL(rel, typeof location !== 'undefined' ? location.href : undefined).href;
             } catch (eUrl2) {
@@ -5841,9 +6168,9 @@
             }
         }
 
-        /** NLLB (Meta) eng_Latn → bury_Cyrl через HF Inference; ключ только на сервере в PHP. */
-        async function saranTranslateNllb(englishText) {
-            var t = String(englishText || '').trim();
+        /** NLLB (Meta) перевод целых предложений; ключ только на сервере в PHP. */
+        async function saranTranslateNllb(text, sourceLang, targetLang) {
+            var t = String(text || '').trim();
             if (!t) {
                 return '';
             }
@@ -5855,8 +6182,8 @@
                 },
                 body: JSON.stringify({
                     text: t,
-                    source_lang: 'eng_Latn',
-                    target_lang: 'bury_Cyrl'
+                    source_lang: String(sourceLang || 'bury_Cyrl'),
+                    target_lang: String(targetLang || 'rus_Cyrl')
                 })
             });
             var rawTxt = await res.text().catch(function() {
@@ -5878,7 +6205,6 @@
         async function saranOpenRouterCompletion(messages, systemContent) {
             const proxyUrl = saranOpenRouterProxyUrl();
             const body = {
-                model: SARAN_OPENROUTER_MODEL,
                 messages: [{ role: 'system', content: String(systemContent || '') }].concat(messages || [])
             };
             const res = await fetch(proxyUrl, {
@@ -5904,43 +6230,54 @@
             return String(txt || '').trim();
         }
 
-        /**
-         * Конвейер: (1) черновик по-английски, (2) NLLB → bury_Cyrl; при сбое — перевод второй ролью OpenRouter.
-         */
+        function saranReadableChatError(err) {
+            var raw = err && err.message ? String(err.message) : '';
+            if (!raw) return '';
+            var cleaned = raw.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+            if (!cleaned) return '';
+            if (/unsupported method|method_not_allowed|501/i.test(cleaned)) {
+                return 'Сервер чата сейчас недоступен для POST-запросов.';
+            }
+            return cleaned.slice(0, 140);
+        }
+
+        /** Конвейер: Buryat -> Russian -> AI(simple Russian) -> Buryat. */
         async function saranSendOpenRouter(messages) {
-            const enDraft = await saranOpenRouterCompletion(messages, SARAN_AI_SYSTEM_EN);
-            if (!enDraft) {
+            const list = Array.isArray(messages) ? messages : [];
+            const userMsg = list.length ? String(list[list.length - 1].content || '').trim() : '';
+            if (!userMsg) {
                 return { ok: true, text: '' };
             }
+
+            let userRu = userMsg;
             try {
-                const buryatNllb = await saranTranslateNllb(enDraft);
-                if (buryatNllb) {
-                    return { ok: true, text: buryatNllb };
+                const translated = await saranTranslateNllb(userMsg, 'bury_Cyrl', 'rus_Cyrl');
+                if (translated) {
+                    userRu = translated;
                 }
-            } catch (eNllb) {
-                /* запасной перевод */
+            } catch (eUserTranslate) {
+                userRu = userMsg;
             }
+
+            const aiRu = await saranOpenRouterCompletion([{ role: 'user', content: userRu }], SARAN_AI_SYSTEM_RU);
+            if (!aiRu) {
+                return { ok: true, text: '' };
+            }
+
             try {
-                const buryat = await saranOpenRouterCompletion(
-                    [{ role: 'user', content: enDraft }],
-                    SARAN_AI_SYSTEM_TRANSLATE
-                );
+                const buryat = await saranTranslateNllb(aiRu, 'rus_Cyrl', 'bury_Cyrl');
                 if (buryat) {
                     return { ok: true, text: buryat };
                 }
             } catch (eTr) {
                 return {
                     ok: true,
-                    text:
-                        enDraft +
-                        '\n\n(Перевод на бурятский сейчас недоступен — ниже текст на английском.)'
+                    text: aiRu
                 };
             }
             return {
                 ok: true,
-                text:
-                    enDraft +
-                    '\n\n(Перевод на бурятский сейчас недоступен — ниже текст на английском.)'
+                text: aiRu
             };
         }
 
@@ -5981,7 +6318,8 @@
                         saranAppendChatBubble('ai', fb);
                     }
                 } catch (err) {
-                    const fb = saranFallbackBuryatReply(raw) + '\n(Чат временно недоступен.' + (err && err.message ? ' ' + err.message : '') + ')';
+                    var hint = saranReadableChatError(err);
+                    const fb = saranFallbackBuryatReply(raw) + '\n(Чат временно недоступен.' + (hint ? ' ' + hint : '') + ')';
                     saranChatHistory.push({ role: 'assistant', content: fb });
                     saranAppendChatBubble('ai', fb);
                 } finally {
@@ -6097,6 +6435,7 @@
             saranExerciseState.answered = false;
             saranExerciseState.pickedWrong = false;
             saranExerciseState.selectedIndex = null;
+            saranWarmupLessonAudio(courseIndex, lessonIdx);
             openSaranExercisePage();
             renderSaranExerciseStep();
         }
@@ -6195,25 +6534,32 @@
                 }
                 const bubble = document.createElement('div');
                 bubble.className = 'saran-duo-translate__bubble';
-                if (tt.bubbleShowAudio && tt.bubbleAudioUrl) {
+                function appendBubbleAudioButton(audioUrl) {
+                    if (!audioUrl) return;
+                    if (bubble.querySelector('.saran-duo-translate__audio')) return;
                     const ab = document.createElement('button');
                     ab.type = 'button';
                     ab.className = 'saran-duo-translate__audio';
                     ab.setAttribute('aria-label', 'Прослушать фразу');
                     ab.innerHTML = speakerSvg;
                     ab.addEventListener('click', function() {
+                        if (!saranSoundEnabled) return;
                         try {
-                            const au = new Audio(tt.bubbleAudioUrl);
+                            const au = new Audio(audioUrl);
                             au.play().catch(function() { /* ignore */ });
                         } catch (ePlay) { /* ignore */ }
                     });
                     bubble.appendChild(ab);
+                }
+                var bubbleAudioResolved = saranResolveTranslateBubbleAudioUrl(tt);
+                if (tt.bubbleShowAudio && bubbleAudioResolved) {
+                    appendBubbleAudioButton(bubbleAudioResolved);
                 } else if (tt.bubbleShowAudio) {
-                    const sp = document.createElement('span');
-                    sp.className = 'saran-duo-translate__audio saran-duo-translate__audio--inactive';
-                    sp.setAttribute('aria-hidden', 'true');
-                    sp.innerHTML = speakerSvg;
-                    bubble.appendChild(sp);
+                    saranEnsureVoiseLexiconLoaded().then(function() {
+                        var lateResolved = saranResolveTranslateBubbleAudioUrl(tt);
+                        if (!lateResolved || !bubble.isConnected) return;
+                        appendBubbleAudioButton(lateResolved);
+                    });
                 }
                 const phrase = document.createElement('span');
                 phrase.className = 'saran-duo-translate__phrase';
@@ -6265,6 +6611,7 @@
                             tb.setAttribute('aria-label', 'Убрать слово «' + val + '»');
                             tb.addEventListener('click', function() {
                                 if (st.answered) return;
+                                saranPlayOptionPreview({ buryat: val });
                                 pool.push(val);
                                 slots[si] = null;
                                 renderAll();
@@ -6291,6 +6638,7 @@
                             const tok = pool[pi];
                             const empty = firstEmptySlotIndex();
                             if (empty < 0) return;
+                            saranPlayOptionPreview({ buryat: tok });
                             slots[empty] = tok;
                             pool.splice(pi, 1);
                             renderAll();
@@ -6445,6 +6793,7 @@
                             btn.classList.toggle('saran-ex-choice--selected', on);
                             btn.setAttribute('aria-pressed', on ? 'true' : 'false');
                         });
+                        saranPlayOptionPreview({ buryat: cell.buryat, audioUrl: cell.audioUrl });
                         nextBtn.disabled = false;
                     });
                     choices.appendChild(b);
@@ -6483,7 +6832,8 @@
             /* mc */
             var mcButtons = [];
             var correctMcIdx = task.correctIndex;
-            task.choices.forEach(function(label, idx) {
+            task.choices.forEach(function(choice, idx) {
+                const label = (choice && typeof choice === 'object') ? String(choice.label || '') : String(choice || '');
                 const b = document.createElement('button');
                 b.type = 'button';
                 b.className = 'saran-ex-choice';
@@ -6496,6 +6846,11 @@
                         var on = j === idx;
                         btn.classList.toggle('saran-ex-choice--selected', on);
                         btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    });
+                    saranPlayOptionPreview({
+                        label: label,
+                        audioUrl: (choice && typeof choice === 'object') ? choice.audioUrl : '',
+                        buryat: (choice && typeof choice === 'object') ? choice.buryat : ''
                     });
                     nextBtn.disabled = false;
                 });
@@ -6520,6 +6875,8 @@
 
         function openSaranCourseFromIndex(courseIndex) {
             window.saranCourseIndex = courseIndex;
+            saranWarmupLessonAudio(courseIndex, 0);
+            saranWarmupLessonAudio(courseIndex, 1);
             const el = document.querySelector('#saranCourseCardsHost [data-course-index="' + courseIndex + '"]');
             if (el) {
                 el.classList.remove('course-image--pulse');
@@ -7387,6 +7744,7 @@
         function loadSaranCurriculum() {
             const host = document.getElementById('saranCourseCardsHost');
             const loading = document.getElementById('saranCoursesLoading');
+            saranEnsureVoiseLexiconLoaded();
             function showLoadError(err, triedUrl) {
                 console.warn('[Saran] curriculum', triedUrl, err);
                 if (!loading) return;
@@ -7463,6 +7821,15 @@
         (function initSaranLessonCompleteUi() {
             const b = document.getElementById('saranLessonCompleteBtn');
             if (b) b.addEventListener('click', saranDismissLessonCompleteOverlay);
+        })();
+        (function initSaranSoundUi() {
+            saranSoundEnabled = saranReadSoundEnabled();
+            saranRefreshSoundToggleUi();
+            const btn = document.getElementById('saranExSoundToggle');
+            if (!btn) return;
+            btn.addEventListener('click', function() {
+                saranSetSoundEnabled(!saranSoundEnabled);
+            });
         })();
         loadSaranCurriculum();
         

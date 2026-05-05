@@ -61,6 +61,60 @@ if ($rawBody === false || $rawBody === '') {
     exit;
 }
 
+try {
+    $payload = json_decode($rawBody, true, 512, JSON_THROW_ON_ERROR);
+} catch (Throwable $e) {
+    http_response_code(400);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['error' => 'bad_json'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+if (!is_array($payload)) {
+    http_response_code(400);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['error' => 'bad_payload'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+$messages = $payload['messages'] ?? null;
+if (!is_array($messages) || count($messages) === 0) {
+    http_response_code(400);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['error' => 'messages_required'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+$model = getenv('SARAN_OPENROUTER_MODEL');
+$model = is_string($model) ? trim($model) : '';
+if ($model === '' && isset($payload['model']) && is_string($payload['model'])) {
+    $model = trim($payload['model']);
+}
+if ($model === '') {
+    $model = 'google/gemma-3-12b-it';
+}
+
+$forwardPayload = [
+    'model' => $model,
+    'messages' => $messages,
+];
+if (isset($payload['temperature']) && is_numeric($payload['temperature'])) {
+    $forwardPayload['temperature'] = (float)$payload['temperature'];
+}
+if (isset($payload['max_tokens']) && is_numeric($payload['max_tokens'])) {
+    $forwardPayload['max_tokens'] = (int)$payload['max_tokens'];
+}
+if (isset($payload['stream'])) {
+    $forwardPayload['stream'] = (bool)$payload['stream'];
+}
+try {
+    $rawBody = json_encode($forwardPayload, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+} catch (Throwable $e) {
+    http_response_code(400);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['error' => 'encode_failed'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 $origin = '';
 if (!empty($_SERVER['HTTP_ORIGIN']) && is_string($_SERVER['HTTP_ORIGIN'])) {
     $origin = $_SERVER['HTTP_ORIGIN'];

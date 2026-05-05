@@ -204,6 +204,7 @@ mirror -R --delete --verbose ${dry} \
   --exclude-glob .git/ \
   --exclude-glob .vscode/ \
   --exclude-glob main_site/ \
+  --exclude-glob presentation/ \
   --exclude-glob node_modules/ \
   --exclude-glob __pycache__/ \
   --exclude-glob .DS_Store \
