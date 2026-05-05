@@ -191,7 +191,11 @@ mirror -R --delete --verbose ${dry} \
   main_site/ ${FTP_ROOT}/
 "
   )
-  upload_file_force_verified "./main_site/index.html" "${FTP_ROOT}/index.html" 5
+  if [[ "${DEPLOY_DRY_RUN}" == "1" ]]; then
+    echo "… dry-run: пропуск rm+put и проверки размеров для ${FTP_ROOT}/index.html"
+  else
+    upload_file_force_verified "./main_site/index.html" "${FTP_ROOT}/index.html" 5
+  fi
 
   echo "== Шаг 2: project -> ${FTP_APP_DIR} (без main_site и служебного) =="
   (
@@ -215,8 +219,12 @@ mirror -R --delete --verbose ${dry} \
   ./ ${FTP_APP_DIR}/
 "
   )
-  upload_file_force_verified "./index.html" "${FTP_APP_DIR}/index.html" 5
-  upload_file_force_verified "./data/buryat-curriculum.json" "${FTP_APP_DIR}/data/buryat-curriculum.json" 5
+  if [[ "${DEPLOY_DRY_RUN}" == "1" ]]; then
+    echo "… dry-run: пропуск rm+put и проверки размеров для app/index.html и buryat-curriculum.json"
+  else
+    upload_file_force_verified "./index.html" "${FTP_APP_DIR}/index.html" 5
+    upload_file_force_verified "./data/buryat-curriculum.json" "${FTP_APP_DIR}/data/buryat-curriculum.json" 5
+  fi
 
   echo "== Деплой завершен =="
   verify
