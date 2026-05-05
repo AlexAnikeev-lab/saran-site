@@ -48,8 +48,10 @@ EOF
 lftp_run() {
   local script="$1"
   lftp -u "${FTP_USER},${FTP_PASS}" "${FTP_HOST}" -e "
-set net:max-retries 1
-set net:timeout 12
+set net:max-retries 3
+set net:reconnect-interval-base 5
+set net:reconnect-interval-max 20
+set net:timeout 20
 set cmd:fail-exit yes
 set ssl:verify-certificate no
 set ftp:ssl-allow yes
@@ -150,8 +152,11 @@ assert_remote_size_matches() {
   local_size="$(wc -c < "${local_file}" | tr -d ' ')"
   local tmp_file
   tmp_file="$(mktemp /tmp/saran-ftp-verify.XXXXXX)"
-  rm -f "${tmp_file}"
-  lftp_run "get ${remote_file} -o ${tmp_file}"
+  if ! lftp_run "get ${remote_file} -o ${tmp_file}"; then
+    rm -f "${tmp_file}"
+    echo "Не удалось скачать ${remote_file} для проверки размера"
+    return 1
+  fi
   local remote_size
   remote_size="$(wc -c < "${tmp_file}" | tr -d ' ')"
   rm -f "${tmp_file}"
