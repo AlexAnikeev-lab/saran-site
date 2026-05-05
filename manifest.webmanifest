@@ -10,13 +10,13 @@
   "theme_color": "#0a0a0a",
   "icons": [
     {
-      "src": "botpfp.jpg",
+      "src": "SaranLogo.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "botpfp.jpg",
+      "src": "SaranLogo.jpg",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any"
