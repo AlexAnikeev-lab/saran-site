@@ -48,8 +48,8 @@ EOF
 lftp_run() {
   local script="$1"
   lftp -u "${FTP_USER},${FTP_PASS}" "${FTP_HOST}" -e "
-set net:max-retries 1
-set net:timeout 12
+set net:max-retries 3
+set net:timeout 60
 set cmd:fail-exit yes
 set ssl:verify-certificate no
 set ftp:ssl-allow yes

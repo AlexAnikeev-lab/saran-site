@@ -88,381 +88,1762 @@
           "id": "c1_l1",
           "order": 1,
           "titleRu": "Первый контакт 👋",
-          "summaryRu": "Сайн байна, баярлаа, баяртай — стартовые фразы общения.",
-          "estimatedMinutes": 6,
+          "summaryRu": "Привет, спасибо и пока: первые фразы повседневного общения.",
+          "estimatedMinutes": 9,
           "hasAudio": false,
-          "completionHeadlineRu": "Маленькая победа",
-          "completionBodyRu": "Вы поздоровались словом «Мэнд» и узнали две буквы. Этого достаточно на сегодня.",
+          "completionHeadlineRu": "Отличный старт",
+          "completionBodyRu": "Вы уверенно различаете приветствие, благодарность и прощание.",
+          "kind": "lesson",
+          "isFinalExam": false,
           "steps": [
             {
               "id": "c1l1s1",
               "type": "intro",
-              "headlineRu": "Вы здесь впервые — и это нормально",
-              "bodyRu": "Мы не будем бросать в вас грамматикой. Сначала — один привет и пара букв, как в спокойной игре.",
-              "visual": {
-                "mode": "file",
-                "relativePath": "photos/l1_3_img_group_win.jpg",
-                "altRu": "Иллюстрация урока"
-              },
-              "ctaRu": "Понятно, дальше"
+              "headlineRu": "Этап 1: Узнавание",
+              "bodyRu": "Слова урока: **Сайн байна!** 👋 (Привет), **Баярлаа!** 🙏 (Спасибо), **Баяртай!** 🖐 (Пока).",
+              "ctaRu": "Поехали"
             },
             {
               "id": "c1l1s2",
               "type": "emoji_choice",
-              "tagRu": "НОВОЕ СЛОВО",
-              "questionRu": "Выбери эмодзи для смысла «привет».",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Ты встретил друга. Что скажешь?",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
                   "emoji": "👋",
-                  "buryatRu": "Мэнд",
+                  "buryatRu": "Сайн байна!",
                   "correct": true,
                   "tgRel": "People/Waving Hand.webp"
                 },
                 {
                   "id": "b",
-                  "emoji": "🙏",
-                  "buryatRu": "Баярлалаа",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай!",
                   "correct": false,
-                  "tgRel": "People/Folded Hands.webp"
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
                 },
                 {
                   "id": "c",
-                  "emoji": "🖐",
-                  "buryatRu": "Баяртай",
+                  "emoji": "🙏",
+                  "buryatRu": "Баярлаа!",
                   "correct": false,
-                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                  "tgRel": "People/Folded Hands.webp"
                 }
               ]
             },
             {
               "id": "c1l1s3",
-              "type": "intro",
-              "headlineRu": "Две буквы, которые уже «ваши»",
-              "bodyRu": "Буквы **А** и **У** в бурятском читаются почти как в русском: коротко «а» и «у». Ничего запоминать наизусть не нужно — просто смотрите.",
-              "buryatHint": "Мэнд — дружеское «здравствуй».",
-              "ctaRu": "Понятно, дальше"
-            },
-            {
-              "id": "c1l1s4",
               "type": "choice",
-              "tagRu": "К БУКВАМ",
-              "questionRu": "Где звук «а»?",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Как по-бурятски «Спасибо»?",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "labelRu": "Буква **А**",
-                  "correct": true,
-                  "icon": "tri"
+                  "labelRu": "Сайн",
+                  "correct": false
                 },
                 {
                   "id": "b",
-                  "labelRu": "Буква **У**",
-                  "correct": false,
-                  "icon": "cupU"
+                  "labelRu": "Баярлаа",
+                  "correct": true
                 },
                 {
                   "id": "c",
-                  "labelRu": "Буква **Ы**",
+                  "labelRu": "Тиимэ",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l1s4",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Уходишь домой. Твоё действие?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай!",
+                  "correct": true,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "👋",
+                  "buryatRu": "Сайн байна!",
                   "correct": false,
-                  "icon": "forkY"
+                  "tgRel": "People/Waving Hand.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "❌",
+                  "buryatRu": "Үгы",
+                  "correct": false,
+                  "tgRel": "Smileys/Cross Mark.webp"
                 }
               ]
             },
             {
               "id": "c1l1s5",
+              "type": "translate_tiles",
+              "instructionRu": "Собери приветствие из кусочков",
+              "sourceSegments": [
+                {
+                  "text": "Собери фразу: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Сайн байна!",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Сайн",
+                "байна!"
+              ],
+              "wordBank": [
+                "Баяртай!",
+                "Сайн",
+                "байна!",
+                "Баярлаа"
+              ],
+              "shuffleWordBank": true,
+              "bubbleShowAudio": true,
+              "bubbleAudioUrl": "voise/Приветствие и этикет/chunks/audio_002.wav"
+            },
+            {
+              "id": "c1l1s6",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Баярлаа» и выбери верный эмодзи.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "👋",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "🙏",
+                  "correct": true
+                },
+                {
+                  "id": "c",
+                  "labelRu": "🖐",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l1s7",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Что означает слово «Баяртай»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "До свидания",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Спасибо",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Привет",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l1s8",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Тебе дали конфету 🍬. Что ответить?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "🙏",
+                  "buryatRu": "Баярлаа",
+                  "correct": true,
+                  "tgRel": "People/Folded Hands.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": false,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "👤",
+                  "buryatRu": "Хэн?",
+                  "correct": false,
+                  "tgRel": "People/Bust In Silhouette.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l1s9",
               "type": "boolean",
-              "questionRu": "Правда ли?",
-              "statementRu": "Сейчас важнее не бояться букв, чем знать их все.",
-              "correctIsTrue": true
+              "questionRu": "Да или нет?",
+              "statementRu": "«Сайн байна» — это «Спасибо».",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l1s10",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Выбери лишнее",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Сайн байна",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Баяртай",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Юун",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "id": "c1l1s11",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Напиши на бурятском «Привет» — выбери верный вариант.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Сайн байна",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Баярлаа",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Үгы",
+                  "correct": false
+                }
+              ]
             }
-          ],
-          "kind": "lesson",
-          "isFinalExam": false
+          ]
         },
         {
           "id": "c1_l2",
           "order": 2,
           "titleRu": "Это я 🙋‍♂️",
-          "summaryRu": "Би, ши, тэрэ (я, ты, он/она) и короткое знакомство.",
-          "estimatedMinutes": 6,
+          "summaryRu": "Местоимения: би, ши, тэрэ.",
+          "estimatedMinutes": 9,
           "hasAudio": false,
-          "completionHeadlineRu": "Пауза — это тоже язык",
-          "completionBodyRu": "В живой речи можно ответить коротко «сайн» и улыбнуться. Не нужно длинных фраз.",
+          "completionHeadlineRu": "База местоимений готова",
+          "completionBodyRu": "Теперь вы легко различаете «я», «ты» и «он/она».",
+          "kind": "lesson",
+          "isFinalExam": false,
           "steps": [
             {
               "id": "c1l2s1",
               "type": "intro",
-              "headlineRu": "Три «якоря» на каждый день",
-              "bodyRu": "Слова **би**, **сайн**, **юу байна?** — как три кнопки в кармане: «я», «хорошо», «как дела?»",
-              "buryatHint": "би — я; сайн — хорошо; юу байна? — как дела?",
-              "ctaRu": "Понятно, дальше"
+              "headlineRu": "Этап 1: Узнавание",
+              "bodyRu": "Слова урока: **Би** 🙋‍♂️ (Я), **Ши** 👈 (Ты), **Тэрэ** 👉 (Он/Она).",
+              "ctaRu": "Дальше"
             },
             {
               "id": "c1l2s2",
               "type": "emoji_choice",
-              "tagRu": "ВЫБЕРИТЕ",
-              "questionRu": "Выбери эмодзи для смысла «хорошо».",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Укажи на себя 🙋‍♂️. Какое это слово?",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "emoji": "👍",
-                  "buryatRu": "Сайн",
-                  "correct": true,
-                  "tgRel": "People/Thumbs Up.webp"
+                  "emoji": "🙋‍♂️",
+                  "buryatRu": "Би",
+                  "correct": true
                 },
                 {
                   "id": "b",
-                  "emoji": "❓",
-                  "buryatRu": "Юу",
+                  "emoji": "👈",
+                  "buryatRu": "Ши",
                   "correct": false,
-                  "tgRel": "Smileys/Question Mark.webp"
+                  "tgRel": "People/Backhand Index Pointing Left.webp"
                 },
                 {
                   "id": "c",
-                  "emoji": "👤",
-                  "buryatRu": "Би",
+                  "emoji": "👉",
+                  "buryatRu": "Тэрэ",
                   "correct": false,
-                  "tgRel": "People/Bust In Silhouette.webp"
+                  "tgRel": "People/Backhand Index Pointing Right.webp"
                 }
               ]
             },
             {
               "id": "c1l2s3",
-              "type": "emoji_choice",
-              "tagRu": "ФРАЗА",
-              "questionRu": "Выбери эмодзи для вопроса «как дела?».",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Как переводится «Ши»?",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "emoji": "💬",
-                  "buryatRu": "Юу байна?",
-                  "correct": true,
-                  "tgRel": "Smileys/Speech Balloon.webp"
+                  "labelRu": "Я",
+                  "correct": false
                 },
                 {
                   "id": "b",
-                  "emoji": "😊",
-                  "buryatRu": "Сайн байна уу?",
-                  "correct": false,
-                  "tgRel": "Smileys/Slightly Smiling Face.webp"
+                  "labelRu": "Ты",
+                  "correct": true
                 },
                 {
                   "id": "c",
-                  "emoji": "🖐",
-                  "buryatRu": "Баяртай",
-                  "correct": false,
-                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                  "labelRu": "Он/Она",
+                  "correct": false
                 }
               ]
             },
             {
               "id": "c1l2s4",
-              "type": "boolean",
-              "questionRu": "Правда ли?",
-              "statementRu": "Слово «би» значит «я».",
-              "correctIsTrue": true
-            },
-            {
-              "id": "c1l2s5",
               "type": "emoji_choice",
-              "tagRu": "ОТВЕТ",
-              "questionRu": "Выбери эмодзи для короткого ответа «всё хорошо» на «Юу байна?».",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Ты спрашиваешь друга 👈. Как обратиться?",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "emoji": "👍",
-                  "buryatRu": "Сайн",
-                  "correct": true,
-                  "tgRel": "People/Thumbs Up.webp"
+                  "emoji": "🙋‍♂️",
+                  "buryatRu": "Би",
+                  "correct": false
                 },
                 {
                   "id": "b",
-                  "emoji": "🖐",
-                  "buryatRu": "Баяртай",
-                  "correct": false,
-                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                  "emoji": "👈",
+                  "buryatRu": "Ши",
+                  "correct": true,
+                  "tgRel": "People/Backhand Index Pointing Left.webp"
                 },
                 {
                   "id": "c",
-                  "emoji": "❌",
-                  "buryatRu": "Үгүй",
+                  "emoji": "👉",
+                  "buryatRu": "Тэрэ",
                   "correct": false,
-                  "tgRel": "Smileys/Cross Mark.webp"
+                  "tgRel": "People/Backhand Index Pointing Right.webp"
                 }
               ]
+            },
+            {
+              "id": "c1l2s5",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Тэрэ» и выбери жест.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "🙋‍♂️",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "👈",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "👉",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "id": "c1l2s6",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Как сказать «Он»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Би",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Ши",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Тэрэ",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "id": "c1l2s7",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Би] + [баярлаа]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Би баярлаа",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Би",
+                "баярлаа"
+              ],
+              "wordBank": [
+                "Ши",
+                "Би",
+                "баярлаа",
+                "тиимэ"
+              ],
+              "shuffleWordBank": true
+            },
+            {
+              "id": "c1l2s8",
+              "type": "boolean",
+              "questionRu": "Да или нет?",
+              "statementRu": "«Тэрэ» — это «Я».",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l2s9",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Кто-то стоит далеко 👉. Твоё слово?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "👉",
+                  "buryatRu": "Тэрэ",
+                  "correct": true,
+                  "tgRel": "People/Backhand Index Pointing Right.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "🙋‍♂️",
+                  "buryatRu": "Би",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "emoji": "👈",
+                  "buryatRu": "Ши",
+                  "correct": false,
+                  "tgRel": "People/Backhand Index Pointing Left.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l2s10",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "«Би и Ши» — это...",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Я и он",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Я и ты",
+                  "correct": true
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Ты и она",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l2s11",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Ши] + [байнаш]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Ши байнаш",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Ши",
+                "байнаш"
+              ],
+              "wordBank": [
+                "Ши",
+                "байнаш",
+                "Би",
+                "баяртай"
+              ],
+              "shuffleWordBank": true
             }
-          ],
-          "kind": "lesson",
-          "isFinalExam": false
+          ]
         },
         {
           "id": "c1_l3",
           "order": 3,
           "titleRu": "Волшебные буквы 🗣️",
-          "summaryRu": "Тренировка Ө, Ү, Һ через слова: Һүн, Хүн, Өгхэ.",
-          "estimatedMinutes": 6,
+          "summaryRu": "Фонетика через слова Һүн, Хүн, Үхэр.",
+          "estimatedMinutes": 9,
           "hasAudio": false,
-          "completionHeadlineRu": "Вы справились",
-          "completionBodyRu": "Три урока — маленький ритуал: привет, три слова, короткий диалог. Заходите завтра — так язык не пугает.",
+          "completionHeadlineRu": "Сложные звуки под контролем",
+          "completionBodyRu": "Вы различаете похожие слова на слух и по написанию.",
+          "kind": "lesson",
+          "isFinalExam": false,
           "steps": [
             {
               "id": "c1l3s1",
               "type": "intro",
-              "headlineRu": "Микро-диалог из двух реплик",
-              "bodyRu": "Кто-то спрашивает «Юу байна?» — вы отвечаете «Сайн». Всё.",
-              "buryatHint": "Юу байна? — Сайн.",
-              "ctaRu": "Понятно, дальше"
+              "headlineRu": "Этап 1: Узнавание",
+              "bodyRu": "Слова урока: **Һүн** 🥛 (Молоко), **Хүн** 👤 (Человек), **Үхэр** 🐄 (Корова).",
+              "ctaRu": "Дальше"
             },
             {
               "id": "c1l3s2",
               "type": "emoji_choice",
-              "tagRu": "ДИАЛОГ",
-              "questionRu": "Первая реплика — вопрос «как дела?». Выбери эмодзи.",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "На полке стоит молоко 🥛. Нажми правильное слово.",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "emoji": "💬",
-                  "buryatRu": "Юу байна?",
+                  "emoji": "🥛",
+                  "buryatRu": "Һүн",
                   "correct": true,
-                  "tgRel": "Smileys/Speech Balloon.webp"
+                  "tgRel": "Food & Drink/Glass Of Milk.webp"
                 },
                 {
                   "id": "b",
-                  "emoji": "👍",
-                  "buryatRu": "Сайн",
+                  "emoji": "👤",
+                  "buryatRu": "Хүн",
                   "correct": false,
-                  "tgRel": "People/Thumbs Up.webp"
+                  "tgRel": "People/Bust In Silhouette.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "💧",
+                  "buryatRu": "Уһан",
+                  "correct": false,
+                  "tgRel": "Food & Drink/Pouring Liquid.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l3s3",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Что такое «Хүн»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Человек",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Корова",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Молоко",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l3s4",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Үхэр» и выбери картинку.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "🐕",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "🐄",
+                  "correct": true
+                },
+                {
+                  "id": "c",
+                  "labelRu": "🐈",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l3s5",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "В каком слове есть буква Һ?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Һүн",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хүн",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Үхэр",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l3s6",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Укажи на корову 🐄.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Үхэр",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хүн",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Һүн",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l3s7",
+              "type": "translate_tiles",
+              "instructionRu": "Составь слово [Һ] [ү] [н]",
+              "sourceSegments": [
+                {
+                  "text": "Собери слово: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Һүн",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Һ",
+                "ү",
+                "н"
+              ],
+              "wordBank": [
+                "х",
+                "Һ",
+                "ү",
+                "н",
+                "р"
+              ],
+              "shuffleWordBank": true,
+              "bubbleShowAudio": true,
+              "bubbleAudioUrl": "voise/Еда и напитки/chunks/audio_008.wav"
+            },
+            {
+              "id": "c1l3s8",
+              "type": "boolean",
+              "questionRu": "Да или нет?",
+              "statementRu": "«Хүн» — это животное.",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l3s9",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Выбери слово с мягким выдохом.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Хэлэхэ",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Һайхан",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "id": "c1l3s10",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Как сказать «Молоко»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Һүн",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хүн",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Үхэр",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l3s11",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Сайн] + [хүн]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Сайн хүн",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Сайн",
+                "хүн"
+              ],
+              "wordBank": [
+                "Сайн",
+                "хүн",
+                "үгы",
+                "баяртай"
+              ],
+              "shuffleWordBank": true
+            }
+          ]
+        },
+        {
+          "id": "course_01_l4",
+          "order": 4,
+          "titleRu": "Да или Нет ✅❌",
+          "summaryRu": "Тиимэ и Үгы в коротких ситуациях.",
+          "estimatedMinutes": 8,
+          "hasAudio": false,
+          "kind": "lesson",
+          "isFinalExam": false,
+          "steps": [
+            {
+              "id": "c1l4s1",
+              "type": "intro",
+              "headlineRu": "Этап 1: Узнавание",
+              "bodyRu": "Слова урока: **Тиимэ** ✅ (Да), **Үгы** ❌ (Нет).",
+              "ctaRu": "Дальше"
+            },
+            {
+              "id": "c1l4s2",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Тебе предлагают классную идею 💡. Что ты ответишь?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "✅",
+                  "buryatRu": "Тиимэ",
+                  "correct": true,
+                  "tgRel": "Smileys/Check Mark Button.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "❌",
+                  "buryatRu": "Үгы",
+                  "correct": false,
+                  "tgRel": "Smileys/Cross Mark.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": false,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l4s3",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Друг зовёт тебя, но ты не согласен. Что скажешь?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "✅",
+                  "buryatRu": "Тиимэ",
+                  "correct": false,
+                  "tgRel": "Smileys/Check Mark Button.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "❌",
+                  "buryatRu": "Үгы",
+                  "correct": true,
+                  "tgRel": "Smileys/Cross Mark.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "👋",
+                  "buryatRu": "Сайн байна",
+                  "correct": false,
+                  "tgRel": "People/Waving Hand.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l4s4",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Как вежливо сказать «Нет, спасибо»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Үгы, баярлаа",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Тиимэ, баярлаа",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Баяртай",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l4s5",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Тиимэ» и выбери ответ.",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "✅",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "❌",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l4s6",
+              "type": "boolean",
+              "questionRu": "Да или нет?",
+              "statementRu": "«Тиимэ» означает «Нет».",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l4s7",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Как подтвердить свой выбор?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Тиимэ",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Үгы",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Юун?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l4s8",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Би] + [үгы]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Би үгы",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Би",
+                "үгы"
+              ],
+              "wordBank": [
+                "Би",
+                "үгы",
+                "тиимэ",
+                "ши"
+              ],
+              "shuffleWordBank": true
+            },
+            {
+              "id": "c1l4s9",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Тебя спрашивают: «Ты любишь буузы?» Какой ответ выбираешь?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "✅",
+                  "buryatRu": "Тиимэ",
+                  "correct": true,
+                  "tgRel": "Smileys/Check Mark Button.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "❌",
+                  "buryatRu": "Үгы",
+                  "correct": false,
+                  "tgRel": "Smileys/Cross Mark.webp"
                 },
                 {
                   "id": "c",
                   "emoji": "👤",
-                  "buryatRu": "Би",
+                  "buryatRu": "Хэн?",
                   "correct": false,
                   "tgRel": "People/Bust In Silhouette.webp"
                 }
               ]
             },
             {
-              "id": "c1l3s3",
-              "type": "emoji_choice",
-              "tagRu": "ДИАЛОГ",
-              "questionRu": "Вторая реплика — короткий ответ «хорошо». Выбери эмодзи.",
+              "id": "c1l4s10",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "«Да, привет» — выбери вариант",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "emoji": "👍",
-                  "buryatRu": "Сайн",
-                  "correct": true,
-                  "tgRel": "People/Thumbs Up.webp"
+                  "labelRu": "Тиимэ, сайн",
+                  "correct": true
                 },
                 {
                   "id": "b",
-                  "emoji": "💬",
-                  "buryatRu": "Юу байна?",
-                  "correct": false,
-                  "tgRel": "Smileys/Speech Balloon.webp"
+                  "labelRu": "Үгы, сайн",
+                  "correct": false
                 },
                 {
                   "id": "c",
-                  "emoji": "👋",
-                  "buryatRu": "Мэнд",
-                  "correct": false,
-                  "tgRel": "People/Waving Hand.webp"
+                  "labelRu": "Тиимэ, баяртай",
+                  "correct": false
                 }
               ]
             },
             {
-              "id": "c1l3s4",
-              "type": "boolean",
-              "questionRu": "Правда ли?",
-              "statementRu": "После «Сайн» можно добавить «баяртай» (до свидания), но это следующий урок.",
-              "correctIsTrue": false
-            },
-            {
-              "id": "c1l3s5",
-              "type": "emoji_choice",
-              "tagRu": "ПРОЩАНИЕ",
-              "questionRu": "Выбери эмодзи для нейтрального «до свидания».",
+              "id": "c1l4s11",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Противоположность «Тиимэ»",
               "shuffleOptions": true,
               "options": [
                 {
                   "id": "a",
-                  "emoji": "🖐",
-                  "buryatRu": "Баяртай",
-                  "correct": true,
-                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                  "labelRu": "Үгы",
+                  "correct": true
                 },
                 {
                   "id": "b",
-                  "emoji": "👋",
-                  "buryatRu": "Мэнд",
-                  "correct": false,
-                  "tgRel": "People/Waving Hand.webp"
+                  "labelRu": "Сайн",
+                  "correct": false
                 },
                 {
                   "id": "c",
-                  "emoji": "👍",
-                  "buryatRu": "Сайн",
-                  "correct": false,
-                  "tgRel": "People/Thumbs Up.webp"
+                  "labelRu": "Баярлаа",
+                  "correct": false
                 }
               ]
             }
-          ],
-          "kind": "lesson",
-          "isFinalExam": false
-        },
-        {
-          "id": "course_01_l4",
-          "order": 4,
-          "hasAudio": false,
-          "steps": [],
-          "titleRu": "Да или нет ✅❌",
-          "summaryRu": "Тиимэ, үгы и простые вопросы на подтверждение.",
-          "kind": "lesson",
-          "isFinalExam": false,
-          "estimatedMinutes": 8
+          ]
         },
         {
           "id": "course_01_l5",
           "order": 5,
+          "titleRu": "Считаем 1-5 🔢",
+          "summaryRu": "Нэгэн, Хоёр, Гурбан (+ Дүрбэн, Табан в заданиях).",
+          "estimatedMinutes": 8,
           "hasAudio": false,
-          "steps": [],
-          "titleRu": "Цифры 1-10 🔢",
-          "summaryRu": "Счёт предметов и пальцев от 1 до 10.",
           "kind": "lesson",
           "isFinalExam": false,
-          "estimatedMinutes": 8
+          "steps": [
+            {
+              "id": "c1l5s1",
+              "type": "intro",
+              "headlineRu": "Этап 1: Узнавание",
+              "bodyRu": "Числа урока: **1️⃣ Нэгэн**, **2️⃣ Хоёр**, **3️⃣ Гурбан**.",
+              "ctaRu": "Дальше"
+            },
+            {
+              "id": "c1l5s2",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Сколько здесь яблок? 🍎",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Нэгэн",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хоёр",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Гурбан",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l5s3",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Гурбан» и выбери цифру",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "1️⃣",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "2️⃣",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "3️⃣",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "id": "c1l5s4",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "«Хоёр» — это...",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "1",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "2",
+                  "correct": true
+                },
+                {
+                  "id": "c",
+                  "labelRu": "3",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l5s5",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Сколько кошек на картинке? 🐈🐈",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Хоёр",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Нэгэн",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Табан",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l5s6",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Гурбан] + [хүн]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Гурбан хүн",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Гурбан",
+                "хүн"
+              ],
+              "wordBank": [
+                "Гурбан",
+                "хүн",
+                "Нэгэн",
+                "үхэр"
+              ],
+              "shuffleWordBank": true
+            },
+            {
+              "id": "c1l5s7",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Число 1 по-бурятски",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Нэгэн",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хоёр",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Гурбан",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l5s8",
+              "type": "boolean",
+              "questionRu": "Да или нет?",
+              "statementRu": "«Табан» — это 5.",
+              "correctIsTrue": true
+            },
+            {
+              "id": "c1l5s9",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Как будет «Две коровы»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Хоёр үхэр",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Гурбан үхэр",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Нэгэн үхэр",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l5s10",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Найди число «Дүрбэн»",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "2",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "4",
+                  "correct": true
+                },
+                {
+                  "id": "c",
+                  "labelRu": "5",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l5s11",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Покажи «Один» ☝️",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Нэгэн",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хоёр",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Табан",
+                  "correct": false
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "course_01_l6",
           "order": 6,
+          "titleRu": "Кто и Что? ❓",
+          "summaryRu": "Вопросы Хэн? и Юун? в живых примерах.",
+          "estimatedMinutes": 8,
           "hasAudio": false,
-          "steps": [],
-          "titleRu": "Кто/Что это? ❓",
-          "summaryRu": "Различаем Хэн и Юун на знакомых предметах.",
           "kind": "lesson",
           "isFinalExam": false,
-          "estimatedMinutes": 8
+          "steps": [
+            {
+              "id": "c1l6s1",
+              "type": "intro",
+              "headlineRu": "Этап 1: Узнавание",
+              "bodyRu": "Слова урока: **Хэн?** 👤❓ (Кто?), **Юун?** 📦❓ (Что?).",
+              "ctaRu": "Дальше"
+            },
+            {
+              "id": "c1l6s2",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Видишь человека 👤. Твой вопрос?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Хэн?",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Юун?",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Тиимэ",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l6s3",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Видишь коробку 📦. Твой вопрос?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Хэн?",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Юун?",
+                  "correct": true
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Би?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l6s4",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "«Хэн бэ?» — это...",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Кто это?",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Что это?",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Где это?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l6s5",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Юун?» и выбери объект",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Мама 👩",
+                  "correct": false
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Стол 🪑",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "id": "c1l6s6",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Энэ] + [юун] + [бэ]?",
+              "sourceSegments": [
+                {
+                  "text": "Собери вопрос: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Энэ юун бэ?",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Энэ",
+                "юун",
+                "бэ?"
+              ],
+              "wordBank": [
+                "Энэ",
+                "юун",
+                "бэ?",
+                "хэн"
+              ],
+              "shuffleWordBank": true,
+              "bubbleShowAudio": true,
+              "bubbleAudioUrl": "voise/Простые предложения/chunks/audio_026.wav"
+            },
+            {
+              "id": "c1l6s7",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Вопрос к другу",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Хэн?",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Юун?",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Тиимэ?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l6s8",
+              "type": "boolean",
+              "questionRu": "Да или нет?",
+              "statementRu": "Про собаку можно спросить «Хэн?».",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l6s9",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "Как будет «Что это?»",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Энэ юун бэ?",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Энэ хэн бэ?",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Ши хэн бэ?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l6s10",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Укажи на объект 📍",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Энэ",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Тэрэ",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Би",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l6s11",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Энэ] + [минии] + [нүхэр]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Энэ минии нүхэр",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Энэ",
+                "минии",
+                "нүхэр"
+              ],
+              "wordBank": [
+                "Энэ",
+                "минии",
+                "нүхэр",
+                "юун"
+              ],
+              "shuffleWordBank": true
+            }
+          ]
         },
         {
           "id": "course_01_l7",
           "order": 7,
+          "titleRu": "Финальный Спринт 🎓",
+          "summaryRu": "Быстрое повторение ключевых слов и фраз модуля.",
+          "estimatedMinutes": 8,
           "hasAudio": false,
-          "steps": [],
-          "titleRu": "Итоговый спринт",
-          "summaryRu": "Повторение ключевых слов и фраз модуля.",
           "kind": "lesson",
           "isFinalExam": false,
-          "estimatedMinutes": 8
+          "steps": [
+            {
+              "id": "c1l7s1",
+              "type": "intro",
+              "headlineRu": "Финальная тренировка",
+              "bodyRu": "Соберите всё, что уже знаете: приветствие, местоимения, вопросы, числа и короткие фразы.",
+              "ctaRu": "Старт"
+            },
+            {
+              "id": "c1l7s2",
+              "type": "choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Поздоровайся с другом 👋👤",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Сайн байна, нүхэр!",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Баяртай, нүхэр!",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Үгы, нүхэр!",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l7s3",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "«Би баярлаа» — это...",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Я говорю спасибо",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Я ухожу",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Я человек",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l7s4",
+              "type": "choice",
+              "tagRu": "АУДИО",
+              "questionRu": "Послушай «Хоёр һүн» и выбери эмодзи",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "🥛🥛",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "🐄🐄",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "👤👤",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l7s5",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Как спросить «Ты кто?»",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Ши хэн бэ?",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Ши юун бэ?",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Би хэн бэ?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l7s6",
+              "type": "boolean",
+              "questionRu": "Да или нет?",
+              "statementRu": "«Баяртай» — это «Здравствуйте».",
+              "correctIsTrue": false
+            },
+            {
+              "id": "c1l7s7",
+              "type": "translate_tiles",
+              "instructionRu": "Составь фразу [Баярлаа] + [тиимэ]",
+              "sourceSegments": [
+                {
+                  "text": "Собери: ",
+                  "style": "normal"
+                },
+                {
+                  "text": "Баярлаа тиимэ",
+                  "style": "accent"
+                }
+              ],
+              "correctTokens": [
+                "Баярлаа",
+                "тиимэ"
+              ],
+              "wordBank": [
+                "Баярлаа",
+                "тиимэ",
+                "үгы",
+                "хэн"
+              ],
+              "shuffleWordBank": true
+            },
+            {
+              "id": "c1l7s8",
+              "type": "emoji_choice",
+              "tagRu": "ЭМОДЗИ",
+              "questionRu": "Команда предлагает отличный план 🎉. Твоя реакция?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "emoji": "✅",
+                  "buryatRu": "Тиимэ",
+                  "correct": true,
+                  "tgRel": "Smileys/Check Mark Button.webp"
+                },
+                {
+                  "id": "b",
+                  "emoji": "❌",
+                  "buryatRu": "Үгы",
+                  "correct": false,
+                  "tgRel": "Smileys/Cross Mark.webp"
+                },
+                {
+                  "id": "c",
+                  "emoji": "🖐",
+                  "buryatRu": "Баяртай",
+                  "correct": false,
+                  "tgRel": "People/Hand With Fingers Splayed.webp"
+                }
+              ]
+            },
+            {
+              "id": "c1l7s9",
+              "type": "choice",
+              "tagRu": "ПЕРЕВОД",
+              "questionRu": "«Три коровы»",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Гурбан үхэр",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Хоёр үхэр",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Нэгэн үхэр",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l7s10",
+              "type": "choice",
+              "tagRu": "ВЫБОР",
+              "questionRu": "Как сказать «Пока»?",
+              "shuffleOptions": true,
+              "options": [
+                {
+                  "id": "a",
+                  "labelRu": "Баяртай",
+                  "correct": true
+                },
+                {
+                  "id": "b",
+                  "labelRu": "Баярлаа",
+                  "correct": false
+                },
+                {
+                  "id": "c",
+                  "labelRu": "Сайн байна",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "c1l7s11",
+              "type": "intro",
+              "headlineRu": "Финал",
+              "bodyRu": "Ты молодец! 🎓 **Баярлаа!**",
+              "ctaRu": "Завершить"
+            }
+          ]
         },
         {
           "id": "course_01_l8",

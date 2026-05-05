@@ -90,7 +90,7 @@ if ($model === '' && isset($payload['model']) && is_string($payload['model'])) {
     $model = trim($payload['model']);
 }
 if ($model === '') {
-    $model = 'google/gemma-3-12b-it';
+    $model = 'google/gemini-3-flash-preview';
 }
 
 $forwardPayload = [

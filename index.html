@@ -39,6 +39,13 @@
             --text-inactive: #8e8e93;     /* Приглушенный текст неактивной кнопки */
             /* Высота закреплённого блока «кикер + Saran» + safe-area (отступ контента и sticky под скруглённой шапкой) */
             --saran-brand-offset: calc(env(safe-area-inset-top, 0px) + 86px);
+            /* Нижнее меню-пилюля (аналог класса .menu-container) — чтобы чат-компоновщик не уезжал под неё */
+            --saran-float-nav-bottom: 30px;
+            --saran-float-nav-height: 62px;
+            --saran-chat-composer-bottom: calc(
+                var(--saran-float-nav-bottom) + var(--saran-float-nav-height) +
+                env(safe-area-inset-bottom, 0px) + 10px
+            );
         }
         
         * {
@@ -3454,25 +3461,33 @@
             margin-top: 14px;
         }
 
-        .saran-chat-wrap {
-            display: flex;
-            flex-direction: column;
-            height: calc(100vh - 200px);
-            max-height: 560px;
-            min-height: 320px;
+        .saran-ai-chat-shell {
             margin-top: 16px;
+            /* Компактный отступ под фиксированное поле ввода (над нижним меню) */
+            padding-bottom: 92px;
+        }
+        /* Лента сообщений не заходит под поле и меню: высота до composer + нижняя «пилюля» */
+        .saran-chat-wrap {
+            display: block;
+            box-sizing: border-box;
+            min-height: 200px;
+            max-height: calc(100dvh - var(--saran-brand-offset) - var(--saran-chat-composer-bottom) - 120px);
+            height: min(52dvh, calc(100dvh - var(--saran-brand-offset) - var(--saran-chat-composer-bottom) - 120px));
             border-radius: 18px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(255, 255, 255, 0.04);
         }
         .saran-chat-log {
-            flex: 1;
+            height: 100%;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             padding: 14px;
+            padding-bottom: 18px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            box-sizing: border-box;
         }
         .saran-chat-bubble {
             max-width: 88%;
@@ -3502,12 +3517,26 @@
             background: transparent;
             border: none;
         }
+        .saran-chat-composer {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 366px;
+            bottom: var(--saran-chat-composer-bottom);
+            z-index: 1100;
+            box-sizing: border-box;
+        }
         .saran-chat-input-row {
             display: flex;
             gap: 8px;
             padding: 10px;
+            border-radius: 16px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(12, 13, 18, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.35);
         }
         .saran-chat-input-row input {
             flex: 1;
@@ -4379,16 +4408,19 @@
         <!-- Вкладка ИИ · бурятский -->
         <div id="sharedTab" class="content-section">
             <div class="px-4 pt-4">
-                <p class="saran-tab-sub" id="saranAiTabSub">Напишите по-русски или по-бурятски — собеседник отвечает коротко и по делу. Умные ответы идут через защищённый сервер; отдельный ключ в браузере не нужен.</p>
+                <p class="saran-tab-sub" id="saranAiTabSub">Пишите по-бурятски — «Сарангэрэл» отвечает простым правильным бурятским языком.</p>
 
-                <div class="saran-chat-wrap" id="saranChatWrap" aria-label="Чат с собеседником">
-                    <div class="saran-chat-log" id="saranChatLog" role="log"></div>
-                    <div class="saran-chat-input-row">
-                        <input type="text" id="saranChatInput" maxlength="500" placeholder="Сообщение…" autocomplete="off" aria-label="Текст сообщения">
-                        <button type="button" class="saran-chat-send" id="saranChatSend">Отправить</button>
+                <div class="saran-ai-chat-shell" id="saranAiChatShell" aria-label="Панель чата с Сарангэрэл">
+                    <div class="saran-chat-wrap" id="saranChatWrap">
+                        <div class="saran-chat-log" id="saranChatLog" role="log"></div>
+                    </div>
+                    <div class="saran-chat-composer">
+                        <div class="saran-chat-input-row">
+                            <input type="text" id="saranChatInput" maxlength="500" placeholder="Сообщение… (бурят.)" autocomplete="off" aria-label="Текст сообщения">
+                            <button type="button" class="saran-chat-send" id="saranChatSend">Отправить</button>
+                        </div>
                     </div>
                 </div>
-                <p class="saran-reg-note" style="margin-top:14px;">Переписка в чате не сохраняется на сервере: она видна только в этом браузере на этом устройстве. Для ответа учитывается лишь небольшой фрагмент последних сообщений.</p>
             </div>
         </div>
 
@@ -4621,16 +4653,22 @@
         /** Имя ассистента в интерфейсе и в промптах (бурят. кириллица). */
         const SARAN_AI_ASSISTANT_NAME = 'Сарангэрэл';
         /**
-         * Конвейер:
-         * 1) текст пользователя (бурят.) -> русский (NLLB),
-         * 2) ответ ИИ на максимально простом русском,
-         * 3) русский ответ -> бурятский (NLLB).
+         * Один запрос к модели через OpenRouter (по умолчанию см. SARAN_OPENROUTER_MODEL на сервере): ответ только бурятский.
          */
-        const SARAN_AI_SYSTEM_RU =
-            'Ты ' +
+        const SARAN_AI_SYSTEM_BURYAT =
+            'Ты — ' +
             SARAN_AI_ASSISTANT_NAME +
-            '. Ты добрый помощник по бурятскому языку. Всегда отвечай ТОЛЬКО на простом русском языке: короткие фразы, простые слова, без сложных терминов. ' +
-            'Отвечай по делу, спокойно и понятно. Если уместно, дай 1 короткий пример.';
+            ', живой помощник по бурятскому языку. Пользователь пишет бурятской кириллицей (буквы һ Һ ө Ө ү Ү и обычная кириллица). ' +
+            'Жёсткое правило: твой ответ пользователю — только текст на бурятском языке в этой кириллице, от первого до последнего символа. ' +
+            'Категорически запрещены русский, английский и любые другие языки, любая латиница и латинские слова, любые смеси кодировок или «вставки» на другом языке, в том числе в скобках или после двоеточия. ' +
+            'Не пиши формулы вроде «перевод:», «это значит», «то есть», «meaning», «English» и не давай билингвальных объяснений. ' +
+            'Если сомневаешься в формулировке — всё равно оставайся только в бурятском, без переключения языка. ' +
+            'Стиль: простая понятная грамотная разговорная бурятская речь. Обычно не больше 6–8 коротких предложений, если не попросят подробнее.';
+
+        /** Служебное сообщение (не показывается пользователю): переформулировка ответа при нарушении языкового режима. */
+        const SARAN_AI_BURYAT_REPAIR_USER_MSG =
+            'Your previous assistant message violated the rule: output was not exclusively Buryat (Cyrillic) text. ' +
+            'Compose a replacement answer for the same user turns: same intent and tone, ONLY Buryat in Cyrillic, zero Russian/Mongolian/other languages, zero Latin letters, no bilingual glosses.';
 
         let saranExerciseState = { courseIndex: 0, lesson: 0, task: 0, tasks: [], answered: false, pickedWrong: false, selectedIndex: null };
         let saranVoiseLoadPromise = null;
@@ -5905,9 +5943,9 @@
             function saranChatSubLine(name) {
                 return (
                     name +
-                    ', пишите как удобно (русский, English, бурятский) — ' +
+                    ', пишите по-бурятски — ' +
                     SARAN_AI_ASSISTANT_NAME +
-                    ' отвечает по-бурятски. Последние пять реплик уходят в контекст.'
+                    ' отвечает простым правильным бурятским языком.'
                 );
             }
             function saranFinishOnboard(nickname, profile) {
@@ -6137,11 +6175,19 @@
             return 'Би энд буряад хэлний жижиг туслах. Таны бичсэнийг ойлголоо. Одоогоор энд энгийн загвараар хариулж байна — сервертэй модель түр зуур холбогдохгүй байвал энэ мессэж үлдэнэ.';
         }
 
+        function saranApiBasePrefix() {
+            try {
+                var p = String((typeof location !== 'undefined' && location.pathname) || '');
+                if (p === '/app' || p.indexOf('/app/') === 0) return '/app';
+            } catch (ePath) { /* ignore */ }
+            return '';
+        }
+
         function saranOpenRouterProxyUrl() {
             var proxyRel =
                 typeof window !== 'undefined' && window.SARAN_OPENROUTER_PROXY
                     ? window.SARAN_OPENROUTER_PROXY
-                    : '/api/openrouter-chat.php';
+                    : (saranApiBasePrefix() + '/api/openrouter-chat.php');
             try {
                 return new URL(proxyRel, typeof location !== 'undefined' ? location.href : undefined).href;
             } catch (eUrl) {
@@ -6152,60 +6198,23 @@
             }
         }
 
-        /** Переопределение: window.SARAN_NLLB_PROXY = 'api/nllb-translate.php' */
-        function saranNllbProxyUrl() {
-            var rel =
-                typeof window !== 'undefined' && window.SARAN_NLLB_PROXY
-                    ? window.SARAN_NLLB_PROXY
-                    : '/api/nllb-translate.php';
-            try {
-                return new URL(rel, typeof location !== 'undefined' ? location.href : undefined).href;
-            } catch (eUrl2) {
-                return (
-                    (typeof location !== 'undefined' && location.origin ? location.origin + '/' : '') +
-                    String(rel).replace(/^\/*/, '')
-                );
-            }
-        }
-
-        /** NLLB (Meta) перевод целых предложений; ключ только на сервере в PHP. */
-        async function saranTranslateNllb(text, sourceLang, targetLang) {
-            var t = String(text || '').trim();
-            if (!t) {
-                return '';
-            }
-            var proxyUrl = saranNllbProxyUrl();
-            var res = await fetch(proxyUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    text: t,
-                    source_lang: String(sourceLang || 'bury_Cyrl'),
-                    target_lang: String(targetLang || 'rus_Cyrl')
-                })
-            });
-            var rawTxt = await res.text().catch(function() {
-                return '';
-            });
-            if (!res.ok) {
-                throw new Error(rawTxt.slice(0, 280) || String(res.status));
-            }
-            var data = null;
-            try {
-                data = JSON.parse(rawTxt);
-            } catch (eJn) {
-                throw new Error(rawTxt.slice(0, 180));
-            }
-            var out = data && data.translated_text != null ? String(data.translated_text).trim() : '';
-            return out;
+        /** Грубая проверка: ответ содержит латиницу или очевидные русскоязычные шаблоны (эвристика, одна переотправка). */
+        function saranAssistantReplyViolatesBuryatOnly(s) {
+            var x = String(s || '');
+            if (!x.trim()) return false;
+            if (/[A-Za-z]{4,}/.test(x)) return true;
+            if (/(\b|^)(перевод|meaning|english|sorry|please)\b/i.test(x)) return true;
+            /* Типичные русские связки целиком, которых быть не должно в чистой бурятской речи ассистента */
+            return /(\b|^)(это значит|Это значит|что тебе|Что тебе|Я не знаю|я не знаю|У меня нет|Стихотворен|нет стих|[Нн]ужно\s*\?|Сайн байна\s*!\s*Что\b)/i.test(
+                x
+            );
         }
 
         async function saranOpenRouterCompletion(messages, systemContent) {
             const proxyUrl = saranOpenRouterProxyUrl();
             const body = {
-                messages: [{ role: 'system', content: String(systemContent || '') }].concat(messages || [])
+                messages: [{ role: 'system', content: String(systemContent || '') }].concat(messages || []),
+                temperature: 0.35,
             };
             const res = await fetch(proxyUrl, {
                 method: 'POST',
@@ -6241,44 +6250,39 @@
             return cleaned.slice(0, 140);
         }
 
-        /** Конвейер: Buryat -> Russian -> AI(simple Russian) -> Buryat. */
+        /** Запрос к OpenRouter: диалог по-бурятски → ответ только по-бурятски; при нарушении — одна внутренняя попытка исправления. */
         async function saranSendOpenRouter(messages) {
             const list = Array.isArray(messages) ? messages : [];
-            const userMsg = list.length ? String(list[list.length - 1].content || '').trim() : '';
-            if (!userMsg) {
+            if (!list.length) {
                 return { ok: true, text: '' };
             }
-
-            let userRu = userMsg;
-            try {
-                const translated = await saranTranslateNllb(userMsg, 'bury_Cyrl', 'rus_Cyrl');
-                if (translated) {
-                    userRu = translated;
-                }
-            } catch (eUserTranslate) {
-                userRu = userMsg;
+            const openRouterMessages = [];
+            for (var i = 0; i < list.length; i++) {
+                var m = list[i];
+                var role = m && m.role === 'assistant' ? 'assistant' : 'user';
+                var content = String((m && m.content) || '').trim();
+                if (!content) continue;
+                openRouterMessages.push({ role: role, content: content });
             }
-
-            const aiRu = await saranOpenRouterCompletion([{ role: 'user', content: userRu }], SARAN_AI_SYSTEM_RU);
-            if (!aiRu) {
+            if (!openRouterMessages.length) {
                 return { ok: true, text: '' };
             }
-
-            try {
-                const buryat = await saranTranslateNllb(aiRu, 'rus_Cyrl', 'bury_Cyrl');
-                if (buryat) {
-                    return { ok: true, text: buryat };
-                }
-            } catch (eTr) {
-                return {
-                    ok: true,
-                    text: aiRu
-                };
+            var reply = await saranOpenRouterCompletion(openRouterMessages, SARAN_AI_SYSTEM_BURYAT);
+            reply = String(reply || '').trim();
+            if (reply && saranAssistantReplyViolatesBuryatOnly(reply)) {
+                try {
+                    var repairMsgs = openRouterMessages.concat([
+                        { role: 'assistant', content: reply },
+                        { role: 'user', content: SARAN_AI_BURYAT_REPAIR_USER_MSG },
+                    ]);
+                    var fixed = await saranOpenRouterCompletion(repairMsgs, SARAN_AI_SYSTEM_BURYAT);
+                    fixed = String(fixed || '').trim();
+                    if (fixed && !saranAssistantReplyViolatesBuryatOnly(fixed)) {
+                        reply = fixed;
+                    }
+                } catch (eRepair) { /* ignore: остаётся первый ответ */ }
             }
-            return {
-                ok: true,
-                text: aiRu
-            };
+            return { ok: true, text: reply };
         }
 
         let saranAiChatInitDone = false;
@@ -6291,9 +6295,7 @@
             if (saranChatHistory.length === 0) {
                 saranAppendChatBubble(
                     'sys',
-                    'Напишите сообщение — ' +
-                        SARAN_AI_ASSISTANT_NAME +
-                        ' (ассистент Саран: в сюжете продукта — дообучение на базе класса Gemini 3) ответит по-бурятски.'
+                    'Напишите по-бурятски — ' + SARAN_AI_ASSISTANT_NAME + ' ответит простым правильным бурятским языком.'
                 );
             }
             async function send() {
