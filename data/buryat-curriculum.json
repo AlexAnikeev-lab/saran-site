@@ -77,8 +77,8 @@
     {
       "id": "course_01",
       "order": 1,
-      "titleRu": "Старт: ни одной буквы не страшно",
-      "subtitleRu": "Приветствие, «Мэнд», буквы А и У, три коротких слова и микро-диалог.",
+      "titleRu": "Модуль 1: Первые слова и звук",
+      "subtitleRu": "Цель: научиться здороваться, представляться и привыкнуть к звукам Ө, Ү, Һ.",
       "cover": {
         "relativePath": "photos/l1_3_img_group_win.jpg",
         "altRu": "Друзья Saran: девушка в дээл, нерпа с книжкой, парень в тёплой одежде"
@@ -87,8 +87,8 @@
         {
           "id": "c1_l1",
           "order": 1,
-          "titleRu": "Мэнд! Первый шаг",
-          "summaryRu": "Один привет и две буквы — без зубрёжки.",
+          "titleRu": "Первый контакт 👋",
+          "summaryRu": "Сайн байна, баярлаа, баяртай — стартовые фразы общения.",
           "estimatedMinutes": 6,
           "hasAudio": false,
           "completionHeadlineRu": "Маленькая победа",
@@ -178,13 +178,15 @@
               "statementRu": "Сейчас важнее не бояться букв, чем знать их все.",
               "correctIsTrue": true
             }
-          ]
+          ],
+          "kind": "lesson",
+          "isFinalExam": false
         },
         {
           "id": "c1_l2",
           "order": 2,
-          "titleRu": "Три слова на каждый день",
-          "summaryRu": "Би, сайн, юу байна?",
+          "titleRu": "Это я 🙋‍♂️",
+          "summaryRu": "Би, ши, тэрэ (я, ты, он/она) и короткое знакомство.",
           "estimatedMinutes": 6,
           "hasAudio": false,
           "completionHeadlineRu": "Пауза — это тоже язык",
@@ -295,13 +297,15 @@
                 }
               ]
             }
-          ]
+          ],
+          "kind": "lesson",
+          "isFinalExam": false
         },
         {
           "id": "c1_l3",
           "order": 3,
-          "titleRu": "Две реплики — уже диалог",
-          "summaryRu": "Вопрос и ответ, как в жизни.",
+          "titleRu": "Волшебные буквы 🗣️",
+          "summaryRu": "Тренировка Ө, Ү, Һ через слова: Һүн, Хүн, Өгхэ.",
           "estimatedMinutes": 6,
           "hasAudio": false,
           "completionHeadlineRu": "Вы справились",
@@ -412,15 +416,72 @@
                 }
               ]
             }
-          ]
+          ],
+          "kind": "lesson",
+          "isFinalExam": false
+        },
+        {
+          "id": "course_01_l4",
+          "order": 4,
+          "hasAudio": false,
+          "steps": [],
+          "titleRu": "Да или нет ✅❌",
+          "summaryRu": "Тиимэ, үгы и простые вопросы на подтверждение.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
+        },
+        {
+          "id": "course_01_l5",
+          "order": 5,
+          "hasAudio": false,
+          "steps": [],
+          "titleRu": "Цифры 1-10 🔢",
+          "summaryRu": "Счёт предметов и пальцев от 1 до 10.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
+        },
+        {
+          "id": "course_01_l6",
+          "order": 6,
+          "hasAudio": false,
+          "steps": [],
+          "titleRu": "Кто/Что это? ❓",
+          "summaryRu": "Различаем Хэн и Юун на знакомых предметах.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
+        },
+        {
+          "id": "course_01_l7",
+          "order": 7,
+          "hasAudio": false,
+          "steps": [],
+          "titleRu": "Итоговый спринт",
+          "summaryRu": "Повторение ключевых слов и фраз модуля.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
+        },
+        {
+          "id": "course_01_l8",
+          "order": 8,
+          "hasAudio": false,
+          "steps": [],
+          "titleRu": "Закрепление материала",
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "isFinalExam": true,
+          "kind": "consolidation",
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_02",
       "order": 2,
-      "titleRu": "Наш дом и вокруг него",
-      "subtitleRu": "Базовые слова про дом, «где» и «здесь».",
+      "titleRu": "Модуль 2: Семья и дом",
+      "subtitleRu": "Цель: описывать близких людей, вещи вокруг и принадлежность (минии/шинии).",
       "cover": {
         "relativePath": "photos/l6_1_img_our_house.jpg",
         "altRu": "Наш дом и вокруг него"
@@ -429,8 +490,8 @@
         {
           "id": "course_02_l1",
           "order": 1,
-          "titleRu": "Манаай — «наш дом»",
-          "summaryRu": "Эксперимент: соберите перевод по словам — как в коротком уроке-пазле.",
+          "titleRu": "Моя семья 👨‍👩‍👧‍👦",
+          "summaryRu": "Эхэ, эсэгэ, хүбүүн, басаган — словарь семьи.",
           "estimatedMinutes": 4,
           "hasAudio": false,
           "completionHeadlineRu": "Первый кирпичик «дома»",
@@ -443,72 +504,121 @@
               "characterRelativePath": "Saran video/divan-Picsart-BackgroundRemover.mov",
               "bubbleShowAudio": true,
               "sourceSegments": [
-                { "text": "Манаай ", "style": "accent" },
-                { "text": "гэр ", "style": "normal" },
-                { "text": "вэ?", "style": "normal" }
+                {
+                  "text": "Манаай ",
+                  "style": "accent"
+                },
+                {
+                  "text": "гэр ",
+                  "style": "normal"
+                },
+                {
+                  "text": "вэ?",
+                  "style": "normal"
+                }
               ],
-              "correctTokens": ["Наш", "дом"],
-              "wordBank": ["Наш", "дом", "Юрта", "Хаалга", "Окно", "Там"],
+              "correctTokens": [
+                "Наш",
+                "дом"
+              ],
+              "wordBank": [
+                "Наш",
+                "дом",
+                "Юрта",
+                "Хаалга",
+                "Окно",
+                "Там"
+              ],
               "shuffleWordBank": true
             }
-          ]
+          ],
+          "kind": "lesson",
+          "isFinalExam": false
         },
         {
           "id": "course_02_l2",
           "order": 2,
-          "titleRu": "Юртэ гэр",
+          "titleRu": "Старшие и младшие 👵👴",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Дедушка, бабушка, брат, сестра в живых примерах.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_02_l3",
           "order": 3,
-          "titleRu": "Хаана? — где",
+          "titleRu": "Мой/Твой 🏠",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Формы минии/шинии: «моя мама», «твой дом».",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_02_l4",
           "order": 4,
-          "titleRu": "Энд — здесь",
+          "titleRu": "Где я? 📍",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Гэртээ, ажал дээрэ и базовые локации.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_02_l5",
           "order": 5,
-          "titleRu": "Тэр — тот",
+          "titleRu": "Цвета и вещи 🎨",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Красный, синий, белый + ном, стол и другие предметы.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_02_l6",
           "order": 6,
-          "titleRu": "Энэ — этот",
+          "titleRu": "Описания ✨",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Һайхан, томо, бишихан в коротких фразах.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_02_l7",
           "order": 7,
-          "titleRu": "Хаалга",
+          "titleRu": "Закрепление фраз",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Собираем конструкции типа «Минии эхэ һайхан».",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_02_l8",
           "order": 8,
-          "titleRu": "Цонх",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "isFinalExam": true,
+          "kind": "consolidation",
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_03",
       "order": 3,
-      "titleRu": "Семья в одном дыхании",
-      "subtitleRu": "Слова про близких без сложных окончаний.",
+      "titleRu": "Модуль 3: Поесть и попить",
+      "subtitleRu": "Цель: уверенно использовать базовые фразы про еду, напитки и просьбы в кафе.",
       "cover": {
         "relativePath": "photos/l6_2_img_win_family.jpg",
         "altRu": "Семья в одном дыхании"
@@ -517,66 +627,98 @@
         {
           "id": "course_03_l1",
           "order": 1,
-          "titleRu": "Аав ээж — родители",
+          "titleRu": "Хочу пить ☕",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Чай, молоко, вода + «уунаб» (пью).",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l2",
           "order": 2,
-          "titleRu": "Ах дүү — брат и сестра",
+          "titleRu": "Хочу есть 🥟",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Мясо, хлеб, буузы + «идеэнэб» (ем).",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l3",
           "order": 3,
-          "titleRu": "Хүүхэд",
+          "titleRu": "Вкусовые ощущения 🔥❄️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Вкусно, горячо, холодно в бытовых ситуациях.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l4",
           "order": 4,
-          "titleRu": "Өвөө эмээ",
+          "titleRu": "Просьбы 🤲",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Фразы «Намда үгэ» и вежливые обращения.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l5",
           "order": 5,
-          "titleRu": "Айлын хүн",
+          "titleRu": "Посуда 🍽️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Чашка, ложка, тарелка и словосочетания с ними.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l6",
           "order": 6,
-          "titleRu": "Найз",
+          "titleRu": "В ресторане 🛒",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Простой диалог заказа и уточнений.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l7",
           "order": 7,
-          "titleRu": "Гэр бүл",
+          "titleRu": "Спринт по еде",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Угадывание слов по смыслу, картинке и контексту.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_03_l8",
           "order": 8,
-          "titleRu": "Өргөө",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "isFinalExam": true,
+          "kind": "consolidation",
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_04",
       "order": 4,
-      "titleRu": "Ласковые имена",
-      "subtitleRu": "Как мягко обратиться к дочери и близким.",
+      "titleRu": "Модуль 4: Братья наши меньшие",
+      "subtitleRu": "Цель: выучить животных и базовые действия, собрать простые фразы о них.",
       "cover": {
         "relativePath": "photos/l6_2_img_daughter.jpg",
         "altRu": "Ласковые имена"
@@ -585,66 +727,98 @@
         {
           "id": "course_04_l1",
           "order": 1,
-          "titleRu": "Басагамни — моя дочь",
+          "titleRu": "Питомцы 🐶🐱",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Нохой, миисгэй и простые описания домашних животных.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l2",
           "order": 2,
-          "titleRu": "Хүүгээнмни",
+          "titleRu": "Степные звери 🐎🐪",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Лошадь, верблюд, корова в карточках и заданиях.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l3",
           "order": 3,
-          "titleRu": "Хайртай",
+          "titleRu": "Лесные звери 🐻🦊",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Медведь, волк, лиса и узнавание по контексту.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l4",
           "order": 4,
-          "titleRu": "Жижигхэн бэлэг",
+          "titleRu": "Что они делают? 🏃‍♂️😴",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Гүйхэ, унтаха, ябаха — глаголы действий.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l5",
           "order": 5,
-          "titleRu": "Өглөөний мэнд",
+          "titleRu": "Действие сейчас",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Фразы: «Собака спит», «Кошка бежит».",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l6",
           "order": 6,
-          "titleRu": "Оройн мэнд",
+          "titleRu": "Много животных",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Множественное число: нохойнууд, миисгэйнүүд.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l7",
           "order": 7,
-          "titleRu": "Амраарай",
+          "titleRu": "Смешанные сцены",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Соединяем животных, цвета и действия.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_04_l8",
           "order": 8,
-          "titleRu": "Үргэлж",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "isFinalExam": true,
+          "kind": "consolidation",
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_05",
       "order": 5,
-      "titleRu": "В магазине без паники",
-      "subtitleRu": "Это / не это, цена, «возьму».",
+      "titleRu": "Модуль 5: Я и мой день",
+      "subtitleRu": "Цель: рассказывать о состоянии, делах, погоде и маршрутах на каждый день.",
       "cover": {
         "relativePath": "photos/l5_2_img_table_shop.jpg",
         "altRu": "В магазине без паники"
@@ -653,66 +827,98 @@
         {
           "id": "course_05_l1",
           "order": 1,
-          "titleRu": "Энэ юу вэ? — что это?",
+          "titleRu": "Как дела? 😊😫",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Состояния: устал, рад, болен и реакции на них.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l2",
           "order": 2,
-          "titleRu": "Үнэ — цена",
+          "titleRu": "Время суток 🌅🌇",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Утро, день, вечер в коротких конструкциях.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l3",
           "order": 3,
-          "titleRu": "Авах",
+          "titleRu": "Я делаю 📚🎮",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Учусь, работаю, играю — базовые действия дня.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l4",
           "order": 4,
-          "titleRu": "Зарах",
+          "titleRu": "Погода ☀️🌧️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Солнце, дождь, снег и простое описание погоды.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l5",
           "order": 5,
-          "titleRu": "Төлбөр",
+          "titleRu": "Куда я иду? 🏫",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Магазин, школа и направления движения.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l6",
           "order": 6,
-          "titleRu": "Халбага",
+          "titleRu": "Финальный диалог",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Собираем темы модуля в единую беседу.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l7",
           "order": 7,
-          "titleRu": "Сав",
+          "titleRu": "Подготовка к A1",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Короткий повтор по состояниям, действиям и погоде.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_05_l8",
           "order": 8,
-          "titleRu": "Баяртай дахиад",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "isFinalExam": true,
+          "kind": "consolidation",
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_06",
       "order": 6,
-      "titleRu": "Цифры и «сколько стоит»",
-      "subtitleRu": "От одного до десяти и простые вопросы.",
+      "titleRu": "Модуль 6: Город и транспорт",
+      "subtitleRu": "Цель: ориентироваться в городе, спрашивать дорогу и использовать транспортные фразы.",
       "cover": {
         "relativePath": "photos/l4_2_img_win_economy.jpg",
         "altRu": "Цифры и «сколько стоит»"
@@ -721,66 +927,98 @@
         {
           "id": "course_06_l1",
           "order": 1,
-          "titleRu": "Нэг, хоёр, гурван",
+          "titleRu": "Городские места 🏙️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Магазин, школа, больница, парк — ключевые точки города.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l2",
           "order": 2,
-          "titleRu": "Дөрөв, тав",
+          "titleRu": "Куда идти? 🧭",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Направо, налево, прямо и простые маршруты.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l3",
           "order": 3,
-          "titleRu": "Зургаа, долоо",
+          "titleRu": "Общественный транспорт 🚌",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Автобус, остановка, билет, время отправления.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l4",
           "order": 4,
-          "titleRu": "Найм, ес",
+          "titleRu": "Такси и поездка 🚕",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Короткие запросы водителю и адрес назначения.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l5",
           "order": 5,
-          "titleRu": "Арав",
+          "titleRu": "Сколько ехать? ⏱️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Время в пути и вопросы по длительности.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l6",
           "order": 6,
-          "titleRu": "Хэд вэ? — сколько?",
+          "titleRu": "Где выйти? 🚏",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Фразы о нужной остановке и выходе.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l7",
           "order": 7,
-          "titleRu": "Хямд",
+          "titleRu": "Мини-диалог в городе",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Сценарий: спросить дорогу и добраться до места.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_06_l8",
           "order": 8,
-          "titleRu": "Үнэтэй",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "kind": "consolidation",
+          "isFinalExam": true,
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_07",
       "order": 7,
-      "titleRu": "«Нет» и отрицание",
-      "subtitleRu": "Вежливо сказать «не я», «не так».",
+      "titleRu": "Модуль 7: Вопросы и ответы",
+      "subtitleRu": "Цель: уверенно задавать вопросы и строить короткие ответы в разговоре.",
       "cover": {
         "relativePath": "photos/l3_2_img_win_policeman.jpg",
         "altRu": "«Нет» и отрицание"
@@ -789,66 +1027,98 @@
         {
           "id": "course_07_l1",
           "order": 1,
-          "titleRu": "Би биш — не я",
+          "titleRu": "Кто? Что? Где? ❓",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Хэн, Юун, Хаана в типовых шаблонах.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l2",
           "order": 2,
-          "titleRu": "Үгүй",
+          "titleRu": "Когда? ⌛",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Простые вопросы о времени и дне.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l3",
           "order": 3,
-          "titleRu": "Биш — не / нет",
+          "titleRu": "Почему? Зачем? 🤔",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Базовые формы уточнения причины и цели.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l4",
           "order": 4,
-          "titleRu": "Хулгайшан бишэб — шутка из урока",
+          "titleRu": "Да/нет в диалоге ✅❌",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Тиимэ и үгы в естественных репликах.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l5",
           "order": 5,
-          "titleRu": "Ойлгосон",
+          "titleRu": "Вежливое уточнение 🙏",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Переспросы и просьба повторить фразу.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l6",
           "order": 6,
-          "titleRu": "Үгүй ойлгоогүй",
+          "titleRu": "Короткий ответ",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Ответы без перегруза: по одному смыслу за раз.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l7",
           "order": 7,
-          "titleRu": "Дахиад",
+          "titleRu": "Разговорный спринт",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Серия быстрых вопросов и ответов.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_07_l8",
           "order": 8,
-          "titleRu": "Зүгээр",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "kind": "consolidation",
+          "isFinalExam": true,
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_08",
       "order": 8,
-      "titleRu": "Друзья и вечеринка",
-      "subtitleRu": "Встреча, музыка, короткие радости.",
+      "titleRu": "Модуль 8: Покупки и сервис",
+      "subtitleRu": "Цель: общаться в магазине, узнавать цену и оформлять простую покупку.",
       "cover": {
         "relativePath": "photos/l5_3_img_win_party.jpg",
         "altRu": "Друзья и вечеринка"
@@ -857,66 +1127,98 @@
         {
           "id": "course_08_l1",
           "order": 1,
-          "titleRu": "Найзаа уулзах",
+          "titleRu": "Что это? 🛍️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Названия товаров и вопросы по предметам.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l2",
           "order": 2,
-          "titleRu": "Хөгжим",
+          "titleRu": "Цена и количество 💸",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Сколько стоит и сколько нужно.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l3",
           "order": 3,
-          "titleRu": "Баяр хүргэе",
+          "titleRu": "Мне нужно...",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Просьбы к продавцу и уточнение наличия.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l4",
           "order": 4,
-          "titleRu": "Тоглоом",
+          "titleRu": "Оплата 💳",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Наличные, карта и подтверждение оплаты.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l5",
           "order": 5,
-          "titleRu": "Бүжиглэх",
+          "titleRu": "Скидка и выбор 🏷️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Дорого, дешево, подходит/не подходит.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l6",
           "order": 6,
-          "titleRu": "За",
+          "titleRu": "В магазине одежды 👕",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Размер, цвет и примерка в коротком диалоге.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l7",
           "order": 7,
-          "titleRu": "Сайхан байна",
+          "titleRu": "Сервис и вежливость 🤝",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Спасибо, пожалуйста и завершение покупки.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_08_l8",
           "order": 8,
-          "titleRu": "Маргааш",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "kind": "consolidation",
+          "isFinalExam": true,
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_09",
       "order": 9,
-      "titleRu": "Буквы как игра",
-      "subtitleRu": "Находим буквы и не боимся ошибиться.",
+      "titleRu": "Модуль 9: Здоровье и самочувствие",
+      "subtitleRu": "Цель: описывать самочувствие, симптомы и простые действия по здоровью.",
       "cover": {
         "relativePath": "photos/l6_1_img_win_gold.jpg",
         "altRu": "Буквы как игра"
@@ -925,66 +1227,98 @@
         {
           "id": "course_09_l1",
           "order": 1,
-          "titleRu": "Эхний үсэг",
+          "titleRu": "Как ты себя чувствуешь? ❤️",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Базовые ответы о самочувствии.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l2",
           "order": 2,
-          "titleRu": "Дагуулах",
+          "titleRu": "Части тела",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Голова, горло, живот и другие слова-опоры.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l3",
           "order": 3,
-          "titleRu": "Өнгөтэй картууд",
+          "titleRu": "Болит/не болит 🤒",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Конструкции о боли и состоянии.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l4",
           "order": 4,
-          "titleRu": "Олз олсон шиг",
+          "titleRu": "У врача 🩺",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Простые вопросы и ответы на приёме.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l5",
           "order": 5,
-          "titleRu": "Дахин оролдох",
+          "titleRu": "Лекарства 💊",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Таблетка, вода, режим приёма.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l6",
           "order": 6,
-          "titleRu": "Бага алдаа — зүгээр",
+          "titleRu": "Отдых и восстановление 🛌",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Спать, отдыхать, пить тёплое.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l7",
           "order": 7,
-          "titleRu": "Шагнал",
+          "titleRu": "Мини-диалог о здоровье",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Сценарий: самочувствие и базовая помощь.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_09_l8",
           "order": 8,
-          "titleRu": "Дараагийн түвшин",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "kind": "consolidation",
+          "isFinalExam": true,
+          "estimatedMinutes": 12
         }
       ]
     },
     {
       "id": "course_10",
       "order": 10,
-      "titleRu": "Дома, спокойно",
-      "subtitleRu": "Лень — тоже тема: отдых, чай, сериал.",
+      "titleRu": "Модуль 10: Праздники и общение",
+      "subtitleRu": "Цель: поддерживать живой разговор, поздравлять и уверенно завершать диалог.",
       "cover": {
         "relativePath": "photos/l6_2_img_lazy_tail.jpg",
         "altRu": "Дома, спокойно"
@@ -993,58 +1327,90 @@
         {
           "id": "course_10_l1",
           "order": 1,
-          "titleRu": "Эжымни… — про маму",
+          "titleRu": "Поздравления 🎉",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Фразы поздравления и добрых пожеланий.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l2",
           "order": 2,
-          "titleRu": "Залхуу өдөр",
+          "titleRu": "Приглашение в гости 🏠",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Зовем в гости и согласуем время.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l3",
           "order": 3,
-          "titleRu": "Сайхан амарсан уу?",
+          "titleRu": "На встрече 🤗",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Приветствие, знакомство, короткий разговор.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l4",
           "order": 4,
-          "titleRu": "Цай",
+          "titleRu": "О планах 📅",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Что делаем сегодня, завтра, на выходных.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l5",
           "order": 5,
-          "titleRu": "Кино үзэх",
+          "titleRu": "Благодарность и реакция 🙌",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Как поблагодарить и ответить естественно.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l6",
           "order": 6,
-          "titleRu": "Өглөө болсон уу?",
+          "titleRu": "Прощание и договоренность 👋",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Как завершить диалог и договориться о следующей встрече.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l7",
           "order": 7,
-          "titleRu": "Орой боллоо",
+          "titleRu": "Финальный спринт уровня",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Повторение всех ключевых сценариев уровня A1.",
+          "kind": "lesson",
+          "isFinalExam": false,
+          "estimatedMinutes": 8
         },
         {
           "id": "course_10_l8",
           "order": 8,
-          "titleRu": "Үдэшлэг",
+          "titleRu": "Закрепление материала",
           "hasAudio": false,
-          "steps": []
+          "steps": [],
+          "summaryRu": "Итоговая проверка по ключевым словам и фразам модуля.",
+          "kind": "consolidation",
+          "isFinalExam": true,
+          "estimatedMinutes": 12
         }
       ]
     }

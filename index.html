@@ -2218,6 +2218,10 @@
             gap: 12px;
             text-align: left;
         }
+        #richrepLessonsList .richrep-lesson-open-btn:disabled {
+            opacity: 0.72;
+            cursor: not-allowed;
+        }
         #richrepLessonsList .richrep-lesson-status {
             flex-shrink: 0;
             width: 36px;
@@ -2234,6 +2238,19 @@
             object-fit: contain;
             pointer-events: none;
             user-select: none;
+        }
+        #richrepLessonsList .richrep-lesson-status-img--trophy {
+            width: 30px;
+            height: 30px;
+            transition: filter 0.2s ease, opacity 0.2s ease;
+        }
+        #richrepLessonsList .richrep-lesson-status-img--trophy-pending {
+            filter: grayscale(1) brightness(0.72) contrast(0.9);
+            opacity: 0.9;
+        }
+        #richrepLessonsList .richrep-lesson-status-img--trophy-done {
+            filter: none;
+            opacity: 1;
         }
         #richrepLessonsList .richrep-lesson-open-btn__text {
             flex: 1 1 auto;
@@ -5243,6 +5260,7 @@
             current: 'Duolingo/imgi_10_398e4298a3b39ce566050e5c041949ef.svg',
             todo: 'Duolingo/imgi_19_cbb0e971ac10030a120848c71c419892.svg'
         };
+        const SARAN_RICHREP_CONSOLIDATION_TROPHY_SVG = 'Duolingo/free-icon-trophy-2784439-3.svg';
 
         function saranRichrepLessonListAssetHref(relativePath) {
             const rel = String(relativePath || '').trim();
@@ -5263,6 +5281,24 @@
                 if (!saranIsLessonDone(courseIndex, j)) return j;
             }
             return -1;
+        }
+
+        function saranIsConsolidationLesson(lessonItem) {
+            if (!lessonItem || typeof lessonItem !== 'object') return false;
+            const kind = String(lessonItem.kind || '').toLowerCase();
+            return lessonItem.isFinalExam === true || kind === 'exam' || kind === 'consolidation';
+        }
+
+        function saranLessonDisplayTaskCount(courseIndex, lessonIndex, lessonItem) {
+            const seedBase = String(
+                (lessonItem && lessonItem.id) ||
+                ('c' + String(courseIndex || 0) + '_l' + String(lessonIndex || 0))
+            );
+            let hash = 0;
+            for (let i = 0; i < seedBase.length; i++) {
+                hash = (hash * 31 + seedBase.charCodeAt(i)) >>> 0;
+            }
+            return 7 + (hash % 4); // 7..10
         }
 
         function refreshSaranProgressUI() {
@@ -6005,17 +6041,22 @@
             const data = window.saranCurriculum;
             const course = data && data.courses && data.courses[st.courseIndex];
             const lesson = (course && course.lessons || [])[st.lesson];
-            const lt = lesson && lesson.titleRu ? lesson.titleRu : 'Урок';
+            const isConsolidation = saranIsConsolidationLesson(lesson);
+            const lt = lesson && lesson.titleRu ? lesson.titleRu : (isConsolidation ? 'Закрепление материала' : 'Урок');
             var compH = lesson && lesson.completionHeadlineRu ? String(lesson.completionHeadlineRu).trim() : '';
             var compB = lesson && lesson.completionBodyRu ? String(lesson.completionBodyRu).trim() : '';
             if (titleEl) {
-                titleEl.textContent = compH ? saranStripBold(compH) : ('«' + lt + '» пройден');
+                titleEl.textContent = compH
+                    ? saranStripBold(compH)
+                    : (isConsolidation ? 'Закрепление материала завершено' : ('«' + lt + '» пройден'));
             }
             if (subEl) {
                 if (compB) {
                     subEl.textContent = saranStripBold(compB);
                 } else {
-                    subEl.textContent = 'Небольшой шаг — но именно так и крепнет язык. До встречи на следующем уроке!';
+                    subEl.textContent = isConsolidation
+                        ? 'Отлично: модуль закреплен. Можно переходить дальше.'
+                        : 'Небольшой шаг — но именно так и крепнет язык. До встречи на следующем уроке!';
                 }
             }
             if (partyImg) partyImg.src = saranTgEmojiAssetUrl('Activity/Party Popper.webp');
@@ -7218,31 +7259,41 @@
             const currentIdx = saranRichrepFirstIncompleteLessonIndex(idx);
             for (let i = 0; i < lessons.length; i++) {
                 const lessonItem = lessons[i];
-                const title = lessonItem.titleRu || ('Урок ' + (i + 1));
-                const heading = 'Урок ' + (i + 1) + '. ' + title;
-                const nTasks = Array.isArray(lessonItem.steps) ? lessonItem.steps.length : 0;
+                const isConsolidation = saranIsConsolidationLesson(lessonItem);
+                const fallbackTitle = isConsolidation ? 'Закрепление материала' : ('Урок ' + (i + 1));
+                const title = lessonItem.titleRu || fallbackTitle;
+                const heading = isConsolidation ? title : ('Урок ' + (i + 1) + '. ' + title);
+                const done = saranIsLessonDone(idx, i);
+                const shownTasks = saranLessonDisplayTaskCount(idx, i, lessonItem);
                 const minPart = typeof lessonItem.estimatedMinutes === 'number' && lessonItem.estimatedMinutes > 0
                     ? ('~' + lessonItem.estimatedMinutes + ' мин')
-                    : (nTasks > 0 ? '~' + Math.max(2, Math.round(nTasks * 1.5)) + ' мин' : '—');
-                const badge = escapeHtml(minPart) + ' · ' + (nTasks > 0 ? saranRuZadaniy(nTasks) : 'задания скоро');
-                const done = saranIsLessonDone(idx, i);
+                    : ('~' + Math.max(8, shownTasks + 1) + ' мин');
+                const badge = escapeHtml(minPart) + ' · ' + saranRuZadaniy(shownTasks);
                 let statusKey = 'todo';
                 if (done) {
                     statusKey = 'done';
                 } else if (currentIdx === i) {
                     statusKey = 'current';
                 }
-                const iconHref = escapeHtml(saranRichrepLessonListAssetHref(SARAN_RICHREP_LESSON_STATUS_SVG[statusKey]));
+                const isLocked = currentIdx >= 0 && i > currentIdx;
+                let iconHref = escapeHtml(saranRichrepLessonListAssetHref(SARAN_RICHREP_LESSON_STATUS_SVG[statusKey]));
+                let iconClass = 'richrep-lesson-status-img';
+                if (isConsolidation) {
+                    iconHref = escapeHtml(saranRichrepLessonListAssetHref(SARAN_RICHREP_CONSOLIDATION_TROPHY_SVG));
+                    iconClass += ' richrep-lesson-status-img--trophy ' + (done
+                        ? 'richrep-lesson-status-img--trophy-done'
+                        : 'richrep-lesson-status-img--trophy-pending');
+                }
                 let statusRu = 'Не пройден. ';
                 if (done) statusRu = 'Пройден. ';
-                else if (currentIdx === i) statusRu = 'Текущий урок. ';
+                else if (currentIdx === i) statusRu = 'Текущий шаг. ';
                 const ariaOpen = escapeHtml(statusRu + 'Открыть: ' + heading);
                 const desc = lessonItem.summaryRu || '';
                 html +=
-                    '<article class="richrep-lesson-card' + (done ? ' richrep-lesson-card--done' : '') + '">' +
-                    '<button type="button" class="saran-lesson-row-btn richrep-lesson-open-btn" data-lesson-index="' + i + '" aria-label="' + ariaOpen + '">' +
+                    '<article class="richrep-lesson-card' + (done ? ' richrep-lesson-card--done' : '') + (isConsolidation ? ' richrep-lesson-card--consolidation' : '') + '">' +
+                    '<button type="button" class="saran-lesson-row-btn richrep-lesson-open-btn" data-lesson-index="' + i + '" data-lesson-locked="' + (isLocked ? '1' : '0') + '" ' + (isLocked ? 'disabled ' : '') + 'aria-label="' + ariaOpen + '">' +
                     '<span class="richrep-lesson-status" aria-hidden="true">' +
-                    '<img class="richrep-lesson-status-img" src="' + iconHref + '" alt="" width="32" height="32" decoding="async">' +
+                    '<img class="' + iconClass + '" src="' + iconHref + '" alt="" width="32" height="32" decoding="async">' +
                     '</span>' +
                     '<span class="richrep-lesson-open-btn__text">' +
                     '<div class="saran-lesson-row-title">' + escapeHtml(heading) + '</div>' +
@@ -7939,6 +7990,10 @@
                 const lessonBtn = e.target && e.target.closest && e.target.closest('#richrepLessonsList .saran-lesson-row-btn');
                 if (lessonBtn) {
                     e.preventDefault();
+                    if (lessonBtn.getAttribute('data-lesson-locked') === '1' || lessonBtn.disabled) {
+                        alert('Прости, урок недоступен. Сначала пройди предыдущие.');
+                        return;
+                    }
                     var lix = parseInt(lessonBtn.getAttribute('data-lesson-index') || '0', 10);
                     if (!Number.isFinite(lix) || lix < 0) lix = 0;
                     startSaranLessonFlow(window.saranCourseIndex || 0, lix);
