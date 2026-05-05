@@ -54,6 +54,9 @@ set cmd:fail-exit yes
 set ssl:verify-certificate no
 set ftp:ssl-allow yes
 set ftp:ssl-force false
+set ftp:passive-mode true
+set mirror:use-pget-n 0
+set xfer:clobber yes
 ${script}
 bye
 "
@@ -112,6 +115,54 @@ preflight() {
   fi
 }
 
+upload_file_force() {
+  local local_file="$1"
+  local remote_file="$2"
+  lftp_run "
+set cmd:fail-exit no
+rm -f ${remote_file}
+set cmd:fail-exit yes
+put ${local_file} -o ${remote_file}
+"
+}
+
+upload_file_force_verified() {
+  local local_file="$1"
+  local remote_file="$2"
+  local max_attempts="${3:-5}"
+  local attempt=1
+  while [[ "${attempt}" -le "${max_attempts}" ]]; do
+    upload_file_force "${local_file}" "${remote_file}"
+    if assert_remote_size_matches "${local_file}" "${remote_file}"; then
+      return 0
+    fi
+    echo "Повторная загрузка ${remote_file}, попытка ${attempt}/${max_attempts}"
+    attempt=$((attempt + 1))
+  done
+  echo "Не удалось стабильно загрузить ${remote_file} после ${max_attempts} попыток"
+  exit 1
+}
+
+assert_remote_size_matches() {
+  local local_file="$1"
+  local remote_file="$2"
+  local local_size
+  local_size="$(wc -c < "${local_file}" | tr -d ' ')"
+  local tmp_file
+  tmp_file="$(mktemp /tmp/saran-ftp-verify.XXXXXX)"
+  rm -f "${tmp_file}"
+  lftp_run "get ${remote_file} -o ${tmp_file}"
+  local remote_size
+  remote_size="$(wc -c < "${tmp_file}" | tr -d ' ')"
+  rm -f "${tmp_file}"
+  if [[ "${local_size}" != "${remote_size}" ]]; then
+    echo "Размер не совпал для ${remote_file}: local=${local_size}, remote=${remote_size}"
+    return 1
+  fi
+  echo "OK size ${remote_file}: ${remote_size}"
+  return 0
+}
+
 deploy() {
   preflight
   if [[ ! -f "${PROJECT_ROOT}/main_site/index.html" ]]; then
@@ -136,9 +187,11 @@ mirror -R --delete --verbose ${dry} \
   --exclude-glob ._* \
   --exclude-glob .htaccess \
   --exclude-glob app/ \
+  --exclude-glob index.html \
   main_site/ ${FTP_ROOT}/
 "
   )
+  upload_file_force_verified "./main_site/index.html" "${FTP_ROOT}/index.html" 5
 
   echo "== Шаг 2: project -> ${FTP_APP_DIR} (без main_site и служебного) =="
   (
@@ -156,9 +209,13 @@ mirror -R --delete --verbose ${dry} \
   --exclude-glob .DS_Store \
   --exclude-glob .env \
   --exclude-glob Archive.zip \
+  --exclude-glob index.html \
+  --exclude-glob data/buryat-curriculum.json \
   ./ ${FTP_APP_DIR}/
 "
   )
+  upload_file_force_verified "./index.html" "${FTP_APP_DIR}/index.html" 5
+  upload_file_force_verified "./data/buryat-curriculum.json" "${FTP_APP_DIR}/data/buryat-curriculum.json" 5
 
   echo "== Деплой завершен =="
   verify
