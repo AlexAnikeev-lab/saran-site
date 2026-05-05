@@ -48,8 +48,9 @@ EOF
 lftp_run() {
   local script="$1"
   lftp -u "${FTP_USER},${FTP_PASS}" "${FTP_HOST}" -e "
-set net:max-retries 3
-set net:timeout 60
+set net:max-retries 5
+set net:timeout 120
+set ftp:sync-mode true
 set cmd:fail-exit yes
 set ssl:verify-certificate no
 set ftp:ssl-allow yes
@@ -124,6 +125,8 @@ rm -f ${remote_file}
 set cmd:fail-exit yes
 put ${local_file} -o ${remote_file}
 "
+  # На части FTP на REG.RU размер после put кратковременно неполный — ждём финализацию записи.
+  sleep 2
 }
 
 upload_file_force_verified() {
@@ -194,7 +197,7 @@ mirror -R --delete --verbose ${dry} \
   if [[ "${DEPLOY_DRY_RUN}" == "1" ]]; then
     echo "… dry-run: пропуск rm+put и проверки размеров для ${FTP_ROOT}/index.html"
   else
-    upload_file_force_verified "./main_site/index.html" "${FTP_ROOT}/index.html" 5
+    upload_file_force_verified "./main_site/index.html" "${FTP_ROOT}/index.html" 12
   fi
 
   echo "== Шаг 2: project -> ${FTP_APP_DIR} (без main_site и служебного) =="
@@ -222,8 +225,8 @@ mirror -R --delete --verbose ${dry} \
   if [[ "${DEPLOY_DRY_RUN}" == "1" ]]; then
     echo "… dry-run: пропуск rm+put и проверки размеров для app/index.html и buryat-curriculum.json"
   else
-    upload_file_force_verified "./index.html" "${FTP_APP_DIR}/index.html" 5
-    upload_file_force_verified "./data/buryat-curriculum.json" "${FTP_APP_DIR}/data/buryat-curriculum.json" 5
+    upload_file_force_verified "./index.html" "${FTP_APP_DIR}/index.html" 12
+    upload_file_force_verified "./data/buryat-curriculum.json" "${FTP_APP_DIR}/data/buryat-curriculum.json" 15
   fi
 
   echo "== Деплой завершен =="
