@@ -218,14 +218,16 @@ mirror -R --delete --verbose ${dry} \
   --exclude-glob .env \
   --exclude-glob Archive.zip \
   --exclude-glob index.html \
+  --exclude-glob manifest.webmanifest \
   --exclude-glob data/buryat-curriculum.json \
   ./ ${FTP_APP_DIR}/
 "
   )
   if [[ "${DEPLOY_DRY_RUN}" == "1" ]]; then
-    echo "… dry-run: пропуск rm+put и проверки размеров для app/index.html и buryat-curriculum.json"
+    echo "… dry-run: пропуск rm+put и проверки размеров для app/index.html, manifest и buryat-curriculum.json"
   else
     upload_file_force_verified "./index.html" "${FTP_APP_DIR}/index.html" 12
+    upload_file_force_verified "./manifest.webmanifest" "${FTP_APP_DIR}/manifest.webmanifest" 10
     upload_file_force_verified "./data/buryat-curriculum.json" "${FTP_APP_DIR}/data/buryat-curriculum.json" 15
   fi
 
