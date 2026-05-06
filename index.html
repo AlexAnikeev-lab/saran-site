@@ -3257,6 +3257,181 @@
             }
         }
 
+        /* Мастер установки PWA (первый запуск, до приветствия регистрации) */
+        #saranPwaCoachOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 21000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: max(14px, env(safe-area-inset-top)) 18px max(22px, env(safe-area-inset-bottom));
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #saranPwaCoachOverlay.saran-pwa-coach--open {
+            display: flex;
+        }
+        .saran-pwa-coach-card {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            border-radius: 22px;
+            padding: 20px 18px 20px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            box-sizing: border-box;
+        }
+        .saran-pwa-coach-title {
+            margin: 0 0 6px;
+            font-family: 'Vela Sans', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.38);
+            text-align: center;
+        }
+        .saran-pwa-coach-lead {
+            margin: 0 0 16px;
+            font-family: 'Vela Sans', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.24;
+            letter-spacing: -0.025em;
+            color: #f2f2f7;
+            text-align: center;
+        }
+        .saran-pwa-coach-step {
+            margin: -6px 0 12px;
+            font-family: 'Vela Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.45);
+            text-align: center;
+        }
+        .saran-pwa-coach-viewport {
+            position: relative;
+            margin: 0 0 4px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+                0 12px 36px rgba(0, 0, 0, 0.35);
+        }
+        .saran-pwa-coach-slide {
+            transition:
+                opacity 0.46s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.46s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        .saran-pwa-coach-slide.saran-pwa-coach-slide--out-left {
+            opacity: 0;
+            transform: translateX(-30px) scale(0.98);
+            pointer-events: none;
+        }
+        .saran-pwa-coach-slide.saran-pwa-coach-slide--in-pre {
+            opacity: 0;
+            transform: translateX(32px) scale(0.98);
+        }
+        .saran-pwa-coach-slide:not(.saran-pwa-coach-slide--in-pre):not(.saran-pwa-coach-slide--out-left) {
+            opacity: 1;
+            transform: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .saran-pwa-coach-slide {
+                transition: opacity 0.18s ease;
+            }
+            .saran-pwa-coach-slide.saran-pwa-coach-slide--out-left,
+            .saran-pwa-coach-slide.saran-pwa-coach-slide--in-pre {
+                transform: none;
+            }
+        }
+        .saran-pwa-coach-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+            user-select: none;
+            pointer-events: none;
+            -webkit-user-drag: none;
+        }
+        .saran-pwa-coach-caption {
+            margin: 10px 0 16px;
+            min-height: 3.2em;
+            font-family: 'Golos Text', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.55);
+            text-align: center;
+        }
+        .saran-pwa-coach-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin: 0 0 14px;
+        }
+        .saran-pwa-coach-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
+        }
+        .saran-pwa-coach-dot[aria-current="true"] {
+            background: linear-gradient(90deg, #49c0f8, #0c8ce8);
+            transform: scale(1.32);
+            box-shadow: 0 0 0 3px rgba(12, 140, 232, 0.28);
+        }
+        .saran-pwa-coach-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .saran-pwa-coach-actions button {
+            width: 100%;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-family: 'Vela Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.18s ease;
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+        .saran-pwa-coach-next {
+            border: none;
+            background: linear-gradient(155deg, #0c8ce8, #0490d9);
+            color: #ffffff;
+            box-shadow: 0 10px 28px rgba(12, 140, 232, 0.32);
+        }
+        .saran-pwa-coach-next:active {
+            transform: scale(0.99);
+            opacity: 0.92;
+        }
+        .saran-pwa-coach-skip {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.72);
+        }
+        .saran-pwa-coach-skip:active {
+            transform: scale(0.99);
+            opacity: 0.92;
+        }
+
         #saranRegistrationRoot {
             position: fixed;
             inset: 0;
@@ -4375,6 +4550,25 @@
         </div>
     </header>
 
+    <div id="saranPwaCoachOverlay" aria-hidden="true">
+        <div class="saran-pwa-coach-card" role="document">
+            <p class="saran-pwa-coach-title">Установка</p>
+            <h2 class="saran-pwa-coach-lead">Как сделать из сайта приложение на iPhone</h2>
+            <p id="saranPwaCoachStepBadge" class="saran-pwa-coach-step" aria-live="polite">Шаг 1 из 4</p>
+            <div class="saran-pwa-coach-viewport">
+                <div id="saranPwaCoachSlide" class="saran-pwa-coach-slide">
+                    <img id="saranPwaCoachImg" src="photos/IMG_2008.jpg" alt="" width="742" height="1600" loading="lazy" decoding="async" draggable="false">
+                    <p id="saranPwaCoachCaption" class="saran-pwa-coach-caption" aria-live="polite"></p>
+                </div>
+            </div>
+            <div id="saranPwaCoachDots" class="saran-pwa-coach-dots" aria-hidden="true"></div>
+            <div class="saran-pwa-coach-actions">
+                <button type="button" class="saran-pwa-coach-next" id="saranPwaCoachNext">Далее</button>
+                <button type="button" class="saran-pwa-coach-skip" id="saranPwaCoachSkip">Пропустить</button>
+            </div>
+        </div>
+    </div>
+
     <div id="saranRegistrationRoot" role="dialog" aria-modal="true" aria-labelledby="saranOnboardFlowTitle">
         <div class="saran-reg-card saran-onboard-card">
             <div id="saranOnboardWelcome">
@@ -4839,6 +5033,8 @@
         window.saranCurriculumTotalSteps = 50;
         window.saranCourseIndex = 0;
         const SARAN_LS_ONBOARD = 'saran_onboarding_done_v1';
+        /** Однократная подсказка: установка сайта на экран «Домой» (PWA). */
+        const SARAN_LS_PWA_INSTALL_COACH = 'saran_pwa_install_coach_v1';
         const SARAN_LS_PROFILE = 'saran_onboard_profile_v1';
         const SARAN_LS_NAME = 'saran_display_name_v1';
         const SARAN_LS_TASKS = 'saran_tasks_correct_v1';
@@ -6141,6 +6337,169 @@
                 else el.classList.remove('selected');
             });
         }
+        function initSaranPwaInstallCoach(onDone) {
+            var overlay = document.getElementById('saranPwaCoachOverlay');
+            var slideEl = document.getElementById('saranPwaCoachSlide');
+            var imgEl = document.getElementById('saranPwaCoachImg');
+            var capEl = document.getElementById('saranPwaCoachCaption');
+            var stepBadge = document.getElementById('saranPwaCoachStepBadge');
+            var nextBtn = document.getElementById('saranPwaCoachNext');
+            var skipBtn = document.getElementById('saranPwaCoachSkip');
+            var dotsHost = document.getElementById('saranPwaCoachDots');
+            if (!overlay || !slideEl || !imgEl || !capEl || !nextBtn || !skipBtn || !dotsHost || typeof onDone !== 'function') {
+                onDone();
+                return;
+            }
+            var slides = [
+                {
+                    src: 'photos/IMG_2008.jpg',
+                    cap: 'Откройте saran-edu.ru в Safari. Внизу нажмите «Поделиться» — квадрат со стрелкой вверх.',
+                    alt: 'Safari: нижняя панель, стрелка на кнопку «Поделиться»'
+                },
+                {
+                    src: 'photos/IMG_2009.jpg',
+                    cap: 'В списке действий найдите «На экран «Домой»» и нажмите этот пункт.',
+                    alt: 'Меню «Поделиться»: выбор «На экран Домой»'
+                },
+                {
+                    src: 'photos/IMG_2010.jpg',
+                    cap: 'Проверьте название «Саран», при необходимости включите «Открывать как веб-приложение», затем нажмите «Добавить» справа сверху.',
+                    alt: 'Экран подтверждения добавления на экран «Домой»'
+                },
+                {
+                    src: 'photos/IMG_2011.jpg',
+                    cap: 'Готово — иконка появится на рабочем столе. Откройте её, чтобы заходить в Саран как в обычное приложение.',
+                    alt: 'Иконка Саран на главном экране iPhone'
+                }
+            ];
+            var idx = 0;
+            var busy = false;
+
+            function prefersReducedMotion() {
+                try {
+                    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+                } catch (eR) {
+                    return false;
+                }
+            }
+
+            function buildDots() {
+                dotsHost.innerHTML = '';
+                for (var i = 0; i < slides.length; i++) {
+                    var d = document.createElement('span');
+                    d.className = 'saran-pwa-coach-dot';
+                    d.setAttribute('aria-hidden', 'true');
+                    dotsHost.appendChild(d);
+                }
+            }
+
+            function syncDots() {
+                var nodes = dotsHost.querySelectorAll('.saran-pwa-coach-dot');
+                for (var i = 0; i < nodes.length; i++) {
+                    nodes[i].setAttribute('aria-current', i === idx ? 'true' : 'false');
+                }
+            }
+
+            function applyContent(i) {
+                var s = slides[i];
+                imgEl.src = s.src;
+                imgEl.alt = s.alt;
+                capEl.textContent = s.cap;
+                if (stepBadge) stepBadge.textContent = 'Шаг ' + (i + 1) + ' из ' + slides.length;
+                nextBtn.textContent = i >= slides.length - 1 ? 'Понятно' : 'Далее';
+                syncDots();
+            }
+
+            function cleanup() {
+                try {
+                    slideEl.classList.remove('saran-pwa-coach-slide--out-left', 'saran-pwa-coach-slide--in-pre');
+                } catch (eC) { /* ignore */ }
+            }
+
+            function finish() {
+                busy = false;
+                try {
+                    localStorage.setItem(SARAN_LS_PWA_INSTALL_COACH, '1');
+                } catch (eL) { /* ignore */ }
+                cleanup();
+                overlay.classList.remove('saran-pwa-coach--open');
+                overlay.setAttribute('aria-hidden', 'true');
+                try {
+                    nextBtn.removeEventListener('click', onNextClick);
+                    skipBtn.removeEventListener('click', finish);
+                } catch (eRm) { /* ignore */ }
+                onDone();
+            }
+
+            function armEnterFromPre() {
+                if (prefersReducedMotion()) {
+                    busy = false;
+                    return;
+                }
+                slideEl.classList.remove('saran-pwa-coach-slide--out-left');
+                slideEl.classList.add('saran-pwa-coach-slide--in-pre');
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        try {
+                            slideEl.classList.remove('saran-pwa-coach-slide--in-pre');
+                        } catch (eIn) { /* ignore */ }
+                        busy = false;
+                    });
+                });
+            }
+
+            function onNextClick() {
+                if (busy) return;
+                if (idx >= slides.length - 1) {
+                    finish();
+                    return;
+                }
+                busy = true;
+                if (prefersReducedMotion()) {
+                    idx++;
+                    applyContent(idx);
+                    busy = false;
+                    return;
+                }
+                var ended = false;
+                function onTransitionEnd(ev) {
+                    if (ended) return;
+                    if (ev.target !== slideEl) return;
+                    if (ev.propertyName !== 'opacity' && ev.propertyName !== 'transform') return;
+                    ended = true;
+                    slideEl.removeEventListener('transitionend', onTransitionEnd);
+                    idx++;
+                    applyContent(idx);
+                    armEnterFromPre();
+                }
+                slideEl.addEventListener('transitionend', onTransitionEnd);
+                slideEl.classList.add('saran-pwa-coach-slide--out-left');
+                window.setTimeout(function () {
+                    if (ended) return;
+                    ended = true;
+                    try {
+                        slideEl.removeEventListener('transitionend', onTransitionEnd);
+                    } catch (eT) { /* ignore */ }
+                    idx++;
+                    applyContent(idx);
+                    cleanup();
+                    busy = false;
+                }, 520);
+            }
+
+            buildDots();
+            idx = 0;
+            cleanup();
+            applyContent(0);
+            nextBtn.addEventListener('click', onNextClick);
+            skipBtn.addEventListener('click', finish);
+            overlay.classList.add('saran-pwa-coach--open');
+            overlay.setAttribute('aria-hidden', 'false');
+            try {
+                nextBtn.focus();
+            } catch (eFoc) { /* ignore */ }
+        }
+
         function initSaranRegistration() {
             if (saranRegistrationInitDone) return;
             const root = document.getElementById('saranRegistrationRoot');
@@ -6299,21 +6658,6 @@
                 };
             }
 
-            try {
-                if (localStorage.getItem(SARAN_LS_ONBOARD) === '1') {
-                    root.hidden = true;
-                    if (nameInp) nameInp.value = localStorage.getItem(SARAN_LS_NAME) || '';
-                    var subDone = document.getElementById('saranAiTabSub');
-                    var nm = saranGetDisplayName();
-                    if (subDone && nm) subDone.textContent = saranChatSubLine(nm);
-                    refreshSaranProgressUI();
-                    return;
-                }
-            } catch (e) { /* ignore */ }
-
-            root.hidden = false;
-            saranShowWelcome();
-
             root.addEventListener('click', function (ev) {
                 var t = ev.target;
                 if (!t || !t.closest) return;
@@ -6377,6 +6721,33 @@
                 var profile = saranObBuildProfile();
                 saranFinishOnboard(nick, profile);
             });
+
+            try {
+                if (localStorage.getItem(SARAN_LS_ONBOARD) === '1') {
+                    root.hidden = true;
+                    if (nameInp) nameInp.value = localStorage.getItem(SARAN_LS_NAME) || '';
+                    var subDone = document.getElementById('saranAiTabSub');
+                    var nm = saranGetDisplayName();
+                    if (subDone && nm) subDone.textContent = saranChatSubLine(nm);
+                    refreshSaranProgressUI();
+                    return;
+                }
+            } catch (e) { /* ignore */ }
+
+            root.hidden = true;
+
+            try {
+                if (localStorage.getItem(SARAN_LS_PWA_INSTALL_COACH) !== '1') {
+                    initSaranPwaInstallCoach(function () {
+                        root.hidden = false;
+                        saranShowWelcome();
+                    });
+                    return;
+                }
+            } catch (eCoach) { /* ignore */ }
+
+            root.hidden = false;
+            saranShowWelcome();
         }
 
         function saranAppendChatBubble(role, text) {
@@ -8746,6 +9117,7 @@
         function saranTouchTargetIsInteractiveForDoubleTap(node) {
             if (!node || typeof node.closest !== 'function') return false;
             if (node.closest('#saranRegistrationRoot')) return true;
+            if (node.closest('#saranPwaCoachOverlay')) return true;
             return !!node.closest(
                 'button, a, input, textarea, select, label, [role="button"], .menu-tab, .saran-chat-send, .file-item'
             );
