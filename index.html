@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#0a0a0a">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Saran">
+    <meta name="apple-mobile-web-app-title" content="Саран">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Saran — языки России</title>
+    <title>Саран — языки России</title>
     <link rel="icon" type="image/jpeg" href="SaranLogo.jpg">
     <link rel="apple-touch-icon" href="SaranLogo.jpg">
     <link rel="manifest" href="manifest.webmanifest">
@@ -37,7 +37,7 @@
             --tab-bg-active: #2c2c2e;     /* Серый фон активной кнопки */
             --text-active: #f2f2f7;       /* Светлый текст активной кнопки */
             --text-inactive: #8e8e93;     /* Приглушенный текст неактивной кнопки */
-            /* Высота закреплённого блока «кикер + Saran» + safe-area (отступ контента и sticky под скруглённой шапкой) */
+            /* Высота закреплённого блока «кикер + Саран» + safe-area (отступ контента и sticky под скруглённой шапкой) */
             --saran-brand-offset: calc(env(safe-area-inset-top, 0px) + 86px);
             /* Нижнее меню-пилюля (аналог класса .menu-container) — чтобы чат-компоновщик не уезжал под неё */
             --saran-float-nav-bottom: 30px;
@@ -90,7 +90,7 @@
             color: rgba(255, 255, 255, 0.45);
         }
 
-        /* Закреплённый «языковой след / Saran»: как карточки — 358px, 22px скругление */
+        /* Закреплённый «языковой след / Саран»: как карточки — 358px, 22px скругление */
         .saran-global-brand-bar {
             position: fixed;
             top: 0;
@@ -810,8 +810,8 @@
             display: flex;
             align-items: center;
             background: #0a0a0a; /* Фон страницы */
-            padding: 0 20px;
-            gap: 0; /* Компенсация из координат Figma */
+            padding: 0 20px 10px;
+            gap: 10px;
             justify-content: center;
         }
         
@@ -4359,10 +4359,10 @@
     </style>
 </head>
 <body>
-    <header id="saranGlobalBrandBar" class="saran-global-brand-bar" role="banner" aria-label="Текущий раздел Saran">
+    <header id="saranGlobalBrandBar" class="saran-global-brand-bar" role="banner" aria-label="Текущий раздел Саран">
         <div class="saran-global-brand-bar__surface">
             <p class="saran-global-brand-kicker" id="saranGlobalBrandKicker">Языковой след</p>
-            <h1 class="saran-global-brand-title" id="saranGlobalBrandTitle">Saran</h1>
+            <h1 class="saran-global-brand-title" id="saranGlobalBrandTitle">Саран</h1>
         </div>
     </header>
 
@@ -4371,7 +4371,7 @@
             <div id="saranOnboardWelcome">
                 <img class="saran-onboard-hero-gif" src="Saran%20video/tut.gif" alt="" width="280" height="280" decoding="async">
                 <h2 id="saranOnboardWelcomeTitle" class="saran-onboard-welcome-title">Добро пожаловать</h2>
-                <p class="saran-onboard-welcome-sub">Saran помогает спокойно трогать языки России — от первых букв до живых маленьких шагов.</p>
+                <p class="saran-onboard-welcome-sub">Саран помогает спокойно трогать языки России — от первых букв до живых маленьких шагов.</p>
                 <button type="button" class="saran-onboard-primary" id="saranOnboardStartBtn">Начать</button>
                 <button type="button" class="saran-onboard-secondary" id="saranOnboardHaveAccountBtn">У меня уже есть аккаунт</button>
             </div>
@@ -4398,7 +4398,7 @@
                 </section>
 
                 <section class="saran-onboard-section" id="saranOnboardSectionSource" hidden>
-                    <p class="saran-onboard-step-lead">Откуда вы узнали о Saran?</p>
+                    <p class="saran-onboard-step-lead">Откуда вы узнали о Саран?</p>
                     <div class="saran-onboard-list">
                         <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="school"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_9730040521a168519871561cbea6509e.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Школа или учитель</span><span class="saran-onboard-opt__sub">Урок, кружок, рекомендация</span></span></button>
                         <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="friends"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_6_947546a876aaea3a9811abf4cca1b618.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Знакомые</span><span class="saran-onboard-opt__sub">Друзья, родные, сообщество</span></span></button>
@@ -4441,7 +4441,7 @@
                 </section>
 
                 <section class="saran-on-board-section saran-onboard-section" id="saranOnboardSectionValue" hidden>
-                    <p class="saran-onboard-step-lead">Чем Saran может помочь</p>
+                    <p class="saran-onboard-step-lead">Чем Саран может помочь</p>
                     <div class="saran-onboard-value-list">
                         <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_3_958e9a5aac8a0aeb099e08c28e327de7.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3>Говорить без стресса</h3><p>Короткие упражнения на говорение и аудирование — без «контрольной атмосферы».</p></div></div>
                         <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_4_bc1008ae41c90c9b1a6f63bb9e142f7f.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3>Словарь и фразы</h3><p>Живые конструкции и практические ситуации вместо сухих списков.</p></div></div>
@@ -4470,7 +4470,7 @@
                         <input id="saranRegKey" type="password" autocomplete="new-password" placeholder="Введите пароль">
                     </div>
                     <p id="saranRegFeedback" class="saran-reg-feedback" role="alert" aria-live="polite" hidden></p>
-                    <button type="button" class="saran-reg-submit saran-on-board-next saran-onboard-next" id="saranRegSubmit">Войти в Saran</button>
+                    <button type="button" class="saran-reg-submit saran-on-board-next saran-onboard-next" id="saranRegSubmit">Войти в Саран</button>
                 </section>
 
                 <button type="button" class="saran-reg-submit saran-onboard-next" id="saranOnboardNextBtn">Далее</button>
@@ -4514,7 +4514,7 @@
                 </div>
             </div>
             
-            <!-- Страница деталей курса (Saran) -->
+            <!-- Страница деталей курса -->
             <div id="course-detail-page" style="display: none;">
                 <div class="course-detail-screen px-4 pt-2 pb-10">
                     <div class="course-detail-head">
@@ -4528,9 +4528,9 @@
                                 <span>Для видео лучше без VPN</span>
                             </div>
                         </div>
-                        <div class="saran-course-hero-banner" role="img" aria-label="Текущий модуль Saran" id="saranCourseHeroBanner">
+                        <div class="saran-course-hero-banner" role="img" aria-label="Текущий модуль Саран" id="saranCourseHeroBanner">
                             <span class="k">Обучение</span>
-                            <span class="t" id="saranCourseHeroTitle">Старт: ни одной буквы не страшно</span>
+                            <span class="t" id="saranCourseHeroTitle">Модуль</span>
                         </div>
                     </div>
                     <div class="richrep-lessons-list mt-4" id="richrepLessonsList" aria-label="Уроки курса"></div>
@@ -4593,7 +4593,7 @@
         <!-- Вкладка Прогресс -->
         <div id="browseTab" class="content-section">
             <div class="px-4 pt-4 saran-progress-page">
-                <p class="saran-tab-sub">Здесь отражается то, что вы уже сделали в Saran: уроки, задания и ритм без спешки.</p>
+                <p class="saran-tab-sub">Здесь отражается то, что вы уже сделали в Саран: уроки, задания и ритм без спешки.</p>
 
                 <div class="saran-progress-hero">
                     <div class="saran-progress-ring-wrap" aria-hidden="true">
@@ -4620,7 +4620,7 @@
 
                 <div class="saran-progress-grid">
                     <div class="saran-progress-stat"><div class="val" id="saranProgStreak">0</div><div class="lbl">дней подряд у вас</div></div>
-                    <div class="saran-progress-stat"><div class="val" id="saranProgXp">0</div><div class="lbl">ваших очков Saran</div></div>
+                    <div class="saran-progress-stat"><div class="val" id="saranProgXp">0</div><div class="lbl">ваших очков в Саран</div></div>
                     <div class="saran-progress-stat"><div class="val" id="saranProgLessons">0</div><div class="lbl">уроков завершено</div></div>
                     <div class="saran-progress-stat"><div class="val" id="saranProgTasks">0</div><div class="lbl">ваших заданий верно</div></div>
                 </div>
@@ -4678,10 +4678,9 @@
             </div>
         </div>
 
-        <!-- Вкладка «Новости»: RSS через прокси, пересказ по-бурятски через тот же OpenRouter, что и чат -->
         <div id="newsTab" class="content-section">
             <div class="px-4 pt-4 saran-news-page">
-                <p class="saran-tab-sub" id="saranNewsLead">Краткие записи из открытых RSS-лент; заголовки и текст перефразируются на бурятский через серверную модель (если она уже настроена для чата).</p>
+                <p class="saran-tab-sub" id="saranNewsLead">Короткие заметки из открытых лент. Заголовок и смысл даём по-бурятски, когда это получается.</p>
                 <p id="saranNewsStatus" class="saran-news-status" role="status"></p>
                 <div id="saranNewsGrid" class="saran-news-grid"></div>
                 <button type="button" id="saranNewsRetry" class="saran-news-retry" hidden>Обновить ленту</button>
@@ -4725,22 +4724,22 @@
             <span class="tab-label">ИИ</span>
         </div>
 
-        <div class="menu-tab" onclick="switchTab(2, 'browse')">
+        <div class="menu-tab" onclick="switchTab(2, 'news')">
+            <div class="tab-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path fill="white" fill-opacity="0.8" d="M6 4c-1.1 0-2 .9-2 2v11h2V6h10v14H8v2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H6zm4 4h6v2h-6V8zm0 4h6v2h-6v-2zm11-5h-1v12c0 1.66-1.34 3-3 3s-3-1.34-3-3v-7h-2v7c0 2.76 2.24 5 5 5s5-2.24 5-5V9c0-1.1-.9-2-2-2z"/>
+                </svg>
+            </div>
+            <span class="tab-label">Новости</span>
+        </div>
+
+        <div class="menu-tab" onclick="switchTab(3, 'browse')">
             <div class="tab-icon">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M10.9487 21.9058C9.74235 21.9058 8.59131 21.7204 7.49561 21.3496C6.40544 20.9788 5.40381 20.4587 4.49072 19.7891C3.57764 19.1195 2.7863 18.3281 2.1167 17.415C1.4471 16.502 0.926921 15.5003 0.556152 14.4102C0.185384 13.3145 0 12.1634 0 10.957C0 9.74512 0.185384 8.59408 0.556152 7.50391C0.926921 6.4082 1.4471 5.40658 2.1167 4.49902C2.7863 3.58594 3.57764 2.7946 4.49072 2.125C5.40381 1.44987 6.40544 0.926921 7.49561 0.556152C8.59131 0.185384 9.74235 0 10.9487 0C12.1606 0 13.3117 0.185384 14.4019 0.556152C15.4976 0.926921 16.4992 1.44987 17.4067 2.125C18.3198 2.7946 19.1112 3.58594 19.7808 4.49902C20.4559 5.40658 20.9788 6.4082 21.3496 7.50391C21.7204 8.59408 21.9058 9.74512 21.9058 10.957C21.9058 12.1634 21.7204 13.3145 21.3496 14.4102C20.9788 15.5003 20.4559 16.502 19.7808 17.415C19.1112 18.3281 18.3198 19.1195 17.4067 19.7891C16.4992 20.4587 15.4976 20.9788 14.4019 21.3496C13.3117 21.7204 12.1606 21.9058 10.9487 21.9058ZM8.97314 17.0498H13.4805C13.7074 17.0498 13.8955 16.9779 14.0449 16.834C14.1943 16.6901 14.269 16.5047 14.269 16.2778C14.269 16.0675 14.1943 15.8877 14.0449 15.7383C13.8955 15.5889 13.7074 15.5142 13.4805 15.5142H12.1274V9.94434C12.1274 9.65658 12.0527 9.42415 11.9033 9.24707C11.7594 9.06445 11.5492 8.97314 11.2725 8.97314H9.14746C8.92611 8.97314 8.73796 9.04785 8.58301 9.19727C8.43359 9.34668 8.35889 9.52653 8.35889 9.73682C8.35889 9.9637 8.43359 10.1491 8.58301 10.293C8.73796 10.4368 8.92611 10.5088 9.14746 10.5088H10.4009V15.5142H8.97314C8.75179 15.5142 8.56364 15.5889 8.40869 15.7383C8.25928 15.8877 8.18457 16.0675 8.18457 16.2778C8.18457 16.5047 8.25928 16.6901 8.40869 16.834C8.56364 16.9779 8.75179 17.0498 8.97314 17.0498ZM10.8906 7.15527C11.1507 7.15527 11.3831 7.09163 11.5879 6.96436C11.7982 6.83708 11.967 6.66829 12.0942 6.45801C12.2215 6.24772 12.2852 6.0153 12.2852 5.76074C12.2852 5.3623 12.1496 5.02751 11.8784 4.75635C11.6073 4.47965 11.278 4.34131 10.8906 4.34131C10.5033 4.34131 10.174 4.47965 9.90283 4.75635C9.63167 5.02751 9.49609 5.3623 9.49609 5.76074C9.49609 6.0153 9.55697 6.24772 9.67871 6.45801C9.80599 6.66829 9.97477 6.83708 10.1851 6.96436C10.4009 7.09163 10.6361 7.15527 10.8906 7.15527Z" fill="white" fill-opacity="0.8"/>
                 </svg>
             </div>
             <span class="tab-label">Прогресс</span>
-        </div>
-
-        <div class="menu-tab" onclick="switchTab(3, 'news')">
-            <div class="tab-icon">
-                <svg width="23" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path fill="white" fill-opacity="0.8" d="M6 4c-1.1 0-2 .9-2 2v11h2V6h10v14H8v2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H6zm4 4h6v2h-6V8zm0 4h6v2h-6v-2zm11-5h-1v12c0 1.66-1.34 3-3 3s-3-1.34-3-3v-7h-2v7c0 2.76 2.24 5 5 5s5-2.24 5-5V9c0-1.1-.9-2-2-2z"/>
-                </svg>
-            </div>
-            <span class="tab-label">Новости</span>
         </div>
     </div>
 
@@ -4770,7 +4769,7 @@
             const title = document.getElementById('saranGlobalBrandTitle');
             if (!kick || !title) return;
             const map = {
-                recents: ['Языковой след', 'Saran'],
+                recents: ['Языковой след', 'Саран'],
                 shared: ['Практика', 'ИИ · бурятский'],
                 browse: ['Ваш след', 'Прогресс'],
                 news: ['События', 'Новости']
@@ -5913,7 +5912,7 @@
             if (head && lead) {
                 if (pct < 15) {
                     head.textContent = 'С чистого листа';
-                    lead.textContent = 'Пройдите первые задания в модулях Saran — кольцо заполнится по мере верных ответов.';
+                    lead.textContent = 'Пройдите первые задания в модулях «Саран» — кольцо заполнится по мере верных ответов.';
                 } else if (pct < 60) {
                     head.textContent = 'Вы вошли в ритм';
                     lead.textContent = 'У вас уже заметная серия верных заданий. Доведите уроки до конца — так программа держится крепче.';
@@ -6076,11 +6075,11 @@
         };
         const SARAN_OB_TITLE = {
             lang: 'Какой язык вы изучаете сейчас?',
-            source: 'Откуда вы узнали о Saran?',
+            source: 'Откуда вы узнали о Саран?',
             conference: 'Какая конференция?',
             goal: 'Зачем вы изучаете язык?',
             level: 'Какой у вас уровень сейчас?',
-            value: 'Чем Saran может помочь',
+            value: 'Чем Саран может помочь',
             daily: 'Сколько минут готовы уделять в день?',
             account: 'Почти готово'
         };
@@ -6603,7 +6602,7 @@
             var retry = document.getElementById('saranNewsRetry');
             if (status) {
                 status.classList.remove('saran-news-status--error');
-                status.textContent = 'Загрузка ленты и перевод…';
+                status.textContent = 'Загружаем новости…';
             }
             if (grid) grid.innerHTML = '';
             if (retry) retry.hidden = true;
@@ -6633,8 +6632,8 @@
             if (status) {
                 status.classList.remove('saran-news-status--error');
                 status.textContent = okTr
-                    ? 'Заголовок и текст пересказаны по-бурятски (модель на сервере). Ниже дублируется оригинал на русском.'
-                    : 'Перевод на бурятский недоступен (проверьте POST к /api/openrouter-chat.php). Показан русский текст.';
+                    ? 'Заголовок и текст пересказаны по-бурятски. Ниже — оригинальный заголовок на русском.'
+                    : 'Не удалось оформить бурятский вариант сейчас. Показываем русский текст.';
             }
             if (retry) retry.hidden = false;
             var html = '';
@@ -6686,12 +6685,12 @@
             if (status) {
                 status.classList.add('saran-news-status--error');
                 status.textContent =
-                    'Не удалось загрузить новости: сеть, прокси RSS или сервер перевода.' +
-                    (err && err.message ? ' (' + String(err.message).slice(0, 100) + ')' : '');
+                    'Не удалось загрузить новости. Проверьте подключение к сети и попробуйте ещё раз.' +
+                    (err && err.message ? ' (' + String(err.message).slice(0, 80) + ')' : '');
             }
             if (grid)
                 grid.innerHTML =
-                    '<p class="saran-news-status"><span lang="ru">Не удалось получить RSS через прокси (нужна сеть) или недоступен переводчик (нужен тот же <code>/api/openrouter-chat.php</code>, что и для ИИ).</span></p>';
+                    '<p class="saran-news-status"><span lang="ru">Лента временно недоступна. Нажмите «Обновить ленту» или зайдите позже.</span></p>';
             if (retry) retry.hidden = false;
         }
 
@@ -6918,6 +6917,10 @@
         }
 
         function startSaranLessonFlow(courseIndex, lessonIdx) {
+            if (!saranIsLessonUnlockedGlobal(courseIndex, lessonIdx)) {
+                alert('Этот урок пока закрыт: сначала завершите текущий шаг в модуле, где вы учитесь сейчас.');
+                return;
+            }
             saranHideLessonCompleteOverlay();
             saranExerciseState.courseIndex = courseIndex;
             saranExerciseState.lesson = lessonIdx;
@@ -7365,11 +7368,6 @@
         }
 
         function openSaranCourseFromIndex(courseIndex) {
-            const current = saranGlobalFirstIncompleteLessonRef();
-            if (current && courseIndex !== current.courseIndex) {
-                alert('Сначала пройдите текущий урок в активном модуле.');
-                return;
-            }
             window.saranCourseIndex = courseIndex;
             saranWarmupLessonAudio(courseIndex, 0);
             saranWarmupLessonAudio(courseIndex, 1);
@@ -7388,12 +7386,14 @@
 
         function updateCourseDetailHeroForTrack() {
             const banner = document.getElementById('saranCourseHeroBanner');
+            const titleEl = document.getElementById('saranCourseHeroTitle');
             if (!banner) return;
             var data = window.saranCurriculum;
             var idx = window.saranCourseIndex || 0;
             var course = data && data.courses && data.courses[idx];
-            var label = course && course.titleRu ? course.titleRu : 'Модуль Saran';
+            var label = course && course.titleRu ? String(course.titleRu).trim() : 'Модуль';
             banner.setAttribute('aria-label', label);
+            if (titleEl) titleEl.textContent = label;
         }
 
         function saranLocalMediaUrl(fileName) {
@@ -7669,7 +7669,7 @@
                     '<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">' +
                     '<path d="M9.0791 18.1582C4.06934 18.1582 5.6019e-08 14.0889 3.81027e-08 9.0791C2.01864e-08 4.06934 4.06934 -1.10569e-08 9.0791 -2.33931e-08C14.0889 -3.57293e-08 18.1582 4.06934 18.1582 9.0791C18.1582 14.0889 14.0889 18.1582 9.0791 18.1582ZM9.02637 6.07324C9.7207 6.07324 10.2744 5.51074 10.2744 4.81641C10.2744 4.10449 9.7207 3.55078 9.02637 3.55078C8.33203 3.55078 7.76953 4.10449 7.76953 4.81641C7.76953 5.51074 8.33203 6.07324 9.02637 6.07324ZM7.46191 14.1416L11.1709 14.1416C11.584 14.1416 11.9092 13.8428 11.9092 13.4209C11.9092 13.0342 11.584 12.7178 11.1709 12.7178L10.1602 12.7178L10.1602 8.40234C10.1602 7.84863 9.87891 7.48828 9.36035 7.48828L7.62891 7.48828C7.21582 7.48828 6.89941 7.80469 6.89941 8.19141C6.89941 8.61328 7.21582 8.91211 7.62891 8.91211L8.55176 8.91211L8.55176 12.7178L7.46191 12.7178C7.04883 12.7178 6.73242 13.0342 6.73242 13.4209C6.73242 13.8428 7.04883 14.1416 7.46191 14.1416Z" fill="white" fill-opacity="0.45"/>' +
                     '</svg></span>' +
-                    '<p class="paywall-card-text">Чтобы пользоваться приложением Saran, оформите доступ.</p>' +
+                    '<p class="paywall-card-text">Чтобы пользоваться приложением «Саран», оформите доступ.</p>' +
                     '</div>' +
                     '<button type="button" class="paywall-cta-btn" id="paywallCtaBtn" aria-label="Оплатить доступ">' +
                     '<span class="paywall-cta-btn-label">Оформить доступ</span>' +
@@ -8172,7 +8172,6 @@
         function renderSaranCourseCards(host, data) {
             if (!host || !data || !data.courses) return;
             host.innerHTML = '';
-            const current = saranGlobalFirstIncompleteLessonRef();
             saranSortedCoursesWithOrigIndex(data).forEach(function(w) {
                 const course = w.c;
                 const origIdx = w.origIdx;
@@ -8182,12 +8181,7 @@
                 btn.setAttribute('data-course-index', String(origIdx));
                 const label = (course.titleRu || 'Модуль').trim();
                 btn.setAttribute('aria-label', 'Открыть: ' + label);
-                const isCourseLocked = !!(current && current.courseIndex !== origIdx);
-                btn.setAttribute('data-course-locked', isCourseLocked ? '1' : '0');
-                if (isCourseLocked) {
-                    btn.setAttribute('aria-disabled', 'true');
-                    btn.style.opacity = '0.55';
-                }
+                btn.setAttribute('data-course-locked', '0');
 
                 const cover = document.createElement('div');
                 cover.className = 'richrep-start-cover richrep-start-cover--image';
@@ -8285,6 +8279,16 @@
                 if (loading) loading.remove();
                 renderSaranCourseCards(host, data);
                 refreshSaranProgressUI();
+                try {
+                    var cd = document.getElementById('course-detail-page');
+                    if (
+                        cd &&
+                        cd.style.display !== 'none' &&
+                        typeof updateCourseDetailHeroForTrack === 'function'
+                    ) {
+                        updateCourseDetailHeroForTrack();
+                    }
+                } catch (eHero) { /* ignore */ }
             }
             if (window.SARAN_CURRICULUM && typeof window.SARAN_CURRICULUM === 'object'
                 && Array.isArray(window.SARAN_CURRICULUM.courses) && window.SARAN_CURRICULUM.courses.length) {
@@ -8861,10 +8865,6 @@
                 const courseCard = e.target && e.target.closest && e.target.closest('#saranCourseCardsHost .richrep-start-card[data-course-index]');
                 if (courseCard) {
                     e.preventDefault();
-                    if (courseCard.getAttribute('data-course-locked') === '1') {
-                        alert('Сначала пройдите текущий урок в активном модуле.');
-                        return;
-                    }
                     let ci = parseInt(courseCard.getAttribute('data-course-index') || '0', 10);
                     if (!Number.isFinite(ci) || ci < 0) ci = 0;
                     openSaranCourseFromIndex(ci);
@@ -8874,7 +8874,7 @@
                 if (lessonBtn) {
                     e.preventDefault();
                     if (lessonBtn.getAttribute('data-lesson-locked') === '1' || lessonBtn.disabled) {
-                        alert('Прости, урок недоступен. Сначала пройди предыдущие.');
+                        alert('Урок пока недоступен: сначала завершите текущий шаг в своём модуле.');
                         return;
                     }
                     var lix = parseInt(lessonBtn.getAttribute('data-lesson-index') || '0', 10);
@@ -9581,7 +9581,8 @@
                         try {
                             console.warn('[SaranMusic]', err);
                         } catch (eLog) { /* ignore */ }
-                        host.innerHTML = '<p class="saran-music-load-msg">Не удалось загрузить подборку. Обновите страницу или проверьте, что рядом с index лежит папка <code>music_collection</code>.</p>';
+                        host.innerHTML =
+                            '<p class="saran-music-load-msg">Не удалось загрузить подборку. Обновите страницу или проверьте, что рядом с файлом <span lang="en">index.html</span> лежит папка «music_collection» с файлом library.json внутри.</p>';
                     });
             }
 
