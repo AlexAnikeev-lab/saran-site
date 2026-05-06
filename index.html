@@ -8247,6 +8247,38 @@
             }
         }
 
+        /** Каталог приложения со слэшем в конце: иначе new URL(rel, location) при пути /app без хвоста ломает music_collection и др. */
+        function saranPublicAppBaseHref() {
+            try {
+                var p = String(window.location.pathname || '');
+                if (p === '/app' || p.indexOf('/app/') === 0) {
+                    return new URL('/app/', window.location.origin).href;
+                }
+                var b = document.baseURI || window.location.href || '';
+                if (/\/$/.test(b)) return b;
+                try {
+                    return new URL('.', b).href;
+                } catch (eDot) {
+                    var m = String(b).match(/^(.*?)([^/]*)$/);
+                    return (m && m[1]) ? m[1] : b + '/';
+                }
+            } catch (eBase) {
+                try {
+                    return new URL('/app/', window.location.origin).href;
+                } catch (e2) {
+                    return '/app/';
+                }
+            }
+        }
+
+        function saranMusicLibraryJsonHref() {
+            try {
+                return new URL('music_collection/library.json', saranPublicAppBaseHref()).href;
+            } catch (eM) {
+                return '/app/music_collection/library.json';
+            }
+        }
+
         function loadSaranCurriculum() {
             const host = document.getElementById('saranCourseCardsHost');
             const loading = document.getElementById('saranCoursesLoading');
@@ -9501,7 +9533,7 @@
                 try {
                     var parts = String(relPath || '').replace(/^\/+/, '').split('/');
                     var enc = parts.map(function(p) { return encodeURIComponent(p); }).join('/');
-                    return new URL(enc, window.location.href).href;
+                    return new URL(enc, saranPublicAppBaseHref()).href;
                 } catch (eErr) {
                     return '';
                 }
@@ -9539,7 +9571,7 @@
                 var host = document.getElementById('saranMusicGridHost');
                 if (!host) return;
                 host.innerHTML = '<p class="saran-music-load-msg" role="status">Загружаем подборку…</p>';
-                fetch(new URL('music_collection/library.json', window.location.href).href, { cache: 'reload' })
+                fetch(saranMusicLibraryJsonHref(), { cache: 'reload' })
                     .then(function(res) {
                         if (!res.ok) throw new Error('music library http ' + res.status);
                         return res.json();
