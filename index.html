@@ -804,13 +804,8 @@
             letter-spacing: -0.015em;
         }
 
-        .podcast-thumbnail--a {
-            background: linear-gradient(135deg, #1c2824, #0a1010) !important;
-        }
-        .podcast-thumbnail--b {
-            background: linear-gradient(135deg, #222030, #0c0a12) !important;
-        }
-        
+        /* Градиенты обложек «Слушать» задаются в JS (сотни уникальных сочетаний), см. saranMusicCoverGradient */
+
         .tabs-wrapper {
             display: flex;
             align-items: center;
@@ -1255,6 +1250,27 @@
             justify-content: space-around;
             padding: 0 4px;
             z-index: 1000;
+        }
+
+        .menu-container--four {
+            width: min(404px, calc(100vw - 20px));
+            max-width: 404px;
+        }
+
+        .menu-container--four .menu-tab {
+            flex: 1 1 0;
+            width: auto;
+            min-width: 0;
+            max-width: none;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .menu-container--four .tab-label {
+            font-size: 9px;
+            letter-spacing: 0;
+            line-height: 1.05;
+            max-width: 100%;
         }
 
         /* Общий стиль для кнопок вкладок */
@@ -1754,6 +1770,113 @@
             pointer-events: none;
         }
         
+        /* Вкладка «Слушать»: подборка аудио */
+        .saran-music-intro {
+            max-width: 358px;
+            margin: 0 auto 8px auto;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .saran-music-intro__lead {
+            margin-bottom: 0;
+        }
+        .saran-music-load-msg {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 14px;
+            padding: 24px 16px;
+        }
+
+        /* Вкладка «Новости» */
+        .saran-news-page {
+            padding-bottom: 96px;
+        }
+        .saran-news-status {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 12px 0 8px;
+            min-height: 1.2em;
+        }
+        .saran-news-status.saran-news-status--error {
+            color: rgba(255, 170, 150, 0.95);
+        }
+        .saran-news-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 392px;
+            margin: 0 auto;
+        }
+        .saran-news-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .saran-news-thumb {
+            display: block;
+            width: 100%;
+            height: 148px;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+        .saran-news-thumb[hidden],
+        .saran-news-thumb.saran-news-thumb--hid {
+            display: none !important;
+        }
+        .saran-news-card-body {
+            padding: 12px 14px 14px;
+        }
+        .saran-news-title-bur {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: rgba(255, 255, 255, 0.96);
+            margin: 0 0 6px 0;
+        }
+        .saran-news-title-ru {
+            font-size: 12px;
+            line-height: 1.35;
+            color: rgba(160, 170, 180, 0.95);
+            margin: 0 0 8px 0;
+        }
+        .saran-news-lead-bur {
+            font-family: 'Vela Sans', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.42;
+            color: rgba(200, 210, 220, 0.92);
+            margin: 0 0 10px 0;
+        }
+        .saran-news-meta {
+            font-size: 11px;
+            color: rgba(140, 150, 160, 0.85);
+            margin: 0 0 8px 0;
+        }
+        .saran-news-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: #62b4ff;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .saran-news-link:visited {
+            color: #8ab8ea;
+        }
+        .saran-news-retry {
+            display: block;
+            margin: 16px auto 0;
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
         /* Стили для плиток аудиоподкастов */
         .podcasts-content {
             display: flex;
@@ -1775,19 +1898,7 @@
             transition: height 0.5s cubic-bezier(0.33, 1, 0.68, 1);
             overflow: visible;
         }
-        
-        .podcast-thumbnail {
-            position: absolute;
-            width: 122px;
-            height: 122px;
-            left: 8px;
-            top: 8px;
-            background-size: cover;
-            background-position: center;
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-        }
-        
+
         .podcast-info {
             position: absolute;
             left: 144px;
@@ -1813,6 +1924,87 @@
             width: 201px;
             min-height: 48px;
             box-sizing: border-box;
+        }
+
+        /* Подборка «Слушать»: узкая горизонтальная обложка, имя на обложке; справа — название и текст */
+        .podcast-tile--music {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 10px;
+            width: 358px;
+            height: auto;
+            min-height: 0;
+            transition: none;
+            padding: 10px 10px 12px;
+        }
+
+        .podcast-tile-music__left {
+            flex: 0 0 116px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .podcast-cover-block {
+            position: relative;
+            width: 116px;
+            height: 70px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .podcast-tile--music .podcast-thumbnail {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: #121212;
+        }
+
+        .podcast-cover-artist {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 5px 7px 6px;
+            box-sizing: border-box;
+            font-family: 'Vela Sans', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 1.28;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.52) 100%);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+        }
+
+        .podcast-tile-music__body {
+            flex: 1 1 auto;
+            min-width: 0;
+            padding-top: 9px;
+        }
+
+        .podcast-tile--music .podcast-title {
+            width: auto;
+            min-height: 0;
+            margin: 0 0 6px 0;
+        }
+
+        .podcast-description--music {
+            margin: 0;
+            max-height: none !important;
+            transition: none;
+            overflow: visible;
         }
         
         .podcast-description-wrapper.expanded {
@@ -1918,6 +2110,35 @@
             gap: 8px;
             cursor: pointer;
             transition: transform 0.2s;
+        }
+
+        .podcast-play-button--listen {
+            position: static;
+            width: 100%;
+            height: 32px;
+            left: auto;
+            top: auto;
+            justify-content: center;
+            padding-left: 8px;
+            padding-right: 10px;
+            gap: 6px;
+            border-radius: 24px;
+        }
+
+        .podcast-play-icon--listen {
+            width: 22px;
+            height: 22px;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .podcast-listen-label {
+            font-family: 'Vela Sans', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.15;
+            color: #FFFFFF;
         }
         
         .podcast-play-button:active {
@@ -4283,67 +4504,12 @@
                         </div>
                     </div>
 
-                    <!-- Контент аудиоподкастов -->
+                    <!-- Контент вкладки «Слушать»: подборка из music_collection (см. music_collection/library.json) -->
                     <div id="podcasts-content" class="podcasts-content-section" style="display: none;">
-                        <div class="podcasts-content">
-                            <!-- Плитка подкаста 1 -->
-                            <div class="podcast-tile">
-                                <div class="podcast-thumbnail podcast-thumbnail--a" aria-hidden="true"></div>
-                                <button type="button" class="podcast-play-button"
-                                    data-audio-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                                    aria-label="Воспроизвести подкаст">
-                                    <span class="podcast-play-icon">▶</span>
-                                    <span class="podcast-duration">24 мин</span>
-                                </button>
-                                <div class="podcast-info">
-                                    <h3 class="podcast-title">Зачем учить язык,<br>на котором говорят<br>три села</h3>
-                                    <div class="podcast-description-wrapper" id="podcastDesc1">
-                                        <p class="podcast-description">
-                                            Про память места, связь<br>
-                                            с семьёй и тихую гордость<br>
-                                            носителя<span class="podcast-description-ellipsis">...</span><span class="podcast-description-hidden"> — без пафоса и морали, только честный разговор о том, зачем вообще держать живой корень языка.</span>
-                                        </p>
-                                        <button class="podcast-expand-btn" onclick="togglePodcastText('podcastDesc1')">
-                                            <svg class="expand-icon expand-icon-down" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.26758 6.13477C5.03711 6.13477 4.82617 6.04102 4.63477 5.85352L0.222656 1.3418C0.148438 1.26367 0.0917969 1.17969 0.0527344 1.08984C0.0175781 1 0 0.900391 0 0.791016C0 0.646484 0.0351562 0.513672 0.105469 0.392578C0.175781 0.271484 0.269531 0.175781 0.386719 0.105469C0.507812 0.0351562 0.640625 0 0.785156 0C1.00391 0 1.19531 0.0800781 1.35938 0.240234L5.53711 4.5293H5.00391L9.16992 0.240234C9.33398 0.0800781 9.52539 0 9.74414 0C9.88867 0 10.0195 0.0351562 10.1367 0.105469C10.2578 0.175781 10.3535 0.271484 10.4238 0.392578C10.4941 0.513672 10.5293 0.646484 10.5293 0.791016C10.5293 1.00586 10.4531 1.1875 10.3008 1.33594L5.90039 5.85352C5.80664 5.94727 5.70703 6.01758 5.60156 6.06445C5.5 6.10742 5.38867 6.13086 5.26758 6.13477Z" fill="white" fill-opacity="0.45"/>
-                                            </svg>
-                                            <svg class="expand-icon expand-icon-up" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M0.222656 4.79883L4.63477 0.287109C4.81836 0.0957031 5.0293 0 5.26758 0C5.38867 0 5.5 0.0253906 5.60156 0.0761719C5.70703 0.123047 5.80664 0.193359 5.90039 0.287109L10.3008 4.79883C10.4531 4.94336 10.5293 5.125 10.5293 5.34375C10.5293 5.49219 10.4941 5.62695 10.4238 5.74805C10.3535 5.86523 10.2578 5.95898 10.1367 6.0293C10.0195 6.09961 9.88867 6.13477 9.74414 6.13477C9.51758 6.13477 9.32617 6.05469 9.16992 5.89453L5.00391 1.61133H5.53711L1.35938 5.89453C1.20312 6.05469 1.01172 6.13477 0.785156 6.13477C0.640625 6.13477 0.507812 6.09961 0.386719 6.0293C0.269531 5.95898 0.175781 5.86523 0.105469 5.74805C0.0351562 5.62695 0 5.49219 0 5.34375C0 5.23828 0.0175781 5.13867 0.0527344 5.04492C0.0917969 4.95117 0.148438 4.86914 0.222656 4.79883Z" fill="white" fill-opacity="0.45"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Плитка подкаста 2 (пример для демонстрации) -->
-                            <div class="podcast-tile">
-                                <div class="podcast-thumbnail podcast-thumbnail--b" aria-hidden="true"></div>
-                                <button type="button" class="podcast-play-button"
-                                    data-audio-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
-                                    aria-label="Воспроизвести подкаст">
-                                    <span class="podcast-play-icon">▶</span>
-                                    <span class="podcast-duration">19 мин</span>
-                                </button>
-                                <div class="podcast-info">
-                                    <h3 class="podcast-title">От «я не знаю<br>ни слова» до первой<br>фразы за неделю</h3>
-                                    <div class="podcast-description-wrapper" id="podcastDesc2">
-                                        <p class="podcast-description">
-                                            Как мы собираем<br>
-                                            микро-привычку без выгорания:<br>
-                                            звуки, жесты, короткие<span class="podcast-description-ellipsis">...</span><span class="podcast-description-hidden"> диалоги и честная обратная связь — в духе спокойных интерфейсов, где ничего не кричит и не давит.</span>
-                                        </p>
-                                        <button class="podcast-expand-btn" onclick="togglePodcastText('podcastDesc2')">
-                                            <svg class="expand-icon expand-icon-down" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.26758 6.13477C5.03711 6.13477 4.82617 6.04102 4.63477 5.85352L0.222656 1.3418C0.148438 1.26367 0.0917969 1.17969 0.0527344 1.08984C0.0175781 1 0 0.900391 0 0.791016C0 0.646484 0.0351562 0.513672 0.105469 0.392578C0.175781 0.271484 0.269531 0.175781 0.386719 0.105469C0.507812 0.0351562 0.640625 0 0.785156 0C1.00391 0 1.19531 0.0800781 1.35938 0.240234L5.53711 4.5293H5.00391L9.16992 0.240234C9.33398 0.0800781 9.52539 0 9.74414 0C9.88867 0 10.0195 0.0351562 10.1367 0.105469C10.2578 0.175781 10.3535 0.271484 10.4238 0.392578C10.4941 0.513672 10.5293 0.646484 10.5293 0.791016C10.5293 1.00586 10.4531 1.1875 10.3008 1.33594L5.90039 5.85352C5.80664 5.94727 5.70703 6.01758 5.60156 6.06445C5.5 6.10742 5.38867 6.13086 5.26758 6.13477Z" fill="white" fill-opacity="0.45"/>
-                                            </svg>
-                                            <svg class="expand-icon expand-icon-up" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M0.222656 4.79883L4.63477 0.287109C4.81836 0.0957031 5.0293 0 5.26758 0C5.38867 0 5.5 0.0253906 5.60156 0.0761719C5.70703 0.123047 5.80664 0.193359 5.90039 0.287109L10.3008 4.79883C10.4531 4.94336 10.5293 5.125 10.5293 5.34375C10.5293 5.49219 10.4941 5.62695 10.4238 5.74805C10.3535 5.86523 10.2578 5.95898 10.1367 6.0293C10.0195 6.09961 9.88867 6.13477 9.74414 6.13477C9.51758 6.13477 9.32617 6.05469 9.16992 5.89453L5.00391 1.61133H5.53711L1.35938 5.89453C1.20312 6.05469 1.01172 6.13477 0.785156 6.13477C0.640625 6.13477 0.507812 6.09961 0.386719 6.0293C0.269531 5.95898 0.175781 5.86523 0.105469 5.74805C0.0351562 5.62695 0 5.49219 0 5.34375C0 5.23828 0.0175781 5.13867 0.0527344 5.04492C0.0917969 4.95117 0.148438 4.86914 0.222656 4.79883Z" fill="white" fill-opacity="0.45"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="saran-music-intro px-4">
+                            <p class="saran-tab-sub saran-music-intro__lead">Подборка песен и записей для свободного аудирования. Название — по композиции, ниже — исполнитель и короткая подпись.</p>
                         </div>
+                        <div id="saranMusicGridHost" class="podcasts-content" aria-live="polite"></div>
                     </div>
                 </div>
             </div>
@@ -4511,6 +4677,16 @@
                 <div class="saran-progress-list" role="list" id="saranProgList"></div>
             </div>
         </div>
+
+        <!-- Вкладка «Новости»: RSS через прокси, пересказ по-бурятски через тот же OpenRouter, что и чат -->
+        <div id="newsTab" class="content-section">
+            <div class="px-4 pt-4 saran-news-page">
+                <p class="saran-tab-sub" id="saranNewsLead">Краткие записи из открытых RSS-лент; заголовки и текст перефразируются на бурятский через серверную модель (если она уже настроена для чата).</p>
+                <p id="saranNewsStatus" class="saran-news-status" role="status"></p>
+                <div id="saranNewsGrid" class="saran-news-grid"></div>
+                <button type="button" id="saranNewsRetry" class="saran-news-retry" hidden>Обновить ленту</button>
+            </div>
+        </div>
         <div class="status-bar-frost" aria-hidden="true"></div>
     </div>
 
@@ -4527,7 +4703,7 @@
     </div>
 
     <!-- Нижняя навигационная панель -->
-    <div class="menu-container">
+    <div class="menu-container menu-container--four">
         <div class="active-bg" id="bubble"></div>
 
         <div class="menu-tab active" onclick="switchTab(0, 'recents')">
@@ -4557,6 +4733,15 @@
             </div>
             <span class="tab-label">Прогресс</span>
         </div>
+
+        <div class="menu-tab" onclick="switchTab(3, 'news')">
+            <div class="tab-icon">
+                <svg width="23" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path fill="white" fill-opacity="0.8" d="M6 4c-1.1 0-2 .9-2 2v11h2V6h10v14H8v2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H6zm4 4h6v2h-6V8zm0 4h6v2h-6v-2zm11-5h-1v12c0 1.66-1.34 3-3 3s-3-1.34-3-3v-7h-2v7c0 2.76 2.24 5 5 5s5-2.24 5-5V9c0-1.1-.9-2-2-2z"/>
+                </svg>
+            </div>
+            <span class="tab-label">Новости</span>
+        </div>
     </div>
 
     <script>
@@ -4573,6 +4758,10 @@
             browse: {
                 content: document.getElementById('browseTab'),
                 title: 'Прогресс'
+            },
+            news: {
+                content: document.getElementById('newsTab'),
+                title: 'Новости'
             }
         };
 
@@ -4583,7 +4772,8 @@
             const map = {
                 recents: ['Языковой след', 'Saran'],
                 shared: ['Практика', 'ИИ · бурятский'],
-                browse: ['Ваш след', 'Прогресс']
+                browse: ['Ваш след', 'Прогресс'],
+                news: ['События', 'Новости']
             };
             const pair = map[tabKey] || map.recents;
             kick.textContent = pair[0];
@@ -6276,6 +6466,279 @@
             return cleaned.slice(0, 140);
         }
 
+        /** RSS русскоязычных лент; подборка загружается в браузере через публичный CORS-прокси. */
+        const SARAN_NEWS_RSS_PRIMARY = 'https://feeds.bbci.co.uk/russian/rss.xml';
+        const SARAN_NEWS_RSS_FALLBACK = 'https://lenta.ru/rss/news';
+
+        function saranNewsCodetabsProxyUrl(targetUrl) {
+            return 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(targetUrl);
+        }
+
+        function saranNewsStripHtmlToText(html) {
+            try {
+                var d = document.createElement('div');
+                d.innerHTML = String(html || '');
+                var t = d.textContent || d.innerText || '';
+                return t.replace(/\s+/g, ' ').trim();
+            } catch (eTxt) {
+                return String(html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            }
+        }
+
+        function saranNewsRssThumbnail(itemEl) {
+            try {
+                var enc = itemEl.querySelector('enclosure');
+                if (enc) {
+                    var ty = ((enc.getAttribute('type') || '') + '').toLowerCase();
+                    if (ty.indexOf('image') === 0) {
+                        var u = enc.getAttribute('url');
+                        if (u) return u;
+                    }
+                }
+                var lst = itemEl.getElementsByTagName('*');
+                for (var k = 0; k < lst.length; k++) {
+                    var e = lst[k];
+                    if (e.localName === 'thumbnail' || (e.tagName && String(e.tagName).toLowerCase().indexOf('thumbnail') !== -1)) {
+                        var uu = e.getAttribute ? e.getAttribute('url') : '';
+                        if (uu) return uu;
+                    }
+                }
+                var desc = itemEl.querySelector('description');
+                if (desc) {
+                    var tx = desc.textContent || '';
+                    var mm = tx.match(/https?:\/\/[^\s"'<>]+\.(jpg|jpeg|png|webp|gif)(\?[^\s"'<>]*)?/i);
+                    if (mm) return mm[0];
+                }
+            } catch (eImg) {
+                /* ignore */
+            }
+            return '';
+        }
+
+        function saranNewsParseItems(xmlStr, maxItems) {
+            var mx = Math.min(Math.max(parseInt(String(maxItems || 8), 10) || 8, 1), 12);
+            var doc = null;
+            try {
+                doc = new DOMParser().parseFromString(String(xmlStr || ''), 'application/xml');
+            } catch (eP) {
+                return [];
+            }
+            if (doc.querySelector('parsererror')) return [];
+            var items = doc.querySelectorAll('rss channel item, channel item');
+            if (!items.length) items = doc.querySelectorAll('item');
+            var out = [];
+            for (var i = 0; i < items.length && out.length < mx; i++) {
+                var it = items[i];
+                var ti = it.querySelector('title');
+                var li = it.querySelector('link');
+                var de = it.querySelector('description');
+                var pd = it.querySelector('pubDate');
+                var title = ti ? saranNewsStripHtmlToText(ti.textContent || '') : '';
+                var link = li ? String(li.textContent || '').trim() : '';
+                var dh = de ? String(de.innerHTML || de.textContent || '') : '';
+                var lead = saranNewsStripHtmlToText(dh).slice(0, 520);
+                if (!title) continue;
+                out.push({
+                    titleRu: title,
+                    link: link,
+                    leadRu: lead,
+                    pub: pd ? String(pd.textContent || '').trim() : '',
+                    imageUrl: saranNewsRssThumbnail(it)
+                });
+            }
+            return out;
+        }
+
+        function saranNewsStripFenceJson(txt) {
+            var t = String(txt || '').trim();
+            var m = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
+            return m ? m[1].trim() : t;
+        }
+
+        async function saranNewsFetchProxied(feedUrl) {
+            var proxied = saranNewsCodetabsProxyUrl(feedUrl);
+            var ctrl = new AbortController();
+            var tm = setTimeout(function() {
+                ctrl.abort();
+            }, 32000);
+            try {
+                var res = await fetch(proxied, { signal: ctrl.signal, cache: 'no-store' });
+                var body = await res.text();
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return body;
+            } finally {
+                clearTimeout(tm);
+            }
+        }
+
+        async function saranNewsTranslateBatch(itemsRu) {
+            var sys =
+                'Ты редактор бурятоязычного СМИ. Переводи на литературный бурятский язык (кириллица). Без русского текста в ответе, без латинских слов там, где можно обойтись кириллицей.';
+            var lines = [];
+            for (var k = 0; k < itemsRu.length; k++) {
+                lines.push(
+                    k +
+                        '|' +
+                        itemsRu[k].titleRu.slice(0, 240).replace(/\|/g, ' ') +
+                        '|' +
+                        String(itemsRu[k].leadRu || '')
+                            .replace(/\|/g, ' ')
+                            .slice(0, 400)
+                );
+            }
+            var usr =
+                'Верни строго один JSON-массив объектов с полями i (номер строки с нуля), t (заголовок по-бурятски), l (краткий абзац по-бурятски, до 380 символов).\nСтроки данных:\n' +
+                lines.join('\n');
+            var raw = await saranOpenRouterCompletion([{ role: 'user', content: usr }], sys);
+            var cleaned = saranNewsStripFenceJson(raw);
+            var arr = JSON.parse(cleaned);
+            return Array.isArray(arr) ? arr : null;
+        }
+
+        window.saranNewsLoadState = 'idle';
+
+        function renderSaranNewsLoading() {
+            var status = document.getElementById('saranNewsStatus');
+            var grid = document.getElementById('saranNewsGrid');
+            var retry = document.getElementById('saranNewsRetry');
+            if (status) {
+                status.classList.remove('saran-news-status--error');
+                status.textContent = 'Загрузка ленты и перевод…';
+            }
+            if (grid) grid.innerHTML = '';
+            if (retry) retry.hidden = true;
+        }
+
+        function saranNewsEscapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function renderSaranNewsCards(itemsRu, translations) {
+            var grid = document.getElementById('saranNewsGrid');
+            var status = document.getElementById('saranNewsStatus');
+            var retry = document.getElementById('saranNewsRetry');
+            if (!grid) return;
+            var dict = {};
+            if (Array.isArray(translations)) {
+                for (var t = 0; t < translations.length; t++) {
+                    var o = translations[t];
+                    if (o && typeof o.i !== 'undefined') dict[Number(o.i)] = o;
+                }
+            }
+            var okTr = !!(translations && translations.length);
+            if (status) {
+                status.classList.remove('saran-news-status--error');
+                status.textContent = okTr
+                    ? 'Заголовок и текст пересказаны по-бурятски (модель на сервере). Ниже дублируется оригинал на русском.'
+                    : 'Перевод на бурятский недоступен (проверьте POST к /api/openrouter-chat.php). Показан русский текст.';
+            }
+            if (retry) retry.hidden = false;
+            var html = '';
+            var i = 0;
+            for (; i < itemsRu.length; i++) {
+                var row = itemsRu[i];
+                var tr = dict[i];
+                var titleBur = tr && tr.t ? String(tr.t).trim() : '';
+                var leadBur = tr && tr.l ? String(tr.l).trim() : '';
+                if (!titleBur) titleBur = row.titleRu;
+                if (!leadBur) leadBur = row.leadRu;
+                var img = row.imageUrl || '';
+                var safeLink = saranNewsEscapeHtml(row.link || '#');
+                var imgAttr =
+                    img.length > 10
+                        ? ' src="' + saranNewsEscapeHtml(img) + '" referrerpolicy="no-referrer"'
+                        : '';
+                html += '<article class="saran-news-card">';
+                if (img.length > 10) {
+                    html +=
+                        '<img class="saran-news-thumb"' +
+                        imgAttr +
+                        ' width="392" height="148" loading="lazy" decoding="async" alt="" onerror="this.style.display=\'none\'">';
+                }
+                html += '<div class="saran-news-card-body">';
+                html += '<h3 class="saran-news-title-bur">' + saranNewsEscapeHtml(titleBur) + '</h3>';
+                html +=
+                    '<p class="saran-news-title-ru">' +
+                    'Оригинал (рус.): ' +
+                    saranNewsEscapeHtml(row.titleRu) +
+                    '</p>';
+                html += '<p class="saran-news-lead-bur">' + saranNewsEscapeHtml(leadBur) + '</p>';
+                html += '<p class="saran-news-meta">';
+                html += row.pub ? saranNewsEscapeHtml(row.pub) : '';
+                html += '</p>';
+                html +=
+                    '<a class="saran-news-link" href="' +
+                    safeLink +
+                    '" target="_blank" rel="noopener noreferrer">Читать материал на сайте источника</a>';
+                html += '</div></article>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function renderSaranNewsError(err) {
+            var status = document.getElementById('saranNewsStatus');
+            var grid = document.getElementById('saranNewsGrid');
+            var retry = document.getElementById('saranNewsRetry');
+            if (status) {
+                status.classList.add('saran-news-status--error');
+                status.textContent =
+                    'Не удалось загрузить новости: сеть, прокси RSS или сервер перевода.' +
+                    (err && err.message ? ' (' + String(err.message).slice(0, 100) + ')' : '');
+            }
+            if (grid)
+                grid.innerHTML =
+                    '<p class="saran-news-status"><span lang="ru">Не удалось получить RSS через прокси (нужна сеть) или недоступен переводчик (нужен тот же <code>/api/openrouter-chat.php</code>, что и для ИИ).</span></p>';
+            if (retry) retry.hidden = false;
+        }
+
+        function initSaranNewsRetryButton() {
+            var btn = document.getElementById('saranNewsRetry');
+            if (!btn || btn.dataset.saranNewsBound === '1') return;
+            btn.dataset.saranNewsBound = '1';
+            btn.addEventListener('click', function() {
+                window.saranNewsLoadState = 'idle';
+                var g = document.getElementById('saranNewsGrid');
+                if (g) g.innerHTML = '';
+                loadSaranNewsIfNeeded();
+            });
+        }
+
+        function loadSaranNewsIfNeeded() {
+            var st = window.saranNewsLoadState;
+            if (st === 'loading' || st === 'ready') return;
+            window.saranNewsLoadState = 'loading';
+            renderSaranNewsLoading();
+            Promise.resolve()
+                .then(function() {
+                    return saranNewsFetchProxied(SARAN_NEWS_RSS_PRIMARY).catch(function() {
+                        return saranNewsFetchProxied(SARAN_NEWS_RSS_FALLBACK);
+                    });
+                })
+                .then(function(xmlStr) {
+                    var itemsRu = saranNewsParseItems(xmlStr, 8);
+                    if (!itemsRu.length) throw new Error('rss_empty_or_unparsed');
+                    return saranNewsTranslateBatch(itemsRu)
+                        .catch(function() {
+                            return null;
+                        })
+                        .then(function(translations) {
+                            renderSaranNewsCards(itemsRu, translations);
+                            window.saranNewsLoadState = 'ready';
+                        });
+                })
+                .catch(function(errN) {
+                    try {
+                        console.warn('[SaranNews]', errN);
+                    } catch (eL) {}
+                    renderSaranNewsError(errN);
+                    window.saranNewsLoadState = 'error';
+                });
+        }
+
         /** Запрос к OpenRouter: диалог по-бурятски → ответ только по-бурятски; при нарушении — одна внутренняя попытка исправления. */
         async function saranSendOpenRouter(messages) {
             const list = Array.isArray(messages) ? messages : [];
@@ -7552,7 +8015,10 @@
             // Подсветка имеет left: 6px, поэтому нужно вычесть это значение
             const offset = tabPosition - 6;
             
-            bubble.style.transform = `translateX(${offset}px)`;
+            if (bubble && activeTab) {
+                bubble.style.width = activeTab.offsetWidth + 'px';
+                bubble.style.transform = 'translateX(' + offset + 'px)';
+            }
 
             // 2. Меняем активный класс у кнопок (для цвета текста)
             menuTabs.forEach(t => t.classList.remove('active'));
@@ -7570,6 +8036,9 @@
             loadImagesInTab(tabs[tabKey].content);
             if (tabKey === 'browse' && typeof refreshSaranProgressUI === 'function') {
                 refreshSaranProgressUI();
+            }
+            if (tabKey === 'news' && typeof loadSaranNewsIfNeeded === 'function') {
+                loadSaranNewsIfNeeded();
             }
 
             // 4. При вкладке «Обучение» обновляем пейволл и список
@@ -7606,6 +8075,7 @@
 
         function saranRunRegistrationAndChatInit() {
             try {
+                initSaranNewsRetryButton();
                 initSaranRegistration();
                 initSaranAiChat();
             } catch (eInit) {
@@ -8476,20 +8946,7 @@
 
             // Клики по урокам: делегирование на document (список перерисовывается после /me/redeem).
             
-            // Подкасты: открываем кастомный аудио-плеер (seek + скорость)
-            const PODCAST_DURATION_TO_AUDIO_URL = {
-                '24 мин': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                '19 мин': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
-            };
-            Object.values(PODCAST_DURATION_TO_AUDIO_URL).forEach(function(url) {
-                const preload = document.createElement('link');
-                preload.rel = 'preload';
-                preload.as = 'audio';
-                preload.href = url;
-                preload.crossOrigin = 'anonymous';
-                document.head.appendChild(preload);
-            });
-
+            // Подкасты / «Слушать»: список дорожек загружается из music_collection/library.json
             const AUDIO_SEEK_STEPS = 1000;
             const AUDIO_SPEEDS = [0.75, 1, 1.25, 1.5, 2];
 
@@ -9016,8 +9473,125 @@
                 }
             }
 
-            document.querySelectorAll('.podcast-play-button').forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
+            function saranEscapeHtml(str) {
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+            }
+
+            function saranEscapeAttr(str) {
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/</g, '&lt;');
+            }
+
+            function saranMusicTitleHtml(title) {
+                var t = String(title || '').trim();
+                if (!t) return '';
+                if (t.length <= 38) return saranEscapeHtml(t);
+                var words = t.split(/\s+/);
+                var mid = Math.ceil(words.length / 2);
+                return saranEscapeHtml(words.slice(0, mid).join(' ')) + '<br>' + saranEscapeHtml(words.slice(mid).join(' '));
+            }
+
+            function saranMusicResolveUrl(relPath) {
+                try {
+                    var parts = String(relPath || '').replace(/^\/+/, '').split('/');
+                    var enc = parts.map(function(p) { return encodeURIComponent(p); }).join('/');
+                    return new URL(enc, window.location.href).href;
+                } catch (eErr) {
+                    return '';
+                }
+            }
+
+            /**
+             * Уникальный тёмный градиент для обложки по индексу (100+ различных рецептов за счёт
+             * комбинации угла, 4-х ступеней hsl и второго слоя radial).
+             */
+            function saranMusicCoverGradient(idx) {
+                var i = Math.max(0, idx >>> 0);
+                var h0 = (i * 137 + i * i * 7) % 360;
+                var h1 = (h0 + 21 + (i % 31) * 4) % 360;
+                var h2 = (h0 + 52 + ((i >> 2) % 23) * 3) % 360;
+                var h3 = (h2 + 14 + ((i >> 5) % 17) * 5) % 360;
+                var ang = 95 + ((i * 29) % 88);
+                var s0 = 14 + (i % 40);
+                var s1 = Math.max(10, s0 - 5 - ((i >> 3) % 11));
+                var s2 = Math.max(8, s1 - Math.min(8, i % 7));
+                var L0 = 5 + (i % 16);
+                var L1 = 3 + ((i >> 2) % 13);
+                var L2 = 2 + ((i >> 4) % 10);
+                var L3 = 1 + ((i >> 6) % 8);
+                var p1 = 20 + (i % 30);
+                var p2 = 46 + (i % 36);
+                var lin = 'linear-gradient(' + ang + 'deg, hsl(' + h0 + ',' + s0 + '%,' + L0 + '%) 0%, hsl(' + h1 + ',' + s1 + '%,' + L1 + '%) ' + p1 + '%, hsl(' + h2 + ',' + s2 + '%,' + L2 + '%) ' + p2 + '%, hsl(' + h3 + ',' + s2 + '%,' + L3 + '%) 100%)';
+                var atX = 12 + ((i * 53) % 76);
+                var atY = 8 + ((i * 37) % 72);
+                var rh = ((h1 + 90 + (i % 50)) % 360);
+                var rad = 'radial-gradient(ellipse ' + (65 + (i % 28)) + '% ' + (55 + ((i >> 3) % 38)) + '% at ' + atX + '% ' + atY + '%, hsla(' + rh + ',42%,34%,0.38) 0%, hsla(' + ((h2 + 40) % 360) + ',28%,16%,0.15) 40%, transparent 72%)';
+                return rad + ', ' + lin;
+            }
+
+            function initSaranMusicPodcastGrid() {
+                var host = document.getElementById('saranMusicGridHost');
+                if (!host) return;
+                host.innerHTML = '<p class="saran-music-load-msg" role="status">Загружаем подборку…</p>';
+                fetch(new URL('music_collection/library.json', window.location.href).href, { cache: 'reload' })
+                    .then(function(res) {
+                        if (!res.ok) throw new Error('music library http ' + res.status);
+                        return res.json();
+                    })
+                    .then(function(tracks) {
+                        if (!Array.isArray(tracks) || !tracks.length) {
+                            host.innerHTML = '<p class="saran-music-load-msg">Список записей пока пуст.</p>';
+                            return;
+                        }
+                        var html = '';
+                        var i = 0;
+                        for (; i < tracks.length; i++) {
+                            var tr = tracks[i];
+                            var url = saranMusicResolveUrl(tr.file);
+                            var coverBg = saranMusicCoverGradient(i);
+                            var titleH = saranMusicTitleHtml(tr.title);
+                            var shortDesc = saranEscapeHtml(tr.description || '');
+                            var artist = saranEscapeHtml(tr.artist || '');
+                            var ariaLbl = saranEscapeAttr(String((tr.title || '') + ' — ' + (tr.artist || '')).trim());
+                            html += '<div class="podcast-tile podcast-tile--music">';
+                            html += '<div class="podcast-tile-music__left">';
+                            html += '<div class="podcast-cover-block">';
+                            html += '<div class="podcast-thumbnail" style="' + saranEscapeAttr('background:' + coverBg) + '" aria-hidden="true"></div>';
+                            html += '<span class="podcast-cover-artist">' + artist + '</span>';
+                            html += '</div>';
+                            html += '<button type="button" class="podcast-play-button podcast-play-button--listen" data-audio-url="' + saranEscapeAttr(url) + '" aria-label="Воспроизвести: ' + ariaLbl + '">';
+                            html += '<span class="podcast-play-icon podcast-play-icon--listen" aria-hidden="true">▶</span>';
+                            html += '<span class="podcast-listen-label">Слушать</span>';
+                            html += '</button>';
+                            html += '</div>';
+                            html += '<div class="podcast-tile-music__body">';
+                            html += '<h3 class="podcast-title">' + titleH + '</h3>';
+                            html += '<p class="podcast-description podcast-description--music">' + shortDesc + '</p>';
+                            html += '</div></div>';
+                        }
+                        host.innerHTML = html;
+                    })
+                    .catch(function(err) {
+                        try {
+                            console.warn('[SaranMusic]', err);
+                        } catch (eLog) { /* ignore */ }
+                        host.innerHTML = '<p class="saran-music-load-msg">Не удалось загрузить подборку. Обновите страницу или проверьте, что рядом с index лежит папка <code>music_collection</code>.</p>';
+                    });
+            }
+
+            initSaranMusicPodcastGrid();
+
+            const podcastsContentRoot = document.getElementById('podcasts-content');
+            if (podcastsContentRoot) {
+                podcastsContentRoot.addEventListener('click', function(e) {
+                    var btn = e.target && e.target.closest ? e.target.closest('.podcast-play-button') : null;
+                    if (!btn || !podcastsContentRoot.contains(btn)) return;
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -9026,17 +9600,20 @@
                     const titleText = titleEl ? String(titleEl.innerText || '').replace(/\s+/g, ' ').trim() : '';
 
                     const audioUrlFromData = btn.dataset && btn.dataset.audioUrl ? String(btn.dataset.audioUrl) : '';
+                    const artistEl = tile ? tile.querySelector('.podcast-cover-artist') : null;
                     const durationEl = btn.querySelector('.podcast-duration');
-                    const durationLabel = normalizePodcastLabel(durationEl ? durationEl.textContent : '');
-                    const audioUrl = audioUrlFromData || PODCAST_DURATION_TO_AUDIO_URL[durationLabel] || '';
+                    const durationLabel = normalizePodcastLabel(
+                        artistEl && artistEl.textContent ? artistEl.textContent : (durationEl ? durationEl.textContent : '')
+                    );
+                    const audioUrl = audioUrlFromData || '';
 
-                    const durationText = durationLabel || 'Аудиоподкаст';
+                    const durationText = durationLabel || 'Запись';
                     const tileThumb = tile ? tile.querySelector('.podcast-thumbnail') : null;
                     const coverBackground = tileThumb ? getComputedStyle(tileThumb).backgroundImage : '';
 
                     startMiniAudioPlayback(audioUrl, titleText, durationText, coverBackground);
                 });
-            });
+            }
         });
     </script>
 </body>
