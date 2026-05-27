@@ -16,3 +16,6 @@ Backend/
 app/api/openrouter-token.local.php
 app/api/hf-token.local.php
 app/node_modules/
+node_modules/
+app/saran.runtime.js
+app/saran.chunk-*.js
