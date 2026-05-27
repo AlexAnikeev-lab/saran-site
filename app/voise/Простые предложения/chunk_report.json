@@ -1,0 +1,290 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_001.wav",
+    "start_sec": 2.614,
+    "end_sec": 4.003,
+    "duration_sec": 1.389,
+    "recognized_text": "Простые предложения.",
+    "ai_note": "Простые предложения."
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_002.wav",
+    "start_sec": 4.442,
+    "end_sec": 5.528,
+    "duration_sec": 1.086,
+    "recognized_text": "для удирования.",
+    "ai_note": "для удирования."
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_003.wav",
+    "start_sec": 8.744,
+    "end_sec": 9.568,
+    "duration_sec": 0.824,
+    "recognized_text": "я читаю",
+    "ai_note": "я читаю"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_004.wav",
+    "start_sec": 10.812,
+    "end_sec": 11.584,
+    "duration_sec": 0.772,
+    "recognized_text": "и берем который ai隊",
+    "ai_note": "и берем который ai隊"
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_005.wav",
+    "start_sec": 13.202,
+    "end_sec": 13.648,
+    "duration_sec": 0.446,
+    "recognized_text": "Тебе.",
+    "ai_note": "Тебе."
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_006.wav",
+    "start_sec": 14.929,
+    "end_sec": 15.641,
+    "duration_sec": 0.712,
+    "recognized_text": "Швыщный.",
+    "ai_note": "Швыщный."
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_007.wav",
+    "start_sec": 17.305,
+    "end_sec": 18.286,
+    "duration_sec": 0.981,
+    "recognized_text": "девочка пойдет.",
+    "ai_note": "девочка пойдет."
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_008.wav",
+    "start_sec": 19.67,
+    "end_sec": 20.815,
+    "duration_sec": 1.145,
+    "recognized_text": "басаран дуулна",
+    "ai_note": "басаран дуулна"
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_009.wav",
+    "start_sec": 22.382,
+    "end_sec": 23.308,
+    "duration_sec": 0.926,
+    "recognized_text": "Мальчик бежит.",
+    "ai_note": "Мальчик бежит."
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_010.wav",
+    "start_sec": 24.345,
+    "end_sec": 25.36,
+    "duration_sec": 1.015,
+    "recognized_text": "вон гейна",
+    "ai_note": "вон гейна"
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_011.wav",
+    "start_sec": 26.437,
+    "end_sec": 27.87,
+    "duration_sec": 1.433,
+    "recognized_text": "Я люблю мне нравится.",
+    "ai_note": "Я люблю мне нравится."
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_012.wav",
+    "start_sec": 29.175,
+    "end_sec": 29.963,
+    "duration_sec": 0.788,
+    "recognized_text": "Бег close to the top",
+    "ai_note": "Бег close to the top"
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_013.wav",
+    "start_sec": 31.689,
+    "end_sec": 32.636,
+    "duration_sec": 0.947,
+    "recognized_text": "нам работает",
+    "ai_note": "нам работает"
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_014.wav",
+    "start_sec": 33.719,
+    "end_sec": 34.803,
+    "duration_sec": 1.084,
+    "recognized_text": "",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_015.wav",
+    "start_sec": 36.232,
+    "end_sec": 37.09,
+    "duration_sec": 0.858,
+    "recognized_text": "Папа подышал.",
+    "ai_note": "Папа подышал."
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_016.wav",
+    "start_sec": 38.398,
+    "end_sec": 39.253,
+    "duration_sec": 0.855,
+    "recognized_text": "Сρώяoner",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 17,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_017.wav",
+    "start_sec": 40.531,
+    "end_sec": 41.427,
+    "duration_sec": 0.896,
+    "recognized_text": "Я пью чай",
+    "ai_note": "Я пью чай"
+  },
+  {
+    "chunk_id": 18,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_018.wav",
+    "start_sec": 42.416,
+    "end_sec": 43.472,
+    "duration_sec": 1.056,
+    "recognized_text": "б ilsы우� nap",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 19,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_019.wav",
+    "start_sec": 44.898,
+    "end_sec": 45.748,
+    "duration_sec": 0.85,
+    "recognized_text": "3 years from now",
+    "ai_note": "3 years from now"
+  },
+  {
+    "chunk_id": 20,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_020.wav",
+    "start_sec": 46.947,
+    "end_sec": 47.931,
+    "duration_sec": 0.984,
+    "recognized_text": "Перем еще маленький одергер",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 21,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_021.wav",
+    "start_sec": 49.395,
+    "end_sec": 50.234,
+    "duration_sec": 0.839,
+    "recognized_text": "Собака Speed",
+    "ai_note": "Собака Speed"
+  },
+  {
+    "chunk_id": 22,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_022.wav",
+    "start_sec": 51.552,
+    "end_sec": 52.527,
+    "duration_sec": 0.975,
+    "recognized_text": "Нухая антона.",
+    "ai_note": "Нухая антона."
+  },
+  {
+    "chunk_id": 23,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_023.wav",
+    "start_sec": 53.749,
+    "end_sec": 54.103,
+    "duration_sec": 0.354,
+    "recognized_text": "То есть.",
+    "ai_note": "То есть."
+  },
+  {
+    "chunk_id": 24,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_024.wav",
+    "start_sec": 55.457,
+    "end_sec": 56.218,
+    "duration_sec": 0.761,
+    "recognized_text": "и на юмбе.",
+    "ai_note": "и на юмбе."
+  },
+  {
+    "chunk_id": 25,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_025.wav",
+    "start_sec": 57.763,
+    "end_sec": 58.652,
+    "duration_sec": 0.889,
+    "recognized_text": "это мой дом",
+    "ai_note": "это мой дом"
+  },
+  {
+    "chunk_id": 26,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_026.wav",
+    "start_sec": 59.624,
+    "end_sec": 60.547,
+    "duration_sec": 0.923,
+    "recognized_text": "и на меня бир.",
+    "ai_note": "и на меня бир."
+  },
+  {
+    "chunk_id": 27,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_027.wav",
+    "start_sec": 62.07,
+    "end_sec": 63.785,
+    "duration_sec": 1.715,
+    "recognized_text": "Я из-за чай бодецкий зуб.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 28,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_028.wav",
+    "start_sec": 65.372,
+    "end_sec": 66.671,
+    "duration_sec": 1.299,
+    "recognized_text": "Ты,管иром, субтитров и戰《Вамениbull》",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 29,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_029.wav",
+    "start_sec": 68.521,
+    "end_sec": 69.055,
+    "duration_sec": 0.534,
+    "recognized_text": "Ты где?",
+    "ai_note": "Ты где?"
+  },
+  {
+    "chunk_id": 30,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_030.wav",
+    "start_sec": 70.701,
+    "end_sec": 71.437,
+    "duration_sec": 0.736,
+    "recognized_text": "правильноption.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 31,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_031.wav",
+    "start_sec": 72.963,
+    "end_sec": 73.661,
+    "duration_sec": 0.698,
+    "recognized_text": "Я дома.",
+    "ai_note": "Я дома."
+  },
+  {
+    "chunk_id": 32,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Простые предложения/chunks/audio_032.wav",
+    "start_sec": 74.507,
+    "end_sec": 75.612,
+    "duration_sec": 1.105,
+    "recognized_text": "cant jegon",
+    "ai_note": "неразборчиво"
+  }
+]

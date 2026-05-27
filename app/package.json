@@ -1,0 +1,10 @@
+{
+  "name": "saran-app",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/minify-html.mjs"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}

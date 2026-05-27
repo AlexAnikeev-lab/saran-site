@@ -1,0 +1,33 @@
+# Не отдаём возможные секретные файлы напрямую по HTTP (require из PHP их всё равно читает).
+<IfModule mod_authz_core.c>
+    <Files "openrouter-token.txt">
+        Require all denied
+    </Files>
+    <Files "openrouter-token.local.php">
+        Require all denied
+    </Files>
+    <Files "hf-token.txt">
+        Require all denied
+    </Files>
+    <Files "hf-token.local.php">
+        Require all denied
+    </Files>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <Files "openrouter-token.txt">
+        Order allow,deny
+        Deny from all
+    </Files>
+    <Files "openrouter-token.local.php">
+        Order allow,deny
+        Deny from all
+    </Files>
+    <Files "hf-token.txt">
+        Order allow,deny
+        Deny from all
+    </Files>
+    <Files "hf-token.local.php">
+        Order allow,deny
+        Deny from all
+    </Files>
+</IfModule>

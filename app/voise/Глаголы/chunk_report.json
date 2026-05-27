@@ -1,0 +1,263 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_001.wav",
+    "start_sec": 3.906,
+    "end_sec": 4.602,
+    "duration_sec": 0.696,
+    "recognized_text": "Глогуло.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_002.wav",
+    "start_sec": 7.275,
+    "end_sec": 7.734,
+    "duration_sec": 0.459,
+    "recognized_text": "Repeat это",
+    "ai_note": "повторение слова 'это'"
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_003.wav",
+    "start_sec": 9.226,
+    "end_sec": 9.977,
+    "duration_sec": 0.751,
+    "recognized_text": "文ша",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_004.wav",
+    "start_sec": 11.31,
+    "end_sec": 11.76,
+    "duration_sec": 0.45,
+    "recognized_text": "Исад.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_005.wav",
+    "start_sec": 13.054,
+    "end_sec": 13.751,
+    "duration_sec": 0.697,
+    "recognized_text": "вот и grammar. и correlate很vengeUC не отажает thunder на liebe",
+    "ai_note": "смешение слов: грамматика и связи"
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_006.wav",
+    "start_sec": 15.116,
+    "end_sec": 15.636,
+    "duration_sec": 0.52,
+    "recognized_text": "Говорит...",
+    "ai_note": "говорит"
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_007.wav",
+    "start_sec": 16.672,
+    "end_sec": 17.335,
+    "duration_sec": 0.663,
+    "recognized_text": "Филыфа",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_008.wav",
+    "start_sec": 18.531,
+    "end_sec": 18.906,
+    "duration_sec": 0.375,
+    "recognized_text": "Здесь...",
+    "ai_note": "здесь..."
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_009.wav",
+    "start_sec": 19.402,
+    "end_sec": 19.753,
+    "duration_sec": 0.351,
+    "recognized_text": "очень psych caliber.",
+    "ai_note": "смешение слов: психология и калибр"
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_010.wav",
+    "start_sec": 20.858,
+    "end_sec": 21.488,
+    "duration_sec": 0.63,
+    "recognized_text": "Идер.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_011.wav",
+    "start_sec": 22.108,
+    "end_sec": 23.023,
+    "duration_sec": 0.915,
+    "recognized_text": "Делхо",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_012.wav",
+    "start_sec": 24.402,
+    "end_sec": 24.685,
+    "duration_sec": 0.283,
+    "recognized_text": "Пит.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_013.wav",
+    "start_sec": 25.943,
+    "end_sec": 26.618,
+    "duration_sec": 0.675,
+    "recognized_text": "Ухо!",
+    "ai_note": "Ухо!"
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_014.wav",
+    "start_sec": 27.866,
+    "end_sec": 28.215,
+    "duration_sec": 0.349,
+    "recognized_text": "Чи!",
+    "ai_note": "Чи!"
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_015.wav",
+    "start_sec": 29.105,
+    "end_sec": 29.758,
+    "duration_sec": 0.653,
+    "recognized_text": "Иапросер population 9455 J.",
+    "ai_note": "англо-русские слова: population 9455"
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_016.wav",
+    "start_sec": 31.255,
+    "end_sec": 31.781,
+    "duration_sec": 0.526,
+    "recognized_text": "Бежать.",
+    "ai_note": "бежать"
+  },
+  {
+    "chunk_id": 17,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_017.wav",
+    "start_sec": 32.95,
+    "end_sec": 33.655,
+    "duration_sec": 0.705,
+    "recognized_text": "глиха",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 18,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_018.wav",
+    "start_sec": 34.816,
+    "end_sec": 35.255,
+    "duration_sec": 0.439,
+    "recognized_text": "Играть.",
+    "ai_note": "играть"
+  },
+  {
+    "chunk_id": 19,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_019.wav",
+    "start_sec": 36.43,
+    "end_sec": 37.223,
+    "duration_sec": 0.793,
+    "recognized_text": "Надыха.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 20,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_020.wav",
+    "start_sec": 38.776,
+    "end_sec": 39.105,
+    "duration_sec": 0.329,
+    "recognized_text": "Пейт.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 21,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_021.wav",
+    "start_sec": 40.356,
+    "end_sec": 41.103,
+    "duration_sec": 0.747,
+    "recognized_text": "Долго.",
+    "ai_note": "долго"
+  },
+  {
+    "chunk_id": 22,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_022.wav",
+    "start_sec": 42.544,
+    "end_sec": 43.107,
+    "duration_sec": 0.563,
+    "recognized_text": "Матери.",
+    "ai_note": "матери"
+  },
+  {
+    "chunk_id": 23,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_023.wav",
+    "start_sec": 44.098,
+    "end_sec": 44.807,
+    "duration_sec": 0.709,
+    "recognized_text": "Узаха.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 24,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_024.wav",
+    "start_sec": 46.196,
+    "end_sec": 46.536,
+    "duration_sec": 0.34,
+    "recognized_text": "Підми!",
+    "ai_note": "підми"
+  },
+  {
+    "chunk_id": 25,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_025.wav",
+    "start_sec": 47.887,
+    "end_sec": 48.653,
+    "duration_sec": 0.766,
+    "recognized_text": "Унтахла.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 26,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_026.wav",
+    "start_sec": 50.162,
+    "end_sec": 50.599,
+    "duration_sec": 0.437,
+    "recognized_text": "Знат.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 27,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_027.wav",
+    "start_sec": 51.654,
+    "end_sec": 52.398,
+    "duration_sec": 0.744,
+    "recognized_text": "Мудихо.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 28,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_028.wav",
+    "start_sec": 54.429,
+    "end_sec": 54.934,
+    "duration_sec": 0.505,
+    "recognized_text": "без куча",
+    "ai_note": "без куча"
+  },
+  {
+    "chunk_id": 29,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Глаголы/chunks/audio_029.wav",
+    "start_sec": 56.118,
+    "end_sec": 57.075,
+    "duration_sec": 0.957,
+    "recognized_text": "Дуртебе.",
+    "ai_note": "неразборчиво"
+  }
+]

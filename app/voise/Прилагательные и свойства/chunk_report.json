@@ -1,0 +1,218 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_001.wav",
+    "start_sec": 2.43,
+    "end_sec": 4.222,
+    "duration_sec": 1.792,
+    "recognized_text": "грилогативное и свойств.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_002.wav",
+    "start_sec": 6.723,
+    "end_sec": 7.413,
+    "duration_sec": 0.69,
+    "recognized_text": "красивый.",
+    "ai_note": "прилагательное: красивый."
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_003.wav",
+    "start_sec": 8.677,
+    "end_sec": 9.356,
+    "duration_sec": 0.679,
+    "recognized_text": "Эхан.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_004.wav",
+    "start_sec": 10.561,
+    "end_sec": 11.161,
+    "duration_sec": 0.6,
+    "recognized_text": "Ла-хой.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_005.wav",
+    "start_sec": 12.451,
+    "end_sec": 12.945,
+    "duration_sec": 0.494,
+    "recognized_text": "Да.",
+    "ai_note": "Да."
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_006.wav",
+    "start_sec": 14.232,
+    "end_sec": 14.934,
+    "duration_sec": 0.702,
+    "recognized_text": "Большой",
+    "ai_note": "прилагательное: большой."
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_007.wav",
+    "start_sec": 16.092,
+    "end_sec": 16.538,
+    "duration_sec": 0.446,
+    "recognized_text": "Проман.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_008.wav",
+    "start_sec": 17.774,
+    "end_sec": 18.361,
+    "duration_sec": 0.587,
+    "recognized_text": "Малень.",
+    "ai_note": "прилагательное: маленький."
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_009.wav",
+    "start_sec": 19.448,
+    "end_sec": 19.974,
+    "duration_sec": 0.526,
+    "recognized_text": "không в Hurbour山",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_010.wav",
+    "start_sec": 20.861,
+    "end_sec": 21.619,
+    "duration_sec": 0.758,
+    "recognized_text": "Рахан.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_011.wav",
+    "start_sec": 22.847,
+    "end_sec": 23.48,
+    "duration_sec": 0.633,
+    "recognized_text": "красный.",
+    "ai_note": "прилагательное: красный."
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_012.wav",
+    "start_sec": 24.777,
+    "end_sec": 25.456,
+    "duration_sec": 0.679,
+    "recognized_text": "Уланд.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_013.wav",
+    "start_sec": 26.731,
+    "end_sec": 27.252,
+    "duration_sec": 0.521,
+    "recognized_text": "схими.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_014.wav",
+    "start_sec": 28.47,
+    "end_sec": 29.033,
+    "duration_sec": 0.563,
+    "recognized_text": "",
+    "ai_note": "нет текста"
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_015.wav",
+    "start_sec": 30.732,
+    "end_sec": 31.411,
+    "duration_sec": 0.679,
+    "recognized_text": "Зеленый.",
+    "ai_note": "прилагательное: зеленый."
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_016.wav",
+    "start_sec": 32.476,
+    "end_sec": 33.184,
+    "duration_sec": 0.708,
+    "recognized_text": "Наобное.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 17,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_017.wav",
+    "start_sec": 34.444,
+    "end_sec": 34.984,
+    "duration_sec": 0.54,
+    "recognized_text": "Чёрный.",
+    "ai_note": "прилагательное: чёрный."
+  },
+  {
+    "chunk_id": 18,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_018.wav",
+    "start_sec": 36.301,
+    "end_sec": 36.8,
+    "duration_sec": 0.499,
+    "recognized_text": "необходимо.",
+    "ai_note": "слово: необходимо."
+  },
+  {
+    "chunk_id": 19,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_019.wav",
+    "start_sec": 38.734,
+    "end_sec": 39.323,
+    "duration_sec": 0.589,
+    "recognized_text": "Белый.",
+    "ai_note": "прилагательное: белый."
+  },
+  {
+    "chunk_id": 20,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_020.wav",
+    "start_sec": 40.354,
+    "end_sec": 41.07,
+    "duration_sec": 0.716,
+    "recognized_text": "Саран.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 21,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_021.wav",
+    "start_sec": 42.293,
+    "end_sec": 42.892,
+    "duration_sec": 0.599,
+    "recognized_text": "Новый.",
+    "ai_note": "прилагательное: новый."
+  },
+  {
+    "chunk_id": 22,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_022.wav",
+    "start_sec": 44.097,
+    "end_sec": 44.604,
+    "duration_sec": 0.507,
+    "recognized_text": "",
+    "ai_note": "нет текста"
+  },
+  {
+    "chunk_id": 23,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_023.wav",
+    "start_sec": 46.283,
+    "end_sec": 46.827,
+    "duration_sec": 0.544,
+    "recognized_text": "Тарри.",
+    "ai_note": "неразборчивый текст"
+  },
+  {
+    "chunk_id": 24,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Прилагательные и свойства/chunks/audio_024.wav",
+    "start_sec": 47.961,
+    "end_sec": 48.669,
+    "duration_sec": 0.708,
+    "recognized_text": "",
+    "ai_note": "нет текста"
+  }
+]

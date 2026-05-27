@@ -1,0 +1,200 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_001.wav",
+    "start_sec": 3.338,
+    "end_sec": 4.981,
+    "duration_sec": 1.643,
+    "recognized_text": "короткие слова сочетания.",
+    "ai_note": "короткие словосочетания"
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_002.wav",
+    "start_sec": 5.729,
+    "end_sec": 6.285,
+    "duration_sec": 0.556,
+    "recognized_text": "анструк.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_003.wav",
+    "start_sec": 8.274,
+    "end_sec": 9.068,
+    "duration_sec": 0.794,
+    "recognized_text": "хорошим alt",
+    "ai_note": "частично разобранный фрагмент"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_004.wav",
+    "start_sec": 11.114,
+    "end_sec": 12.115,
+    "duration_sec": 1.001,
+    "recognized_text": "bienл Given",
+    "ai_note": "многоязычный фрагмент"
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_005.wav",
+    "start_sec": 13.808,
+    "end_sec": 14.813,
+    "duration_sec": 1.005,
+    "recognized_text": "Спасибо, я делать.",
+    "ai_note": "благодарность и намерение"
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_006.wav",
+    "start_sec": 16.171,
+    "end_sec": 17.415,
+    "duration_sec": 1.244,
+    "recognized_text": "Эхан басовым",
+    "ai_note": "неразборчивый фрагмент"
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_007.wav",
+    "start_sec": 19.118,
+    "end_sec": 19.89,
+    "duration_sec": 0.772,
+    "recognized_text": "Варная курс",
+    "ai_note": "непонятный фрагмент"
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_008.wav",
+    "start_sec": 21.261,
+    "end_sec": 22.307,
+    "duration_sec": 1.046,
+    "recognized_text": "четырехром и заготовал.",
+    "ai_note": "непонятная фраза"
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_009.wav",
+    "start_sec": 23.666,
+    "end_sec": 24.767,
+    "duration_sec": 1.101,
+    "recognized_text": "бо",
+    "ai_note": "частичное словосочетание"
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_010.wav",
+    "start_sec": 26.444,
+    "end_sec": 27.336,
+    "duration_sec": 0.892,
+    "recognized_text": "По Mundach",
+    "ai_note": "непонятная фраза"
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_011.wav",
+    "start_sec": 28.979,
+    "end_sec": 29.801,
+    "duration_sec": 0.822,
+    "recognized_text": "Новый дом.",
+    "ai_note": "употребление словосочетания Новый дом"
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_012.wav",
+    "start_sec": 31.379,
+    "end_sec": 31.973,
+    "duration_sec": 0.594,
+    "recognized_text": "Шту prostate, грotyн",
+    "ai_note": "неразборчивый фрагмент"
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_013.wav",
+    "start_sec": 34.25,
+    "end_sec": 35.271,
+    "duration_sec": 1.021,
+    "recognized_text": "Красная яблод.",
+    "ai_note": "упоминание красного яблока"
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_014.wav",
+    "start_sec": 37.359,
+    "end_sec": 38.418,
+    "duration_sec": 1.059,
+    "recognized_text": "reláх, Councillor ...",
+    "ai_note": "смешанный англоязычный фрагмент"
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_015.wav",
+    "start_sec": 39.634,
+    "end_sec": 40.469,
+    "duration_sec": 0.835,
+    "recognized_text": "– Дядя Что-пео!",
+    "ai_note": "неразборчивый диалог"
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_016.wav",
+    "start_sec": 41.757,
+    "end_sec": 42.919,
+    "duration_sec": 1.162,
+    "recognized_text": "Сним difficult to 빠르게,必 to phase, а temporary Sesame tend to Beallysuk to use mold 10 mm.",
+    "ai_note": "мультиязычный поток речи"
+  },
+  {
+    "chunk_id": 17,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_017.wav",
+    "start_sec": 44.201,
+    "end_sec": 45.264,
+    "duration_sec": 1.063,
+    "recognized_text": "Олодная вода.",
+    "ai_note": "упоминание холодной воды"
+  },
+  {
+    "chunk_id": 18,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_018.wav",
+    "start_sec": 46.124,
+    "end_sec": 47.393,
+    "duration_sec": 1.269,
+    "recognized_text": "...比 вы Duncan of Many Are In One RV.",
+    "ai_note": "мультиязычный и неразборчивый фрагмент"
+  },
+  {
+    "chunk_id": 19,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_019.wav",
+    "start_sec": 48.655,
+    "end_sec": 49.242,
+    "duration_sec": 0.587,
+    "recognized_text": "Мой друг.",
+    "ai_note": "мой друг"
+  },
+  {
+    "chunk_id": 20,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_020.wav",
+    "start_sec": 50.107,
+    "end_sec": 50.935,
+    "duration_sec": 0.828,
+    "recognized_text": "Венину Хор",
+    "ai_note": "непонятная фраза"
+  },
+  {
+    "chunk_id": 21,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_021.wav",
+    "start_sec": 52.55,
+    "end_sec": 53.478,
+    "duration_sec": 0.928,
+    "recognized_text": "а я книга",
+    "ai_note": "а я книга"
+  },
+  {
+    "chunk_id": 22,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Короткие словосочетания/chunks/audio_022.wav",
+    "start_sec": 54.55,
+    "end_sec": 55.288,
+    "duration_sec": 0.738,
+    "recognized_text": "где ни нам.",
+    "ai_note": "неполное предложение"
+  }
+]

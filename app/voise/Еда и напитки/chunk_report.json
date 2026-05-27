@@ -1,0 +1,110 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_001.wav",
+    "start_sec": 3.978,
+    "end_sec": 5.081,
+    "duration_sec": 1.103,
+    "recognized_text": "Еда и мапит.",
+    "ai_note": "Говорят про еду."
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_002.wav",
+    "start_sec": 6.968,
+    "end_sec": 7.339,
+    "duration_sec": 0.371,
+    "recognized_text": "Да хорошо.",
+    "ai_note": "Согласие, подтверждение."
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_003.wav",
+    "start_sec": 8.734,
+    "end_sec": 9.207,
+    "duration_sec": 0.473,
+    "recognized_text": "Netflix и Netflix enjoyable GTA.",
+    "ai_note": "Упоминания Netflix и GTA."
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_004.wav",
+    "start_sec": 10.845,
+    "end_sec": 11.268,
+    "duration_sec": 0.423,
+    "recognized_text": "�heart relief",
+    "ai_note": "heart relief"
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_005.wav",
+    "start_sec": 12.97,
+    "end_sec": 13.837,
+    "duration_sec": 0.867,
+    "recognized_text": "сегодня,星ир не тортиger",
+    "ai_note": "сегодня,星ир не тортиger"
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_006.wav",
+    "start_sec": 15.424,
+    "end_sec": 16.161,
+    "duration_sec": 0.737,
+    "recognized_text": "Далхом.",
+    "ai_note": "Далхом."
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_007.wav",
+    "start_sec": 17.926,
+    "end_sec": 18.348,
+    "duration_sec": 0.422,
+    "recognized_text": "Лос.",
+    "ai_note": "Лос."
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_008.wav",
+    "start_sec": 19.727,
+    "end_sec": 20.398,
+    "duration_sec": 0.671,
+    "recognized_text": "Ляхан.",
+    "ai_note": "Ляхан."
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_009.wav",
+    "start_sec": 22.159,
+    "end_sec": 22.794,
+    "duration_sec": 0.635,
+    "recognized_text": "Малоко.",
+    "ai_note": "Малоко."
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_010.wav",
+    "start_sec": 24.239,
+    "end_sec": 24.641,
+    "duration_sec": 0.402,
+    "recognized_text": "",
+    "ai_note": ""
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_011.wav",
+    "start_sec": 26.508,
+    "end_sec": 27.07,
+    "duration_sec": 0.562,
+    "recognized_text": "Вода.",
+    "ai_note": "Вода."
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Еда и напитки/chunks/audio_012.wav",
+    "start_sec": 28.418,
+    "end_sec": 29.001,
+    "duration_sec": 0.583,
+    "recognized_text": "Похоже.",
+    "ai_note": "Похоже."
+  }
+]

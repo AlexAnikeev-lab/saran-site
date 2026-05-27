@@ -1,0 +1,146 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_001.wav",
+    "start_sec": 5.89,
+    "end_sec": 6.689,
+    "duration_sec": 0.799,
+    "recognized_text": "животные.",
+    "ai_note": "слово 'животные'."
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_002.wav",
+    "start_sec": 8.488,
+    "end_sec": 8.947,
+    "duration_sec": 0.459,
+    "recognized_text": "Собав.",
+    "ai_note": "слово 'Собав'."
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_003.wav",
+    "start_sec": 10.468,
+    "end_sec": 11.11,
+    "duration_sec": 0.642,
+    "recognized_text": "нужа а а а",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_004.wav",
+    "start_sec": 12.801,
+    "end_sec": 13.119,
+    "duration_sec": 0.318,
+    "recognized_text": "Курс.",
+    "ai_note": "слово 'Курс'."
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_005.wav",
+    "start_sec": 14.517,
+    "end_sec": 15.295,
+    "duration_sec": 0.778,
+    "recognized_text": "Мизгай.",
+    "ai_note": "слово 'Мизгай'."
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_006.wav",
+    "start_sec": 16.561,
+    "end_sec": 17.105,
+    "duration_sec": 0.544,
+    "recognized_text": "Лошадь.",
+    "ai_note": "слово 'Лошадь'."
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_007.wav",
+    "start_sec": 18.35,
+    "end_sec": 18.963,
+    "duration_sec": 0.613,
+    "recognized_text": "море",
+    "ai_note": "слово 'море'."
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_008.wav",
+    "start_sec": 20.076,
+    "end_sec": 20.638,
+    "duration_sec": 0.562,
+    "recognized_text": "Корор",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_009.wav",
+    "start_sec": 22.086,
+    "end_sec": 22.369,
+    "duration_sec": 0.283,
+    "recognized_text": "",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_010.wav",
+    "start_sec": 24.214,
+    "end_sec": 24.717,
+    "duration_sec": 0.503,
+    "recognized_text": "Ухор.",
+    "ai_note": "слово 'Ухор'."
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_011.wav",
+    "start_sec": 26.372,
+    "end_sec": 26.972,
+    "duration_sec": 0.6,
+    "recognized_text": "Я люблю.",
+    "ai_note": "фраза 'Я люблю'."
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_012.wav",
+    "start_sec": 28.18,
+    "end_sec": 28.856,
+    "duration_sec": 0.676,
+    "recognized_text": "Думаем.",
+    "ai_note": "слово 'Думаем'."
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_013.wav",
+    "start_sec": 30.162,
+    "end_sec": 30.754,
+    "duration_sec": 0.592,
+    "recognized_text": "офца.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_014.wav",
+    "start_sec": 32.165,
+    "end_sec": 32.768,
+    "duration_sec": 0.603,
+    "recognized_text": "Хонень",
+    "ai_note": "слово 'Хонень'."
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_015.wav",
+    "start_sec": 34.448,
+    "end_sec": 34.901,
+    "duration_sec": 0.453,
+    "recognized_text": "Волт.",
+    "ai_note": "слово 'Волт'."
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Животные/chunks/audio_016.wav",
+    "start_sec": 36.441,
+    "end_sec": 36.865,
+    "duration_sec": 0.424,
+    "recognized_text": "фонна",
+    "ai_note": "слово 'фонна'."
+  }
+]

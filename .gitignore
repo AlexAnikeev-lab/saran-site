@@ -13,3 +13,6 @@ Backend/
 /api/openrouter-token.local.php
 /api/hf-token.txt
 /api/hf-token.local.php
+app/api/openrouter-token.local.php
+app/api/hf-token.local.php
+app/node_modules/

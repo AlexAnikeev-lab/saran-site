@@ -1,0 +1,173 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_001.wav",
+    "start_sec": 3.716,
+    "end_sec": 4.517,
+    "duration_sec": 0.801,
+    "recognized_text": "Симья и люди.",
+    "ai_note": "Семья и люди"
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_002.wav",
+    "start_sec": 6.308,
+    "end_sec": 6.848,
+    "duration_sec": 0.54,
+    "recognized_text": "Мама.",
+    "ai_note": "Мама"
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_003.wav",
+    "start_sec": 7.831,
+    "end_sec": 8.35,
+    "duration_sec": 0.519,
+    "recognized_text": "Пифер.",
+    "ai_note": "Пифер"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_004.wav",
+    "start_sec": 9.977,
+    "end_sec": 10.429,
+    "duration_sec": 0.452,
+    "recognized_text": "Папа.",
+    "ai_note": "Папа"
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_005.wav",
+    "start_sec": 11.724,
+    "end_sec": 12.393,
+    "duration_sec": 0.669,
+    "recognized_text": "это ты",
+    "ai_note": "это ты"
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_006.wav",
+    "start_sec": 13.912,
+    "end_sec": 14.293,
+    "duration_sec": 0.381,
+    "recognized_text": "Син.",
+    "ai_note": "Син"
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_007.wav",
+    "start_sec": 14.641,
+    "end_sec": 15.033,
+    "duration_sec": 0.392,
+    "recognized_text": "Мальт.",
+    "ai_note": "Мальт"
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_008.wav",
+    "start_sec": 16.498,
+    "end_sec": 17.129,
+    "duration_sec": 0.631,
+    "recognized_text": "",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_009.wav",
+    "start_sec": 18.372,
+    "end_sec": 18.693,
+    "duration_sec": 0.321,
+    "recognized_text": "дочь.",
+    "ai_note": "дочь"
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_010.wav",
+    "start_sec": 19.15,
+    "end_sec": 19.503,
+    "duration_sec": 0.353,
+    "recognized_text": "Не доказываете дома",
+    "ai_note": "Не доказываете дома"
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_011.wav",
+    "start_sec": 20.775,
+    "end_sec": 21.353,
+    "duration_sec": 0.578,
+    "recognized_text": "Junt knockhouse.",
+    "ai_note": "Junt knockhouse."
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_012.wav",
+    "start_sec": 24.585,
+    "end_sec": 25.073,
+    "duration_sec": 0.488,
+    "recognized_text": "Человек.",
+    "ai_note": "Человек"
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_013.wav",
+    "start_sec": 26.349,
+    "end_sec": 26.727,
+    "duration_sec": 0.378,
+    "recognized_text": "",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_014.wav",
+    "start_sec": 28.254,
+    "end_sec": 28.58,
+    "duration_sec": 0.326,
+    "recognized_text": "друг.",
+    "ai_note": "друг"
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_015.wav",
+    "start_sec": 29.636,
+    "end_sec": 30.091,
+    "duration_sec": 0.455,
+    "recognized_text": "Ну х",
+    "ai_note": "Ну х"
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_016.wav",
+    "start_sec": 31.67,
+    "end_sec": 32.087,
+    "duration_sec": 0.417,
+    "recognized_text": "Дедуш.",
+    "ai_note": "Дедуш"
+  },
+  {
+    "chunk_id": 17,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_017.wav",
+    "start_sec": 33.861,
+    "end_sec": 34.96,
+    "duration_sec": 1.099,
+    "recognized_text": "Бабы",
+    "ai_note": "Бабы"
+  },
+  {
+    "chunk_id": 18,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_018.wav",
+    "start_sec": 36.307,
+    "end_sec": 36.765,
+    "duration_sec": 0.458,
+    "recognized_text": "Набер.",
+    "ai_note": "Набер"
+  },
+  {
+    "chunk_id": 19,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Семья и люди/chunks/audio_019.wav",
+    "start_sec": 38.221,
+    "end_sec": 39.184,
+    "duration_sec": 0.963,
+    "recognized_text": "дом 지립니다!",
+    "ai_note": "дом 지립니다!"
+  }
+]

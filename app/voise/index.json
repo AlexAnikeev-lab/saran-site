@@ -1,0 +1,1250 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-05T17:12:21",
+  "baseDir": "voise",
+  "notes": "Индекс ориентирован на бурятский. Применен сдвиг +1 по chunkId/audio для обхода вступительных русских фрагментов.",
+  "sections": [
+    {
+      "id": "greetings",
+      "titleRu": "Приветствия и этикет",
+      "folder": "Приветствие и этикет",
+      "items": [
+        {
+          "buryat": "Сайн байна!",
+          "ru": "Здравствуйте / Привет!",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_002.wav",
+            "chunkId": 2,
+            "recognizedText": "Сайн байна!",
+            "durationSec": 0.624,
+            "status": "ok"
+          },
+          "displayText": "Сайн байна!",
+          "translationRu": "Здравствуйте / Привет!"
+        },
+        {
+          "buryat": "Баяртай!",
+          "ru": "До свидания!",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_004.wav",
+            "chunkId": 4,
+            "recognizedText": "Баяртай!",
+            "durationSec": 0.871,
+            "status": "ok"
+          },
+          "displayText": "Баяртай!",
+          "translationRu": "До свидания!"
+        },
+        {
+          "buryat": "Баярлаа",
+          "ru": "Спасибо",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_006.wav",
+            "chunkId": 6,
+            "recognizedText": "Баярлаа",
+            "durationSec": 0.585,
+            "status": "ok"
+          },
+          "displayText": "Баярлаа",
+          "translationRu": "Спасибо"
+        },
+        {
+          "buryat": "Тиимэ",
+          "ru": "Да",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_008.wav",
+            "chunkId": 8,
+            "recognizedText": "Тиимэ",
+            "durationSec": 0.365,
+            "status": "ok"
+          },
+          "displayText": "Тиимэ",
+          "translationRu": "Да"
+        },
+        {
+          "buryat": "Үгы",
+          "ru": "Нет",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_010.wav",
+            "chunkId": 10,
+            "recognizedText": "Үгы",
+            "durationSec": 0.389,
+            "status": "ok"
+          },
+          "displayText": "Үгы",
+          "translationRu": "Нет"
+        },
+        {
+          "buryat": "Би",
+          "ru": "Я",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_005.wav",
+            "chunkId": 5,
+            "recognizedText": "Би",
+            "durationSec": 0.786,
+            "status": "low"
+          },
+          "displayText": "Би",
+          "translationRu": "Я"
+        },
+        {
+          "buryat": "Ши",
+          "ru": "Ты",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_007.wav",
+            "chunkId": 7,
+            "recognizedText": "Ши",
+            "durationSec": 0.803,
+            "status": "low"
+          },
+          "displayText": "Ши",
+          "translationRu": "Ты"
+        },
+        {
+          "buryat": "Манай",
+          "ru": "Наш",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Манай",
+            "durationSec": 0.389,
+            "status": "low"
+          },
+          "displayText": "Манай",
+          "translationRu": "Наш"
+        },
+        {
+          "buryat": "Танай",
+          "ru": "Ваш",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_012.wav",
+            "chunkId": 12,
+            "recognizedText": "Танай",
+            "durationSec": 0.393,
+            "status": "low"
+          },
+          "displayText": "Танай",
+          "translationRu": "Ваш"
+        },
+        {
+          "buryat": "Хэн?",
+          "ru": "Кто?",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_020.wav",
+            "chunkId": 20,
+            "recognizedText": "Хэн?",
+            "durationSec": 0.403,
+            "status": "low"
+          },
+          "displayText": "Хэн?",
+          "translationRu": "Кто?"
+        },
+        {
+          "buryat": "Юун?",
+          "ru": "Что?",
+          "source": {
+            "audioRelativePath": "voise/Приветствие и этикет/chunks/audio_022.wav",
+            "chunkId": 22,
+            "recognizedText": "Юун?",
+            "durationSec": 0.348,
+            "status": "low"
+          },
+          "displayText": "Юун?",
+          "translationRu": "Что?"
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "titleRu": "Семья и люди",
+      "folder": "Семья и люди",
+      "items": [
+        {
+          "buryat": "Эхэ",
+          "ru": "Мама",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_003.wav",
+            "chunkId": 3,
+            "recognizedText": "Эхэ",
+            "durationSec": 0.54,
+            "status": "ok"
+          },
+          "displayText": "Эхэ",
+          "translationRu": "Мама"
+        },
+        {
+          "buryat": "Эсэгэ",
+          "ru": "Папа",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_005.wav",
+            "chunkId": 5,
+            "recognizedText": "Эсэгэ",
+            "durationSec": 0.452,
+            "status": "ok"
+          },
+          "displayText": "Эсэгэ",
+          "translationRu": "Папа"
+        },
+        {
+          "buryat": "Хүбүүн",
+          "ru": "Сын / Мальчик",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_007.wav",
+            "chunkId": 7,
+            "recognizedText": "Хүбүүн",
+            "durationSec": 0.381,
+            "status": "low"
+          },
+          "displayText": "Хүбүүн",
+          "translationRu": "Сын / Мальчик"
+        },
+        {
+          "buryat": "Басаган",
+          "ru": "Дочь / Девочка",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_010.wav",
+            "chunkId": 10,
+            "recognizedText": "Басаган",
+            "durationSec": 0.321,
+            "status": "ok"
+          },
+          "displayText": "Басаган",
+          "translationRu": "Дочь / Девочка"
+        },
+        {
+          "buryat": "Хүн",
+          "ru": "Человек",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_013.wav",
+            "chunkId": 13,
+            "recognizedText": "Хүн",
+            "durationSec": 0.488,
+            "status": "ok"
+          },
+          "displayText": "Хүн",
+          "translationRu": "Человек"
+        },
+        {
+          "buryat": "Нүхэр",
+          "ru": "Друг",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_015.wav",
+            "chunkId": 15,
+            "recognizedText": "Нүхэр",
+            "durationSec": 0.326,
+            "status": "ok"
+          },
+          "displayText": "Нүхэр",
+          "translationRu": "Друг"
+        },
+        {
+          "buryat": "Үбөө",
+          "ru": "Дедушка",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_017.wav",
+            "chunkId": 17,
+            "recognizedText": "Үбөө",
+            "durationSec": 0.417,
+            "status": "low"
+          },
+          "displayText": "Үбөө",
+          "translationRu": "Дедушка"
+        },
+        {
+          "buryat": "Хүгшин эжы",
+          "ru": "Бабушка",
+          "source": {
+            "audioRelativePath": "voise/Семья и люди/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Хүгшин эжы",
+            "durationSec": 1.099,
+            "status": "low"
+          },
+          "displayText": "Хүгшин эжы",
+          "translationRu": "Бабушка"
+        }
+      ]
+    },
+    {
+      "id": "animals",
+      "titleRu": "Животные",
+      "folder": "Животные",
+      "items": [
+        {
+          "buryat": "Нохой",
+          "ru": "Собака",
+          "source": {
+            "audioRelativePath": "voise/Животные/chunks/audio_003.wav",
+            "chunkId": 3,
+            "recognizedText": "Нохой",
+            "durationSec": 0.459,
+            "status": "low"
+          },
+          "displayText": "Нохой",
+          "translationRu": "Собака"
+        },
+        {
+          "buryat": "Миисгэй",
+          "ru": "Кошка",
+          "source": {
+            "audioRelativePath": "voise/Животные/chunks/audio_007.wav",
+            "chunkId": 7,
+            "recognizedText": "Миисгэй",
+            "durationSec": 0.544,
+            "status": "low"
+          },
+          "displayText": "Миисгэй",
+          "translationRu": "Кошка"
+        },
+        {
+          "buryat": "Морин",
+          "ru": "Лошадь",
+          "source": {
+            "audioRelativePath": "voise/Животные/chunks/audio_014.wav",
+            "chunkId": 14,
+            "recognizedText": "Морин",
+            "durationSec": 0.592,
+            "status": "low"
+          },
+          "displayText": "Морин",
+          "translationRu": "Лошадь"
+        },
+        {
+          "buryat": "Үхэр",
+          "ru": "Корова",
+          "source": {
+            "audioRelativePath": "voise/Животные/chunks/audio_009.wav",
+            "chunkId": 9,
+            "recognizedText": "Үхэр",
+            "durationSec": 0.562,
+            "status": "low"
+          },
+          "displayText": "Үхэр",
+          "translationRu": "Корова"
+        },
+        {
+          "buryat": "Тэмээн",
+          "ru": "Верблюд",
+          "source": {
+            "audioRelativePath": "voise/Животные/chunks/audio_012.wav",
+            "chunkId": 12,
+            "recognizedText": "Тэмээн",
+            "durationSec": 0.6,
+            "status": "low"
+          },
+          "displayText": "Тэмээн",
+          "translationRu": "Верблюд"
+        },
+        {
+          "buryat": "Хонин",
+          "ru": "Овца",
+          "source": {
+            "audioRelativePath": null,
+            "chunkId": null,
+            "recognizedText": "Хонин",
+            "durationSec": null,
+            "status": "missing"
+          },
+          "displayText": "Хонин",
+          "translationRu": "Овца"
+        },
+        {
+          "buryat": "Шоно",
+          "ru": "Волк",
+          "source": {
+            "audioRelativePath": "voise/Животные/chunks/audio_016.wav",
+            "chunkId": 16,
+            "recognizedText": "Шоно",
+            "durationSec": 0.453,
+            "status": "low"
+          },
+          "displayText": "Шоно",
+          "translationRu": "Волк"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "titleRu": "Еда и напитки",
+      "folder": "Еда и напитки",
+      "items": [
+        {
+          "buryat": "Сай",
+          "ru": "Чай",
+          "source": {
+            "audioRelativePath": "voise/Еда и напитки/chunks/audio_012.wav",
+            "chunkId": 12,
+            "recognizedText": "Сай",
+            "durationSec": 0.562,
+            "status": "low"
+          },
+          "displayText": "Сай",
+          "translationRu": "Чай"
+        },
+        {
+          "buryat": "Хлэй",
+          "ru": "Хлеб",
+          "source": {
+            "audioRelativePath": null,
+            "chunkId": null,
+            "recognizedText": "Хлэй",
+            "durationSec": null,
+            "status": "missing"
+          },
+          "displayText": "Хлэй",
+          "translationRu": "Хлеб"
+        },
+        {
+          "buryat": "Мяхан",
+          "ru": "Мясо",
+          "source": {
+            "audioRelativePath": "voise/Еда и напитки/chunks/audio_010.wav",
+            "chunkId": 10,
+            "recognizedText": "Мяхан",
+            "durationSec": 0.635,
+            "status": "low"
+          },
+          "displayText": "Мяхан",
+          "translationRu": "Мясо"
+        },
+        {
+          "buryat": "Һүн",
+          "ru": "Молоко",
+          "source": {
+            "audioRelativePath": "voise/Еда и напитки/chunks/audio_008.wav",
+            "chunkId": 8,
+            "recognizedText": "Һүн",
+            "durationSec": 0.422,
+            "status": "low"
+          },
+          "displayText": "Һүн",
+          "translationRu": "Молоко"
+        },
+        {
+          "buryat": "Уһан",
+          "ru": "Вода",
+          "source": {
+            "audioRelativePath": "voise/Еда и напитки/chunks/audio_007.wav",
+            "chunkId": 7,
+            "recognizedText": "Уһан",
+            "durationSec": 0.737,
+            "status": "low"
+          },
+          "displayText": "Уһан",
+          "translationRu": "Вода"
+        }
+      ]
+    },
+    {
+      "id": "verbs",
+      "titleRu": "Глаголы",
+      "folder": "Глаголы",
+      "items": [
+        {
+          "buryat": "Уншаха",
+          "ru": "Читать",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_019.wav",
+            "chunkId": 19,
+            "recognizedText": "Уншаха",
+            "durationSec": 0.439,
+            "status": "low"
+          },
+          "displayText": "Уншаха",
+          "translationRu": "Читать"
+        },
+        {
+          "buryat": "Бэшэхэ",
+          "ru": "Писать",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_013.wav",
+            "chunkId": 13,
+            "recognizedText": "Бэшэхэ",
+            "durationSec": 0.283,
+            "status": "low"
+          },
+          "displayText": "Бэшэхэ",
+          "translationRu": "Писать"
+        },
+        {
+          "buryat": "Хэлэхэ",
+          "ru": "Говорить",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_007.wav",
+            "chunkId": 7,
+            "recognizedText": "Хэлэхэ",
+            "durationSec": 0.52,
+            "status": "low"
+          },
+          "displayText": "Хэлэхэ",
+          "translationRu": "Говорить"
+        },
+        {
+          "buryat": "Идеэхэ",
+          "ru": "Есть / кушать",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_009.wav",
+            "chunkId": 9,
+            "recognizedText": "Идеэхэ",
+            "durationSec": 0.375,
+            "status": "low"
+          },
+          "displayText": "Идеэхэ",
+          "translationRu": "Есть / кушать"
+        },
+        {
+          "buryat": "Ундалха",
+          "ru": "Пить",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_021.wav",
+            "chunkId": 21,
+            "recognizedText": "Ундалха",
+            "durationSec": 0.329,
+            "status": "low"
+          },
+          "displayText": "Ундалха",
+          "translationRu": "Пить"
+        },
+        {
+          "buryat": "Ябаха",
+          "ru": "Идти",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_005.wav",
+            "chunkId": 5,
+            "recognizedText": "Ябаха",
+            "durationSec": 0.45,
+            "status": "low"
+          },
+          "displayText": "Ябаха",
+          "translationRu": "Идти"
+        },
+        {
+          "buryat": "Гүйхэ",
+          "ru": "Бежать",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_017.wav",
+            "chunkId": 17,
+            "recognizedText": "Гүйхэ",
+            "durationSec": 0.526,
+            "status": "ok"
+          },
+          "displayText": "Гүйхэ",
+          "translationRu": "Бежать"
+        },
+        {
+          "buryat": "Наадаха",
+          "ru": "Играть",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_011.wav",
+            "chunkId": 11,
+            "recognizedText": "Наадаха",
+            "durationSec": 0.63,
+            "status": "low"
+          },
+          "displayText": "Наадаха",
+          "translationRu": "Играть"
+        },
+        {
+          "buryat": "Дуулаха",
+          "ru": "Петь",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_027.wav",
+            "chunkId": 27,
+            "recognizedText": "Дуулаха",
+            "durationSec": 0.437,
+            "status": "low"
+          },
+          "displayText": "Дуулаха",
+          "translationRu": "Петь"
+        },
+        {
+          "buryat": "Үзэхэ",
+          "ru": "Смотреть",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_023.wav",
+            "chunkId": 23,
+            "recognizedText": "Үзэхэ",
+            "durationSec": 0.563,
+            "status": "low"
+          },
+          "displayText": "Үзэхэ",
+          "translationRu": "Смотреть"
+        },
+        {
+          "buryat": "Унтаха",
+          "ru": "Спать",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_004.wav",
+            "chunkId": 4,
+            "recognizedText": "Унтаха",
+            "durationSec": 0.751,
+            "status": "low"
+          },
+          "displayText": "Унтаха",
+          "translationRu": "Спать"
+        },
+        {
+          "buryat": "Мэдээхэ",
+          "ru": "Знать",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_024.wav",
+            "chunkId": 24,
+            "recognizedText": "Мэдээхэ",
+            "durationSec": 0.709,
+            "status": "low"
+          },
+          "displayText": "Мэдээхэ",
+          "translationRu": "Знать"
+        },
+        {
+          "buryat": "Дуратай байха",
+          "ru": "Любить",
+          "source": {
+            "audioRelativePath": "voise/Глаголы/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Дуратай байха",
+            "durationSec": 0.705,
+            "status": "low"
+          },
+          "displayText": "Дуратай байха",
+          "translationRu": "Любить"
+        }
+      ]
+    },
+    {
+      "id": "adjectives",
+      "titleRu": "Прилагательные и свойства",
+      "folder": "Прилагательные и свойства",
+      "items": [
+        {
+          "buryat": "Һайхан",
+          "ru": "Красивый",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_003.wav",
+            "chunkId": 3,
+            "recognizedText": "Һайхан",
+            "durationSec": 0.69,
+            "status": "ok"
+          },
+          "displayText": "Һайхан",
+          "translationRu": "Красивый"
+        },
+        {
+          "buryat": "Муу",
+          "ru": "Плохой",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_005.wav",
+            "chunkId": 5,
+            "recognizedText": "Муу",
+            "durationSec": 0.6,
+            "status": "low"
+          },
+          "displayText": "Муу",
+          "translationRu": "Плохой"
+        },
+        {
+          "buryat": "Томо",
+          "ru": "Большой",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_007.wav",
+            "chunkId": 7,
+            "recognizedText": "Томо",
+            "durationSec": 0.702,
+            "status": "ok"
+          },
+          "displayText": "Томо",
+          "translationRu": "Большой"
+        },
+        {
+          "buryat": "Бишихан",
+          "ru": "Маленький",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_009.wav",
+            "chunkId": 9,
+            "recognizedText": "Бишихан",
+            "durationSec": 0.587,
+            "status": "ok"
+          },
+          "displayText": "Бишихан",
+          "translationRu": "Маленький"
+        },
+        {
+          "buryat": "Улаан",
+          "ru": "Красный",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_012.wav",
+            "chunkId": 12,
+            "recognizedText": "Улаан",
+            "durationSec": 0.633,
+            "status": "ok"
+          },
+          "displayText": "Улаан",
+          "translationRu": "Красный"
+        },
+        {
+          "buryat": "Хөхэ",
+          "ru": "Синий",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_014.wav",
+            "chunkId": 14,
+            "recognizedText": "Хөхэ",
+            "durationSec": 0.521,
+            "status": "low"
+          },
+          "displayText": "Хөхэ",
+          "translationRu": "Синий"
+        },
+        {
+          "buryat": "Ногоон",
+          "ru": "Зеленый",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_016.wav",
+            "chunkId": 16,
+            "recognizedText": "Ногоон",
+            "durationSec": 0.679,
+            "status": "ok"
+          },
+          "displayText": "Ногоон",
+          "translationRu": "Зеленый"
+        },
+        {
+          "buryat": "Хара",
+          "ru": "Черный",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Хара",
+            "durationSec": 0.54,
+            "status": "ok"
+          },
+          "displayText": "Хара",
+          "translationRu": "Черный"
+        },
+        {
+          "buryat": "Цагаан",
+          "ru": "Белый",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_020.wav",
+            "chunkId": 20,
+            "recognizedText": "Цагаан",
+            "durationSec": 0.589,
+            "status": "ok"
+          },
+          "displayText": "Цагаан",
+          "translationRu": "Белый"
+        },
+        {
+          "buryat": "Шэнэ",
+          "ru": "Новый",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_022.wav",
+            "chunkId": 22,
+            "recognizedText": "Шэнэ",
+            "durationSec": 0.599,
+            "status": "ok"
+          },
+          "displayText": "Шэнэ",
+          "translationRu": "Новый"
+        },
+        {
+          "buryat": "Хуушан",
+          "ru": "Старый",
+          "source": {
+            "audioRelativePath": "voise/Прилагательные и свойства/chunks/audio_021.wav",
+            "chunkId": 21,
+            "recognizedText": "Хуушан",
+            "durationSec": 0.716,
+            "status": "low"
+          },
+          "displayText": "Хуушан",
+          "translationRu": "Старый"
+        }
+      ]
+    },
+    {
+      "id": "phrases",
+      "titleRu": "Короткие словосочетания",
+      "folder": "Короткие словосочетания",
+      "items": [
+        {
+          "buryat": "Сайн хүбүүн",
+          "ru": "Хороший мальчик",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_004.wav",
+            "chunkId": 4,
+            "recognizedText": "Сайн хүбүүн",
+            "durationSec": 0.794,
+            "status": "low"
+          },
+          "displayText": "Сайн хүбүүн",
+          "translationRu": "Хороший мальчик"
+        },
+        {
+          "buryat": "Һайхан басаган",
+          "ru": "Красивая девочка",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_014.wav",
+            "chunkId": 14,
+            "recognizedText": "Һайхан басаган",
+            "durationSec": 1.021,
+            "status": "low"
+          },
+          "displayText": "Һайхан басаган",
+          "translationRu": "Красивая девочка"
+        },
+        {
+          "buryat": "Хара миисгэй",
+          "ru": "Черная кошка",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_008.wav",
+            "chunkId": 8,
+            "recognizedText": "Хара миисгэй",
+            "durationSec": 0.772,
+            "status": "low"
+          },
+          "displayText": "Хара миисгэй",
+          "translationRu": "Черная кошка"
+        },
+        {
+          "buryat": "Томо нохой",
+          "ru": "Большая собака",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_010.wav",
+            "chunkId": 10,
+            "recognizedText": "Томо нохой",
+            "durationSec": 1.101,
+            "status": "low"
+          },
+          "displayText": "Томо нохой",
+          "translationRu": "Большая собака"
+        },
+        {
+          "buryat": "Шэнэ гэр",
+          "ru": "Новый дом",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_012.wav",
+            "chunkId": 12,
+            "recognizedText": "Шэнэ гэр",
+            "durationSec": 0.822,
+            "status": "ok"
+          },
+          "displayText": "Шэнэ гэр",
+          "translationRu": "Новый дом"
+        },
+        {
+          "buryat": "Улаан алим",
+          "ru": "Красное яблоко",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_006.wav",
+            "chunkId": 6,
+            "recognizedText": "Улаан алим",
+            "durationSec": 1.005,
+            "status": "low"
+          },
+          "displayText": "Улаан алим",
+          "translationRu": "Красное яблоко"
+        },
+        {
+          "buryat": "Халуун сай",
+          "ru": "Горячий чай",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_021.wav",
+            "chunkId": 21,
+            "recognizedText": "Халуун сай",
+            "durationSec": 0.828,
+            "status": "low"
+          },
+          "displayText": "Халуун сай",
+          "translationRu": "Горячий чай"
+        },
+        {
+          "buryat": "Хүйтэн уһан",
+          "ru": "Холодная вода",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Хүйтэн уһан",
+            "durationSec": 1.063,
+            "status": "ok"
+          },
+          "displayText": "Хүйтэн уһан",
+          "translationRu": "Холодная вода"
+        },
+        {
+          "buryat": "Минии нүхэр",
+          "ru": "Мой друг",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_020.wav",
+            "chunkId": 20,
+            "recognizedText": "Минии нүхэр",
+            "durationSec": 0.587,
+            "status": "ok"
+          },
+          "displayText": "Минии нүхэр",
+          "translationRu": "Мой друг"
+        },
+        {
+          "buryat": "Шинии ном",
+          "ru": "Твоя книга",
+          "source": {
+            "audioRelativePath": "voise/Короткие словосочетания/chunks/audio_022.wav",
+            "chunkId": 22,
+            "recognizedText": "Шинии ном",
+            "durationSec": 0.928,
+            "status": "ok"
+          },
+          "displayText": "Шинии ном",
+          "translationRu": "Твоя книга"
+        }
+      ]
+    },
+    {
+      "id": "sentences",
+      "titleRu": "Простые предложения",
+      "folder": "Простые предложения",
+      "items": [
+        {
+          "buryat": "Би уншанаб",
+          "ru": "Я читаю",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_004.wav",
+            "chunkId": 4,
+            "recognizedText": "Би уншанаб",
+            "durationSec": 0.824,
+            "status": "ok"
+          },
+          "displayText": "Би уншанаб",
+          "translationRu": "Я читаю"
+        },
+        {
+          "buryat": "Ши бэшэнэш",
+          "ru": "Ты пишешь",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_030.wav",
+            "chunkId": 30,
+            "recognizedText": "Ши бэшэнэш",
+            "durationSec": 0.534,
+            "status": "low"
+          },
+          "displayText": "Ши бэшэнэш",
+          "translationRu": "Ты пишешь"
+        },
+        {
+          "buryat": "Басаган дуулана",
+          "ru": "Девочка поет",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_008.wav",
+            "chunkId": 8,
+            "recognizedText": "Басаган дуулана",
+            "durationSec": 0.981,
+            "status": "ok"
+          },
+          "displayText": "Басаган дуулана",
+          "translationRu": "Девочка поет"
+        },
+        {
+          "buryat": "Хүбүүн гүйнэ",
+          "ru": "Мальчик бежит",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_010.wav",
+            "chunkId": 10,
+            "recognizedText": "Хүбүүн гүйнэ",
+            "durationSec": 0.926,
+            "status": "ok"
+          },
+          "displayText": "Хүбүүн гүйнэ",
+          "translationRu": "Мальчик бежит"
+        },
+        {
+          "buryat": "Би дуратайб",
+          "ru": "Я люблю / мне нравится",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_012.wav",
+            "chunkId": 12,
+            "recognizedText": "Би дуратайб",
+            "durationSec": 1.433,
+            "status": "ok"
+          },
+          "displayText": "Би дуратайб",
+          "translationRu": "Я люблю / мне нравится"
+        },
+        {
+          "buryat": "Эхэ ажал хэнэ",
+          "ru": "Мама работает",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_014.wav",
+            "chunkId": 14,
+            "recognizedText": "Эхэ ажал хэнэ",
+            "durationSec": 0.947,
+            "status": "ok"
+          },
+          "displayText": "Эхэ ажал хэнэ",
+          "translationRu": "Мама работает"
+        },
+        {
+          "buryat": "Эсэгэ ерэбэ",
+          "ru": "Папа пришел",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_016.wav",
+            "chunkId": 16,
+            "recognizedText": "Эсэгэ ерэбэ",
+            "durationSec": 0.858,
+            "status": "low"
+          },
+          "displayText": "Эсэгэ ерэбэ",
+          "translationRu": "Папа пришел"
+        },
+        {
+          "buryat": "Би сай уунаб",
+          "ru": "Я пью чай",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Би сай уунаб",
+            "durationSec": 0.896,
+            "status": "ok"
+          },
+          "displayText": "Би сай уунаб",
+          "translationRu": "Я пью чай"
+        },
+        {
+          "buryat": "Ши мяхан идеэнэш",
+          "ru": "Ты ешь мясо",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_029.wav",
+            "chunkId": 29,
+            "recognizedText": "Ши мяхан идеэнэш",
+            "durationSec": 1.299,
+            "status": "low"
+          },
+          "displayText": "Ши мяхан идеэнэш",
+          "translationRu": "Ты ешь мясо"
+        },
+        {
+          "buryat": "Нохой унтана",
+          "ru": "Собака спит",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_022.wav",
+            "chunkId": 22,
+            "recognizedText": "Нохой унтана",
+            "durationSec": 0.839,
+            "status": "ok"
+          },
+          "displayText": "Нохой унтана",
+          "translationRu": "Собака спит"
+        },
+        {
+          "buryat": "Энэ юун бэ?",
+          "ru": "Что это?",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_026.wav",
+            "chunkId": 26,
+            "recognizedText": "Энэ юун бэ?",
+            "durationSec": 0.889,
+            "status": "low"
+          },
+          "displayText": "Энэ юун бэ?",
+          "translationRu": "Что это?"
+        },
+        {
+          "buryat": "Энэ минии гэр",
+          "ru": "Это мой дом",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_032.wav",
+            "chunkId": 32,
+            "recognizedText": "Энэ минии гэр",
+            "durationSec": 0.698,
+            "status": "ok"
+          },
+          "displayText": "Энэ минии гэр",
+          "translationRu": "Это мой дом"
+        },
+        {
+          "buryat": "Би буряад хэлэ үзэнэб",
+          "ru": "Я изучаю бурятский язык",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_025.wav",
+            "chunkId": 25,
+            "recognizedText": "Би буряад хэлэ үзэнэб",
+            "durationSec": 0.761,
+            "status": "low"
+          },
+          "displayText": "Би буряад хэлэ үзэнэб",
+          "translationRu": "Я изучаю бурятский язык"
+        },
+        {
+          "buryat": "Ши хаанабши?",
+          "ru": "Ты где?",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_006.wav",
+            "chunkId": 6,
+            "recognizedText": "Ши хаанабши?",
+            "durationSec": 0.446,
+            "status": "low"
+          },
+          "displayText": "Ши хаанабши?",
+          "translationRu": "Ты где?"
+        },
+        {
+          "buryat": "Би гэртээ байнаб",
+          "ru": "Я дома",
+          "source": {
+            "audioRelativePath": "voise/Простые предложения/chunks/audio_003.wav",
+            "chunkId": 3,
+            "recognizedText": "Би гэртээ байнаб",
+            "durationSec": 1.086,
+            "status": "low"
+          },
+          "displayText": "Би гэртээ байнаб",
+          "translationRu": "Я дома"
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "titleRu": "Числительные",
+      "folder": "Числительные",
+      "items": [
+        {
+          "buryat": "Нэгэн",
+          "ru": "Один",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_003.wav",
+            "chunkId": 3,
+            "recognizedText": "Нэгэн",
+            "durationSec": 0.483,
+            "status": "ok"
+          },
+          "displayText": "Нэгэн",
+          "translationRu": "Один"
+        },
+        {
+          "buryat": "Хоёр",
+          "ru": "Два",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_005.wav",
+            "chunkId": 5,
+            "recognizedText": "Хоёр",
+            "durationSec": 0.469,
+            "status": "ok"
+          },
+          "displayText": "Хоёр",
+          "translationRu": "Два"
+        },
+        {
+          "buryat": "Гурбан",
+          "ru": "Три",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_017.wav",
+            "chunkId": 17,
+            "recognizedText": "Гурбан",
+            "durationSec": 0.342,
+            "status": "low"
+          },
+          "displayText": "Гурбан",
+          "translationRu": "Три"
+        },
+        {
+          "buryat": "Дүрбэн",
+          "ru": "Четыре",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_009.wav",
+            "chunkId": 9,
+            "recognizedText": "Дүрбэн",
+            "durationSec": 0.572,
+            "status": "low"
+          },
+          "displayText": "Дүрбэн",
+          "translationRu": "Четыре"
+        },
+        {
+          "buryat": "Табан",
+          "ru": "Пять",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_004.wav",
+            "chunkId": 4,
+            "recognizedText": "Табан",
+            "durationSec": 0.609,
+            "status": "low"
+          },
+          "displayText": "Табан",
+          "translationRu": "Пять"
+        },
+        {
+          "buryat": "Зургаан",
+          "ru": "Шесть",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_018.wav",
+            "chunkId": 18,
+            "recognizedText": "Зургаан",
+            "durationSec": 0.748,
+            "status": "low"
+          },
+          "displayText": "Зургаан",
+          "translationRu": "Шесть"
+        },
+        {
+          "buryat": "Долоон",
+          "ru": "Семь",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_015.wav",
+            "chunkId": 15,
+            "recognizedText": "Долоон",
+            "durationSec": 0.405,
+            "status": "low"
+          },
+          "displayText": "Долоон",
+          "translationRu": "Семь"
+        },
+        {
+          "buryat": "Найман",
+          "ru": "Восемь",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_020.wav",
+            "chunkId": 20,
+            "recognizedText": "Найман",
+            "durationSec": 0.605,
+            "status": "low"
+          },
+          "displayText": "Найман",
+          "translationRu": "Восемь"
+        },
+        {
+          "buryat": "Юһэн",
+          "ru": "Девять",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_010.wav",
+            "chunkId": 10,
+            "recognizedText": "Юһэн",
+            "durationSec": 0.616,
+            "status": "low"
+          },
+          "displayText": "Юһэн",
+          "translationRu": "Девять"
+        },
+        {
+          "buryat": "Арбан",
+          "ru": "Десять",
+          "source": {
+            "audioRelativePath": "voise/Числительные/chunks/audio_021.wav",
+            "chunkId": 21,
+            "recognizedText": "Арбан",
+            "durationSec": 0.423,
+            "status": "low"
+          },
+          "displayText": "Арбан",
+          "translationRu": "Десять"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "sections": 9,
+    "itemsTotal": 90,
+    "withAudio": 88,
+    "lowConfidence": 55,
+    "missing": 2,
+    "shiftApplied": "+1",
+    "shiftChangedItems": 88
+  }
+}

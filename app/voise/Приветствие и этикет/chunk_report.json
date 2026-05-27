@@ -1,0 +1,200 @@
+[
+  {
+    "chunk_id": 1,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_001.wav",
+    "start_sec": 2.571,
+    "end_sec": 3.195,
+    "duration_sec": 0.624,
+    "recognized_text": "Здравствуйте!",
+    "ai_note": "Приветствие: здравствуйте!"
+  },
+  {
+    "chunk_id": 2,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_002.wav",
+    "start_sec": 5.487,
+    "end_sec": 6.181,
+    "duration_sec": 0.694,
+    "recognized_text": "Сембана.",
+    "ai_note": "Неясное слово: Сембана."
+  },
+  {
+    "chunk_id": 3,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_003.wav",
+    "start_sec": 8.482,
+    "end_sec": 9.353,
+    "duration_sec": 0.871,
+    "recognized_text": "До свидания!",
+    "ai_note": "Прощание: До свидания!"
+  },
+  {
+    "chunk_id": 4,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_004.wav",
+    "start_sec": 10.531,
+    "end_sec": 11.317,
+    "duration_sec": 0.786,
+    "recognized_text": "Боя рты",
+    "ai_note": "неразборчивый фрагмент."
+  },
+  {
+    "chunk_id": 5,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_005.wav",
+    "start_sec": 12.95,
+    "end_sec": 13.535,
+    "duration_sec": 0.585,
+    "recognized_text": "Спасибо!",
+    "ai_note": "Благодарность: Спасибо!"
+  },
+  {
+    "chunk_id": 6,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_006.wav",
+    "start_sec": 14.995,
+    "end_sec": 15.798,
+    "duration_sec": 0.803,
+    "recognized_text": "А ты падаешь мелодия Вымка Обозгhar Illvityanov Растай Борежь Долик IMPK Непка Выдirty Dry Я Пово الع Loc Steuer garn",
+    "ai_note": "неразборчивый фрагмент."
+  },
+  {
+    "chunk_id": 7,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_007.wav",
+    "start_sec": 17.964,
+    "end_sec": 18.329,
+    "duration_sec": 0.365,
+    "recognized_text": "Да.",
+    "ai_note": "Утверждение: Да."
+  },
+  {
+    "chunk_id": 8,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_008.wav",
+    "start_sec": 19.426,
+    "end_sec": 20.134,
+    "duration_sec": 0.708,
+    "recognized_text": "с egyем.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 9,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_009.wav",
+    "start_sec": 21.467,
+    "end_sec": 21.856,
+    "duration_sec": 0.389,
+    "recognized_text": "нет.",
+    "ai_note": "Ответ: нет."
+  },
+  {
+    "chunk_id": 10,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_010.wav",
+    "start_sec": 22.79,
+    "end_sec": 23.415,
+    "duration_sec": 0.625,
+    "recognized_text": "Вannie.",
+    "ai_note": "неразборчиво"
+  },
+  {
+    "chunk_id": 11,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_011.wav",
+    "start_sec": 24.852,
+    "end_sec": 25.245,
+    "duration_sec": 0.393,
+    "recognized_text": "Да.",
+    "ai_note": "Утверждение: Да."
+  },
+  {
+    "chunk_id": 12,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_012.wav",
+    "start_sec": 26.439,
+    "end_sec": 26.818,
+    "duration_sec": 0.379,
+    "recognized_text": "",
+    "ai_note": "нет распознанного текста."
+  },
+  {
+    "chunk_id": 13,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_013.wav",
+    "start_sec": 28.191,
+    "end_sec": 28.536,
+    "duration_sec": 0.345,
+    "recognized_text": "Пей.",
+    "ai_note": "Команда: Пей."
+  },
+  {
+    "chunk_id": 14,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_014.wav",
+    "start_sec": 30.298,
+    "end_sec": 30.672,
+    "duration_sec": 0.374,
+    "recognized_text": "successes чем у нас сказал.",
+    "ai_note": "неразборчивый фрагмент."
+  },
+  {
+    "chunk_id": 15,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_015.wav",
+    "start_sec": 32.179,
+    "end_sec": 32.522,
+    "duration_sec": 0.343,
+    "recognized_text": "Una",
+    "ai_note": "Иностранное слово: Una."
+  },
+  {
+    "chunk_id": 16,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_016.wav",
+    "start_sec": 33.83,
+    "end_sec": 34.412,
+    "duration_sec": 0.582,
+    "recognized_text": "Вон Затем неDamorei lengths C Сошойд! Всем привет! Наhewт сfalасьة Войдемся к чулилов",
+    "ai_note": "неразборчивый фрагмент."
+  },
+  {
+    "chunk_id": 17,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_017.wav",
+    "start_sec": 35.731,
+    "end_sec": 36.12,
+    "duration_sec": 0.389,
+    "recognized_text": "Ваш.",
+    "ai_note": "Указательное местоимение: Ваш."
+  },
+  {
+    "chunk_id": 18,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_018.wav",
+    "start_sec": 37.63,
+    "end_sec": 38.11,
+    "duration_sec": 0.48,
+    "recognized_text": "А мы...",
+    "ai_note": "Фраза: А мы..."
+  },
+  {
+    "chunk_id": 19,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_019.wav",
+    "start_sec": 39.57,
+    "end_sec": 39.973,
+    "duration_sec": 0.403,
+    "recognized_text": "то",
+    "ai_note": "Частица: то."
+  },
+  {
+    "chunk_id": 20,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_020.wav",
+    "start_sec": 41.372,
+    "end_sec": 41.766,
+    "duration_sec": 0.394,
+    "recognized_text": "",
+    "ai_note": "нет распознанного текста."
+  },
+  {
+    "chunk_id": 21,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_021.wav",
+    "start_sec": 43.205,
+    "end_sec": 43.553,
+    "duration_sec": 0.348,
+    "recognized_text": "то...",
+    "ai_note": "Частица: то..."
+  },
+  {
+    "chunk_id": 22,
+    "file": "/Users/alex/Desktop/Programs/Voise/output_v2_unified/Приветствие и этикет/chunks/audio_022.wav",
+    "start_sec": 44.715,
+    "end_sec": 45.127,
+    "duration_sec": 0.412,
+    "recognized_text": "",
+    "ai_note": "нет распознанного текста."
+  }
+]
