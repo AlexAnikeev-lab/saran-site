@@ -1,5 +1,5 @@
 {
-  "name": "new-saran",
+  "name": "saran-site",
   "private": true,
   "scripts": {
     "build": "node scripts/build-front.mjs"
