@@ -4,8 +4,24 @@
   "outputDirectory": ".",
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "http://77.221.141.51:8000/api/:path*"
+      "source": "/app/api/openrouter-chat",
+      "destination": "/api/openrouter-chat"
+    },
+    {
+      "source": "/app/api/openrouter-chat.php",
+      "destination": "/api/openrouter-chat"
+    },
+    {
+      "source": "/api/openrouter-chat.php",
+      "destination": "/api/openrouter-chat"
+    },
+    {
+      "source": "/api/web/:path*",
+      "destination": "http://77.221.141.51:8000/api/web/:path*"
+    },
+    {
+      "source": "/api/podcast/:path*",
+      "destination": "http://77.221.141.51:8000/api/podcast/:path*"
     }
   ]
 }

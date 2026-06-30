@@ -4630,7 +4630,7 @@
                     <div class="saran-onboard-list" id="saranOnboardConferenceList">
                         <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="big_challenges"><span class="saran-lesson-row-title">Большие вызовы</span></button>
                         <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="future_engineers"><span class="saran-lesson-row-title">Инженеры будущего</span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="junior"><span class="saran-lesson-row-title">Юниор</span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="hyperbloom_summer_hackathon"><span class="saran-lesson-row-title">Hyperbloom Summer Hackathon</span></button>
                         <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="golden_dozen"><span class="saran-lesson-row-title">Золотая дюжина</span></button>
                     </div>
                 </section>
@@ -6795,11 +6795,25 @@
             return '';
         }
 
+        function saranUsesVercelServerlessApi() {
+            try {
+                if (typeof window !== 'undefined' && window.SARAN_USE_VERCEL_SERVERLESS === true) return true;
+                var h = String((typeof location !== 'undefined' && location.hostname) || '').toLowerCase();
+                if (!h) return false;
+                if (h.endsWith('.vercel.app')) return true;
+                return h === 'saran-edu.ru' || h === 'www.saran-edu.ru';
+            } catch (eHost) { return false; }
+        }
+
         function saranOpenRouterProxyUrl() {
-            var proxyRel =
-                typeof window !== 'undefined' && window.SARAN_OPENROUTER_PROXY
-                    ? window.SARAN_OPENROUTER_PROXY
-                    : (saranApiBasePrefix() + '/api/openrouter-chat.php');
+            var proxyRel;
+            if (typeof window !== 'undefined' && window.SARAN_OPENROUTER_PROXY) {
+                proxyRel = window.SARAN_OPENROUTER_PROXY;
+            } else if (saranUsesVercelServerlessApi()) {
+                proxyRel = '/api/openrouter-chat';
+            } else {
+                proxyRel = saranApiBasePrefix() + '/api/openrouter-chat.php';
+            }
             try {
                 return new URL(proxyRel, typeof location !== 'undefined' ? location.href : undefined).href;
             } catch (eUrl) {
@@ -6866,7 +6880,17 @@
         const SARAN_NEWS_RSS_PRIMARY = 'https://feeds.bbci.co.uk/russian/rss.xml';
         const SARAN_NEWS_RSS_FALLBACK = 'https://lenta.ru/rss/news';
 
-        function saranNewsCodetabsProxyUrl(targetUrl) {
+        function saranNewsRssProxyUrl(targetUrl) {
+            if (saranUsesVercelServerlessApi()) {
+                try {
+                    return new URL(
+                        '/api/rss-proxy?url=' + encodeURIComponent(targetUrl),
+                        typeof location !== 'undefined' ? location.href : undefined
+                    ).href;
+                } catch (eProxy) {
+                    return '/api/rss-proxy?url=' + encodeURIComponent(targetUrl);
+                }
+            }
             return 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(targetUrl);
         }
 
@@ -6952,7 +6976,7 @@
         }
 
         async function saranNewsFetchProxied(feedUrl) {
-            var proxied = saranNewsCodetabsProxyUrl(feedUrl);
+            var proxied = saranNewsRssProxyUrl(feedUrl);
             var ctrl = new AbortController();
             var tm = setTimeout(function() {
                 ctrl.abort();
