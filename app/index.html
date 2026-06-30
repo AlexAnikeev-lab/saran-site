@@ -4531,6 +4531,27 @@
             color: var(--saran-onboard-accent);
         }
 
+        .saran-ui-lang-title {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: center;
+        }
+        .saran-ui-lang-title-en {
+            font-size: 0.72em;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.55);
+            letter-spacing: 0.01em;
+            text-transform: none;
+        }
+        .saran-ui-lang-grid {
+            margin-top: 20px;
+        }
+        .saran-ui-lang-flag {
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
         #saranOnboardGoalGrid.saran-onboard-goal-list {
             display: flex;
             flex-direction: column;
@@ -4581,12 +4602,28 @@
 
     <div id="saranRegistrationRoot" role="dialog" aria-modal="true" aria-labelledby="saranOnboardFlowTitle">
         <div class="saran-reg-card saran-onboard-card">
+            <div id="saranOnboardUiLang" hidden>
+                <h2 class="saran-onboard-welcome-title saran-ui-lang-title" id="saranUiLangTitle">
+                    <span>Выберите язык интерфейса</span>
+                    <span class="saran-ui-lang-title-en">Choose your interface language</span>
+                </h2>
+                <div class="saran-onboard-grid-2 saran-ui-lang-grid">
+                    <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ui-lang-pick="ru">
+                        <span class="saran-onboard-opt__glyph saran-ui-lang-flag" aria-hidden="true">🇷🇺</span>
+                        <span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Русский</span><span class="saran-onboard-opt__sub">Russian</span></span>
+                    </button>
+                    <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ui-lang-pick="en">
+                        <span class="saran-onboard-opt__glyph saran-ui-lang-flag" aria-hidden="true">🇬🇧</span>
+                        <span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">English</span><span class="saran-onboard-opt__sub">Английский</span></span>
+                    </button>
+                </div>
+            </div>
             <div id="saranOnboardWelcome">
                 <img class="saran-onboard-hero-gif" src="Saran%20video/tut.gif" alt="" width="280" height="280" decoding="async">
-                <h2 id="saranOnboardWelcomeTitle" class="saran-onboard-welcome-title">Добро пожаловать</h2>
-                <p class="saran-onboard-welcome-sub">Саран помогает спокойно трогать языки России — от первых букв до живых маленьких шагов.</p>
-                <button type="button" class="saran-onboard-primary" id="saranOnboardStartBtn">Начать</button>
-                <button type="button" class="saran-onboard-secondary" id="saranOnboardHaveAccountBtn">У меня уже есть аккаунт</button>
+                <h2 id="saranOnboardWelcomeTitle" class="saran-onboard-welcome-title" data-i18n="welcome_title">Добро пожаловать</h2>
+                <p class="saran-onboard-welcome-sub" data-i18n="welcome_sub">Саран помогает спокойно трогать языки России — от первых букв до живых маленьких шагов.</p>
+                <button type="button" class="saran-onboard-primary" id="saranOnboardStartBtn" data-i18n="welcome_start">Начать</button>
+                <button type="button" class="saran-onboard-secondary" id="saranOnboardHaveAccountBtn" data-i18n="welcome_have_account">У меня уже есть аккаунт</button>
             </div>
 
             <div id="saranOnboardFlow" hidden>
@@ -4599,81 +4636,81 @@
                 <p id="saranOnboardFlowLead" class="saran-onboard-step-lead" hidden></p>
 
                 <section class="saran-onboard-section" id="saranOnboardSectionLang" hidden>
-                    <p class="saran-onboard-step-lead">Какой язык вы изучаете сейчас?</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_lang">Какой язык вы изучаете сейчас?</p>
                     <div class="saran-onboard-lang-list" id="saranOnboardLangGrid">
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row selected" data-ob-field="language" data-ob-value="buryat"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/buryatii.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title">Бурятский</span></span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="tatar" aria-disabled="true" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/tatarstan.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title">Татарский</span></span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="bashkir" aria-disabled="true" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/bashkirii.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title">Башкирский</span></span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="chuvash" aria-disabled="true" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/flag_chuvashii.png" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title">Чувашский</span></span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="avar" aria-disabled="true" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/Avarski.png" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title">Аварский</span></span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked saran-onboard-lang-row--chechen" disabled data-ob-field="language" data-ob-value="chechen" aria-disabled="true" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/chechtnckiy.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title">Чеченский</span></span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row selected" data-ob-field="language" data-ob-value="buryat"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/buryatii.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title" data-i18n-ob="ob_lang_buryat">Бурятский</span></span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="tatar" aria-disabled="true" data-i18n-title="ob_soon" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/tatarstan.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title" data-i18n-ob="ob_lang_tatar">Татарский</span></span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="bashkir" aria-disabled="true" data-i18n-title="ob_soon" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/bashkirii.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title" data-i18n-ob="ob_lang_bashkir">Башкирский</span></span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="chuvash" aria-disabled="true" data-i18n-title="ob_soon" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/flag_chuvashii.png" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title" data-i18n-ob="ob_lang_chuvash">Чувашский</span></span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked" disabled data-ob-field="language" data-ob-value="avar" aria-disabled="true" data-i18n-title="ob_soon" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/Avarski.png" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title" data-i18n-ob="ob_lang_avar">Аварский</span></span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-lang-row saran-onboard-lang-row--locked saran-onboard-lang-row--chechen" disabled data-ob-field="language" data-ob-value="chechen" aria-disabled="true" data-i18n-title="ob_soon" title="Скоро"><span class="saran-onboard-flag-wrap" aria-hidden="true"><img class="saran-onboard-flag" src="flags/chechtnckiy.jpg" alt="" width="76" height="40" decoding="async"></span><span class="saran-onboard-lang-copy"><span class="saran-lesson-row-title" data-i18n-ob="ob_lang_chechen">Чеченский</span></span></button>
                     </div>
                 </section>
 
                 <section class="saran-onboard-section" id="saranOnboardSectionSource" hidden>
-                    <p class="saran-onboard-step-lead">Откуда вы узнали о Саран?</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_source">Откуда вы узнали о Саран?</p>
                     <div class="saran-onboard-list">
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="school"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_9730040521a168519871561cbea6509e.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Школа или учитель</span><span class="saran-onboard-opt__sub">Урок, кружок, рекомендация</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="friends"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_6_947546a876aaea3a9811abf4cca1b618.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Знакомые</span><span class="saran-onboard-opt__sub">Друзья, родные, сообщество</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="conferences"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_197_3981117-2.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Конференции и события</span><span class="saran-onboard-opt__sub">Стенды, доклады, нетворкинг</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="school"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_9730040521a168519871561cbea6509e.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_src_school_main">Школа или учитель</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_src_school_sub">Урок, кружок, рекомендация</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="friends"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_6_947546a876aaea3a9811abf4cca1b618.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_src_friends_main">Знакомые</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_src_friends_sub">Друзья, родные, сообщество</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="source" data-ob-value="conferences"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_197_3981117-2.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_src_conf_main">Конференции и события</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_src_conf_sub">Стенды, доклады, нетворкинг</span></span></button>
                     </div>
                 </section>
 
                 <section class="saran-onboard-section" id="saranOnboardSectionConference" hidden>
-                    <p class="saran-onboard-step-lead">Какая конференция?</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_conference">Какая конференция?</p>
                     <div class="saran-onboard-list" id="saranOnboardConferenceList">
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="big_challenges"><span class="saran-lesson-row-title">Большие вызовы</span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="future_engineers"><span class="saran-lesson-row-title">Инженеры будущего</span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="junior"><span class="saran-lesson-row-title">Юниор</span></button>
-                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="golden_dozen"><span class="saran-lesson-row-title">Золотая дюжина</span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="big_challenges"><span class="saran-lesson-row-title" data-i18n-ob="ob_conf_big">Большие вызовы</span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="future_engineers"><span class="saran-lesson-row-title" data-i18n-ob="ob_conf_future">Инженеры будущего</span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="junior"><span class="saran-lesson-row-title" data-i18n-ob="ob_conf_junior">Юниор</span></button>
+                        <button type="button" class="saran-lesson-row-btn saran-onboard-conf-row" data-ob-field="conference" data-ob-value="golden_dozen"><span class="saran-lesson-row-title" data-i18n-ob="ob_conf_golden">Золотая дюжина</span></button>
                     </div>
                 </section>
 
                 <section class="saran-onboard-section" id="saranOnboardSectionGoal" hidden>
-                    <p class="saran-onboard-step-lead">Зачем вы изучаете язык?</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_goal">Зачем вы изучаете язык?</p>
                     <div class="saran-onboard-goal-list" id="saranOnboardGoalGrid">
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="education"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_9730040521a168519871561cbea6509e.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Поддержать учёбу</span><span class="saran-onboard-opt__sub">Школа, курс, репетитор</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="people"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_958e9a5aac8a0aeb099e08c28e327de7.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Общаться с людьми</span><span class="saran-onboard-opt__sub">Семья, друзья, носители</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="fun"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_5_ab81d610a8a79f174a4db0a6085e7e2c.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Просто интересно</span><span class="saran-onboard-opt__sub">Без давления и графиков</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="travel"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_6_5bbfb55fd21e21012a228bcef29bb557.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Поездки и дорога</span><span class="saran-onboard-opt__sub">Собрать базу к пути</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="productive"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_7_f382d7a1e1a958dc07fca0deae2d16b7.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Время с пользой</span><span class="saran-onboard-opt__sub">Мягкая рутина без выгорания</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="career"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_8_61a06f02b3b988d1c388d484bc0e52e6.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Карьера и задачи</span><span class="saran-onboard-opt__sub">Проект, работа, инициативы</span></span></button>
-                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row saran-onboard-goal-other" data-ob-field="goal" data-ob-value="other"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_10_d4419d84cb57b1295591e05cd60e45fb.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main">Другое</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="education"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_9730040521a168519871561cbea6509e.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_edu_main">Поддержать учёбу</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_goal_edu_sub">Школа, курс, репетитор</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="people"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_3_958e9a5aac8a0aeb099e08c28e327de7.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_people_main">Общаться с людьми</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_goal_people_sub">Семья, друзья, носители</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="fun"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_5_ab81d610a8a79f174a4db0a6085e7e2c.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_fun_main">Просто интересно</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_goal_fun_sub">Без давления и графиков</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="travel"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_6_5bbfb55fd21e21012a228bcef29bb557.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_travel_main">Поездки и дорога</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_goal_travel_sub">Собрать базу к пути</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="productive"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_7_f382d7a1e1a958dc07fca0deae2d16b7.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_productive_main">Время с пользой</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_goal_productive_sub">Мягкая рутина без выгорания</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row" data-ob-field="goal" data-ob-value="career"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_8_61a06f02b3b988d1c388d484bc0e52e6.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_career_main">Карьера и задачи</span><span class="saran-onboard-opt__sub" data-i18n-ob="ob_goal_career_sub">Проект, работа, инициативы</span></span></button>
+                        <button type="button" class="saran-onboard-opt saran-onboard-opt--row saran-onboard-goal-other" data-ob-field="goal" data-ob-value="other"><span class="saran-onboard-opt__glyph saran-onboard-opt__glyph--duo" aria-hidden="true"><img class="saran-onboard-duo-ico" src="Duolingo/imgi_10_d4419d84cb57b1295591e05cd60e45fb.svg" width="28" height="28" alt="" decoding="async"></span><span class="saran-onboard-opt__text"><span class="saran-onboard-opt__main" data-i18n-ob="ob_goal_other_main">Другое</span></span></button>
                     </div>
                 </section>
 
                 <section class="saran-onboard-section" id="saranOnboardSectionLevel" hidden>
-                    <p class="saran-onboard-step-lead">Какой у вас уровень сейчас?</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_level">Какой у вас уровень сейчас?</p>
                     <div class="saran-onboard-list" id="saranOnboardLevelList">
-                        <button type="button" class="saran-onboard-level selected" data-ob-field="level" data-ob-value="l1"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></span><span class="saran-onboard-level-label">Я только начинаю</span></button>
-                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l2"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span></span><span class="saran-onboard-level-label">Знаю отдельные слова</span></button>
-                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l3"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span><span class="saran-onboard-level-label">Могу поддержать простой разговор</span></button>
-                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l4"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span><span class="saran-onboard-level-label">Могу говорить о разных темах</span></button>
-                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l5"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span><span class="saran-onboard-level-label">Могу обсуждать темы спокойно и подробно</span></button>
+                        <button type="button" class="saran-onboard-level selected" data-ob-field="level" data-ob-value="l1"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></span><span class="saran-onboard-level-label" data-i18n-ob="ob_level_l1">Я только начинаю</span></button>
+                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l2"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span></span><span class="saran-onboard-level-label" data-i18n-ob="ob_level_l2">Знаю отдельные слова</span></button>
+                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l3"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span><span class="saran-onboard-level-label" data-i18n-ob="ob_level_l3">Могу поддержать простой разговор</span></button>
+                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l4"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span><span class="saran-onboard-level-label" data-i18n-ob="ob_level_l4">Могу говорить о разных темах</span></button>
+                        <button type="button" class="saran-onboard-level" data-ob-field="level" data-ob-value="l5"><span class="saran-onboard-bars" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span><span class="saran-onboard-level-label" data-i18n-ob="ob_level_l5">Могу обсуждать темы спокойно и подробно</span></button>
                     </div>
                 </section>
 
                 <section class="saran-on-board-section saran-onboard-section" id="saranOnboardSectionValue" hidden>
-                    <p class="saran-onboard-step-lead">Чем Саран может помочь</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_value">Чем Саран может помочь</p>
                     <div class="saran-onboard-value-list">
-                        <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_3_958e9a5aac8a0aeb099e08c28e327de7.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3>Говорить без стресса</h3><p>Короткие упражнения на говорение и аудирование — без «контрольной атмосферы».</p></div></div>
-                        <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_4_bc1008ae41c90c9b1a6f63bb9e142f7f.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3>Словарь и фразы</h3><p>Живые конструкции и практические ситуации вместо сухих списков.</p></div></div>
-                        <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_5_3757137c3beb1fbf0bfe21fdf9254023.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3>Маленькая привычка</h3><p>Небольшие шаги каждый день — можно выбрать комфортный ритм.</p></div></div>
+                        <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_3_958e9a5aac8a0aeb099e08c28e327de7.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3 data-i18n-ob="ob_val_speak_h">Говорить без стресса</h3><p data-i18n-ob="ob_val_speak_p">Короткие упражнения на говорение и аудирование — без «контрольной атмосферы».</p></div></div>
+                        <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_4_bc1008ae41c90c9b1a6f63bb9e142f7f.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3 data-i18n-ob="ob_val_vocab_h">Словарь и фразы</h3><p data-i18n-ob="ob_val_vocab_p">Живые конструкции и практические ситуации вместо сухих списков.</p></div></div>
+                        <div class="saran-onboard-value-row"><div class="saran-onboard-value-ico" aria-hidden="true"><img class="saran-onboard-value-ico-img" src="Duolingo/imgi_5_3757137c3beb1fbf0bfe21fdf9254023.svg" width="30" height="30" alt="" decoding="async"></div><div class="saran-onboard-value-copy"><h3 data-i18n-ob="ob_val_habit_h">Маленькая привычка</h3><p data-i18n-ob="ob_val_habit_p">Небольшие шаги каждый день — можно выбрать комфортный ритм.</p></div></div>
                     </div>
                 </section>
 
                 <section class="saran-on-board-section saran-onboard-section" id="saranOnboardSectionDaily" hidden>
-                    <p class="saran-onboard-step-lead">Сколько минут готовы уделять в день?</p>
+                    <p class="saran-onboard-step-lead" data-i18n="ob_lead_daily">Сколько минут готовы уделять в день?</p>
                     <div class="saran-onboard-list" id="saranOnboardDailyList">
-                        <button type="button" class="saran-onboard-daily-row selected" data-ob-field="dailyMin" data-ob-value="5"><span class="t-main">5 мин / день</span><span class="t-sub">Лайт</span></button>
-                        <button type="button" class="saran-onboard-daily-row" data-ob-field="dailyMin" data-ob-value="10"><span class="t-main">10 мин / день</span><span class="t-sub">Обычный</span></button>
-                        <button type="button" class="saran-onboard-daily-row" data-ob-field="dailyMin" data-ob-value="15"><span class="t-main">15 мин / день</span><span class="t-sub">Серьёзно</span></button>
-                        <button type="button" class="saran-onboard-daily-row" data-ob-field="dailyMin" data-ob-value="20"><span class="t-main">20 мин / день</span><span class="t-sub">Интенсив</span></button>
+                        <button type="button" class="saran-onboard-daily-row selected" data-ob-field="dailyMin" data-ob-value="5"><span class="t-main" data-i18n-ob="ob_daily_5_main">5 мин / день</span><span class="t-sub" data-i18n-ob="ob_daily_5_sub">Лайт</span></button>
+                        <button type="button" class="saran-onboard-daily-row" data-ob-field="dailyMin" data-ob-value="10"><span class="t-main" data-i18n-ob="ob_daily_10_main">10 мин / день</span><span class="t-sub" data-i18n-ob="ob_daily_10_sub">Обычный</span></button>
+                        <button type="button" class="saran-onboard-daily-row" data-ob-field="dailyMin" data-ob-value="15"><span class="t-main" data-i18n-ob="ob_daily_15_main">15 мин / день</span><span class="t-sub" data-i18n-ob="ob_daily_15_sub">Серьёзно</span></button>
+                        <button type="button" class="saran-onboard-daily-row" data-ob-field="dailyMin" data-ob-value="20"><span class="t-main" data-i18n-ob="ob_daily_20_main">20 мин / день</span><span class="t-sub" data-i18n-ob="ob_daily_20_sub">Интенсив</span></button>
                     </div>
                 </section>
 
                 <section class="saran-on-board-section saran-onboard-section" id="saranOnboardSectionAccount" hidden>
-                    <p class="saran-on-board-step-lead saran-onboard-step-lead">Почти готово</p>
+                    <p class="saran-on-board-step-lead saran-onboard-step-lead" data-i18n="ob_lead_account">Почти готово</p>
                     <div class="saran-reg-field">
                         <label for="saranRegName">Никнейм</label>
                         <input id="saranRegName" type="text" autocomplete="username" placeholder="Например, buryat_learner" maxlength="40">
@@ -4686,7 +4723,7 @@
                     <button type="button" class="saran-reg-submit saran-on-board-next saran-onboard-next" id="saranRegSubmit">Войти в Саран</button>
                 </section>
 
-                <button type="button" class="saran-reg-submit saran-onboard-next" id="saranOnboardNextBtn">Далее</button>
+                <button type="button" class="saran-reg-submit saran-onboard-next" id="saranOnboardNextBtn" data-i18n="btn_next">Далее</button>
             </div>
         </div>
     </div>
@@ -4706,21 +4743,21 @@
                 <div class="px-4 pt-4">
                     <!-- Навигационные кнопки -->
                     <div class="tabs-wrapper">
-                        <button class="tab active" data-tab="courses">Модули</button>
-                        <button class="tab" data-tab="podcasts">Слушать</button>
+                        <button class="tab active" data-tab="courses" data-i18n="tab_modules">Модули</button>
+                        <button class="tab" data-tab="podcasts" data-i18n="tab_listen">Слушать</button>
                     </div>
                     
                     <!-- Контент курсов -->
                     <div id="courses-content" class="courses-content-section">
                         <div id="saranCourseCardsHost" class="saran-course-cards-host" aria-live="polite">
-                            <p id="saranCoursesLoading" class="saran-courses-loading">Загрузка модулей…</p>
+                            <p id="saranCoursesLoading" class="saran-courses-loading" data-i18n="courses_loading">Загрузка модулей…</p>
                         </div>
                     </div>
 
                     <!-- Контент вкладки «Слушать»: подборка из music_collection (см. music_collection/library.json) -->
                     <div id="podcasts-content" class="podcasts-content-section" style="display: none;">
                         <div class="saran-music-intro px-4">
-                            <p class="saran-tab-sub saran-music-intro__lead">Подборка песен и записей для свободного аудирования. Название — по композиции, ниже — исполнитель и короткая подпись.</p>
+                            <p class="saran-tab-sub saran-music-intro__lead" data-i18n="music_intro">Подборка песен и записей для свободного аудирования. Название — по композиции, ниже — исполнитель и короткая подпись.</p>
                         </div>
                         <div id="saranMusicGridHost" class="podcasts-content" aria-live="polite"></div>
                         <p class="saran-music-source-note">взято с rus.hitmos.fm</p>
@@ -4925,7 +4962,7 @@
                     <path d="M27.8823 5.54492C28.2254 5.7054 28.4855 5.91569 28.6626 6.17578C28.8397 6.43587 28.9282 6.71533 28.9282 7.01416C28.9282 7.30745 28.8397 7.58415 28.6626 7.84424C28.4855 8.10433 28.2254 8.31185 27.8823 8.4668L17.3652 13.2896C16.8063 13.5496 16.2944 13.7378 15.8296 13.854C15.3647 13.9647 14.911 14.0173 14.4683 14.0117C14.02 14.0173 13.5635 13.9647 13.0986 13.854C12.6393 13.7378 12.1274 13.5496 11.563 13.2896L6.95605 11.1812L13.3892 8.13477C13.7323 8.23991 14.103 8.29248 14.5015 8.29248C14.8999 8.29248 15.2762 8.23714 15.6304 8.12646C15.9845 8.01025 16.2723 7.85531 16.4937 7.66162C16.715 7.46794 16.8257 7.24935 16.8257 7.00586C16.8257 6.7679 16.715 6.55485 16.4937 6.3667C16.2723 6.17855 15.9845 6.02913 15.6304 5.91846C15.2762 5.80778 14.8999 5.75244 14.5015 5.75244C14.092 5.75244 13.7074 5.80778 13.3477 5.91846C12.9935 6.02913 12.7057 6.17855 12.4844 6.3667C12.263 6.55485 12.1523 6.7679 12.1523 7.00586C12.1523 7.09993 12.1883 7.18848 12.2603 7.27148L5.49512 10.4839L1.0459 8.4668C0.697266 8.31738 0.434408 8.11263 0.257324 7.85254C0.0857747 7.58691 0 7.30745 0 7.01416C0 6.71533 0.0857747 6.43587 0.257324 6.17578C0.434408 5.91569 0.697266 5.7054 1.0459 5.54492L11.563 0.730469C12.1219 0.475911 12.6338 0.290527 13.0986 0.174316C13.5635 0.0581055 14.02 0.00553385 14.4683 0.0166016C14.911 0.00553385 15.3647 0.0581055 15.8296 0.174316C16.2944 0.290527 16.8063 0.475911 17.3652 0.730469L27.8823 5.54492ZM6.92285 12.7417L10.9653 14.5928C11.5962 14.8805 12.1994 15.0964 12.7749 15.2402C13.3504 15.3841 13.9149 15.4533 14.4683 15.4478C15.0106 15.4533 15.5695 15.3841 16.145 15.2402C16.7261 15.0964 17.332 14.8805 17.9629 14.5928L24.8359 11.4385V14.9912C24.8359 15.766 24.5897 16.502 24.0972 17.1992C23.6102 17.902 22.9102 18.5246 21.9971 19.0669C21.084 19.6147 19.991 20.0464 18.7183 20.3618C17.4455 20.6772 16.0288 20.835 14.4683 20.835C12.9022 20.835 11.48 20.6717 10.2017 20.3452C8.92334 20.0243 7.8304 19.5898 6.92285 19.042V12.7417ZM4.08398 11.4468L5.53662 12.1108V17.9297C5.06624 17.4593 4.70654 16.964 4.45752 16.4438C4.2085 15.9292 4.08398 15.445 4.08398 14.9912V11.4468ZM5.53662 21.25V17.9297C5.71924 18.1344 5.92676 18.3281 6.15918 18.5107C6.39714 18.6989 6.65169 18.876 6.92285 19.042V21.2583L5.53662 21.25ZM4.62354 21.4409C4.62354 21.0148 4.74805 20.6745 4.99707 20.4199C5.25163 20.1654 5.59196 20.0381 6.01807 20.0381H6.4248C6.85091 20.0381 7.19124 20.1654 7.4458 20.4199C7.70036 20.6745 7.82764 21.0148 7.82764 21.4409V24.2383C7.82764 24.6699 7.70036 25.013 7.4458 25.2676C7.19124 25.5221 6.85091 25.6494 6.4248 25.6494H6.01807C5.59196 25.6494 5.25163 25.5221 4.99707 25.2676C4.74805 25.013 4.62354 24.6699 4.62354 24.2383V21.4409Z" fill="white" fill-opacity="0.8"/>
                 </svg>
             </div>
-            <span class="tab-label">Обучение</span>
+            <span class="tab-label" data-i18n="nav_learn">Обучение</span>
         </div>
 
         <div class="menu-tab" onclick="switchTab(1, 'shared')">
@@ -4935,7 +4972,7 @@
                 </svg>
                 <div class="dot"></div>
             </div>
-            <span class="tab-label">ИИ</span>
+            <span class="tab-label" data-i18n="nav_ai">ИИ</span>
         </div>
 
         <div class="menu-tab" onclick="switchTab(2, 'news')">
@@ -4945,7 +4982,7 @@
                     <path fill="white" fill-opacity="0.8" d="M 23 12 C 20.243 12 18 14.243 18 17 L 18 22 L 15 22 C 12.243 22 10 24.243 10 27 L 10 46 C 10 49.309 12.691 52 16 52 L 48 52 C 51.309 52 54 49.309 54 46 L 54 17 C 54 14.243 51.757 12 49 12 L 23 12 z M 23 16 L 49 16 C 49.552 16 50 16.449 50 17 L 50 46 C 50 47.103 49.103 48 48 48 L 21.65625 48 C 21.87825 47.374 22 46.701 22 46 L 22 17 C 22 16.449 22.448 16 23 16 z M 27 20 C 25.896 20 25 20.895 25 22 C 25 23.105 25.896 24 27 24 L 45 24 C 46.104 24 47 23.105 47 22 C 47 20.895 46.104 20 45 20 L 27 20 z M 15 26 L 18 26 L 18 46 C 18 47.103 17.103 48 16 48 C 14.897 48 14 47.103 14 46 L 14 27 C 14 26.449 14.448 26 15 26 z M 27 27 C 25.896 27 25 27.895 25 29 C 25 30.105 25.896 31 27 31 L 45 31 C 46.104 31 47 30.105 47 29 C 47 27.895 46.104 27 45 27 L 27 27 z M 27 34 C 25.895 34 25 34.895 25 36 L 25 43 C 25 44.105 25.895 45 27 45 L 33 45 C 34.105 45 35 44.105 35 43 L 35 36 C 35 34.895 34.105 34 33 34 L 27 34 z M 40 34 C 38.896 34 38 34.895 38 36 C 38 37.105 38.896 38 40 38 L 45 38 C 46.104 38 47 37.105 47 36 C 47 34.895 46.104 34 45 34 L 40 34 z M 40 41 C 38.896 41 38 41.895 38 43 C 38 44.105 38.896 45 40 45 L 45 45 C 46.104 45 47 44.105 47 43 C 47 41.895 46.104 41 45 41 L 40 41 z"/>
                 </svg>
             </div>
-            <span class="tab-label">Новости</span>
+            <span class="tab-label" data-i18n="nav_news">Новости</span>
         </div>
 
         <div class="menu-tab" onclick="switchTab(3, 'browse')">
@@ -4954,7 +4991,7 @@
                     <path d="M10.9487 21.9058C9.74235 21.9058 8.59131 21.7204 7.49561 21.3496C6.40544 20.9788 5.40381 20.4587 4.49072 19.7891C3.57764 19.1195 2.7863 18.3281 2.1167 17.415C1.4471 16.502 0.926921 15.5003 0.556152 14.4102C0.185384 13.3145 0 12.1634 0 10.957C0 9.74512 0.185384 8.59408 0.556152 7.50391C0.926921 6.4082 1.4471 5.40658 2.1167 4.49902C2.7863 3.58594 3.57764 2.7946 4.49072 2.125C5.40381 1.44987 6.40544 0.926921 7.49561 0.556152C8.59131 0.185384 9.74235 0 10.9487 0C12.1606 0 13.3117 0.185384 14.4019 0.556152C15.4976 0.926921 16.4992 1.44987 17.4067 2.125C18.3198 2.7946 19.1112 3.58594 19.7808 4.49902C20.4559 5.40658 20.9788 6.4082 21.3496 7.50391C21.7204 8.59408 21.9058 9.74512 21.9058 10.957C21.9058 12.1634 21.7204 13.3145 21.3496 14.4102C20.9788 15.5003 20.4559 16.502 19.7808 17.415C19.1112 18.3281 18.3198 19.1195 17.4067 19.7891C16.4992 20.4587 15.4976 20.9788 14.4019 21.3496C13.3117 21.7204 12.1606 21.9058 10.9487 21.9058ZM8.97314 17.0498H13.4805C13.7074 17.0498 13.8955 16.9779 14.0449 16.834C14.1943 16.6901 14.269 16.5047 14.269 16.2778C14.269 16.0675 14.1943 15.8877 14.0449 15.7383C13.8955 15.5889 13.7074 15.5142 13.4805 15.5142H12.1274V9.94434C12.1274 9.65658 12.0527 9.42415 11.9033 9.24707C11.7594 9.06445 11.5492 8.97314 11.2725 8.97314H9.14746C8.92611 8.97314 8.73796 9.04785 8.58301 9.19727C8.43359 9.34668 8.35889 9.52653 8.35889 9.73682C8.35889 9.9637 8.43359 10.1491 8.58301 10.293C8.73796 10.4368 8.92611 10.5088 9.14746 10.5088H10.4009V15.5142H8.97314C8.75179 15.5142 8.56364 15.5889 8.40869 15.7383C8.25928 15.8877 8.18457 16.0675 8.18457 16.2778C8.18457 16.5047 8.25928 16.6901 8.40869 16.834C8.56364 16.9779 8.75179 17.0498 8.97314 17.0498ZM10.8906 7.15527C11.1507 7.15527 11.3831 7.09163 11.5879 6.96436C11.7982 6.83708 11.967 6.66829 12.0942 6.45801C12.2215 6.24772 12.2852 6.0153 12.2852 5.76074C12.2852 5.3623 12.1496 5.02751 11.8784 4.75635C11.6073 4.47965 11.278 4.34131 10.8906 4.34131C10.5033 4.34131 10.174 4.47965 9.90283 4.75635C9.63167 5.02751 9.49609 5.3623 9.49609 5.76074C9.49609 6.0153 9.55697 6.24772 9.67871 6.45801C9.80599 6.66829 9.97477 6.83708 10.1851 6.96436C10.4009 7.09163 10.6361 7.15527 10.8906 7.15527Z" fill="white" fill-opacity="0.8"/>
                 </svg>
             </div>
-            <span class="tab-label">Прогресс</span>
+            <span class="tab-label" data-i18n="nav_progress">Прогресс</span>
         </div>
     </div>
 
@@ -4963,19 +5000,19 @@
         const tabs = {
             recents: {
                 content: document.getElementById('recentsTab'),
-                title: 'Обучение'
+                title: 'Learn'
             },
             shared: {
                 content: document.getElementById('sharedTab'),
-                title: 'ИИ · бурятский'
+                title: 'AI · Buryat'
             },
             browse: {
                 content: document.getElementById('browseTab'),
-                title: 'Прогресс'
+                title: 'Progress'
             },
             news: {
                 content: document.getElementById('newsTab'),
-                title: 'Новости'
+                title: 'News'
             }
         };
 
@@ -4984,14 +5021,14 @@
             const title = document.getElementById('saranGlobalBrandTitle');
             if (!kick || !title) return;
             const map = {
-                recents: ['Языковой след', 'Саран'],
-                shared: ['Практика', 'ИИ · бурятский'],
-                browse: ['Ваш след', 'Прогресс'],
-                news: ['События', 'Новости']
+                recents: ['brand_recents_k', 'brand_recents_t'],
+                shared: ['brand_shared_k', 'brand_shared_t'],
+                browse: ['brand_browse_k', 'brand_browse_t'],
+                news: ['brand_news_k', 'brand_news_t']
             };
             const pair = map[tabKey] || map.recents;
-            kick.textContent = pair[0];
-            title.textContent = pair[1];
+            kick.textContent = saranT(pair[0]);
+            title.textContent = saranT(pair[1]);
         }
 
         /** На экране списка уроков и в задании скрываем плавающий бренд; на остальных вкладках — всегда показываем */
@@ -5054,6 +5091,574 @@
         const SARAN_LS_XP = 'saran_xp_total_v1';
         const SARAN_LS_DAILY = 'saran_daily_activity_v1';
         const SARAN_LS_SOUND_ENABLED = 'saran_sound_enabled_v1';
+        const SARAN_LS_UI_LANG = 'saran_ui_lang_v1';
+
+        const SARAN_I18N = {
+            ru: {
+                welcome_title: 'Добро пожаловать',
+                welcome_sub: 'Саран помогает спокойно трогать языки России — от первых букв до живых маленьких шагов.',
+                welcome_start: 'Начать',
+                welcome_have_account: 'У меня уже есть аккаунт',
+                btn_next: 'Далее',
+                btn_back: 'Назад',
+                btn_check: 'Проверить',
+                btn_ok: 'Ок',
+                btn_got_it: 'Понятно',
+                btn_send: 'Отправить',
+                btn_skip: 'Пропустить',
+                btn_to_lessons: 'К урокам',
+                btn_enter_saran: 'Войти в Саран',
+                nav_learn: 'Обучение',
+                nav_ai: 'ИИ',
+                nav_news: 'Новости',
+                nav_progress: 'Прогресс',
+                tab_modules: 'Модули',
+                tab_listen: 'Слушать',
+                courses_loading: 'Загрузка модулей…',
+                music_intro: 'Подборка песен и записей для свободного аудирования. Название — по композиции, ниже — исполнитель и короткая подпись.',
+                course_learn_kicker: 'Обучение',
+                course_module: 'Модуль',
+                course_back: 'Назад',
+                course_vpn: 'Для видео лучше без VPN',
+                course_lessons_aria: 'Уроки курса',
+                ex_close: 'Выйти из урока',
+                ex_sound_on: 'Звук включен',
+                ex_sound_off: 'Звук выключен',
+                ex_sound_mute: 'Выключить звук',
+                ex_sound_unmute: 'Включить звук',
+                lesson_done_kicker: 'Готово',
+                lesson_done_title: 'Урок пройден',
+                lesson_done_sub: 'Отличная работа.',
+                ai_tab_sub: 'Пишите по-бурятски — «Сарангэрэл» отвечает простым правильным бурятским языком.',
+                ai_chat_aria: 'Панель чата с Сарангэрэл',
+                ai_input_ph: 'Сообщение… (бурят.)',
+                ai_input_aria: 'Текст сообщения',
+                progress_sub: 'Здесь отражается то, что вы уже сделали в Саран: уроки, задания и ритм без спешки.',
+                progress_ring_cap: 'ваша трасса',
+                progress_streak: 'дней подряд у вас',
+                progress_xp: 'ваших очков в Саран',
+                progress_lessons: 'уроков завершено',
+                progress_tasks: 'ваших заданий верно',
+                progress_chart_title: 'График за 14 дней',
+                progress_chart_sub: 'Каждая точка — сколько верных шагов вы сделали в этот календарный день на этом устройстве.',
+                progress_align_title: 'Совпадение показателей',
+                progress_align_sub: 'Одни и те же числа можно прочесть двумя способами — и они должны сходиться.',
+                progress_eq_ring: 'кольцо трассы',
+                progress_eq_steps: 'верные шаги',
+                progress_bar_left: 'ваших верных шагов',
+                progress_bar_right: 'в программе всего ~{n} шагов',
+                progress_xp_match: 'Совпадает с вашим счётчиком очков',
+                progress_ai_badge: 'ИИ анализ',
+                progress_ai_title: 'Образ вашего успеха',
+                news_lead: 'Короткие заметки из открытых лент. Заголовок и смысл даём по-бурятски, когда это получается.',
+                news_retry: 'Обновить ленту',
+                news_loading: 'Загружаем новости…',
+                mini_audio_title: 'Аудиокурс',
+                mini_audio_playing: 'Воспроизведение',
+                mini_audio_pause: 'Пауза',
+                mini_audio_close: 'Закрыть',
+                pwa_title: 'Установка',
+                pwa_lead: 'Как сделать из сайта приложение на iPhone',
+                pwa_step: 'Шаг {i} из {n}',
+                you: 'Вы',
+                module: 'Модуль',
+                lesson: 'Урок',
+                lesson_n: 'Урок {n}',
+                consolidation: 'Закрепление материала',
+                task_n_of: 'Модуль {mod} · {title} · Задание {cur} из {total}',
+                soon: 'скоро',
+                not_started: 'не начато',
+                completed: 'пройдено',
+                n_of_m: '{done} из {total}',
+                modules: 'Модули',
+                loading: 'загрузка…',
+                lessons_suffix: 'уроков',
+                open_label: 'Открыть: {label}',
+                reg_nickname: 'Никнейм',
+                reg_password: 'Пароль',
+                reg_nickname_ph: 'Например, buryat_learner',
+                reg_password_ph: 'Введите пароль',
+                reg_almost: 'Почти готово',
+                err_nickname: 'Введите никнейм.',
+                err_password: 'Введите пароль.',
+                err_wrong_password: 'Неверный пароль.',
+                ob_step: 'Шаг {i} из {n}',
+                ob_title_lang: 'Какой язык вы изучаете сейчас?',
+                ob_title_source: 'Откуда вы узнали о Саран?',
+                ob_title_conference: 'Какая конференция?',
+                ob_title_goal: 'Зачем вы изучаете язык?',
+                ob_title_level: 'Какой у вас уровень сейчас?',
+                ob_title_value: 'Чем Саран может помочь',
+                ob_title_daily: 'Сколько минут готовы уделять в день?',
+                ob_title_account: 'Почти готово',
+                ob_hint_lang: 'Язык',
+                ob_hint_source: 'Источник',
+                ob_hint_conference: 'Событие',
+                ob_hint_goal: 'Цель',
+                ob_hint_level: 'Уровень',
+                ob_hint_value: 'Возможности',
+                ob_hint_daily: 'Ритм',
+                ob_hint_account: 'Профиль',
+                ob_lead_lang: 'Какой язык вы изучаете сейчас?',
+                ob_lead_source: 'Откуда вы узнали о Саран?',
+                ob_lead_conference: 'Какая конференция?',
+                ob_lead_goal: 'Зачем вы изучаете язык?',
+                ob_lead_level: 'Какой у вас уровень сейчас?',
+                ob_lead_value: 'Чем Саран может помочь',
+                ob_lead_daily: 'Сколько минут готовы уделять в день?',
+                ob_lead_account: 'Почти готово',
+                ob_soon: 'Скоро',
+                brand_recents_k: 'Языковой след',
+                brand_recents_t: 'Саран',
+                brand_shared_k: 'Практика',
+                brand_shared_t: 'ИИ · бурятский',
+                brand_browse_k: 'Ваш след',
+                brand_browse_t: 'Прогресс',
+                brand_news_k: 'События',
+                brand_news_t: 'Новости',
+                tab_recents: 'Обучение',
+                tab_shared: 'ИИ · бурятский',
+                tab_browse: 'Прогресс',
+                tab_news: 'Новости',
+                q_pick_emoji: 'Выберите эмодзи',
+                q_pick: 'Выберите',
+                q_true_false: 'Верно ли?',
+                q_build_translation: 'Соберите перевод',
+                q_step: 'Шаг',
+                lesson_loading: 'Программа ещё загружается.',
+                lesson_not_found: 'Урок не найден.',
+                lesson_soon: 'Задания для этого урока скоро появятся.',
+                prog_head_start: 'С чистого листа',
+                prog_lead_start: 'Пройдите первые задания в модулях «Саран» — кольцо заполнится по мере верных ответов.',
+                prog_head_rhythm: 'Вы вошли в ритм',
+                prog_lead_rhythm: 'У вас уже заметная серия верных заданий. Доведите уроки до конца — так программа держится крепче.',
+                prog_head_strong: 'Сильная неделя',
+                prog_lead_strong: 'Большая часть шагов за вашими плечами. Закрепите практику чатом на бурятском.',
+                lesson_list_loading: 'Список уроков появится после загрузки программы.',
+                lesson_list_empty: 'Уроки для этого модуля скоро появятся.',
+                status_done: 'Пройден. ',
+                status_current: 'Текущий шаг. ',
+                status_todo: 'Не пройден. ',
+                status_locked: 'Недоступен до прохождения текущего шага. ',
+                min_short: 'мин',
+                day_per: 'мин / день'
+            },
+            en: {
+                welcome_title: 'Welcome',
+                welcome_sub: 'Saran helps you gently explore the languages of Russia — from first letters to small, living steps.',
+                welcome_start: 'Get started',
+                welcome_have_account: 'I already have an account',
+                btn_next: 'Next',
+                btn_back: 'Back',
+                btn_check: 'Check',
+                btn_ok: 'OK',
+                btn_got_it: 'Got it',
+                btn_send: 'Send',
+                btn_skip: 'Skip',
+                btn_to_lessons: 'Back to lessons',
+                btn_enter_saran: 'Enter Saran',
+                nav_learn: 'Learn',
+                nav_ai: 'AI',
+                nav_news: 'News',
+                nav_progress: 'Progress',
+                tab_modules: 'Modules',
+                tab_listen: 'Listen',
+                courses_loading: 'Loading modules…',
+                music_intro: 'A hand-picked set of songs and recordings for free listening. Title — the track; below — artist and a short note.',
+                course_learn_kicker: 'Learn',
+                course_module: 'Module',
+                course_back: 'Back',
+                course_vpn: 'For video, VPN off works better',
+                course_lessons_aria: 'Course lessons',
+                ex_close: 'Exit lesson',
+                ex_sound_on: 'Sound on',
+                ex_sound_off: 'Sound off',
+                ex_sound_mute: 'Mute sound',
+                ex_sound_unmute: 'Unmute sound',
+                lesson_done_kicker: 'Done',
+                lesson_done_title: 'Lesson complete',
+                lesson_done_sub: 'Great work.',
+                ai_tab_sub: 'Write in Buryat — Sarangrel replies in clear, correct Buryat.',
+                ai_chat_aria: 'Chat with Sarangrel',
+                ai_input_ph: 'Message… (Buryat)',
+                ai_input_aria: 'Message text',
+                progress_sub: 'Here you can see what you have already done in Saran: lessons, tasks, and your pace — no rush.',
+                progress_ring_cap: 'your track',
+                progress_streak: 'day streak',
+                progress_xp: 'your Saran points',
+                progress_lessons: 'lessons completed',
+                progress_tasks: 'tasks correct',
+                progress_chart_title: '14-day chart',
+                progress_chart_sub: 'Each point shows how many correct steps you made on that calendar day on this device.',
+                progress_align_title: 'Matching metrics',
+                progress_align_sub: 'The same numbers read two ways — they should line up.',
+                progress_eq_ring: 'track ring',
+                progress_eq_steps: 'correct steps',
+                progress_bar_left: 'of your correct steps',
+                progress_bar_right: 'of ~{n} steps in the program',
+                progress_xp_match: 'Matches your points counter',
+                progress_ai_badge: 'AI insight',
+                progress_ai_title: 'Picture of your progress',
+                news_lead: 'Short notes from open feeds. We give titles and meaning in Buryat when we can.',
+                news_retry: 'Refresh feed',
+                news_loading: 'Loading news…',
+                mini_audio_title: 'Audio course',
+                mini_audio_playing: 'Playing',
+                mini_audio_pause: 'Pause',
+                mini_audio_close: 'Close',
+                pwa_title: 'Install',
+                pwa_lead: 'How to add this site to your iPhone home screen',
+                pwa_step: 'Step {i} of {n}',
+                you: 'You',
+                module: 'Module',
+                lesson: 'Lesson',
+                lesson_n: 'Lesson {n}',
+                consolidation: 'Review',
+                task_n_of: 'Module {mod} · {title} · Task {cur} of {total}',
+                soon: 'soon',
+                not_started: 'not started',
+                completed: 'completed',
+                n_of_m: '{done} of {total}',
+                modules: 'Modules',
+                loading: 'loading…',
+                lessons_suffix: 'lessons',
+                open_label: 'Open: {label}',
+                reg_nickname: 'Nickname',
+                reg_password: 'Password',
+                reg_nickname_ph: 'e.g. buryat_learner',
+                reg_password_ph: 'Enter password',
+                reg_almost: 'Almost done',
+                err_nickname: 'Enter a nickname.',
+                err_password: 'Enter a password.',
+                err_wrong_password: 'Wrong password.',
+                ob_step: 'Step {i} of {n}',
+                ob_title_lang: 'Which language are you learning now?',
+                ob_title_source: 'How did you hear about Saran?',
+                ob_title_conference: 'Which conference?',
+                ob_title_goal: 'Why are you learning the language?',
+                ob_title_level: 'What is your level now?',
+                ob_title_value: 'How Saran can help',
+                ob_title_daily: 'How many minutes per day can you study?',
+                ob_title_account: 'Almost done',
+                ob_hint_lang: 'Language',
+                ob_hint_source: 'Source',
+                ob_hint_conference: 'Event',
+                ob_hint_goal: 'Goal',
+                ob_hint_level: 'Level',
+                ob_hint_value: 'Features',
+                ob_hint_daily: 'Pace',
+                ob_hint_account: 'Profile',
+                ob_lead_lang: 'Which language are you learning now?',
+                ob_lead_source: 'How did you hear about Saran?',
+                ob_lead_conference: 'Which conference?',
+                ob_lead_goal: 'Why are you learning the language?',
+                ob_lead_level: 'What is your level now?',
+                ob_lead_value: 'How Saran can help',
+                ob_lead_daily: 'How many minutes per day can you study?',
+                ob_lead_account: 'Almost done',
+                ob_soon: 'Coming soon',
+                brand_recents_k: 'Language trail',
+                brand_recents_t: 'Saran',
+                brand_shared_k: 'Practice',
+                brand_shared_t: 'AI · Buryat',
+                brand_browse_k: 'Your trail',
+                brand_browse_t: 'Progress',
+                brand_news_k: 'Events',
+                brand_news_t: 'News',
+                tab_recents: 'Learn',
+                tab_shared: 'AI · Buryat',
+                tab_browse: 'Progress',
+                tab_news: 'News',
+                q_pick_emoji: 'Choose the emoji',
+                q_pick: 'Choose',
+                q_true_false: 'True or false?',
+                q_build_translation: 'Build the translation',
+                q_step: 'Step',
+                lesson_loading: 'The program is still loading.',
+                lesson_not_found: 'Lesson not found.',
+                lesson_soon: 'Tasks for this lesson are coming soon.',
+                prog_head_start: 'Fresh start',
+                prog_lead_start: 'Complete the first tasks in Saran modules — the ring fills as you answer correctly.',
+                prog_head_rhythm: 'You found your rhythm',
+                prog_lead_rhythm: 'You already have a solid streak of correct tasks. Finish lessons — that keeps the program on track.',
+                prog_head_strong: 'Strong week',
+                prog_lead_strong: 'Most steps are behind you. Reinforce with Buryat chat practice.',
+                lesson_list_loading: 'The lesson list will appear after the program loads.',
+                lesson_list_empty: 'Lessons for this module are coming soon.',
+                status_done: 'Completed. ',
+                status_current: 'Current step. ',
+                status_todo: 'Not completed. ',
+                status_locked: 'Locked until you complete the current step. ',
+                min_short: 'min',
+                day_per: 'min / day'
+            }
+        };
+
+        const SARAN_OB_I18N_MAP = {
+            'ob_lang_buryat': { ru: 'Бурятский', en: 'Buryat' },
+            'ob_lang_tatar': { ru: 'Татарский', en: 'Tatar' },
+            'ob_lang_bashkir': { ru: 'Башкирский', en: 'Bashkir' },
+            'ob_lang_chuvash': { ru: 'Чувашский', en: 'Chuvash' },
+            'ob_lang_avar': { ru: 'Аварский', en: 'Avar' },
+            'ob_lang_chechen': { ru: 'Чеченский', en: 'Chechen' },
+            'ob_src_school_main': { ru: 'Школа или учитель', en: 'School or teacher' },
+            'ob_src_school_sub': { ru: 'Урок, кружок, рекомендация', en: 'Class, club, recommendation' },
+            'ob_src_friends_main': { ru: 'Знакомые', en: 'People I know' },
+            'ob_src_friends_sub': { ru: 'Друзья, родные, сообщество', en: 'Friends, family, community' },
+            'ob_src_conf_main': { ru: 'Конференции и события', en: 'Conferences and events' },
+            'ob_src_conf_sub': { ru: 'Стенды, доклады, нетворкинг', en: 'Booths, talks, networking' },
+            'ob_conf_big': { ru: 'Большие вызовы', en: 'Big Challenges' },
+            'ob_conf_future': { ru: 'Инженеры будущего', en: 'Engineers of the Future' },
+            'ob_conf_junior': { ru: 'Юниор', en: 'Junior' },
+            'ob_conf_golden': { ru: 'Золотая дюжина', en: 'Golden Dozen' },
+            'ob_goal_edu_main': { ru: 'Поддержать учёбу', en: 'Support my studies' },
+            'ob_goal_edu_sub': { ru: 'Школа, курс, репетитор', en: 'School, course, tutor' },
+            'ob_goal_people_main': { ru: 'Общаться с людьми', en: 'Talk with people' },
+            'ob_goal_people_sub': { ru: 'Семья, друзья, носители', en: 'Family, friends, speakers' },
+            'ob_goal_fun_main': { ru: 'Просто интересно', en: 'Just curious' },
+            'ob_goal_fun_sub': { ru: 'Без давления и графиков', en: 'No pressure or schedules' },
+            'ob_goal_travel_main': { ru: 'Поездки и дорога', en: 'Travel' },
+            'ob_goal_travel_sub': { ru: 'Собрать базу к пути', en: 'Build basics before a trip' },
+            'ob_goal_productive_main': { ru: 'Время с пользой', en: 'Productive time' },
+            'ob_goal_productive_sub': { ru: 'Мягкая рутина без выгорания', en: 'Gentle routine, no burnout' },
+            'ob_goal_career_main': { ru: 'Карьера и задачи', en: 'Career and projects' },
+            'ob_goal_career_sub': { ru: 'Проект, работа, инициативы', en: 'Work, projects, initiatives' },
+            'ob_goal_other_main': { ru: 'Другое', en: 'Other' },
+            'ob_level_l1': { ru: 'Я только начинаю', en: 'I am just starting' },
+            'ob_level_l2': { ru: 'Знаю отдельные слова', en: 'I know some words' },
+            'ob_level_l3': { ru: 'Могу поддержать простой разговор', en: 'I can hold a simple conversation' },
+            'ob_level_l4': { ru: 'Могу говорить о разных темах', en: 'I can talk about various topics' },
+            'ob_level_l5': { ru: 'Могу обсуждать темы спокойно и подробно', en: 'I can discuss topics calmly and in detail' },
+            'ob_val_speak_h': { ru: 'Говорить без стресса', en: 'Speak without stress' },
+            'ob_val_speak_p': { ru: 'Короткие упражнения на говорение и аудирование — без «контрольной атмосферы».', en: 'Short speaking and listening drills — no exam pressure.' },
+            'ob_val_vocab_h': { ru: 'Словарь и фразы', en: 'Vocabulary and phrases' },
+            'ob_val_vocab_p': { ru: 'Живые конструкции и практические ситуации вместо сухих списков.', en: 'Living phrases and real situations instead of dry lists.' },
+            'ob_val_habit_h': { ru: 'Маленькая привычка', en: 'A small habit' },
+            'ob_val_habit_p': { ru: 'Небольшие шаги каждый день — можно выбрать комфортный ритм.', en: 'Small steps every day — pick a pace that feels right.' },
+            'ob_daily_5_main': { ru: '5 мин / день', en: '5 min / day' },
+            'ob_daily_5_sub': { ru: 'Лайт', en: 'Light' },
+            'ob_daily_10_main': { ru: '10 мин / день', en: '10 min / day' },
+            'ob_daily_10_sub': { ru: 'Обычный', en: 'Regular' },
+            'ob_daily_15_main': { ru: '15 мин / день', en: '15 min / day' },
+            'ob_daily_15_sub': { ru: 'Серьёзно', en: 'Serious' },
+            'ob_daily_20_main': { ru: '20 мин / день', en: '20 min / day' },
+            'ob_daily_20_sub': { ru: 'Интенсив', en: 'Intensive' }
+        };
+
+        let saranUiLang = 'ru';
+
+        function saranGetUiLang() {
+            try {
+                const v = localStorage.getItem(SARAN_LS_UI_LANG);
+                if (v === 'en' || v === 'ru') return v;
+            } catch (e) { /* ignore */ }
+            return saranUiLang || 'ru';
+        }
+
+        function saranSetUiLang(lang) {
+            const next = lang === 'en' ? 'en' : 'ru';
+            saranUiLang = next;
+            try {
+                localStorage.setItem(SARAN_LS_UI_LANG, next);
+            } catch (e) { /* ignore */ }
+            try {
+                document.documentElement.lang = next;
+            } catch (eL) { /* ignore */ }
+            saranApplyUiLanguage();
+        }
+
+        function saranT(key, vars) {
+            const lang = saranGetUiLang();
+            const bag = SARAN_I18N[lang] || SARAN_I18N.ru;
+            let s = (bag && bag[key]) || (SARAN_I18N.ru && SARAN_I18N.ru[key]) || key;
+            if (vars && typeof vars === 'object') {
+                Object.keys(vars).forEach(function (k) {
+                    s = s.split('{' + k + '}').join(String(vars[k]));
+                });
+            }
+            return s;
+        }
+
+        function saranObI18n(key) {
+            const lang = saranGetUiLang();
+            const row = SARAN_OB_I18N_MAP[key];
+            if (!row) return '';
+            return row[lang] || row.ru || '';
+        }
+
+        function saranCurLocalized(obj, fieldBase) {
+            if (!obj || !fieldBase) return '';
+            const lang = saranGetUiLang();
+            if (lang === 'en') {
+                const en = obj[fieldBase + 'En'];
+                if (en) return en;
+            }
+            return obj[fieldBase + 'Ru'] || obj[fieldBase] || '';
+        }
+
+        function saranApplyUiLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n');
+                if (!key) return;
+                const tag = (el.tagName || '').toLowerCase();
+                const val = saranT(key);
+                if (tag === 'input' || tag === 'textarea') {
+                    if (el.hasAttribute('placeholder')) el.placeholder = val;
+                    else el.value = val;
+                } else {
+                    el.textContent = val;
+                }
+            });
+            document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n-ph');
+                if (key) el.placeholder = saranT(key);
+            });
+            document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n-aria');
+                if (key) el.setAttribute('aria-label', saranT(key));
+            });
+            document.querySelectorAll('[data-i18n-ob]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n-ob');
+                if (key) el.textContent = saranObI18n(key);
+            });
+            document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n-title');
+                if (key) el.title = saranT(key);
+            });
+            const backBtn = document.getElementById('saranOnboardBackBtn');
+            if (backBtn) backBtn.setAttribute('aria-label', saranT('btn_back'));
+            const regSubmit = document.getElementById('saranRegSubmit');
+            if (regSubmit) regSubmit.textContent = saranT('btn_enter_saran');
+            const lblName = document.querySelector('label[for="saranRegName"]');
+            if (lblName) lblName.textContent = saranT('reg_nickname');
+            const lblKey = document.querySelector('label[for="saranRegKey"]');
+            if (lblKey) lblKey.textContent = saranT('reg_password');
+            const nameInp = document.getElementById('saranRegName');
+            if (nameInp) nameInp.placeholder = saranT('reg_nickname_ph');
+            const keyInp = document.getElementById('saranRegKey');
+            if (keyInp) keyInp.placeholder = saranT('reg_password_ph');
+            const chatInp = document.getElementById('saranChatInput');
+            if (chatInp) {
+                chatInp.placeholder = saranT('ai_input_ph');
+                chatInp.setAttribute('aria-label', saranT('ai_input_aria'));
+            }
+            const chatSend = document.getElementById('saranChatSend');
+            if (chatSend) chatSend.textContent = saranT('btn_send');
+            const aiSub = document.getElementById('saranAiTabSub');
+            if (aiSub && !saranGetDisplayName()) aiSub.textContent = saranT('ai_tab_sub');
+            const browseSub = document.querySelector('#browseTab > .px-4 > .saran-tab-sub');
+            if (browseSub) browseSub.textContent = saranT('progress_sub');
+            const ringCap = document.querySelector('.saran-progress-ring-cap');
+            if (ringCap) ringCap.textContent = saranT('progress_ring_cap');
+            const statLbls = document.querySelectorAll('#browseTab .saran-progress-stat .lbl');
+            const statKeys = ['progress_streak', 'progress_xp', 'progress_lessons', 'progress_tasks'];
+            statLbls.forEach(function (el, i) {
+                if (statKeys[i]) el.textContent = saranT(statKeys[i]);
+            });
+            const dynTitle = document.getElementById('saranProgDynTitle');
+            if (dynTitle) dynTitle.textContent = saranT('progress_chart_title');
+            const dynSub = document.getElementById('saranProgDynSub');
+            if (dynSub) dynSub.textContent = saranT('progress_chart_sub');
+            const alignTitle = document.getElementById('saranProgAlignTitle');
+            if (alignTitle) alignTitle.textContent = saranT('progress_align_title');
+            const alignSub = document.querySelector('#saranProgAlignTitle + .saran-progress-panel__sub');
+            if (alignSub) alignSub.textContent = saranT('progress_align_sub');
+            const eqLbls = document.querySelectorAll('.saran-progress-eq__lbl');
+            if (eqLbls[0]) eqLbls[0].textContent = saranT('progress_eq_ring');
+            if (eqLbls[1]) eqLbls[1].textContent = saranT('progress_eq_steps');
+            const xpOk = document.getElementById('saranProgXpOk');
+            if (xpOk) xpOk.textContent = saranT('progress_xp_match');
+            const aiBadge = document.querySelector('.saran-progress-ai__badge');
+            if (aiBadge) aiBadge.textContent = saranT('progress_ai_badge');
+            const aiTitle = document.getElementById('saranProgAiTitle');
+            if (aiTitle) aiTitle.textContent = saranT('progress_ai_title');
+            const newsLead = document.getElementById('saranNewsLead');
+            if (newsLead) newsLead.textContent = saranT('news_lead');
+            const newsRetry = document.getElementById('saranNewsRetry');
+            if (newsRetry) newsRetry.textContent = saranT('news_retry');
+            const miniTitle = document.getElementById('miniAudioTitle');
+            if (miniTitle && miniTitle.textContent === 'Аудиокурс' || miniTitle && miniTitle.textContent === 'Audio course') {
+                miniTitle.textContent = saranT('mini_audio_title');
+            }
+            const miniMeta = document.getElementById('miniAudioMeta');
+            if (miniMeta) miniMeta.textContent = saranT('mini_audio_playing');
+            const pwaTitle = document.querySelector('.saran-pwa-coach-title');
+            if (pwaTitle) pwaTitle.textContent = saranT('pwa_title');
+            const pwaLead = document.querySelector('.saran-pwa-coach-lead');
+            if (pwaLead) pwaLead.textContent = saranT('pwa_lead');
+            const pwaNext = document.getElementById('saranPwaCoachNext');
+            if (pwaNext && !pwaNext.dataset.pwaLast) pwaNext.textContent = saranT('btn_next');
+            const pwaSkip = document.getElementById('saranPwaCoachSkip');
+            if (pwaSkip) pwaSkip.textContent = saranT('btn_skip');
+            const courseBack = document.querySelector('.course-detail-back-btn');
+            if (courseBack) {
+                const svg = courseBack.querySelector('svg');
+                courseBack.textContent = '';
+                if (svg) courseBack.appendChild(svg);
+                courseBack.appendChild(document.createTextNode(saranT('course_back')));
+            }
+            const vpnSpan = document.querySelector('.course-detail-vpn-warning span');
+            if (vpnSpan) vpnSpan.textContent = saranT('course_vpn');
+            const heroK = document.querySelector('#saranCourseHeroBanner .k');
+            if (heroK) heroK.textContent = saranT('course_learn_kicker');
+            const lessonCompleteK = document.querySelector('.saran-lesson-complete-kicker');
+            if (lessonCompleteK) lessonCompleteK.textContent = saranT('lesson_done_kicker');
+            const lessonCompleteT = document.getElementById('saranLessonCompleteTitle');
+            if (lessonCompleteT) lessonCompleteT.textContent = saranT('lesson_done_title');
+            const lessonCompleteS = document.getElementById('saranLessonCompleteSub');
+            if (lessonCompleteS) lessonCompleteS.textContent = saranT('lesson_done_sub');
+            const lessonCompleteBtn = document.getElementById('saranLessonCompleteBtn');
+            if (lessonCompleteBtn) lessonCompleteBtn.textContent = saranT('btn_to_lessons');
+            const exClose = document.getElementById('saranExCloseBtn');
+            if (exClose) exClose.setAttribute('aria-label', saranT('ex_close'));
+            const exNext = document.getElementById('saranExNext');
+            if (exNext) exNext.textContent = saranT('btn_next');
+            const richList = document.getElementById('richrepLessonsList');
+            if (richList) richList.setAttribute('aria-label', saranT('course_lessons_aria'));
+            if (tabs.recents) tabs.recents.title = saranT('tab_recents');
+            if (tabs.shared) tabs.shared.title = saranT('tab_shared');
+            if (tabs.browse) tabs.browse.title = saranT('tab_browse');
+            if (tabs.news) tabs.news.title = saranT('tab_news');
+            const activeTabKey = document.querySelector('.content-section.active');
+            if (activeTabKey) {
+                if (activeTabKey.id === 'recentsTab') syncSaranGlobalBrandBar('recents');
+                else if (activeTabKey.id === 'sharedTab') syncSaranGlobalBrandBar('shared');
+                else if (activeTabKey.id === 'browseTab') syncSaranGlobalBrandBar('browse');
+                else if (activeTabKey.id === 'newsTab') syncSaranGlobalBrandBar('news');
+            }
+            saranRefreshSoundToggleUi();
+            refreshSaranProgressUI();
+            try {
+                document.title = saranGetUiLang() === 'en' ? 'Saran — languages of Russia' : 'Саран — языки России';
+            } catch (eT) { /* ignore */ }
+        }
+
+        function saranCountLabel(n, forms) {
+            const lang = saranGetUiLang();
+            if (lang === 'en') {
+                return n + ' ' + (n === 1 ? forms.enOne : forms.enMany);
+            }
+            const m = n % 10;
+            const h = n % 100;
+            if (m === 1 && h !== 11) return n + ' ' + forms.ruOne;
+            if (m >= 2 && m <= 4 && (h < 12 || h > 14)) return n + ' ' + forms.ruFew;
+            return n + ' ' + forms.ruMany;
+        }
+
+        function saranRuUrokov(n) {
+            return saranCountLabel(n, {
+                ruOne: 'урок', ruFew: 'урока', ruMany: 'уроков',
+                enOne: 'lesson', enMany: 'lessons'
+            });
+        }
+
+        function saranRuZadaniy(n) {
+            return saranCountLabel(n, {
+                ruOne: 'задание', ruFew: 'задания', ruMany: 'заданий',
+                enOne: 'task', enMany: 'tasks'
+            });
+        }
+
         const SARAN_SOUND_ICON_ON = 'Duolingo/volume-max.svg';
         const SARAN_SOUND_ICON_OFF = 'Duolingo/volume-off.svg';
         /** Имя ассистента в интерфейсе и в промптах (бурят. кириллица). */
@@ -5098,8 +5703,8 @@
             const icon = document.getElementById('saranExSoundToggleIcon');
             if (!btn) return;
             btn.setAttribute('aria-pressed', saranSoundEnabled ? 'true' : 'false');
-            btn.setAttribute('aria-label', saranSoundEnabled ? 'Выключить звук' : 'Включить звук');
-            btn.title = saranSoundEnabled ? 'Звук включен' : 'Звук выключен';
+            btn.setAttribute('aria-label', saranSoundEnabled ? saranT('ex_sound_mute') : saranT('ex_sound_unmute'));
+            btn.title = saranSoundEnabled ? saranT('ex_sound_on') : saranT('ex_sound_off');
             if (icon) {
                 icon.src = saranSoundEnabled ? SARAN_SOUND_ICON_ON : SARAN_SOUND_ICON_OFF;
             }
@@ -5606,70 +6211,61 @@
             const leadEl = document.getElementById('saranProgAiLead');
             const listEl = document.getElementById('saranProgAiList');
             if (!leadEl || !listEl) return;
-            const name = ctx.dispName || 'Вы';
+            const name = ctx.dispName || saranT('you');
             const pct = ctx.pct || 0;
             const streak = ctx.streak || 0;
             const avg7 = ctx.avg7tasks || 0;
             const modPct = ctx.moduleAvgPct || 0;
+            const en = saranGetUiLang() === 'en';
             let lead = '';
             if (pct < 15) {
-                lead =
-                    name +
-                    ', вы только прокладываете тропу — это хороший момент, чтобы зафиксировать короткий, но понятный ритм занятий.';
+                lead = en
+                    ? name + ', you are just starting the trail — a good moment to set a short, clear study rhythm.'
+                    : name + ', вы только прокладываете тропу — это хороший момент, чтобы зафиксировать короткий, но понятный ритм занятий.';
             } else if (pct < 60) {
-                lead =
-                    name +
-                    ', у вас уже читается устойчивый успех: доля верных шагов растёт, и программа воспринимается как последовательный путь.';
+                lead = en
+                    ? name + ', steady progress is showing: your share of correct steps is growing and the program feels like a real path.'
+                    : name + ', у вас уже читается устойчивый успех: доля верных шагов растёт, и программа воспринимается как последовательный путь.';
             } else {
-                lead =
-                    name +
-                    ', у вас сильный профиль завершённости: оставшаяся дистанция больше про закрепление, чем про старт.';
+                lead = en
+                    ? name + ', you have a strong completion profile: what is left is more about reinforcement than starting out.'
+                    : name + ', у вас сильный профиль завершённости: оставшаяся дистанция больше про закрепление, чем про старт.';
             }
             leadEl.textContent = lead.replace(/\s+/g, ' ').trim();
             const items = [];
             if (modPct >= 70) {
-                items.push(
-                    'По всем текущим модулям средняя закрытость около ' +
-                        modPct +
-                        '% — вы двигаете программу широким фронтом, это редкая и здравая привычка.'
-                );
+                items.push(en
+                    ? 'Average completion across modules is about ' + modPct + '% — you are moving through the program broadly; that is a healthy habit.'
+                    : 'По всем текущим модулям средняя закрытость около ' + modPct + '% — вы двигаете программу широким фронтом, это редкая и здравая привычка.');
             } else if (modPct > 0) {
-                items.push(
-                    'Средняя закрытость модулей — около ' +
-                        modPct +
-                        '%. Точечные возвраты к «полупустым» урокам почти всегда поднимают общее ощущение успеха.'
-                );
+                items.push(en
+                    ? 'Average module completion is about ' + modPct + '%. Returning to half-finished lessons usually boosts how successful the program feels.'
+                    : 'Средняя закрытость модулей — около ' + modPct + '%. Точечные возвраты к «полупустым» урокам почти всегда поднимают общее ощущение успеха.');
             }
             if (streak >= 7) {
-                items.push(
-                    'Серия непрерывных дней с занятиями — ' +
-                        streak +
-                        ': именно такой ритм чаще всего переводит знание в навык.'
-                );
+                items.push(en
+                    ? 'Study streak — ' + streak + ' days: that rhythm is what usually turns knowledge into skill.'
+                    : 'Серия непрерывных дней с занятиями — ' + streak + ': именно такой ритм чаще всего переводит знание в навык.');
             } else if (streak >= 3 && streak > 0) {
-                items.push(
-                    'Серия активных дней — ' +
-                        streak +
-                        '; если удержите тот же слот времени, она органично вырастет без «геройских» усилий.'
-                );
+                items.push(en
+                    ? 'Active-day streak — ' + streak + '; keep the same time slot and it will grow naturally.'
+                    : 'Серия активных дней — ' + streak + '; если удержите тот же слот времени, она органично вырастет без «геройских» усилий.');
             }
             if (avg7 >= 4) {
-                items.push(
-                    'За последнюю неделю в среднем ' +
-                        avg7.toFixed(1).replace(/\.0$/, '') +
-                        ' верных шага в календарный день — для языка это уже осязаемый темп.'
-                );
+                const avgS = avg7.toFixed(1).replace(/\.0$/, '');
+                items.push(en
+                    ? 'Last week averaged ' + avgS + ' correct steps per calendar day — a tangible pace for language learning.'
+                    : 'За последнюю неделю в среднем ' + avgS + ' верных шага в календарный день — для языка это уже осязаемый темп.');
             } else if (avg7 > 0) {
-                items.push(
-                    'Средний темп за неделю — около ' +
-                        avg7.toFixed(1).replace(/\.0$/, '') +
-                        ' верного шага в день; добавьте чуть регулярности — и кривая обычно заметно круче.'
-                );
+                const avgS2 = avg7.toFixed(1).replace(/\.0$/, '');
+                items.push(en
+                    ? 'Weekly average — about ' + avgS2 + ' correct step per day; a bit more regularity usually steepens the curve.'
+                    : 'Средний темп за неделю — около ' + avgS2 + ' верного шага в день; добавьте чуть регулярности — и кривая обычно заметно круче.');
             }
             if (!items.length) {
-                items.push(
-                    'Сделайте сегодня пару верных шагов в уроке — тогда график и этот разбор начнут опираться на живые цифры, а не на предположения.'
-                );
+                items.push(en
+                    ? 'Complete a couple of correct steps in a lesson today — then the chart and this summary will reflect real numbers.'
+                    : 'Сделайте сегодня пару верных шагов в уроке — тогда график и этот разбор начнут опираться на живые цифры, а не на предположения.');
             }
             listEl.innerHTML = '';
             items.slice(0, 4).forEach(function(line) {
@@ -5682,9 +6278,9 @@
         function saranGetDisplayName() {
             try {
                 const n = (localStorage.getItem(SARAN_LS_NAME) || '').trim();
-                return n || 'Вы';
+                return n || saranT('you');
             } catch (e) {
-                return 'Вы';
+                return saranT('you');
             }
         }
 
@@ -5708,22 +6304,6 @@
 
         function saranStripBold(s) {
             return String(s || '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*\*/g, '');
-        }
-
-        function saranRuUrokov(n) {
-            const m = n % 10;
-            const h = n % 100;
-            if (m === 1 && h !== 11) return n + ' урок';
-            if (m >= 2 && m <= 4 && (h < 12 || h > 14)) return n + ' урока';
-            return n + ' уроков';
-        }
-
-        function saranRuZadaniy(n) {
-            const m = n % 10;
-            const h = n % 100;
-            if (m === 1 && h !== 11) return n + ' задание';
-            if (m >= 2 && m <= 4 && (h < 12 || h > 14)) return n + ' задания';
-            return n + ' заданий';
         }
 
         function saranEscapeHtml(str) {
@@ -5898,21 +6478,21 @@
         function saranBuildTasksFromLesson(courseIndex, lessonIdx) {
             const data = window.saranCurriculum;
             if (!data || !data.courses || !data.courses[courseIndex]) {
-                return [{ kind: 'read', q: 'Урок', body: 'Программа ещё загружается.', nextLabel: 'Ок' }];
+                return [{ kind: 'read', q: saranT('lesson'), body: saranT('lesson_loading'), nextLabel: saranT('btn_ok') }];
             }
             const course = data.courses[courseIndex];
             const lessons = course.lessons || [];
             const lesson = lessons[lessonIdx];
             if (!lesson) {
-                return [{ kind: 'read', q: 'Урок', body: 'Урок не найден.', nextLabel: 'Ок' }];
+                return [{ kind: 'read', q: saranT('lesson'), body: saranT('lesson_not_found'), nextLabel: saranT('btn_ok') }];
             }
             const steps = Array.isArray(lesson.steps) ? lesson.steps : [];
             if (!steps.length) {
                 return [{
                     kind: 'read',
-                    q: saranStripBold(lesson.titleRu || 'Урок'),
-                    body: saranStripBold(lesson.summaryRu || 'Задания для этого урока скоро появятся.'),
-                    nextLabel: 'Понятно'
+                    q: saranStripBold(saranCurLocalized(lesson, 'title') || saranT('lesson')),
+                    body: saranStripBold(saranCurLocalized(lesson, 'summary') || saranT('lesson_soon')),
+                    nextLabel: saranT('btn_got_it')
                 }];
             }
             const out = [];
@@ -5923,9 +6503,9 @@
                 if (t === 'intro') {
                     out.push({
                         kind: 'read',
-                        q: saranStripBold(step.headlineRu || 'Шаг'),
-                        body: saranStripBold(step.bodyRu || ''),
-                        nextLabel: step.ctaRu || 'Далее',
+                        q: saranStripBold(saranCurLocalized(step, 'headline') || saranT('q_step')),
+                        body: saranStripBold(saranCurLocalized(step, 'body') || ''),
+                        nextLabel: saranCurLocalized(step, 'cta') || saranT('btn_next'),
                         visual: vis
                     });
                     continue;
@@ -5934,7 +6514,7 @@
                     const em = saranShuffleEmojiChoicesForMc(step.options, !!step.shuffleOptions);
                     out.push({
                         kind: 'emoji_mc',
-                        q: saranStripBold(step.questionRu || 'Выберите эмодзи'),
+                        q: saranStripBold(saranCurLocalized(step, 'question') || saranT('q_pick_emoji')),
                         cells: em.cells,
                         correctIndex: em.correctIndex,
                         visual: vis
@@ -5945,7 +6525,7 @@
                     const mc = saranShuffleChoicesForMc(step.options, !!step.shuffleOptions);
                     out.push({
                         kind: 'mc',
-                        q: saranStripBold(step.questionRu || 'Выберите'),
+                        q: saranStripBold(saranCurLocalized(step, 'question') || saranT('q_pick')),
                         choices: mc.items,
                         correctIndex: mc.correctIndex,
                         visual: vis
@@ -5955,8 +6535,8 @@
                 if (t === 'boolean') {
                     out.push({
                         kind: 'bool',
-                        q: saranStripBold(step.questionRu || 'Верно ли?'),
-                        body: saranStripBold(step.statementRu || step.bodyRu || ''),
+                        q: saranStripBold(saranCurLocalized(step, 'question') || saranT('q_true_false')),
+                        body: saranStripBold(saranCurLocalized(step, 'statement') || saranCurLocalized(step, 'body') || ''),
                         correct: !!step.correctIsTrue,
                         visual: vis
                     });
@@ -5967,7 +6547,7 @@
                     if (tt) {
                         out.push({
                             kind: 'translate_tiles',
-                            q: tt.instructionRu || 'Соберите перевод',
+                            q: (saranGetUiLang() === 'en' && tt.instructionEn) ? tt.instructionEn : (tt.instructionRu || saranT('q_build_translation')),
                             body: '',
                             visual: null,
                             translate: tt
@@ -6128,21 +6708,21 @@
             const lead = document.getElementById('saranProgLead');
             if (head && lead) {
                 if (pct < 15) {
-                    head.textContent = 'С чистого листа';
-                    lead.textContent = 'Пройдите первые задания в модулях «Саран» — кольцо заполнится по мере верных ответов.';
+                    head.textContent = saranT('prog_head_start');
+                    lead.textContent = saranT('prog_lead_start');
                 } else if (pct < 60) {
-                    head.textContent = 'Вы вошли в ритм';
-                    lead.textContent = 'У вас уже заметная серия верных заданий. Доведите уроки до конца — так программа держится крепче.';
+                    head.textContent = saranT('prog_head_rhythm');
+                    lead.textContent = saranT('prog_lead_rhythm');
                 } else {
-                    head.textContent = 'Сильная неделя';
-                    lead.textContent = 'Большая часть шагов за вашими плечами. Закрепите практику чатом на бурятском.';
+                    head.textContent = saranT('prog_head_strong');
+                    lead.textContent = saranT('prog_lead_strong');
                 }
             }
             function rowLabel(doneCount, total) {
-                if (total <= 0) return 'скоро';
-                if (doneCount <= 0) return 'не начато';
-                if (doneCount >= total) return 'пройдено';
-                return doneCount + ' из ' + total;
+                if (total <= 0) return saranT('soon');
+                if (doneCount <= 0) return saranT('not_started');
+                if (doneCount >= total) return saranT('completed');
+                return saranT('n_of_m', { done: doneCount, total: total });
             }
             const list = document.getElementById('saranProgList');
             if (list) {
@@ -6163,7 +6743,7 @@
                         row.setAttribute('role', 'listitem');
                         const left = document.createElement('span');
                         left.className = 'saran-progress-row__title';
-                        const title = (course.titleRu || 'Модуль').trim();
+                        const title = (saranCurLocalized(course, 'title') || saranT('module')).trim();
                         left.textContent = title;
                         const right = document.createElement('span');
                         right.className = 'saran-progress-row__status';
@@ -6178,10 +6758,10 @@
                     row.setAttribute('role', 'listitem');
                     const left = document.createElement('span');
                     left.className = 'saran-progress-row__title';
-                    left.textContent = 'Модули';
+                    left.textContent = saranT('modules');
                     const right = document.createElement('span');
                     right.className = 'saran-progress-row__status';
-                    right.textContent = 'загрузка…';
+                    right.textContent = saranT('loading');
                     row.appendChild(left);
                     row.appendChild(right);
                     list.appendChild(row);
@@ -6290,26 +6870,12 @@
             daily: 'saranOnboardSectionDaily',
             account: 'saranOnboardSectionAccount'
         };
-        const SARAN_OB_TITLE = {
-            lang: 'Какой язык вы изучаете сейчас?',
-            source: 'Откуда вы узнали о Саран?',
-            conference: 'Какая конференция?',
-            goal: 'Зачем вы изучаете язык?',
-            level: 'Какой у вас уровень сейчас?',
-            value: 'Чем Саран может помочь',
-            daily: 'Сколько минут готовы уделять в день?',
-            account: 'Почти готово'
-        };
-        const SARAN_OB_HINT = {
-            lang: 'Язык',
-            source: 'Источник',
-            conference: 'Событие',
-            goal: 'Цель',
-            level: 'Уровень',
-            value: 'Возможности',
-            daily: 'Ритм',
-            account: 'Профиль'
-        };
+        function saranObTitle(stepId) {
+            return saranT('ob_title_' + stepId);
+        }
+        function saranObHint(stepId) {
+            return saranT('ob_hint_' + stepId);
+        }
         function saranObDefaultState() {
             return {
                 language: 'buryat',
@@ -6361,7 +6927,28 @@
                 onDone();
                 return;
             }
-            var slides = [
+            var slides = saranGetUiLang() === 'en' ? [
+                {
+                    src: 'photos/IMG_2008.jpg',
+                    cap: 'Open saran-edu.ru in Safari. Tap Share at the bottom — the square with an arrow.',
+                    alt: 'Safari: bottom bar, arrow pointing to Share'
+                },
+                {
+                    src: 'photos/IMG_2009.jpg',
+                    cap: 'In the actions list, find “Add to Home Screen” and tap it.',
+                    alt: 'Share menu: Add to Home Screen'
+                },
+                {
+                    src: 'photos/IMG_2010.jpg',
+                    cap: 'Check the name “Saran”, turn on “Open as Web App” if needed, then tap Add (top right).',
+                    alt: 'Confirm adding to Home Screen'
+                },
+                {
+                    src: 'photos/IMG_2011.jpg',
+                    cap: 'Done — the icon appears on your home screen. Open it to use Saran like a regular app.',
+                    alt: 'Saran icon on iPhone home screen'
+                }
+            ] : [
                 {
                     src: 'photos/IMG_2008.jpg',
                     cap: 'Откройте saran-edu.ru в Safari. Внизу нажмите «Поделиться» — квадрат со стрелкой вверх.',
@@ -6416,8 +7003,8 @@
                 imgEl.src = s.src;
                 imgEl.alt = s.alt;
                 capEl.textContent = s.cap;
-                if (stepBadge) stepBadge.textContent = 'Шаг ' + (i + 1) + ' из ' + slides.length;
-                nextBtn.textContent = i >= slides.length - 1 ? 'Понятно' : 'Далее';
+                if (stepBadge) stepBadge.textContent = saranT('pwa_step', { i: i + 1, n: slides.length });
+                nextBtn.textContent = i >= slides.length - 1 ? saranT('btn_got_it') : saranT('btn_next');
                 syncDots();
             }
 
@@ -6514,6 +7101,7 @@
         function initSaranRegistration() {
             if (saranRegistrationInitDone) return;
             const root = document.getElementById('saranRegistrationRoot');
+            const uiLang = document.getElementById('saranOnboardUiLang');
             const welcome = document.getElementById('saranOnboardWelcome');
             const flow = document.getElementById('saranOnboardFlow');
             const nameInp = document.getElementById('saranRegName');
@@ -6536,12 +7124,33 @@
             var obQuickAccount = false;
 
             function saranChatSubLine(name) {
+                if (saranGetUiLang() === 'en') {
+                    return (
+                        name +
+                        ', write in Buryat — ' +
+                        SARAN_AI_ASSISTANT_NAME +
+                        ' replies in clear, correct Buryat.'
+                    );
+                }
                 return (
                     name +
                     ', пишите по-бурятски — ' +
                     SARAN_AI_ASSISTANT_NAME +
                     ' отвечает простым правильным бурятским языком.'
                 );
+            }
+            function saranShowUiLangPicker() {
+                if (uiLang) uiLang.hidden = false;
+                if (welcome) welcome.hidden = true;
+                flow.hidden = true;
+            }
+            function saranHideUiLangPicker() {
+                if (uiLang) uiLang.hidden = true;
+            }
+            function saranShowWelcome() {
+                saranHideUiLangPicker();
+                if (welcome) welcome.hidden = false;
+                flow.hidden = true;
             }
             function saranFinishOnboard(nickname, profile) {
                 try {
@@ -6554,11 +7163,8 @@
                 if (sub) sub.textContent = saranChatSubLine(nickname);
                 refreshSaranProgressUI();
             }
-            function saranShowWelcome() {
-                if (welcome) welcome.hidden = false;
-                flow.hidden = true;
-            }
             function saranShowFlowShell() {
+                saranHideUiLangPicker();
                 if (welcome) welcome.hidden = true;
                 flow.hidden = false;
             }
@@ -6581,11 +7187,11 @@
                 obStepId = stepId;
                 var seq = saranObBuildSequence(obState, obQuickAccount);
                 var idx = seq.indexOf(stepId);
-                if (titleEl) titleEl.textContent = SARAN_OB_TITLE[stepId] || '';
+                if (titleEl) titleEl.textContent = saranObTitle(stepId) || '';
                 if (hintEl) {
-                    var hintBase = SARAN_OB_HINT[stepId] || '';
+                    var hintBase = saranObHint(stepId) || '';
                     hintEl.textContent = idx >= 0
-                        ? (hintBase ? hintBase + ' · ' : '') + 'Шаг ' + (idx + 1) + ' из ' + seq.length
+                        ? (hintBase ? hintBase + ' · ' : '') + saranT('ob_step', { i: idx + 1, n: seq.length })
                         : hintBase;
                 }
                 if (progressFill && idx >= 0 && seq.length) {
@@ -6672,6 +7278,13 @@
             root.addEventListener('click', function (ev) {
                 var t = ev.target;
                 if (!t || !t.closest) return;
+                var langPick = t.closest('[data-ui-lang-pick]');
+                if (langPick && root.contains(langPick)) {
+                    var picked = langPick.getAttribute('data-ui-lang-pick');
+                    saranSetUiLang(picked === 'en' ? 'en' : 'ru');
+                    saranContinueAfterUiLangPick();
+                    return;
+                }
                 if (t.closest('#saranOnboardStartBtn')) {
                     saranObStartFull();
                     return;
@@ -6710,17 +7323,17 @@
                 var nick = (nameInp && nameInp.value || '').trim().slice(0, 40);
                 var pass = (keyInp && keyInp.value || '').trim();
                 if (!nick) {
-                    setFb('Введите никнейм.');
+                    setFb(saranT('err_nickname'));
                     if (nameInp) nameInp.focus();
                     return;
                 }
                 if (!pass) {
-                    setFb('Введите пароль.');
+                    setFb(saranT('err_password'));
                     if (keyInp) keyInp.focus();
                     return;
                 }
                 if (obQuickAccount) {
-                    setFb('Неверный пароль.');
+                    setFb(saranT('err_wrong_password'));
                     if (keyInp) {
                         try {
                             keyInp.focus();
@@ -6733,8 +7346,49 @@
                 saranFinishOnboard(nick, profile);
             });
 
+            function saranHasUiLangChoice() {
+                try {
+                    const v = localStorage.getItem(SARAN_LS_UI_LANG);
+                    return v === 'en' || v === 'ru';
+                } catch (e) {
+                    return false;
+                }
+            }
+            function saranContinueAfterUiLangPick() {
+                try {
+                    if (localStorage.getItem(SARAN_LS_ONBOARD) === '1') {
+                        root.hidden = true;
+                        var subDone2 = document.getElementById('saranAiTabSub');
+                        var nm2 = saranGetDisplayName();
+                        if (subDone2 && nm2) subDone2.textContent = saranChatSubLine(nm2);
+                        refreshSaranProgressUI();
+                        return;
+                    }
+                } catch (eOb) { /* ignore */ }
+                try {
+                    if (localStorage.getItem(SARAN_LS_PWA_INSTALL_COACH) !== '1') {
+                        initSaranPwaInstallCoach(function () {
+                            root.hidden = false;
+                            saranShowWelcome();
+                        });
+                        return;
+                    }
+                } catch (eCoach) { /* ignore */ }
+                root.hidden = false;
+                saranShowWelcome();
+            }
+
             try {
+                saranUiLang = saranGetUiLang();
+                if (saranHasUiLangChoice()) {
+                    saranApplyUiLanguage();
+                }
                 if (localStorage.getItem(SARAN_LS_ONBOARD) === '1') {
+                    if (!saranHasUiLangChoice()) {
+                        root.hidden = false;
+                        saranShowUiLangPicker();
+                        return;
+                    }
                     root.hidden = true;
                     if (nameInp) nameInp.value = localStorage.getItem(SARAN_LS_NAME) || '';
                     var subDone = document.getElementById('saranAiTabSub');
@@ -6744,6 +7398,12 @@
                     return;
                 }
             } catch (e) { /* ignore */ }
+
+            if (!saranHasUiLangChoice()) {
+                root.hidden = false;
+                saranShowUiLangPicker();
+                return;
+            }
 
             root.hidden = true;
 
@@ -6994,7 +7654,7 @@
             var retry = document.getElementById('saranNewsRetry');
             if (status) {
                 status.classList.remove('saran-news-status--error');
-                status.textContent = 'Загружаем новости…';
+                status.textContent = saranT('news_loading');
             }
             if (grid) grid.innerHTML = '';
             if (retry) retry.hidden = true;
@@ -7262,21 +7922,24 @@
             const course = data && data.courses && data.courses[st.courseIndex];
             const lesson = (course && course.lessons || [])[st.lesson];
             const isConsolidation = saranIsConsolidationLesson(lesson);
-            const lt = lesson && lesson.titleRu ? lesson.titleRu : (isConsolidation ? 'Закрепление материала' : 'Урок');
-            var compH = lesson && lesson.completionHeadlineRu ? String(lesson.completionHeadlineRu).trim() : '';
-            var compB = lesson && lesson.completionBodyRu ? String(lesson.completionBodyRu).trim() : '';
+            const lt = lesson ? (saranCurLocalized(lesson, 'title') || (isConsolidation ? saranT('consolidation') : saranT('lesson'))) : saranT('lesson');
+            var compH = lesson ? (saranCurLocalized(lesson, 'completionHeadline') || '').trim() : '';
+            var compB = lesson ? (saranCurLocalized(lesson, 'completionBody') || '').trim() : '';
+            const en = saranGetUiLang() === 'en';
             if (titleEl) {
                 titleEl.textContent = compH
                     ? saranStripBold(compH)
-                    : (isConsolidation ? 'Закрепление материала завершено' : ('«' + lt + '» пройден'));
+                    : (isConsolidation
+                        ? (en ? 'Review complete' : 'Закрепление материала завершено')
+                        : (en ? '«' + lt + '» completed' : '«' + lt + '» пройден'));
             }
             if (subEl) {
                 if (compB) {
                     subEl.textContent = saranStripBold(compB);
                 } else {
                     subEl.textContent = isConsolidation
-                        ? 'Отлично: модуль закреплен. Можно переходить дальше.'
-                        : 'Небольшой шаг — но именно так и крепнет язык. До встречи на следующем уроке!';
+                        ? (en ? 'Great — module reinforced. You can move on.' : 'Отлично: модуль закреплен. Можно переходить дальше.')
+                        : (en ? 'A small step — that is how language sticks. See you in the next lesson!' : 'Небольшой шаг — но именно так и крепнет язык. До встречи на следующем уроке!');
                 }
             }
             if (partyImg) partyImg.src = saranTgEmojiAssetUrl('Activity/Party Popper.webp');
@@ -7342,10 +8005,15 @@
             const course = data && data.courses && data.courses[st.courseIndex];
             const lessons = course && course.lessons ? course.lessons : [];
             const lesson = lessons[st.lesson];
-            const lessonTitle = lesson && lesson.titleRu ? lesson.titleRu : 'Урок ' + (st.lesson + 1);
+            const lessonTitle = lesson ? (saranCurLocalized(lesson, 'title') || saranT('lesson_n', { n: st.lesson + 1 })) : saranT('lesson_n', { n: st.lesson + 1 });
             const totalT = st.tasks && st.tasks.length ? st.tasks.length : 1;
             const modNum = (st.courseIndex || 0) + 1;
-            meta.textContent = 'Модуль ' + modNum + ' · ' + lessonTitle + ' · Задание ' + (st.task + 1) + ' из ' + totalT;
+            meta.textContent = saranT('task_n_of', {
+                mod: modNum,
+                title: lessonTitle,
+                cur: st.task + 1,
+                total: totalT
+            });
             qEl.textContent = task.q;
             var bodyTxt = task.body;
             if (Array.isArray(bodyTxt)) bodyTxt = bodyTxt.join('\n');
@@ -7545,7 +8213,7 @@
                 root.appendChild(bankRow);
                 choices.appendChild(root);
                 nextBtn.hidden = false;
-                nextBtn.textContent = 'Проверить';
+                nextBtn.textContent = saranT('btn_check');
                 st.answered = false;
                 st.pickedWrong = false;
                 nextBtn.disabled = true;
@@ -7579,14 +8247,14 @@
                             refreshSaranProgressUI();
                         }
                         nextBtn.disabled = false;
-                        nextBtn.textContent = 'Далее';
+                        nextBtn.textContent = saranT('btn_next');
                         nextBtn.onclick = function() {
                             advanceSaranTask();
                         };
                     } else {
                         st.answered = false;
                         nextBtn.disabled = false;
-                        nextBtn.textContent = 'Проверить';
+                        nextBtn.textContent = saranT('btn_check');
                         syncNextEnabled();
                     }
                 };
@@ -7596,7 +8264,7 @@
 
             if (task.kind === 'read') {
                 nextBtn.hidden = false;
-                nextBtn.textContent = task.nextLabel || 'Далее';
+                nextBtn.textContent = task.nextLabel || saranT('btn_next');
                 nextBtn.onclick = function() {
                     advanceSaranTask();
                 };
@@ -7605,7 +8273,7 @@
 
             function saranBindCheckThenNext(choiceButtons, correctIdx) {
                 nextBtn.hidden = false;
-                nextBtn.textContent = 'Проверить';
+                nextBtn.textContent = saranT('btn_check');
                 nextBtn.disabled = true;
                 nextBtn.onclick = function() {
                     if (st.answered) return;
@@ -7783,7 +8451,7 @@
             var data = window.saranCurriculum;
             var idx = window.saranCourseIndex || 0;
             var course = data && data.courses && data.courses[idx];
-            var label = course && course.titleRu ? String(course.titleRu).trim() : 'Модуль';
+            var label = course ? (saranCurLocalized(course, 'title') || saranT('module')).trim() : saranT('module');
             banner.setAttribute('aria-label', label);
             if (titleEl) titleEl.textContent = label;
         }
@@ -7824,7 +8492,7 @@
                 countEl.style.display = '';
                 countEl.textContent = String(RICHREP_DEMO_VISIBLE_LESSONS);
                 countEl.classList.remove('richrep-start-duration-count--two-digit');
-                suffixEl.textContent = 'уроков';
+                suffixEl.textContent = saranT('lessons_suffix');
                 suffixEl.classList.remove('richrep-start-duration-suffix--full');
                 if (demoCornerEl) {
                     demoCornerEl.hidden = false;
@@ -7840,7 +8508,7 @@
                 } else {
                     countEl.classList.remove('richrep-start-duration-count--two-digit');
                 }
-                suffixEl.textContent = 'уроков';
+                suffixEl.textContent = saranT('lessons_suffix');
                 suffixEl.classList.add('richrep-start-duration-suffix--full');
                 if (demoCornerEl) {
                     demoCornerEl.hidden = true;
@@ -8499,28 +9167,28 @@
                     .replace(/"/g, '&quot;');
             }
             if (!data || !data.courses || !data.courses[idx]) {
-                list.innerHTML = '<p class="richrep-lesson-desc">Список уроков появится после загрузки программы.</p>';
+                list.innerHTML = '<p class="richrep-lesson-desc">' + saranEscapeHtml(saranT('lesson_list_loading')) + '</p>';
                 return;
             }
             const lessons = data.courses[idx].lessons || [];
             const currentGlobal = saranGlobalFirstIncompleteLessonRef();
             let html = '';
             if (!lessons.length) {
-                list.innerHTML = '<p class="richrep-lesson-desc">Уроки для этого модуля скоро появятся.</p>';
+                list.innerHTML = '<p class="richrep-lesson-desc">' + saranEscapeHtml(saranT('lesson_list_empty')) + '</p>';
                 return;
             }
             const currentIdx = saranRichrepFirstIncompleteLessonIndex(idx);
             for (let i = 0; i < lessons.length; i++) {
                 const lessonItem = lessons[i];
                 const isConsolidation = saranIsConsolidationLesson(lessonItem);
-                const fallbackTitle = isConsolidation ? 'Закрепление материала' : ('Урок ' + (i + 1));
-                const title = lessonItem.titleRu || fallbackTitle;
-                const heading = isConsolidation ? title : ('Урок ' + (i + 1) + '. ' + title);
+                const fallbackTitle = isConsolidation ? saranT('consolidation') : saranT('lesson_n', { n: i + 1 });
+                const title = saranCurLocalized(lessonItem, 'title') || fallbackTitle;
+                const heading = isConsolidation ? title : (saranT('lesson_n', { n: i + 1 }) + '. ' + title);
                 const done = saranIsLessonDone(idx, i);
                 const shownTasks = saranLessonDisplayTaskCount(idx, i, lessonItem);
                 const minPart = typeof lessonItem.estimatedMinutes === 'number' && lessonItem.estimatedMinutes > 0
-                    ? ('~' + lessonItem.estimatedMinutes + ' мин')
-                    : ('~' + Math.max(8, shownTasks + 1) + ' мин');
+                    ? ('~' + lessonItem.estimatedMinutes + ' ' + saranT('min_short'))
+                    : ('~' + Math.max(8, shownTasks + 1) + ' ' + saranT('min_short'));
                 const badge = escapeHtml(minPart) + ' · ' + saranRuZadaniy(shownTasks);
                 let statusKey = 'todo';
                 if (done) {
@@ -8537,12 +9205,12 @@
                         ? 'richrep-lesson-status-img--trophy-done'
                         : 'richrep-lesson-status-img--trophy-pending');
                 }
-                let statusRu = 'Не пройден. ';
-                if (done) statusRu = 'Пройден. ';
-                else if (currentIdx === i) statusRu = 'Текущий шаг. ';
-                if (isLocked && currentGlobal) statusRu = 'Недоступен до прохождения текущего шага. ';
-                const ariaOpen = escapeHtml(statusRu + 'Открыть: ' + heading);
-                const desc = lessonItem.summaryRu || '';
+                let statusRu = saranT('status_todo');
+                if (done) statusRu = saranT('status_done');
+                else if (currentIdx === i) statusRu = saranT('status_current');
+                if (isLocked && currentGlobal) statusRu = saranT('status_locked');
+                const ariaOpen = escapeHtml(statusRu + saranT('open_label', { label: heading }));
+                const desc = saranCurLocalized(lessonItem, 'summary') || '';
                 html +=
                     '<article class="richrep-lesson-card' + (done ? ' richrep-lesson-card--done' : '') + (isConsolidation ? ' richrep-lesson-card--consolidation' : '') + '">' +
                     '<button type="button" class="saran-lesson-row-btn richrep-lesson-open-btn" data-lesson-index="' + i + '" data-lesson-locked="' + (isLocked ? '1' : '0') + '" ' + (isLocked ? 'disabled ' : '') + 'aria-label="' + ariaOpen + '">' +
@@ -8571,8 +9239,8 @@
                 btn.type = 'button';
                 btn.className = 'richrep-start-card saran-curriculum-card course-image';
                 btn.setAttribute('data-course-index', String(origIdx));
-                const label = (course.titleRu || 'Модуль').trim();
-                btn.setAttribute('aria-label', 'Открыть: ' + label);
+                const label = (saranCurLocalized(course, 'title') || saranT('module')).trim();
+                btn.setAttribute('aria-label', saranT('open_label', { label: label }));
                 btn.setAttribute('data-course-locked', '0');
 
                 const cover = document.createElement('div');
@@ -8603,17 +9271,17 @@
                 }
                 const meta = document.createElement('div');
                 meta.className = 'saran-card-cover-meta';
-                const minStr = totalMin > 0 ? ('~' + totalMin + ' мин') : (taskCount ? '~' + Math.max(3, taskCount * 2) + ' мин' : '');
+                const minStr = totalMin > 0 ? ('~' + totalMin + ' ' + saranT('min_short')) : (taskCount ? '~' + Math.max(3, taskCount * 2) + ' ' + saranT('min_short') : '');
                 meta.textContent = (minStr ? minStr + ' · ' : '') + saranRuUrokov(lessons.length);
                 cover.appendChild(meta);
 
                 const h = document.createElement('div');
                 h.className = 'richrep-start-title';
-                h.textContent = course.titleRu || 'Модуль';
+                h.textContent = saranCurLocalized(course, 'title') || saranT('module');
 
                 const d = document.createElement('div');
                 d.className = 'richrep-start-description';
-                d.textContent = course.subtitleRu || '';
+                d.textContent = saranCurLocalized(course, 'subtitle') || '';
 
                 btn.appendChild(cover);
                 btn.appendChild(h);
@@ -9070,6 +9738,12 @@
         }
 
         // Проверяем доступ к обучению и блокируем вкладку при необходимости.
+        try {
+            saranUiLang = saranGetUiLang();
+            if (localStorage.getItem(SARAN_LS_UI_LANG)) {
+                saranApplyUiLanguage();
+            }
+        } catch (eUiBoot) { /* ignore */ }
         checkAccessOnStartup();
 
         // Инициализация: активная вкладка «Обучение» (индекс 0) задана в разметке
