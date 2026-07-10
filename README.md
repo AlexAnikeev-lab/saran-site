@@ -1,38 +1,37 @@
 # Saran
 
-**Saran** is a mobile-first website for learning endangered indigenous languages of Russia — starting with Buryat. Open it in any browser, add it to your home screen, and study in short Duolingo-style sessions. No app store, no Telegram — just a live site.
+Saran is a website for learning endangered indigenous languages of Russia. Right now it's just Buryat, but that's on purpose — I'd rather do one language really well than five languages badly. It's mobile-first, works straight in the browser, and you can add it to your home screen so it feels like a real app. No app store review, no Telegram bot setup, just a link.
 
-## Why I built this
+## Why I made this
 
-I grew up around stories that Buryat was “almost gone,” and that always felt wrong. Apps for big languages are everywhere; for languages like Buryat there is almost nothing that respects the script (һ, ө, ү…) and still feels normal on a phone. I wanted a link I could send to friends — something that loads instantly and doesn’t need an install wizard.
+I grew up hearing people say Buryat was "basically dying out" and honestly that never sat right with me. If you go looking for apps to learn Spanish or Japanese there are like fifty of them, all polished, all free. Look for Buryat and you get almost nothing — and the little that exists usually doesn't even support the actual letters (һ, ө, ү) properly, or looks like it was built in 2009 and abandoned. I wanted something I could just send my friends as a link, that opens instantly, and doesn't make them install anything or join a random Telegram bot to use it.
 
-## What it does
+## What's actually in it
 
-- **Structured lessons** — modules from first letters and greetings to everyday topics, driven by a JSON curriculum with interactive steps
-- **Exercise types** — pick the right emoji, build a translation from word chips, listen where audio exists, get gentle corrections
-- **AI practice tab** — chat with **Sarangrel**, a Buryat-only assistant for questions between lessons
-- **Progress** — streak, XP, lessons completed, and a 14-day activity chart (stored locally in the browser)
-- **PWA** — add the site to your home screen and study in standalone mode
-- **Landing page** — context on why this matters, with a map of disappearing languages in Russia
+Lessons are organized into modules, starting from the alphabet and basic greetings and moving up to everyday topics — all of it pulled from a JSON curriculum file so I'm not hardcoding lesson content into the app itself. Each lesson mixes a few exercise types: pick the right emoji for a word, drag word chips into the right order to build a translation, listen to audio where I've got it, that kind of thing. Wrong answers get a gentle nudge instead of just an X.
 
-## How to use it
+There's also an AI tab where you can chat with Sarangrel, an assistant that only replies in Buryat, for practicing between lessons. Progress (streak, XP, lessons finished, a 14-day activity graph) is saved locally in your browser — no account needed. And the whole thing is a PWA, so "Add to Home Screen" gives you a real full-screen app feel on your phone.
 
-1. Open **[saran-edu.ru/app](https://saran-edu.ru/app/)** on your phone or desktop.
-2. Walk through onboarding — pick Buryat, your level, and a daily goal.
-3. Tap **Обучение** (Learn) → choose a module → start a lesson → tap **Проверить** after each task.
-4. Stuck on a phrase? Open **ИИ** and ask Sarangrel in Buryat Cyrillic.
-5. Check **Прогресс** for streak and stats.
-6. Optional: use “Add to Home Screen” in Safari/Chrome for a full-screen app feel.
+There's also a separate landing page explaining why this project exists, with a map showing how many languages in Russia are actually endangered — it's more than people think.
 
-The marketing page lives at **[saran-edu.ru](https://saran-edu.ru/)** — screenshots, project story, and a link straight into the app.
+## How to actually use it
 
-## How it works
+1. Open [saran-edu.ru/app](https://saran-edu.ru/app/) on your phone or on desktop, doesn't matter which.
+2. Go through onboarding — pick Buryat, say roughly what level you're at, set a daily goal (or don't, up to you).
+3. Tap **Обучение** (that's "Learn"), pick a module, start a lesson, and hit **Проверить** after each task to check your answer.
+4. If a phrase confuses you, just open the **ИИ** tab and ask Sarangrel about it in Buryat.
+5. **Прогресс** shows your streak and stats if you're into that stuff.
+6. On Safari or Chrome you can hit "Add to Home Screen" so it opens like a full app instead of a browser tab.
 
-The product is a static **PWA** (`app/index.html`) with three bottom tabs: Learn, AI, and Progress. Lesson content lives in `app/data/buryat-curriculum.json`; the client renders each step type (quiz, translation builder, character scenes) without a heavy framework. Progress and profile choices persist in **localStorage**, so returning users keep their streak and completed lessons.
+The marketing/landing page is at [saran-edu.ru](https://saran-edu.ru/) if you want screenshots and the backstory before jumping into the app itself.
 
-When you use the AI tab, the browser sends chat messages to a small **PHP proxy** (`app/api/openrouter-chat.php`) on the production host. The proxy holds the API key server-side and forwards requests to **OpenRouter**; the assistant is prompted to answer only in Buryat Cyrillic. Optional **NLLB** translation runs through a similar PHP endpoint for helper text when needed.
+## How it's actually built
 
-The repo root holds a separate minified **landing page**. **Vercel** builds both pages (`npm run build`), serves them over HTTPS, and rewrites `/api/*` to the backend VPS. Everything ships as static HTML, CSS, and JavaScript — no native app, no bot runtime in this repo.
+It's a static PWA — `app/index.html` — with three tabs at the bottom: Learn, AI, and Progress. All the lesson content lives in `app/data/buryat-curriculum.json`, and the client just renders whatever step type that lesson needs (quiz, translation builder, little character scenes) without pulling in some heavy framework for it. Progress and whatever you picked during onboarding get saved in localStorage, so if you come back later your streak and finished lessons are still there.
+
+The AI tab isn't calling anything directly from the browser — it hits a small PHP proxy (`app/api/openrouter-chat.php`) sitting on the production server, which holds the actual API key and forwards the request to OpenRouter. The model's prompted to only answer in Buryat Cyrillic. There's also an NLLB translation endpoint doing something similar for helper text when it's needed.
+
+The landing page is a separate, minified thing living in the repo root. Vercel builds both (`npm run build`) and serves everything over HTTPS, rewriting `/api/*` calls to the backend VPS. It's all static HTML/CSS/JS in the end — there's no native app and no bot process running out of this repo.
 
 ## Stack
 
@@ -50,18 +49,21 @@ The repo root holds a separate minified **landing page**. **Vercel** builds both
 
 | | |
 |---|---|
-| ![Learning home — course modules and listen tab](docs/screenshots/01-learning-home.png) | **Learn** — module list and course cards, from alphabet to home & environment topics |
-| ![AI chat with Sarangrel](docs/screenshots/02-ai-chat.png) | **AI** — practice dialog with the Buryat assistant between lessons |
-| ![Progress — streak, XP, 14-day chart](docs/screenshots/03-progress.png) | **Progress** — streak, points, lessons done, activity chart |
-| ![Lesson — emoji matching quiz](docs/screenshots/04-lesson-quiz.png) | **Lesson** — pick the matching emoji, then tap Check |
-| ![Lesson — build the translation](docs/screenshots/05-translation-build.png) | **Lesson** — assemble a Russian translation from word chips |
+| ![Learning home — course modules and listen tab](docs/screenshots/01-learning-home.png) | **Learn** — the module list, from alphabet stuff up to home & environment topics |
+| ![AI chat with Sarangrel](docs/screenshots/02-ai-chat.png) | **AI** — chatting with Sarangrel between lessons |
+| ![Progress — streak, XP, 14-day chart](docs/screenshots/03-progress.png) | **Progress** — streak, points, lessons done, activity graph |
+| ![Lesson — emoji matching quiz](docs/screenshots/04-lesson-quiz.png) | **Lesson** — pick the matching emoji, then hit Check |
+| ![Lesson — build the translation](docs/screenshots/05-translation-build.png) | **Lesson** — build a Russian translation out of word chips |
 
-## AI use disclosure
+## Being honest about AI use
 
-- **Cursor** — helped write and refactor code, draft this README, and debug deploy issues. I reviewed and tested everything myself.
-- **OpenRouter (runtime)** — the in-app AI tab calls a hosted LLM through our server proxy. Users see generated Buryat replies from Sarangrel; keys never ship to the browser.
-- **OpenRouter (dev only)** — `app/scripts/generate_lesson_assets_openrouter.py` generated a handful of lesson illustrations; those PNGs are committed, the script is not needed to run the app.
-- **No AI in the core lesson engine** — quizzes, scoring, and progress are deterministic client logic over the curriculum JSON.
+I used Cursor while building this — it helped with writing/refactoring code and figuring out deploy issues when things broke. I read and tested everything it touched myself, this isn't a "generate the app" situation.
+
+The in-app AI tab is a real feature, not a dev tool: it calls OpenRouter through my server so the API key never touches the browser, and that's what actually powers Sarangrel's replies.
+
+Separately, I used OpenRouter once during development to generate a handful of lesson illustration images with a script (`app/scripts/generate_lesson_assets_openrouter.py`). Those PNGs are just committed to the repo now — you don't need the script to run the app.
+
+The actual lesson engine — quizzes, scoring, progress tracking — has zero AI in it. It's just deterministic JS logic running over the curriculum JSON.
 
 ## Links
 
