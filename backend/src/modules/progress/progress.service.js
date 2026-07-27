@@ -28,10 +28,7 @@ function mergeProgress(userId, local) {
 
   const mergedLessonsDone = { ...(server.lessonsDone || {}), ...(local.lessonsDone || {}) };
 
-  const mergedDailyActivity = { ...(server.dailyActivity || {}) };
-  for (const [date, count] of Object.entries(local.dailyActivity || {})) {
-    mergedDailyActivity[date] = Math.max(mergedDailyActivity[date] || 0, Number(count) || 0);
-  }
+  const mergedDailyActivity = mergeDailyActivity(server.dailyActivity, local.dailyActivity);
 
   const merged = {
     xpTotal: Math.max(server.xpTotal || 0, local.xpTotal || 0),
@@ -53,6 +50,40 @@ function mergeProgress(userId, local) {
 
   const updated = repo.replace(userId, merged);
   return repo.toPublicProgress(updated);
+}
+
+/**
+ * Значение за один день бывает либо числом, либо объектом вида { t: задачи, l: уроки }
+ * (именно так хранит фронтенд в saran_daily_activity_v1). Сливаем по максимуму на
+ * каждом уровне, чтобы данные с разных устройств не перетирали друг друга.
+ */
+function mergeDailyActivity(serverMap, localMap) {
+  const merged = { ...(serverMap || {}) };
+  for (const [date, localVal] of Object.entries(localMap || {})) {
+    const serverVal = merged[date];
+    if (typeof localVal === 'number' || typeof serverVal === 'number' || serverVal === undefined) {
+      const a = typeof serverVal === 'number' ? serverVal : 0;
+      const b = typeof localVal === 'number' ? localVal : 0;
+      merged[date] =
+        typeof localVal === 'object' && localVal !== null
+          ? mergeDayCell(serverVal, localVal)
+          : Math.max(a, b);
+    } else {
+      merged[date] = mergeDayCell(serverVal, localVal);
+    }
+  }
+  return merged;
+}
+
+function mergeDayCell(serverCell, localCell) {
+  const s = serverCell && typeof serverCell === 'object' ? serverCell : {};
+  const l = localCell && typeof localCell === 'object' ? localCell : {};
+  const keys = new Set([...Object.keys(s), ...Object.keys(l)]);
+  const out = {};
+  for (const k of keys) {
+    out[k] = Math.max(Number(s[k]) || 0, Number(l[k]) || 0);
+  }
+  return out;
 }
 
 function pickLatestDate(a, b) {

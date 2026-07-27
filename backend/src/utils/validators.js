@@ -54,7 +54,8 @@ const progressSchema = z.object({
   tasksCorrect: z.number().int().min(0).max(10_000_000).optional(),
   lastActivityDate: z.string().max(20).optional().nullable(),
   lessonsDone: z.record(z.any()).optional(),
-  dailyActivity: z.record(z.number()).optional(),
+  // Форма значений — как на клиенте: число ИЛИ объект вида { t: tasks, l: lessons } за день.
+  dailyActivity: z.record(z.union([z.number(), z.record(z.number())])).optional(),
   onboardingDone: z.boolean().optional(),
   onboardingProfile: z.record(z.any()).optional(),
   displayName: z.string().trim().max(40).optional().nullable(),

@@ -3554,6 +3554,139 @@
             display: none !important;
         }
 
+        /* Карточка аккаунта на вкладке «Прогресс» (реальный логин/регистрация на бэкенде) */
+        .saran-account-panel {
+            margin-top: 8px;
+        }
+        .saran-account-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .saran-account-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .saran-account-badge.saran-account-badge--in {
+            background: rgba(120, 220, 170, 0.16);
+            color: rgba(150, 235, 195, 0.95);
+        }
+        .saran-account-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .saran-account-actions .saran-reg-submit,
+        .saran-account-actions .saran-onboard-secondary {
+            margin-top: 0;
+            flex: 1;
+        }
+        .saran-account-email {
+            display: block;
+            margin-top: 2px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.55);
+            word-break: break-all;
+        }
+
+        /* Модалка входа/регистрации */
+        .saran-auth-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .saran-auth-modal[hidden] {
+            display: none !important;
+        }
+        .saran-auth-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 8, 14, 0.72);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .saran-auth-modal__card {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 22px 20px 26px;
+            border-radius: 24px 24px 0 0;
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.45);
+        }
+        @media (min-width: 640px) {
+            .saran-auth-modal {
+                align-items: center;
+            }
+            .saran-auth-modal__card {
+                border-radius: 24px;
+            }
+        }
+        .saran-auth-modal__close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .saran-auth-modal__tabs {
+            display: flex;
+            gap: 6px;
+            margin: 4px 0 16px;
+            padding: 4px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .saran-auth-modal__tab {
+            flex: 1;
+            padding: 9px 10px;
+            border: none;
+            border-radius: 9px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Vela Sans', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .saran-auth-modal__tab.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #f2f2f7;
+        }
+        .saran-auth-modal__title {
+            margin: 0 0 4px;
+            font-family: 'Vela Sans', sans-serif;
+            font-weight: 600;
+            font-size: 19px;
+            color: #f2f2f7;
+        }
+        .saran-auth-modal__lead {
+            margin: 0 0 16px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
         /* Онбординг (Duolingo-подобный тёмный мастер, иллюстрации — локальные SVG из /Duolingo) */
         :root {
             --saran-onboard-accent: #49c0f8;
@@ -4728,6 +4861,35 @@
         </div>
     </div>
 
+    <!-- Модалка входа / регистрации в аккаунт Саран (реальный бэкенд) -->
+    <div id="saranAuthModal" class="saran-auth-modal" hidden role="dialog" aria-modal="true" aria-labelledby="saranAuthModalTitle">
+        <div class="saran-auth-modal__backdrop" id="saranAuthModalBackdrop"></div>
+        <div class="saran-auth-modal__card">
+            <button type="button" class="saran-auth-modal__close" id="saranAuthModalClose" aria-label="Закрыть">×</button>
+            <div class="saran-auth-modal__tabs" role="tablist">
+                <button type="button" class="saran-auth-modal__tab active" id="saranAuthTabLogin" data-auth-tab="login" role="tab" aria-selected="true">Вход</button>
+                <button type="button" class="saran-auth-modal__tab" id="saranAuthTabRegister" data-auth-tab="register" role="tab" aria-selected="false">Регистрация</button>
+            </div>
+            <h2 class="saran-auth-modal__title" id="saranAuthModalTitle">Войти в Саран</h2>
+            <p class="saran-auth-modal__lead" id="saranAuthModalLead">Прогресс будет сохраняться на сервере и доступен с любого устройства.</p>
+            <div class="saran-reg-field">
+                <label for="saranAuthEmail">Email</label>
+                <input id="saranAuthEmail" type="email" autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="saran-reg-field" id="saranAuthNameField" hidden>
+                <label for="saranAuthName">Имя (необязательно)</label>
+                <input id="saranAuthName" type="text" autocomplete="name" maxlength="40" placeholder="Как вас называть">
+            </div>
+            <div class="saran-reg-field">
+                <label for="saranAuthPassword">Пароль</label>
+                <input id="saranAuthPassword" type="password" autocomplete="current-password" placeholder="Не менее 8 символов">
+            </div>
+            <p id="saranAuthFeedback" class="saran-reg-feedback" role="alert" aria-live="polite" hidden></p>
+            <button type="button" class="saran-reg-submit" id="saranAuthSubmit">Войти</button>
+            <button type="button" class="saran-onboard-secondary" id="saranAuthForgotBtn">Забыли пароль?</button>
+        </div>
+    </div>
+
     <!-- Основной контент -->
     <div id="saranAppScrollWrap" class="pb-24 saran-body-pad-under-brand">
         <!-- Вкладка Recents (Обучение) -->
@@ -4845,6 +5007,21 @@
         <div id="browseTab" class="content-section">
             <div class="px-4 pt-4 saran-progress-page">
                 <p class="saran-tab-sub">Здесь отражается то, что вы уже сделали в Саран: уроки, задания и ритм без спешки.</p>
+
+                <section class="saran-progress-panel saran-account-panel" aria-labelledby="saranAccountTitle">
+                    <div class="saran-account-row">
+                        <span class="saran-account-badge" id="saranAccountBadge">Гость</span>
+                        <h3 class="saran-progress-panel__title" id="saranAccountTitle">Аккаунт</h3>
+                    </div>
+                    <p class="saran-progress-panel__sub" id="saranAccountStatus">Прогресс хранится только на этом устройстве. Войдите, чтобы не потерять его.</p>
+                    <div class="saran-account-actions" id="saranAccountGuestActions">
+                        <button type="button" class="saran-reg-submit" id="saranAccountLoginBtn">Войти</button>
+                        <button type="button" class="saran-onboard-secondary" id="saranAccountRegisterBtn">Создать аккаунт</button>
+                    </div>
+                    <div class="saran-account-actions" id="saranAccountUserActions" hidden>
+                        <button type="button" class="saran-onboard-secondary" id="saranAccountLogoutBtn">Выйти</button>
+                    </div>
+                </section>
 
                 <div class="saran-progress-hero">
                     <div class="saran-progress-ring-wrap" aria-hidden="true">
@@ -4995,6 +5172,8 @@
         </div>
     </div>
 
+    <!-- Клиент бэкенда Saran: регистрация/вход и синхронизация прогресса на сервере -->
+    <script src="js/saran-api.js"></script>
     <script>
         // Управление вкладками
         const tabs = {
@@ -5093,6 +5272,308 @@
         const SARAN_LS_DAILY = 'saran_daily_activity_v1';
         const SARAN_LS_SOUND_ENABLED = 'saran_sound_enabled_v1';
         const SARAN_LS_UI_LANG = 'saran_ui_lang_v1';
+
+        // ============================================================
+        // Синхронизация прогресса с бэкендом (window.SaranAPI, см. js/saran-api.js)
+        // localStorage остаётся источником истины для рендера UI — этот блок
+        // только читает/пишет те же ключи и синхронизирует их с сервером,
+        // когда пользователь вошёл в аккаунт. В гостевом режиме ничего не меняется.
+        // ============================================================
+
+        function saranLsGetBool(key, def) {
+            try {
+                const v = localStorage.getItem(key);
+                if (v === null) return def;
+                return v === '1' || v === 'true';
+            } catch (e) {
+                return def;
+            }
+        }
+
+        function saranCollectProgressSnapshot() {
+            let lessonsDone = {};
+            let dailyActivity = {};
+            let onboardingProfile = {};
+            try {
+                lessonsDone = saranGetLessonDoneMap();
+            } catch (e) { /* ignore */ }
+            try {
+                dailyActivity = saranDailyReadRaw();
+            } catch (e) { /* ignore */ }
+            try {
+                onboardingProfile = JSON.parse(localStorage.getItem(SARAN_LS_PROFILE) || '{}') || {};
+            } catch (e) { /* ignore */ }
+            return {
+                xpTotal: saranReadLsInt(SARAN_LS_XP, 0),
+                streakDays: saranReadLsInt(SARAN_LS_STREAK, 0),
+                tasksCorrect: saranReadLsInt(SARAN_LS_TASKS, 0),
+                lessonsDone: lessonsDone,
+                dailyActivity: dailyActivity,
+                onboardingDone: localStorage.getItem(SARAN_LS_ONBOARD) === '1',
+                onboardingProfile: onboardingProfile,
+                displayName: (localStorage.getItem(SARAN_LS_NAME) || '').trim() || null,
+                uiLang: localStorage.getItem(SARAN_LS_UI_LANG) || null,
+                soundEnabled: saranLsGetBool(SARAN_LS_SOUND_ENABLED, true),
+            };
+        }
+
+        /** Записывает прогресс, полученный от сервера, обратно в localStorage. */
+        function saranApplyProgressSnapshot(progress) {
+            if (!progress || typeof progress !== 'object') return;
+            try {
+                if (typeof progress.xpTotal === 'number') localStorage.setItem(SARAN_LS_XP, String(progress.xpTotal));
+                if (typeof progress.streakDays === 'number') localStorage.setItem(SARAN_LS_STREAK, String(progress.streakDays));
+                if (typeof progress.tasksCorrect === 'number') localStorage.setItem(SARAN_LS_TASKS, String(progress.tasksCorrect));
+                if (progress.lessonsDone && typeof progress.lessonsDone === 'object') {
+                    const doneCount = Object.keys(progress.lessonsDone).filter(function (k) { return !!progress.lessonsDone[k]; }).length;
+                    localStorage.setItem(saranLessonDoneStorageKey(), JSON.stringify(progress.lessonsDone));
+                    localStorage.setItem(SARAN_LS_LESSONS, String(doneCount));
+                }
+                if (progress.dailyActivity && typeof progress.dailyActivity === 'object') {
+                    saranDailyWriteRaw(progress.dailyActivity);
+                }
+                if (progress.onboardingDone) localStorage.setItem(SARAN_LS_ONBOARD, '1');
+                if (progress.onboardingProfile && Object.keys(progress.onboardingProfile).length) {
+                    localStorage.setItem(SARAN_LS_PROFILE, JSON.stringify(progress.onboardingProfile));
+                }
+                if (progress.displayName) localStorage.setItem(SARAN_LS_NAME, progress.displayName);
+                if (progress.uiLang) localStorage.setItem(SARAN_LS_UI_LANG, progress.uiLang);
+                if (typeof progress.soundEnabled === 'boolean') {
+                    localStorage.setItem(SARAN_LS_SOUND_ENABLED, progress.soundEnabled ? '1' : '0');
+                }
+            } catch (e) { /* ignore */ }
+        }
+
+        let saranProgressPushTimer = null;
+        let saranProgressPushInFlight = false;
+
+        /** Дебounced отправка полного снапшота прогресса на сервер (только если авторизован). */
+        function saranScheduleProgressPush() {
+            if (!window.SaranAPI || !window.SaranAPI.isLoggedIn()) return;
+            if (saranProgressPushTimer) clearTimeout(saranProgressPushTimer);
+            saranProgressPushTimer = setTimeout(function () {
+                saranProgressPushTimer = null;
+                if (saranProgressPushInFlight) return;
+                saranProgressPushInFlight = true;
+                window.SaranAPI.saveProgress(saranCollectProgressSnapshot())
+                    .catch(function (e) {
+                        try { console.warn('[Saran] Не удалось сохранить прогресс на сервере', e); } catch (eLog) { /* ignore */ }
+                    })
+                    .finally(function () {
+                        saranProgressPushInFlight = false;
+                    });
+            }, 1500);
+        }
+
+        /**
+         * Вызывается один раз сразу после успешного логина/регистрации
+         * и при тихом восстановлении сессии на старте приложения.
+         * Слияние никогда не уменьшает показатели — гостевой прогресс не теряется.
+         */
+        function saranSyncProgressAfterAuth() {
+            if (!window.SaranAPI || !window.SaranAPI.isLoggedIn()) return Promise.resolve();
+            return window.SaranAPI.mergeProgress(saranCollectProgressSnapshot())
+                .then(function (progress) {
+                    saranApplyProgressSnapshot(progress);
+                    try { refreshSaranProgressUI(); } catch (e) { /* ignore */ }
+                })
+                .catch(function (e) {
+                    try { console.warn('[Saran] Не удалось синхронизировать прогресс', e); } catch (eLog) { /* ignore */ }
+                });
+        }
+
+        // ============================================================
+        // UI аккаунта: вход / регистрация / выход (карточка на вкладке «Прогресс»
+        // + модалка saranAuthModal). Полностью независим от гостевого онбординга —
+        // тот продолжает работать как раньше, если пользователь не логинится.
+        // ============================================================
+
+        let saranAuthMode = 'login';
+
+        function saranAuthSetMode(mode) {
+            saranAuthMode = mode === 'register' ? 'register' : 'login';
+            const tabLogin = document.getElementById('saranAuthTabLogin');
+            const tabRegister = document.getElementById('saranAuthTabRegister');
+            const nameField = document.getElementById('saranAuthNameField');
+            const title = document.getElementById('saranAuthModalTitle');
+            const submit = document.getElementById('saranAuthSubmit');
+            const pwInp = document.getElementById('saranAuthPassword');
+            const isRegister = saranAuthMode === 'register';
+            if (tabLogin) {
+                tabLogin.classList.toggle('active', !isRegister);
+                tabLogin.setAttribute('aria-selected', String(!isRegister));
+            }
+            if (tabRegister) {
+                tabRegister.classList.toggle('active', isRegister);
+                tabRegister.setAttribute('aria-selected', String(isRegister));
+            }
+            if (nameField) nameField.hidden = !isRegister;
+            if (title) title.textContent = isRegister ? 'Создать аккаунт' : 'Войти в Саран';
+            if (submit) submit.textContent = isRegister ? 'Создать аккаунт' : 'Войти';
+            if (pwInp) pwInp.setAttribute('autocomplete', isRegister ? 'new-password' : 'current-password');
+            saranAuthSetFeedback('');
+        }
+
+        function saranAuthSetFeedback(msg, isOk) {
+            const fb = document.getElementById('saranAuthFeedback');
+            if (!fb) return;
+            if (!msg) {
+                fb.textContent = '';
+                fb.hidden = true;
+                return;
+            }
+            fb.textContent = msg;
+            fb.hidden = false;
+            fb.style.color = isOk ? 'rgba(150, 235, 195, 0.95)' : '';
+        }
+
+        function saranAuthOpenModal(mode) {
+            const modal = document.getElementById('saranAuthModal');
+            if (!modal) return;
+            saranAuthSetMode(mode || 'login');
+            modal.hidden = false;
+            try {
+                const emailInp = document.getElementById('saranAuthEmail');
+                if (emailInp) emailInp.focus();
+            } catch (e) { /* ignore */ }
+        }
+
+        function saranAuthCloseModal() {
+            const modal = document.getElementById('saranAuthModal');
+            if (modal) modal.hidden = true;
+            saranAuthSetFeedback('');
+        }
+
+        function saranRefreshAccountCard() {
+            const badge = document.getElementById('saranAccountBadge');
+            const status = document.getElementById('saranAccountStatus');
+            const guestActions = document.getElementById('saranAccountGuestActions');
+            const userActions = document.getElementById('saranAccountUserActions');
+            const loggedIn = !!(window.SaranAPI && window.SaranAPI.isLoggedIn());
+            const user = loggedIn && window.SaranAPI.getUser();
+            if (badge) {
+                badge.textContent = loggedIn ? 'В сети' : 'Гость';
+                badge.classList.toggle('saran-account-badge--in', loggedIn);
+            }
+            if (status) {
+                status.innerHTML = loggedIn
+                    ? 'Прогресс сохраняется на сервере.' + (user && user.email ? '<span class="saran-account-email">' + saranEscapeHtml(user.email) + '</span>' : '')
+                    : 'Прогресс хранится только на этом устройстве. Войдите, чтобы не потерять его.';
+            }
+            if (guestActions) guestActions.hidden = loggedIn;
+            if (userActions) userActions.hidden = !loggedIn;
+        }
+
+        function initSaranAccountUI() {
+            const modal = document.getElementById('saranAuthModal');
+            const backdrop = document.getElementById('saranAuthModalBackdrop');
+            const closeBtn = document.getElementById('saranAuthModalClose');
+            const tabLogin = document.getElementById('saranAuthTabLogin');
+            const tabRegister = document.getElementById('saranAuthTabRegister');
+            const submitBtn = document.getElementById('saranAuthSubmit');
+            const forgotBtn = document.getElementById('saranAuthForgotBtn');
+            const loginBtn = document.getElementById('saranAccountLoginBtn');
+            const registerBtn = document.getElementById('saranAccountRegisterBtn');
+            const logoutBtn = document.getElementById('saranAccountLogoutBtn');
+
+            if (loginBtn) loginBtn.addEventListener('click', function () { saranAuthOpenModal('login'); });
+            if (registerBtn) registerBtn.addEventListener('click', function () { saranAuthOpenModal('register'); });
+            if (closeBtn) closeBtn.addEventListener('click', saranAuthCloseModal);
+            if (backdrop) backdrop.addEventListener('click', saranAuthCloseModal);
+            if (tabLogin) tabLogin.addEventListener('click', function () { saranAuthSetMode('login'); });
+            if (tabRegister) tabRegister.addEventListener('click', function () { saranAuthSetMode('register'); });
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function () {
+                    logoutBtn.disabled = true;
+                    window.SaranAPI.logout().finally(function () {
+                        logoutBtn.disabled = false;
+                        saranRefreshAccountCard();
+                    });
+                });
+            }
+
+            if (forgotBtn) {
+                forgotBtn.addEventListener('click', function () {
+                    const emailInp = document.getElementById('saranAuthEmail');
+                    const email = (emailInp && emailInp.value || '').trim();
+                    if (!email) {
+                        saranAuthSetFeedback('Введите email в поле выше, потом нажмите «Забыли пароль?»');
+                        if (emailInp) emailInp.focus();
+                        return;
+                    }
+                    forgotBtn.disabled = true;
+                    window.SaranAPI.forgotPassword(email)
+                        .then(function () {
+                            saranAuthSetFeedback('Если такой email зарегистрирован — письмо со ссылкой отправлено.', true);
+                        })
+                        .catch(function () {
+                            saranAuthSetFeedback('Не удалось отправить письмо, попробуйте позже.');
+                        })
+                        .finally(function () {
+                            forgotBtn.disabled = false;
+                        });
+                });
+            }
+
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function () {
+                    const emailInp = document.getElementById('saranAuthEmail');
+                    const nameInp = document.getElementById('saranAuthName');
+                    const pwInp = document.getElementById('saranAuthPassword');
+                    const email = (emailInp && emailInp.value || '').trim();
+                    const password = (pwInp && pwInp.value || '').trim();
+                    const displayName = (nameInp && nameInp.value || '').trim();
+
+                    if (!email) {
+                        saranAuthSetFeedback('Введите email');
+                        if (emailInp) emailInp.focus();
+                        return;
+                    }
+                    if (!password || password.length < 8) {
+                        saranAuthSetFeedback('Пароль должен быть не короче 8 символов');
+                        if (pwInp) pwInp.focus();
+                        return;
+                    }
+
+                    submitBtn.disabled = true;
+                    saranAuthSetFeedback('');
+
+                    const action = saranAuthMode === 'register'
+                        ? window.SaranAPI.register({ email: email, password: password, displayName: displayName || undefined })
+                        : window.SaranAPI.login({ email: email, password: password });
+
+                    action
+                        .then(function () {
+                            return saranSyncProgressAfterAuth();
+                        })
+                        .then(function () {
+                            saranAuthCloseModal();
+                            saranRefreshAccountCard();
+                            if (pwInp) pwInp.value = '';
+                        })
+                        .catch(function (err) {
+                            const msg = (err && err.message) || 'Не удалось выполнить запрос, попробуйте позже';
+                            saranAuthSetFeedback(msg);
+                        })
+                        .finally(function () {
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+
+            saranRefreshAccountCard();
+
+            // Тихое восстановление сессии по refresh-cookie при открытии приложения.
+            if (window.SaranAPI) {
+                window.SaranAPI.restoreSession().then(function (restored) {
+                    if (restored) {
+                        saranRefreshAccountCard();
+                        saranSyncProgressAfterAuth();
+                    }
+                });
+            }
+        }
 
         const SARAN_I18N = {
             ru: {
@@ -6914,6 +7395,7 @@
                 avg7tasks: avg7tasks,
                 moduleAvgPct: modAvg
             });
+            saranScheduleProgressPush();
         }
 
         function saranMarkLessonDone(courseIndex, lessonIdx) {
@@ -9247,6 +9729,7 @@
                 initSaranNewsRetryButton();
                 initSaranRegistration();
                 initSaranAiChat();
+                initSaranAccountUI();
             } catch (eInit) {
                 try {
                     console.error('[Saran] init registration / chat', eInit);

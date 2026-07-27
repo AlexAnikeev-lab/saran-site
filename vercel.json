@@ -22,6 +22,22 @@
     {
       "source": "/api/podcast/:path*",
       "destination": "http://77.221.141.51:8000/api/podcast/:path*"
+    },
+    {
+      "source": "/api/auth/:path*",
+      "destination": "https://api.alexanik.ru:8843/api/auth/:path*"
+    },
+    {
+      "source": "/api/progress/:path*",
+      "destination": "https://api.alexanik.ru:8843/api/progress/:path*"
+    },
+    {
+      "source": "/api/health",
+      "destination": "https://api.alexanik.ru:8843/api/health"
+    },
+    {
+      "source": "/reset-password",
+      "destination": "/app/reset-password.html"
     }
   ]
 }
