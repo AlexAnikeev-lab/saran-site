@@ -1,0 +1,32 @@
+{
+  "name": "saran-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API для Saran: регистрация/вход пользователей и сохранение прогресса обучения.",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node scripts/migrate.js",
+    "create-admin-token": "node scripts/generate-secret.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^13.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^9.0.3",
+    "zod": "^3.23.8"
+  }
+}

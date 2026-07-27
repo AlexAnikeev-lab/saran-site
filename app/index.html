@@ -5078,6 +5078,7 @@
         const RICHREP_FULL_DURATION_LABEL = '~50 мин';
 
         window.saranCurriculum = null;
+        window.saranCurriculumEnMap = null;
         window.saranCurriculumTotalSteps = 50;
         window.saranCourseIndex = 0;
         const SARAN_LS_ONBOARD = 'saran_onboarding_done_v1';
@@ -5129,7 +5130,7 @@
                 lesson_done_kicker: 'Готово',
                 lesson_done_title: 'Урок пройден',
                 lesson_done_sub: 'Отличная работа.',
-                ai_tab_sub: 'Пишите по-бурятски — «Сарангэрэл» отвечает простым правильным бурятским языком.',
+                ai_tab_sub: 'Пишите по-бурятски — «Сарангэрэл» отвечает очень просто и коротко, только на бурятском.',
                 ai_chat_aria: 'Панель чата с Сарангэрэл',
                 ai_input_ph: 'Сообщение… (бурят.)',
                 ai_input_aria: 'Текст сообщения',
@@ -5241,7 +5242,33 @@
                 status_todo: 'Не пройден. ',
                 status_locked: 'Недоступен до прохождения текущего шага. ',
                 min_short: 'мин',
-                day_per: 'мин / день'
+                day_per: 'мин / день',
+                ai_welcome_sys: 'Напишите по-бурятски — Сарангэрэл ответит очень просто и коротко, только на бурятском.',
+                ai_chat_offline: 'Чат временно недоступен.',
+                ai_chat_post_blocked: 'Сервер чата сейчас недоступен для POST-запросов.',
+                ex_bool_true: 'Верно',
+                ex_bool_false: 'Неверно',
+                task_translate_missing: 'В задании translate_tiles не заданы correctTokens.',
+                task_type_unsupported: 'Тип задания пока не поддерживается.',
+                news_ok_bur: 'Заголовок и текст пересказаны по-бурятски. Ниже — оригинальный заголовок на русском.',
+                news_ok_en: 'Заголовок и текст пересказаны по-бурятски. Ниже — оригинальный заголовок на русском.',
+                news_fallback_bur: 'Не удалось оформить бурятский вариант сейчас. Показываем русский текст.',
+                news_fallback_en: 'Не удалось оформить бурятский вариант сейчас. Показываем русский текст.',
+                news_original_ru: 'Оригинал (рус.):',
+                news_load_fail: 'Не удалось загрузить новости. Проверьте подключение к сети и попробуйте ещё раз.',
+                news_unavailable: 'Лента временно недоступна. Нажмите «Обновить ленту» или зайдите позже.',
+                music_loading: 'Загружаем подборку…',
+                music_empty: 'Список записей пока пуст.',
+                music_load_fail: 'Не удалось загрузить подборку. Обновите страницу или проверьте, что рядом с index.html лежит папка music_collection с файлом library.json.',
+                listen_play: 'Воспроизвести',
+                listen_label: 'Слушать',
+                curriculum_embed_fail: 'Программа уроков не загрузилась: откройте сайт по обычному веб-адресу (http или https), не как локальный файл.',
+                curriculum_read_fail: 'Не удалось прочитать программу уроков. Обновите страницу или зайдите позже.',
+                curriculum_load_fail: 'Не удалось загрузить программу уроков. Проверьте подключение к сети и обновите страницу.',
+                brand_aria: 'Текущий раздел Саран',
+                redeem_fail: 'Не удалось применить код.',
+                redeem_fail_later: 'Не удалось применить код. Попробуйте позже.',
+                network_error: 'Ошибка сети. Проверьте подключение к интернету и попробуйте снова.'
             },
             en: {
                 welcome_title: 'Welcome',
@@ -5278,7 +5305,7 @@
                 lesson_done_kicker: 'Done',
                 lesson_done_title: 'Lesson complete',
                 lesson_done_sub: 'Great work.',
-                ai_tab_sub: 'Write in Buryat — Sarangrel replies in clear, correct Buryat.',
+                ai_tab_sub: 'Write in Buryat — Sarangrel replies very simply and briefly, in Buryat only.',
                 ai_chat_aria: 'Chat with Sarangrel',
                 ai_input_ph: 'Message… (Buryat)',
                 ai_input_aria: 'Message text',
@@ -5390,7 +5417,33 @@
                 status_todo: 'Not completed. ',
                 status_locked: 'Locked until you complete the current step. ',
                 min_short: 'min',
-                day_per: 'min / day'
+                day_per: 'min / day',
+                ai_welcome_sys: 'Write in Buryat — Sarangrel replies very simply and briefly, in Buryat only.',
+                ai_chat_offline: 'Chat is temporarily unavailable.',
+                ai_chat_post_blocked: 'Chat server does not accept POST requests right now.',
+                ex_bool_true: 'True',
+                ex_bool_false: 'False',
+                task_translate_missing: 'This translate_tiles task has no correctTokens.',
+                task_type_unsupported: 'This task type is not supported yet.',
+                news_ok_bur: 'Headline and text in Buryat. Original Russian headline below.',
+                news_ok_en: 'Headline and summary in Buryat. Original Russian headline below.',
+                news_fallback_bur: 'Could not render Buryat version now. Showing Russian text.',
+                news_fallback_en: 'Could not render Buryat version now. Showing Russian text.',
+                news_original_ru: 'Original (Russian):',
+                news_load_fail: 'Could not load news. Check your connection and try again.',
+                news_unavailable: 'Feed temporarily unavailable. Tap Refresh or try later.',
+                music_loading: 'Loading collection…',
+                music_empty: 'The track list is empty for now.',
+                music_load_fail: 'Could not load the collection. Refresh the page or check that music_collection/library.json is next to index.html.',
+                listen_play: 'Play',
+                listen_label: 'Listen',
+                curriculum_embed_fail: 'Lessons did not load: open the site via http or https, not as a local file.',
+                curriculum_read_fail: 'Could not read the lesson program. Refresh or try later.',
+                curriculum_load_fail: 'Could not load lessons. Check your connection and refresh.',
+                brand_aria: 'Current Saran section',
+                redeem_fail: 'Could not apply the code.',
+                redeem_fail_later: 'Could not apply the code. Try again later.',
+                network_error: 'Network error. Check your internet connection and try again.'
             }
         };
 
@@ -5489,11 +5542,18 @@
         function saranCurLocalized(obj, fieldBase) {
             if (!obj || !fieldBase) return '';
             const lang = saranGetUiLang();
+            const ru = obj[fieldBase + 'Ru'] || obj[fieldBase] || '';
             if (lang === 'en') {
                 const en = obj[fieldBase + 'En'];
                 if (en) return en;
+                const map = window.saranCurriculumEnMap;
+                if (ru && map && map[ru]) return map[ru];
             }
-            return obj[fieldBase + 'Ru'] || obj[fieldBase] || '';
+            return ru;
+        }
+
+        function saranCurLocalizedStrip(obj, fieldBase) {
+            return saranStripBold(saranCurLocalized(obj, fieldBase) || '');
         }
 
         function saranApplyUiLanguage() {
@@ -5619,6 +5679,8 @@
             if (tabs.shared) tabs.shared.title = saranT('tab_shared');
             if (tabs.browse) tabs.browse.title = saranT('tab_browse');
             if (tabs.news) tabs.news.title = saranT('tab_news');
+            const brandBar = document.getElementById('saranGlobalBrandBar');
+            if (brandBar) brandBar.setAttribute('aria-label', saranT('brand_aria'));
             const activeTabKey = document.querySelector('.content-section.active');
             if (activeTabKey) {
                 if (activeTabKey.id === 'recentsTab') syncSaranGlobalBrandBar('recents');
@@ -5628,6 +5690,20 @@
             }
             saranRefreshSoundToggleUi();
             refreshSaranProgressUI();
+            try {
+                const host = document.getElementById('saranCourseCardsHost');
+                const data = window.saranCurriculum;
+                if (host && data) renderSaranCourseCards(host, data);
+            } catch (eCards) { /* ignore */ }
+            try {
+                if (typeof window.saranReloadMusicGrid === 'function') window.saranReloadMusicGrid();
+            } catch (eMusic) { /* ignore */ }
+            try {
+                if (window.saranNewsLoadState === 'ready' || window.saranNewsLoadState === 'error') {
+                    window.saranNewsLoadState = 'idle';
+                    if (typeof loadSaranNewsIfNeeded === 'function') loadSaranNewsIfNeeded();
+                }
+            } catch (eNews) { /* ignore */ }
             try {
                 document.title = saranGetUiLang() === 'en' ? 'Saran — languages of Russia' : 'Саран — языки России';
             } catch (eT) { /* ignore */ }
@@ -5663,18 +5739,26 @@
         const SARAN_SOUND_ICON_OFF = 'Duolingo/volume-off.svg';
         /** Имя ассистента в интерфейсе и в промптах (бурят. кириллица). */
         const SARAN_AI_ASSISTANT_NAME = 'Сарангэрэл';
-        /**
-         * Один запрос к модели через OpenRouter (по умолчанию см. SARAN_OPENROUTER_MODEL на сервере): ответ только бурятский.
-         */
-        const SARAN_AI_SYSTEM_BURYAT =
-            'Ты — ' +
-            SARAN_AI_ASSISTANT_NAME +
-            ', живой помощник по бурятскому языку. Пользователь пишет бурятской кириллицей (буквы һ Һ ө Ө ү Ү и обычная кириллица). ' +
-            'Жёсткое правило: твой ответ пользователю — только текст на бурятском языке в этой кириллице, от первого до последнего символа. ' +
-            'Категорически запрещены русский, английский и любые другие языки, любая латиница и латинские слова, любые смеси кодировок или «вставки» на другом языке, в том числе в скобках или после двоеточия. ' +
-            'Не пиши формулы вроде «перевод:», «это значит», «то есть», «meaning», «English» и не давай билингвальных объяснений. ' +
-            'Если сомневаешься в формулировке — всё равно оставайся только в бурятском, без переключения языка. ' +
-            'Стиль: простая понятная грамотная разговорная бурятская речь. Обычно не больше 6–8 коротких предложений, если не попросят подробнее.';
+
+        /** Системный промпт: только бурятский ответ, максимально просто и коротко. */
+        function saranAiSystemBuryatPrompt() {
+            if (saranGetUiLang() === 'en') {
+                return (
+                    'You are ' +
+                    SARAN_AI_ASSISTANT_NAME +
+                    ', a Buryat language helper. Reply ONLY in Buryat Cyrillic (һ ө ү allowed). ' +
+                    'Use very simple words. Max 2 short sentences unless the user asks for more. ' +
+                    'No Russian, English, Latin, translations, or glosses.'
+                );
+            }
+            return (
+                'Ты — ' +
+                SARAN_AI_ASSISTANT_NAME +
+                ', помощник по бурятскому языку. Пользователь пишет бурятской кириллицей. ' +
+                'Отвечай ТОЛЬКО бурятским текстом в кириллице — без русского, английского и латиницы. ' +
+                'Максимально просто: 1–2 коротких предложения, простые слова. Без переводов и пояснений на другом языке.'
+            );
+        }
 
         /** Служебное сообщение (не показывается пользователю): переформулировка ответа при нарушении языкового режима. */
         const SARAN_AI_BURYAT_REPAIR_USER_MSG =
@@ -6373,7 +6457,7 @@
         function saranShuffleChoicesForMc(options, shuffle) {
             const arr = (options || []).map(function(o) {
                 return {
-                    label: saranStripBold(o.labelRu || o.label || ''),
+                    label: saranCurLocalizedStrip(o, 'label') || saranStripBold(o.label || ''),
                     correct: !!o.correct,
                     audioUrl: saranResolveAudioUrl(o.audioUrl || o.audioRelativePath || o.audio || ''),
                     buryat: saranStripBold(o.buryatRu || o.labelBuryat || '')
@@ -6452,7 +6536,8 @@
                 }
             }
             return {
-                instructionRu: saranStripBold(step.instructionRu || 'Соберите перевод'),
+                instructionRu: saranCurLocalizedStrip(step, 'instruction') || saranT('q_build_translation'),
+                instructionEn: saranCurLocalized(step, 'instruction') || saranT('q_build_translation'),
                 characterUrl: characterUrl,
                 characterIsVideo: characterIsVideo,
                 bubbleShowAudio: step.bubbleShowAudio !== false,
@@ -6467,9 +6552,9 @@
             if (!visual || typeof visual !== 'object') return null;
             if (visual.mode === 'file' && visual.relativePath) {
                 try {
-                    return { url: new URL(visual.relativePath, window.location.href).href, alt: visual.altRu || '' };
+                    return { url: new URL(visual.relativePath, window.location.href).href, alt: saranCurLocalized(visual, 'alt') || '' };
                 } catch (e) {
-                    return { url: visual.relativePath, alt: visual.altRu || '' };
+                    return { url: visual.relativePath, alt: saranCurLocalized(visual, 'alt') || '' };
                 }
             }
             return null;
@@ -6547,7 +6632,7 @@
                     if (tt) {
                         out.push({
                             kind: 'translate_tiles',
-                            q: (saranGetUiLang() === 'en' && tt.instructionEn) ? tt.instructionEn : (tt.instructionRu || saranT('q_build_translation')),
+                            q: saranGetUiLang() === 'en' ? (tt.instructionEn || saranT('q_build_translation')) : (tt.instructionRu || saranT('q_build_translation')),
                             body: '',
                             visual: null,
                             translate: tt
@@ -6555,9 +6640,9 @@
                     } else {
                         out.push({
                             kind: 'read',
-                            q: 'Шаг',
-                            body: 'В задании translate_tiles не заданы correctTokens.',
-                            nextLabel: 'Далее',
+                            q: saranT('q_step'),
+                            body: saranT('task_translate_missing'),
+                            nextLabel: saranT('btn_next'),
                             visual: vis
                         });
                     }
@@ -6565,9 +6650,9 @@
                 }
                 out.push({
                     kind: 'read',
-                    q: 'Шаг',
-                    body: 'Тип задания пока не поддерживается.',
-                    nextLabel: 'Далее',
+                    q: saranT('q_step'),
+                    body: saranT('task_type_unsupported'),
+                    nextLabel: saranT('btn_next'),
                     visual: vis
                 });
             }
@@ -7129,14 +7214,14 @@
                         name +
                         ', write in Buryat — ' +
                         SARAN_AI_ASSISTANT_NAME +
-                        ' replies in clear, correct Buryat.'
+                        ' replies very simply, in Buryat only.'
                     );
                 }
                 return (
                     name +
                     ', пишите по-бурятски — ' +
                     SARAN_AI_ASSISTANT_NAME +
-                    ' отвечает простым правильным бурятским языком.'
+                    ' отвечает очень просто и коротко, только на бурятском.'
                 );
             }
             function saranShowUiLangPicker() {
@@ -7495,7 +7580,8 @@
             const proxyUrl = saranOpenRouterProxyUrl();
             const body = {
                 messages: [{ role: 'system', content: String(systemContent || '') }].concat(messages || []),
-                temperature: 0.35,
+                temperature: 0.2,
+                max_tokens: 140,
             };
             const res = await fetch(proxyUrl, {
                 method: 'POST',
@@ -7526,7 +7612,7 @@
             var cleaned = raw.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
             if (!cleaned) return '';
             if (/unsupported method|method_not_allowed|501/i.test(cleaned)) {
-                return 'Сервер чата сейчас недоступен для POST-запросов.';
+                return saranT('ai_chat_post_blocked');
             }
             return cleaned.slice(0, 140);
         }
@@ -7697,6 +7783,7 @@
             var status = document.getElementById('saranNewsStatus');
             var retry = document.getElementById('saranNewsRetry');
             if (!grid) return;
+            var uiEn = saranGetUiLang() === 'en';
             var dict = {};
             if (Array.isArray(translations)) {
                 for (var t = 0; t < translations.length; t++) {
@@ -7708,8 +7795,8 @@
             if (status) {
                 status.classList.remove('saran-news-status--error');
                 status.textContent = okTr
-                    ? 'Заголовок и текст пересказаны по-бурятски. Ниже — оригинальный заголовок на русском.'
-                    : 'Не удалось оформить бурятский вариант сейчас. Показываем русский текст.';
+                    ? saranT(uiEn ? 'news_ok_en' : 'news_ok_bur')
+                    : saranT(uiEn ? 'news_fallback_en' : 'news_fallback_bur');
             }
             if (retry) retry.hidden = false;
             var html = '';
@@ -7738,7 +7825,8 @@
                 html += '<h3 class="saran-news-title-bur">' + saranNewsEscapeHtml(titleBur) + '</h3>';
                 html +=
                     '<p class="saran-news-title-ru">' +
-                    'Оригинал (рус.): ' +
+                    saranT('news_original_ru') +
+                    ' ' +
                     saranNewsEscapeHtml(row.titleRu) +
                     '</p>';
                 html += '<p class="saran-news-lead-bur">' + saranNewsEscapeHtml(leadBur) + '</p>';
@@ -7761,12 +7849,12 @@
             if (status) {
                 status.classList.add('saran-news-status--error');
                 status.textContent =
-                    'Не удалось загрузить новости. Проверьте подключение к сети и попробуйте ещё раз.' +
+                    saranT('news_load_fail') +
                     (err && err.message ? ' (' + String(err.message).slice(0, 80) + ')' : '');
             }
             if (grid)
                 grid.innerHTML =
-                    '<p class="saran-news-status"><span lang="ru">Лента временно недоступна. Нажмите «Обновить ленту» или зайдите позже.</span></p>';
+                    '<p class="saran-news-status">' + saranNewsEscapeHtml(saranT('news_unavailable')) + '</p>';
             if (retry) retry.hidden = false;
         }
 
@@ -7831,7 +7919,7 @@
             if (!openRouterMessages.length) {
                 return { ok: true, text: '' };
             }
-            var reply = await saranOpenRouterCompletion(openRouterMessages, SARAN_AI_SYSTEM_BURYAT);
+            var reply = await saranOpenRouterCompletion(openRouterMessages, saranAiSystemBuryatPrompt());
             reply = String(reply || '').trim();
             if (reply && saranAssistantReplyViolatesBuryatOnly(reply)) {
                 try {
@@ -7839,7 +7927,7 @@
                         { role: 'assistant', content: reply },
                         { role: 'user', content: SARAN_AI_BURYAT_REPAIR_USER_MSG },
                     ]);
-                    var fixed = await saranOpenRouterCompletion(repairMsgs, SARAN_AI_SYSTEM_BURYAT);
+                    var fixed = await saranOpenRouterCompletion(repairMsgs, saranAiSystemBuryatPrompt());
                     fixed = String(fixed || '').trim();
                     if (fixed && !saranAssistantReplyViolatesBuryatOnly(fixed)) {
                         reply = fixed;
@@ -7857,10 +7945,7 @@
             if (!sendBtn || !input) return;
             saranAiChatInitDone = true;
             if (saranChatHistory.length === 0) {
-                saranAppendChatBubble(
-                    'sys',
-                    'Напишите по-бурятски — ' + SARAN_AI_ASSISTANT_NAME + ' ответит простым правильным бурятским языком.'
-                );
+                saranAppendChatBubble('sys', saranT('ai_welcome_sys'));
             }
             async function send() {
                 const raw = (input.value || '').trim();
@@ -7885,7 +7970,7 @@
                     }
                 } catch (err) {
                     var hint = saranReadableChatError(err);
-                    const fb = saranFallbackBuryatReply(raw) + '\n(Чат временно недоступен.' + (hint ? ' ' + hint : '') + ')';
+                    const fb = saranFallbackBuryatReply(raw) + '\n(' + saranT('ai_chat_offline') + (hint ? ' ' + hint : '') + ')';
                     saranChatHistory.push({ role: 'assistant', content: fb });
                     saranAppendChatBubble('ai', fb);
                 } finally {
@@ -8320,7 +8405,7 @@
                         refreshSaranProgressUI();
                     }
                     nextBtn.disabled = false;
-                    nextBtn.textContent = 'Далее';
+                    nextBtn.textContent = saranT('btn_next');
                     nextBtn.onclick = function() { advanceSaranTask(); };
                 };
             }
@@ -8384,7 +8469,7 @@
             if (task.kind === 'bool') {
                 var boolButtons = [];
                 var correctBoolIdx = task.correct ? 0 : 1;
-                ['Верно', 'Неверно'].forEach(function(label, idx) {
+                [saranT('ex_bool_true'), saranT('ex_bool_false')].forEach(function(label, idx) {
                     const b = document.createElement('button');
                     b.type = 'button';
                     b.className = 'saran-ex-choice';
@@ -8941,7 +9026,7 @@
                             var failDetail = parseApiErrorDetail('', body);
                             if (msgEl) {
                                 msgEl.style.color = 'rgba(255, 200, 200, 0.95)';
-                                msgEl.textContent = failDetail || 'Не удалось применить код.';
+                                msgEl.textContent = failDetail || saranT('redeem_fail');
                             }
                         } else {
                             tierAfterRedeem = tierFromRedeemResponseBody(body);
@@ -8998,7 +9083,7 @@
                 } catch (e2) { /* ignore */ }
                 if (msgEl) {
                     msgEl.style.color = 'rgba(255, 200, 200, 0.95)';
-                    msgEl.textContent = 'Ошибка сети. Проверьте подключение к интернету и попробуйте снова.';
+                    msgEl.textContent = saranT('network_error');
                 }
             } finally {
                 if (btn) btn.disabled = false;
@@ -9316,13 +9401,7 @@
 
         function saranCurriculumJsonHref() {
             try {
-                var p = '';
-                try {
-                    p = String(window.location.pathname || '');
-                } catch (ePath) { /* ignore */ }
-                // В проде приложение живет под /app; при URL ".../app" (без "/")
-                // относительный URL иначе может стать /data/... вместо /app/data/...
-                if (p === '/app' || p.indexOf('/app/') === 0) {
+                if (location.pathname === '/app' || location.pathname.indexOf('/app/') === 0) {
                     return new URL('/app/data/buryat-curriculum.json', window.location.origin).href;
                 }
                 return new URL('data/buryat-curriculum.json', document.baseURI || window.location.href).href;
@@ -9331,6 +9410,35 @@
             }
         }
 
+        function saranCurriculumEnMapHref() {
+            try {
+                if (location.pathname === '/app' || location.pathname.indexOf('/app/') === 0) {
+                    return new URL('/app/data/curriculum-en-map.json', window.location.origin).href;
+                }
+                return new URL('data/curriculum-en-map.json', document.baseURI || window.location.href).href;
+            } catch (e) {
+                return '/app/data/curriculum-en-map.json';
+            }
+        }
+
+        function saranEnsureCurriculumEnMapLoaded() {
+            if (window.saranCurriculumEnMap && typeof window.saranCurriculumEnMap === 'object') {
+                return Promise.resolve(window.saranCurriculumEnMap);
+            }
+            return fetch(saranCurriculumEnMapHref(), { credentials: 'same-origin', cache: 'force-cache' })
+                .then(function (r) {
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    return r.json();
+                })
+                .then(function (map) {
+                    window.saranCurriculumEnMap = map && typeof map === 'object' ? map : {};
+                    return window.saranCurriculumEnMap;
+                })
+                .catch(function () {
+                    window.saranCurriculumEnMap = {};
+                    return window.saranCurriculumEnMap;
+                });
+        }
         /** Каталог приложения со слэшем в конце: иначе new URL(rel, location) при пути /app без хвоста ломает music_collection и др. */
         function saranPublicAppBaseHref() {
             try {
@@ -9376,18 +9484,14 @@
                     proto = window.location.protocol || '';
                 } catch (eP) { /* ignore */ }
                 if (proto === 'file:') {
-                    loading.innerHTML =
-                        'Программа уроков не загрузилась: откройте сайт по обычному веб-адресу (http или https), ' +
-                        'а не как файл с компьютера.';
+                    loading.innerHTML = saranT('curriculum_embed_fail');
                     return;
                 }
                 if (err && err.message && String(err.message).indexOf('JSON') !== -1) {
-                    loading.textContent =
-                        'Не удалось прочитать программу уроков. Обновите страницу или зайдите позже.';
+                    loading.textContent = saranT('curriculum_read_fail');
                     return;
                 }
-                loading.innerHTML =
-                    'Не удалось загрузить программу уроков. Проверьте подключение к сети и обновите страницу.';
+                loading.innerHTML = saranT('curriculum_load_fail');
             }
             function applyCurriculumData(data) {
                 window.saranCurriculum = data;
@@ -9406,10 +9510,15 @@
                     }
                 } catch (eHero) { /* ignore */ }
             }
+            function bootstrapCurriculum(data) {
+                saranEnsureCurriculumEnMapLoaded().finally(function () {
+                    applyCurriculumData(data);
+                });
+            }
             if (window.SARAN_CURRICULUM && typeof window.SARAN_CURRICULUM === 'object'
                 && Array.isArray(window.SARAN_CURRICULUM.courses) && window.SARAN_CURRICULUM.courses.length) {
                 try {
-                    applyCurriculumData(window.SARAN_CURRICULUM);
+                    bootstrapCurriculum(window.SARAN_CURRICULUM);
                 } catch (eEmb) {
                     showLoadError(eEmb, '(встроенные данные)');
                 }
@@ -9422,7 +9531,7 @@
                     return r.json();
                 })
                 .then(function(data) {
-                    applyCurriculumData(data);
+                    bootstrapCurriculum(data);
                 })
                 .catch(function(err) {
                     var xhr = new XMLHttpRequest();
@@ -9431,7 +9540,7 @@
                         if (xhr.readyState !== 4) return;
                         if (xhr.status >= 200 && xhr.status < 300) {
                             try {
-                                applyCurriculumData(JSON.parse(xhr.responseText));
+                                bootstrapCurriculum(JSON.parse(xhr.responseText));
                             } catch (eJson) {
                                 showLoadError(eJson, url);
                             }
@@ -10661,7 +10770,7 @@
             function initSaranMusicPodcastGrid() {
                 var host = document.getElementById('saranMusicGridHost');
                 if (!host) return;
-                host.innerHTML = '<p class="saran-music-load-msg" role="status">Загружаем подборку…</p>';
+                host.innerHTML = '<p class="saran-music-load-msg" role="status">' + saranEscapeHtml(saranT('music_loading')) + '</p>';
                 fetch(saranMusicLibraryJsonHref(), { cache: 'reload' })
                     .then(function(res) {
                         if (!res.ok) throw new Error('music library http ' + res.status);
@@ -10669,7 +10778,7 @@
                     })
                     .then(function(tracks) {
                         if (!Array.isArray(tracks) || !tracks.length) {
-                            host.innerHTML = '<p class="saran-music-load-msg">Список записей пока пуст.</p>';
+                            host.innerHTML = '<p class="saran-music-load-msg">' + saranEscapeHtml(saranT('music_empty')) + '</p>';
                             return;
                         }
                         var html = '';
@@ -10679,7 +10788,9 @@
                             var url = saranMusicResolveUrl(tr.file);
                             var coverBg = saranMusicCoverGradient(i);
                             var titleH = saranMusicTitleHtml(tr.title);
-                            var shortDesc = saranEscapeHtml(tr.description || '');
+                            var shortDesc = saranEscapeHtml(
+                                (saranGetUiLang() === 'en' && tr.descriptionEn) ? tr.descriptionEn : (tr.description || '')
+                            );
                             var artist = saranEscapeHtml(tr.artist || '');
                             var ariaLbl = saranEscapeAttr(String((tr.title || '') + ' — ' + (tr.artist || '')).trim());
                             html += '<div class="podcast-tile podcast-tile--music">';
@@ -10688,9 +10799,9 @@
                             html += '<div class="podcast-thumbnail" style="' + saranEscapeAttr('background:' + coverBg) + '" aria-hidden="true"></div>';
                             html += '<span class="podcast-cover-artist">' + artist + '</span>';
                             html += '</div>';
-                            html += '<button type="button" class="podcast-play-button podcast-play-button--listen" data-audio-url="' + saranEscapeAttr(url) + '" aria-label="Воспроизвести: ' + ariaLbl + '">';
+                            html += '<button type="button" class="podcast-play-button podcast-play-button--listen" data-audio-url="' + saranEscapeAttr(url) + '" aria-label="' + saranEscapeAttr(saranT('listen_play') + ': ' + ariaLbl) + '">';
                             html += '<span class="podcast-play-icon podcast-play-icon--listen" aria-hidden="true">▶</span>';
-                            html += '<span class="podcast-listen-label">Слушать</span>';
+                            html += '<span class="podcast-listen-label">' + saranEscapeHtml(saranT('listen_label')) + '</span>';
                             html += '</button>';
                             html += '</div>';
                             html += '<div class="podcast-tile-music__body">';
@@ -10705,10 +10816,11 @@
                             console.warn('[SaranMusic]', err);
                         } catch (eLog) { /* ignore */ }
                         host.innerHTML =
-                            '<p class="saran-music-load-msg">Не удалось загрузить подборку. Обновите страницу или проверьте, что рядом с файлом <span lang="en">index.html</span> лежит папка «music_collection» с файлом library.json внутри.</p>';
+                            '<p class="saran-music-load-msg">' + saranEscapeHtml(saranT('music_load_fail')) + '</p>';
                     });
             }
 
+            window.saranReloadMusicGrid = initSaranMusicPodcastGrid;
             initSaranMusicPodcastGrid();
 
             const podcastsContentRoot = document.getElementById('podcasts-content');

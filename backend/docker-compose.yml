@@ -1,0 +1,16 @@
+services:
+  saran-backend:
+    build: .
+    container_name: saran-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8010/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
